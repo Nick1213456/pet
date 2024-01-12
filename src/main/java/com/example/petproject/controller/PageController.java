@@ -40,4 +40,10 @@ public class PageController {
         return "backstage";
     }
 
+    @GetMapping("/checkout")
+    public String showcheckout(){
+        return "checkout";
+    }
+
+
 }

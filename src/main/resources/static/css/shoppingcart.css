@@ -1,10 +1,10 @@
 .cart_bg1 {
-  background-image: url("/static/images/paw_mosaicbg.png");
+  background-image: url("../img/paw_mosaicbg.png");
   background-size: contain;
   height: 100vh;
 }
 .cart_bg1 h2 {
-  font-family: "Leckerli One", cursive;
+  font-family: "Leckerli One", "Noto Sans CJK TC", "Microsoft JhengHei", Arial, Helvetica, PingFang, STHeiti, sans-serif;
   font-size: 3.8rem;
 }
 .cart_bg1 .site-blocks-table {
@@ -70,4 +70,7 @@
 }
 .cart_bg1 .form-control {
   font-size: 1.5rem;
+}
+.cart_bg1 .bg-input {
+  background-color: rgba(255, 255, 255, 0.486) !important;
 }/*# sourceMappingURL=shoppingcart.css.map */
