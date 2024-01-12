@@ -113,8 +113,13 @@ textarea
     position: absolute;
     right: 16.5%;
     top: 25%;
-
+    height: 250px;
+    width: 250px;
+    border-radius: 50% ;
+    border: 2px solid black;
+    background-color: pink;
 }
+
 /*右邊三個按鍵位置*/
 .threebtnpos
 {

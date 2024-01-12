@@ -77,12 +77,18 @@
             <!--        右邊頭像與按鈕-->
             <div class="straight2">
 <!--                頭像-->
-                <img src="/images/Ellipse%2035.png" class="headimg">
+                <img th:src="${session.src}" class="headimg" id="imagePreview">
                 <div class="threebtnpos">
-                    <button class="threebtnstyle">上傳頭像</button>
+                    <form method="post" enctype="multipart/form-data" action="/uploadImg">
+                        <button class="threebtnstyle"><input type="file"  id="fileInput" name="fileInput" value="上傳頭像"  accept="image/*"></button>
+                        <input type="submit" id="confirm" name="confirm"  value="確認">
+                        <input type="reset" id="reset"  name="reset" value="清除">
+                    </form>
+
+
                     <div class="split2">
                         <button class="threebtnstyle">領養上架</button>
-                        <button class="threebtnstyle">我要領養</button>
+                        <a href="/petlist"><button class="threebtnstyle">我要領養</a></button>
                     </div>
                 </div>
             </div>
@@ -92,5 +98,47 @@
 
 <footer th:insert="/fragments/footer :: footer"></footer>
 
+
+<script>
+    $(document).ready(function() {
+        $('#confirm').hide();
+        $('#reset').hide();
+        //預覽
+        $('#fileInput').on('change', function(e) {
+            var size= 5*1024*1024;
+            var file = e.target.files[0];
+            var imageType = /image.*/;
+            if (file && file.type.match(imageType) && file.size < size) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                    $('#confirm').show();
+                    $('#reset').show();
+                }
+                reader.readAsDataURL(file);
+            }
+            else{
+                alert("檔案過大(5MB)或發生其他錯誤無法上傳");
+                $('#fileInput').val('');
+            }
+
+        });
+
+        $('#confirm').click(function (){
+            $('#confirm').hide();
+            $('#reset').hide();
+            setTimeout(function () {
+                location.reload();
+            }, 100);
+
+        });
+        $('#reset').click(function (){
+            $('#imagePreview').attr('src','');
+            $('#confirm').hide();
+            $('#reset').hide();
+        });
+    });
+</script>
 </body>
 </html>

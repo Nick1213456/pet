@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PageController {
-    @GetMapping("/index")
-    public String showindex(){
-        return "index";
-    }
+//    @GetMapping("/index")
+//    public String showindex(){
+//        return "index";
+//    }
 
-    @GetMapping("/memberpage")
-    public String showmemberpage(){
-        return "memberpage";
-    }
+//    @GetMapping("/memberpage")
+//    public String showmemberpage(){
+//        return "memberpage";
+//    }
 
     @GetMapping("/petlist")
     public String showpetlist(){
@@ -35,10 +35,10 @@ public class PageController {
         return "shoppingcart";
     }
 
-    @GetMapping("/backstage")
-    public String showbackstage(){
-        return "backstage";
-    }
+//    @GetMapping("/backstage")
+//    public String showbackstage(){
+//        return "backstage";
+//    }
 
     @GetMapping("/checkout")
     public String showcheckout(){

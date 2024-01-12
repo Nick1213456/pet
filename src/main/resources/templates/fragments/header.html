@@ -25,8 +25,7 @@
 <body>
 <header th:fragment="header">
     <div class="login_modal">
-
-        <form class="animate login_modal-content" method="post">
+        <form class="animate login_modal-content" method="post" action="/pscheck">
             <div class="imgcontainer">
                 <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
             </div>
@@ -37,17 +36,17 @@
                         <label for="uname">
                             <p class="login_text">使用者帳號</p>
                         </label>
-                        <input type="text" placeholder="請輸入帳號" name="uname" required>
+                        <input type="text" placeholder="請輸入帳號" id="uname" name="username" required="required">
                     </div>
                     <div class="option">
                         <label for="psw">
                             <p class="login_text">使用者密碼</p>
                         </label>
-                        <input type="password" placeholder="請輸入密碼" name="psw" required>
+                        <input type="password" placeholder="請輸入密碼" id="psw" name="password" required="required">
                     </div>
 
                     <div class="option2">
-                        <a href="#" style="margin-right: 10px;">
+                        <a href="/forgetpassword" style="margin-right: 10px;">
                             <p class="login_text2">忘記密碼?</p>
                         </a>
                         <p class="login_text2">|</p>
