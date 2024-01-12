@@ -107,6 +107,7 @@ body
 }
 .picbox
 {
+
     margin: 20px;
 
 }
@@ -114,6 +115,8 @@ body
 {
  box-shadow: 5px 5px darkgray;
     border-radius: 85px;
+    margin: 0 auto;
+    display: block;
 }
 .rightcontain
 {

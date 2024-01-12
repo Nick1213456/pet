@@ -63,7 +63,7 @@
                 <div class="optionbox">
                     <input type="radio" name="age">
                     <span class="optionagetext">小於1歲</span>
-                    <input type="radio" name="agw">
+                    <input type="radio" name="age">
                     <span class="optionagetext">1-3歲</span>
                     <input type="radio" name="age">
                     <span class="optionagetext">3-8歲</span>
@@ -76,7 +76,7 @@
                 <div class="optionbox">
                     <input type="radio" name="jiezha">
                     <span class="optiontext">有</span>
-                    <input type="radio" name="jieza" style="margin-left: 30px">
+                    <input type="radio" name="jiezha" style="margin-left: 30px">
                     <span class="optiontext">無</span>
                 </div>
                 <!-- 長短毛選擇欄 -->
@@ -155,5 +155,12 @@
 </section>
 <!-- footer -->
 <footer th:insert="/fragments/footer :: footer"></footer>
+<script>
+    $('.clearbtn').click(function (){
+        $('input[type="radio"]').prop('checked', false);
+        $(".picbox").show();
+    })
+
+</script>
 </body>
 </html>
