@@ -1,0 +1,574 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", Arial, Helvetica, PingFang, STHeiti, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 10px;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.d-none {
+  display: none;
+}
+
+header {
+  width: 100%;
+  height: 114px;
+  background-color: #943B3B;
+  z-index: 3;
+  position: fixed;
+}
+header .bg_img {
+  width: 100%;
+  height: 24px;
+}
+header .h_logo {
+  flex: 2.5;
+  height: 90px;
+  position: relative;
+}
+header .h_logo img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+header .h_nav_bar {
+  flex: 7.5;
+  height: 90px;
+  position: relative;
+}
+header .h_nav_bar .search_login {
+  height: 70%;
+  position: relative;
+}
+header .h_nav_bar .search_login .register {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  margin: auto;
+  display: flex;
+}
+header .h_nav_bar .search_login .register .shopping_icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 2.5px solid rgb(255, 255, 255);
+  text-align: center;
+  line-height: 30px;
+}
+header .h_nav_bar .search_login .register .shopping_icon .fa-cart-shopping {
+  color: rgb(255, 255, 255);
+}
+header .h_nav_bar .search_login .register .login_bar {
+  background-color: #C58484;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 50px;
+  margin-left: 10px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+header .h_nav_bar .search_login .register .login_bar:hover {
+  opacity: 0.8;
+}
+header .h_nav_bar .navbar {
+  height: 30%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+header .h_nav_bar .navbar ul {
+  display: flex;
+  list-style: none;
+}
+header .h_nav_bar .navbar ul li a {
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+  /*刪除底線*/
+  padding: 5px 8px;
+}
+header .h_nav_bar .navbar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  border-radius: 50px;
+}
+
+@media (max-width: 1200px) {
+  header .h_logo {
+    flex: 2.2;
+  }
+  header .h_nav_bar {
+    flex: 7.8;
+  }
+  header .h_nav_bar .navbar ul li a {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  header .h_logo {
+    flex: 2.2;
+  }
+  header .h_nav_bar {
+    flex: 7.8;
+  }
+  header .h_nav_bar .navbar ul li a {
+    font-size: 1.8rem;
+  }
+}
+main {
+  width: 100%;
+  position: relative;
+  top: 114px;
+  bottom: 150px;
+}
+main .bg_img2 {
+  width: 100%;
+  height: 88px;
+  position: absolute;
+  z-index: 2;
+}
+main .botton_0 {
+  bottom: 0;
+}
+main .swiper {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+main .swiper .swiper-slide {
+  width: 100%;
+  height: 80vh;
+  text-align: center;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .swiper .swiper-slide .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .swiper .swiper-pagination {
+  bottom: 40px;
+}
+main .about {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 88px 0;
+}
+main .about .box_bg {
+  width: 100%;
+  height: 250px;
+  background-color: #ffdaac;
+  position: absolute;
+  z-index: -1;
+}
+main .about .about_content {
+  border-radius: 100px 300px 50px 100px;
+  width: 70%;
+  height: 520px;
+  background: linear-gradient(-180deg, #FFFBF7, #FFFBF7, #FFFBF7, #FFFBF7, #FFFBF7, #f6c9a0);
+  position: relative;
+  box-shadow: -5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+main .about .about_content .text {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 65%;
+}
+main .about .about_content .text h2 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #943B3B;
+}
+main .about .about_content .text p {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  line-height: 180%;
+  font-weight: 200;
+  color: #000000;
+  text-align: left;
+  display: inline-block;
+}
+main .about .about_pet {
+  width: 40%;
+  position: absolute;
+  right: 8%;
+  bottom: -50px;
+}
+main .grid {
+  width: 100%;
+  display: flex;
+  background-color: #FAF0E4;
+}
+main .grid .grid_a {
+  width: 33.3333333333%;
+}
+main .grid .grid_a .grid_img {
+  width: 100%;
+  height: 330px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/images/grid_img_01.jpg");
+}
+main .grid .grid_a .grid_text {
+  width: 90%;
+  height: 100px;
+  border-radius: 50px;
+  margin: auto;
+  background-color: #FAF0E4;
+  padding-top: 10px;
+  position: relative;
+  top: -35px;
+}
+main .grid .grid_a .grid_text .grid_icon {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #943B3B;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50px;
+  margin: auto;
+}
+main .grid .grid_a .grid_text h3 {
+  margin: auto;
+  padding: 10px 0;
+  font-size: 2.4rem;
+  color: #943B3B;
+  text-align: center;
+}
+main .aaa {
+  width: 100%;
+  background-color: #FAF0E4;
+  padding: 50px 0;
+}
+main .aaa .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-bottom: 30px;
+}
+main .aaa .title .line-title {
+  flex: 1;
+  border-top: 2px solid #943B3B;
+  box-sizing: border-box;
+  height: 2px;
+}
+main .aaa .title h2 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #943B3B;
+  margin: 0 10px;
+}
+main .aaa .title .title_img {
+  bottom: 0;
+}
+main .aaa .new {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+main .aaa .new .newbar {
+  width: 30%;
+  display: block;
+  margin: auto;
+  padding: 80px 0;
+}
+main .aaa .new .newbar .new_img img {
+  width: 100%;
+  border-radius: 50px;
+}
+main .aaa .new .newbar p {
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  color: #000000;
+  text-align: left;
+  display: inline-block;
+  padding: 0 40px;
+}
+main .aaa .new .newbar h3 {
+  padding: 0 40px;
+  font-size: 2.4rem;
+  color: #943B3B;
+  text-align: left;
+}
+main .aaa .new .shop {
+  width: 22%;
+  display: block;
+  margin: auto;
+  padding: 80px 0;
+}
+main .aaa .new .shop .shop_img {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #AFAFAF;
+  margin: 20px auto;
+}
+main .aaa .new .shop .bg_imga {
+  background-image: url("../img/grid_img_02.jpg");
+}
+main .aaa .new .shop .bg_imgb {
+  background-image: url("../img/grid_img_02.jpg");
+}
+main .aaa .new .shop .bg_imgc {
+  background-image: url("../img/grid_img_02.jpg");
+}
+main .aaa .new .shop .bg_imgd {
+  background-image: url("../img/grid_img_02.jpg");
+}
+main .aaa .new .shop h3 {
+  padding: 0 40px;
+  font-size: 2.4rem;
+  color: #943B3B;
+  text-align: center;
+}
+main .aaa .new_bnt {
+  border-radius: 10px;
+  background-color: #C58484;
+  font-size: 1.8rem;
+  border: none;
+  display: block;
+  position: absolute;
+  color: #fff;
+  padding: 10px 20px;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  right: 10%;
+}
+main .aaa .container {
+  justify-content: center;
+}
+main .aaa .container .givehmoe_text {
+  width: 40%;
+  padding: 80px 20px;
+}
+main .aaa .container .givehmoe_text h3 {
+  font-size: 2.4rem;
+  color: #943B3B;
+  text-align: left;
+}
+main .aaa .container .givehmoe_text p {
+  font-size: 1.8rem;
+  line-height: 180%;
+  font-weight: 200;
+}
+main .aaa .container .new_bnt2 {
+  margin-top: 100px;
+  border-radius: 10px;
+  background-color: #C58484;
+  font-size: 1.8rem;
+  border: none;
+  display: block;
+  position: absolute;
+  color: #fff;
+  padding: 10px 20px;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+}
+main .aaa .container .givehmoe_img {
+  width: 35%;
+  padding: 80px 20px;
+}
+main .aaa .container .givehmoe_img img {
+  width: 100%;
+}
+main .footer_bg {
+  width: 100%;
+  z-index: 3;
+  background-color: #FAF0E4;
+}
+main footer {
+  width: 100%;
+}
+main footer .footerbar {
+  width: 100%;
+  background-color: #943B3B;
+  text-align: center;
+}
+main footer .footerbar .footer_logo img {
+  margin-top: 50px;
+  width: 10%;
+}
+main footer .footerbar .footerbar_navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 200;
+  margin: 0 10px;
+  letter-spacing: 0.1em;
+}
+main footer .footerbar .connection {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+main footer .footerbar .copyright {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 10px 0 30px 0;
+  letter-spacing: 1px;
+  color: #AFAFAF;
+}
+main footer .footerbar .line-div {
+  border-top: 1px solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  width: 80%;
+  height: 1px;
+  margin: auto;
+}
+main footer .footerbar #gototop {
+  margin: 30px;
+  padding-bottom: 10px;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login_modal {
+  display: none;
+  /* 預設隱藏 */
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  /* 固定留在原地 */
+  z-index: 4;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+.login_modal .imgcontainer {
+  position: relative;
+  text-align: center;
+}
+.login_modal .imgcontainer img {
+  width: 15%;
+  position: absolute;
+  right: -45px;
+  top: -45px;
+  z-index: 5;
+}
+.login_modal .imgcontainer img:hover,
+.login_modal .imgcontainer img:focus {
+  cursor: pointer;
+}
+.login_modal .login_modal-content {
+  background-color: rgba(255, 255, 255, 0.7568627451);
+  margin: auto;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 15px;
+  z-index: 5;
+  /* 包裹住內容的框框 */
+}
+.login_modal .login_modal-content .login_bar_up {
+  box-sizing: content-box;
+  border-radius: 15px;
+  background-color: rgba(197, 132, 132, 0.35);
+  padding: 20px 0;
+  position: relative;
+  margin: auto;
+}
+.login_modal .login_modal-content .login_bar_up h2 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: black;
+  font-family: "Leckerli One", cursive;
+  padding: 10px 0 20px 30px;
+}
+.login_modal .login_modal-content .login_bar_up .login_box {
+  width: 90%;
+  margin: auto;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option .login_text {
+  padding-right: 20px;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 39px;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option input[type=text],
+.login_modal .login_modal-content .login_bar_up .login_box .option input[type=password] {
+  width: 65%;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option2 {
+  display: flex;
+  padding: 50px 0 0 0;
+  position: relative;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option2 a {
+  text-decoration: none;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option2 .login_text2 {
+  font-size: 1.5rem;
+  color: #1564AD;
+  letter-spacing: 0.2em;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option2 .login_text2:hover {
+  color: #ff2453;
+}
+.login_modal .login_modal-content .login_bar_up .login_box .option2 button {
+  font-size: 2rem;
+  font-weight: 600;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 15px;
+  border: none;
+  color: #fff;
+  background-color: #C58484;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.login_modal .animate {
+  /* 新增縮放動畫 */
+  animation: animatezoom 0.6s;
+}
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=index.css.map */

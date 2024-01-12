@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/allCss.css" />
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- 登入畫面字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  
+
+</head>
+
+<body>
+
+    <header>
+        <div class="login_modal">
+
+            <form class="animate login_modal-content" method="post">
+                <div class="imgcontainer">
+                    <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
+                </div>
+                <section class="login_bar_up">
+                    <h2 class="loginarticle">Login</h2>
+                    <div class="login_box">
+                        <div class="option">
+                            <label for="uname">
+                                <p class="login_text">使用者帳號</p>
+                            </label>
+                            <input type="text" placeholder="請輸入帳號" name="uname" required>
+                        </div>
+                        <div class="option">
+                            <label for="psw">
+                                <p class="login_text">使用者密碼</p>
+                            </label>
+                            <input type="password" placeholder="請輸入密碼" name="psw" required>
+                        </div>
+
+                        <div class="option2">
+                            <a href="#" style="margin-right: 10px;">
+                                <p class="login_text2">忘記密碼?</p>
+                            </a>
+                            <p class="login_text2">|</p>
+                            <a href="#" style="margin-left: 10px;">
+                                <p class="login_text2">會員註冊</p>
+                            </a>
+                            <button type="submit">登入</button>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+        <div class="container">
+            <section class="h_logo">
+                <a href="#"><img src="/images/logo_01.png" alt="header_logo" title="logo" aria-label="logo"></a>
+            </section>
+            <section class="h_nav_bar">
+                <div class="search_login">
+                    <div class="register">
+                        <div class="shopping_icon">
+                            <!-- 購物車icon -->
+                            <a href="#"><i class="fa fa-xl fa-cart-shopping"></i></a>
+                        </div>
+                        <button class="login_bar">註冊/登入</button>
+                        <button class="login_bar d-none">登出</button>
+                    </div>
+                </div>
+                <nav class="navbar">
+                    <div class="btn">
+                        <div class="btn-icon"></div>
+                        <div class="btn-icon"></div>
+                        <div class="btn-icon"></div>
+                    </div>
+                    <ul>
+                        <li><a class="active" href="/index"><i
+                            class="fa fa-fw fa-home"></i> 首頁</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-user"></i> 關於我們</a></li>
+                        <li><a href="/petlist"><i class="fa fa-fw fa-paw"></i> 給牠個家</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a></li>
+                        <li><a href="/shopping"><i class="fa fa-fw fa-shop"></i> 周邊商品</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-clipboard-question"></i> 常見問題</a></li>
+                    </ul>
+                </nav>
+
+            </section>
+
+        </div>
+        <!-- <img class="bg_img" src="./img/bg01.png" alt="bg_img"> -->
+        <script src="/js/login.js"></script>
+    </header>
+
+    <main>
+        <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
+
+        <!-- Swiper -->
+        <section class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- 燈片 -->
+                <div class="swiper-slide"><img style="width: 1536px;" src="/images/banner_03.jpg" alt="swiper_img">
+                </div>
+                <div class="swiper-slide" data-swiper-autoplay="2000"><img style="width: 1536px;"
+                        src="/images/banner_02.jpg" alt="swiper_img">
+                </div>
+                <div class="swiper-slide" data-swiper-autoplay="2000"><img style="width: 1536px;"
+                        src="/images/banner_01.jpg" alt="swiper_img">
+                </div>
+            </div>
+            <!-- 左右按鈕 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- 下方捲軸 -->
+            <div class="swiper-pagination"></div>
+            <img class="bg_img2 botton_0" src="/images/bg03.png" alt="bg_img2">
+        </section>
+
+
+        <article class="about">
+            <div class="box_bg"></div>
+            <section class="container">
+                <section class="about_content">
+                    <div class="text">
+                        <h2>共創愛的家</h2>
+                        <p>我們致力於整合流浪貓狗領養服務的平台。我們的使命是打造溫馨、安全的家，為無家可歸的毛小孩尋找永久歸屬。透過與領養中心的合作，我們提供可靠的領養管道，並與當地寵物用品店攜手合作，為新家庭提供便利的購物體驗。<br>
+                            在「Pet Map
+                            Park」中，我們深信每個毛小孩都應該享有愛的家，而您的參與是實現這個夢想的關鍵。讓我們攜手合作，共同創造愛的家，讓每個尾巴搖搖的生命都能感受到真摯的陪伴和關愛。歡迎您成為我們中的一份子。
+                        </p>
+                    </div>
+                </section>
+                <img class="about_pet" src="/images/cat_dog.png" alt="about_pet">
+            </section>
+
+        </article>
+        <section class="grid">
+            <div class="grid_a">
+                <div class="grid_img"></div>
+                <!-- <img class="grid_img" src="./img/cat_dog.png" alt="about_pet"> -->
+                <div class="grid_text">
+                    <div class="grid_icon">
+                        <!--nav_icon -->
+                        <i class="fa fa-xl fa-fw fa-house-crack"></i>
+                    </div>
+                    <h3>為近多隻貓貓狗狗提供優質的家</h3>
+                </div>
+            </div>
+            <div class="grid_a">
+                <div class="grid_img"></div>
+                <div class="grid_text">
+                    <div class="grid_icon">
+                        <!--nav_icon -->
+                        <i class="fa fa-xl fa-fw fa-holly-berry"></i>
+                    </div>
+                    <h3>給浪浪更多逆轉命運的機會</h3>
+                </div>
+            </div>
+            <div class="grid_a">
+                <div class="grid_img"></div>
+                <div class="grid_text">
+                    <div class="grid_icon">
+                        <!--nav_icon -->
+                        <i class="fa fa-xl fa-fw fa-comments"></i>
+                    </div>
+                    <h3>分享專業及知識的訊息</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新消息 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>最新消息</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
+            </div>
+
+            <section class="new">
+                <section class="newbar">
+                    <div class="new_img">
+                        <img src="/images/grid_img_03.jpg" alt="new_img">
+                    </div>
+                    <p>2024/01/01</p>
+                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
+                </section>
+                <section class="newbar">
+                    <div class="new_img">
+                        <img src="/images/grid_img_03.jpg" alt="new_img">
+                    </div>
+                    <p>2024/01/01</p>
+                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
+                </section>
+                <section class="newbar">
+                    <div class="new_img">
+                        <img src="/images/grid_img_03.jpg" alt="new_img">
+                    </div>
+                    <p>2024/01/01</p>
+                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
+                </section>
+
+            </section>
+            <!-- <button class="new_bnt" onclick="">瀏覽更多資訊 ></button> -->
+            <a href="#" class="new_bnt">瀏覽更多資訊 ></a>
+
+        </article>
+
+        <!-- 給牠個家 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>給牠個家</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
+            </div>
+
+            <section class="container">
+                <section class="givehmoe_text">
+                    <h3>我是名字</h3>
+                    <p>絲蒂奇來到巴克時已失去右眼，全身都是傷疤，身體左邊有微微的傾斜，後來左眼因不明原因感染，擔心傷口擴大，在獸醫的建議之下也將左眼摘除。就算雙眼失明，
+                        絲蒂奇依然活力不減，整天和狗狗室友們在花園裡東奔西跑，似乎少了眼睛，其他感官更為敏銳。</p>
+                    <a href="#" class="new_bnt2">瀏覽更多資訊 ></a>
+                </section>
+                <section class="givehmoe_img"><img src="/images/imggg.png" alt="givehmoe_img"></section>
+            </section>
+            <section class="container">
+                <section class="givehmoe_img"><img src="/images/imggg.png" alt="givehmoe_img"></section>
+                <section class="givehmoe_text">
+                    <h3>我是名字</h3>
+                    <p>絲蒂奇來到巴克時已失去右眼，全身都是傷疤，身體左邊有微微的傾斜，後來左眼因不明原因感染，擔心傷口擴大，在獸醫的建議之下也將左眼摘除。就算雙眼失明，
+                        絲蒂奇依然活力不減，整天和狗狗室友們在花園裡東奔西跑，似乎少了眼睛，其他感官更為敏銳。</p>
+                    <a href="#" class="new_bnt2">瀏覽更多資訊 ></a>
+                </section>
+
+            </section>
+
+        </article>
+
+        <!-- 周邊商品 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>周邊商品</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
+            </div>
+
+            <section class="new">
+                <section class="shop">
+                    <div class="shop_img bg_imga">
+                    </div>
+                    <h3>綜合口味寵物飼料 2kg</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img bg_imgb">
+                    </div>
+                    <h3>綜合口味寵物飼料 2kg</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img bg_imgc">
+                    </div>
+                    <h3>綜合口味寵物飼料 2kg</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img bg_imgd">
+                    </div>
+                    <h3>綜合口味寵物飼料 2kg</h3>
+                </section>
+            </section>
+            <!-- <button class="new_bnt" onclick="">瀏覽更多資訊 ></button> -->
+            <a href="#" class="new_bnt">更多商品 ></a>
+
+        </article>
+
+        <!-- 領養流程 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>領養流程</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
+            </div>
+
+            <section class="new">
+                <section class="shop">
+                    <div class="shop_img">
+                    </div>
+                    <h3>挑選想認養的貓狗</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img">
+                    </div>
+                    <h3>點擊我要領養</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img">
+                    </div>
+                    <h3>網站進行媒合</h3>
+                </section>
+                <section class="shop">
+                    <div class="shop_img">
+                    </div>
+                    <h3>成功認養寵物!</h3>
+                </section>
+            </section>
+
+        </article>
+
+        <!-- footer -->
+        <footer>
+
+            <section class="footerbar">
+                <section class="footer_logo">
+                    <a href="#"><img src="/images/logo_02.png" alt="header_logo" title="logo" aria-label="logo"></a>
+                </section>
+                <section class="footerbar_navbar">
+                    <a class="active" href="/index"><i class="fa fa-fw fa-home"></i> 首頁</a>
+                    <a href="#"><i class="fa fa-fw fa-user"></i> 關於我們</a>
+                    <a href="/petlist"><i class="fa fa-fw fa-paw"></i> 給牠個家</a>
+                    <a href="#"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a>
+                    <a href="/shopping"><i class="fa fa-fw fa-shop"></i> 周邊商品</a>
+                    <a href="#"><i class="fa fa-fw fa-clipboard-question"></i> 常見問題</a>
+                </section>
+                <div class="connection">
+                    <span>服務專線：0900-000000</span>
+                    <span>電子信箱：abc@gmail.com </span>
+                    <span>地址：台灣台中市西區XXX路XXX巷XX號</span>
+                </div>
+                <p class="copyright">Copyright © 2024 Pet Map Pank</p>
+                <div class="line-div"></div>
+
+                <a id="gototop" href="#">
+                    <p>&uarr;</p>
+                    <p>Top</p>
+                </a>
+
+            </section>
+
+        </footer>
+
+    </main>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script src="/js/swiper.js"></script>
+
+
+<!--    <script>-->
+
+<!--        $(document).ready(function () {-->
+<!--            $(".login_modal").hide();-->
+
+<!--        });-->
+
+<!--        $(document).on('click', function (e) {-->
+
+<!--            var modal = $(".login_bar_up");-->
+<!--            if (e.target.className == $(".login_bar").attr("class")) {-->
+<!--                console.log("aaaa");-->
+<!--                $(".login_modal").show();-->
+<!--                $('a').css('pointer-events', 'none');-->
+<!--                $('.login_text2').css('pointer-events', 'auto');-->
+
+<!--            } else if (!modal.is(e.target) && modal.has(e.target).length === 0) {-->
+<!--                // 將彈出框隱藏-->
+<!--                $(".login_modal").hide();-->
+<!--                $('a').css('pointer-events', 'auto');-->
+<!--            }-->
+
+<!--            console.log(modal.has(e.target).length);-->
+
+<!--        });-->
+<!--    </script>-->
+
+</body>
+
+</html>

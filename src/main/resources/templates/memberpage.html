@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- header css -->
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/memberpage.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- 登入畫面字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+
+</head>
+<body >
+<header th:insert="/fragments/header :: header"></header>
+
+<section>
+    <!--    含標題的全體內容-->
+    <div >
+        <!--    除標題以外的全體內容-->
+        <section class="split">
+
+
+            <!--        左邊資料-->
+            <div  class="tablebox">
+                <table >
+                    <tr>
+                        <th>帳號:</th>
+                        <td>資料一</td>
+                        <th class="tablespace">密碼:</th>
+                        <td class="tablespace2">資料二</td>
+                    </tr>
+
+                    <tr>
+                        <th>姓名:</th>
+                        <td>資料三</td>
+                        <th class="tablespace">生日:</th>
+                        <td class="tablespace2">資料四</td>
+                    </tr>
+                    <tr>
+                        <th>性別:</th>
+                        <td>資料五</td>
+                        <th class="tablespace">手機:</th>
+                        <td class="tablespace2">資料六</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>資料七</td>
+                        <th class="tablespace">領養經驗:</th>
+                        <td class="tablespace2">資料八</td>
+                    </tr>
+                    <tr>
+                        <th>居住坪數:</th>
+                        <td class="tablespace2">資料九</td>
+                    </tr>
+                </table>
+                <div class="editbtnpos">
+                    <button class="editbtn">編輯</button>
+                </div>
+
+                <div>
+                    <nav style="font-size: 2rem;font-weight: bold;padding-top: 40px">自我介紹:</nav>
+                    <textarea name="" id="" cols="100" rows="5"></textarea>
+                    <button class="savebtn">儲存自介</button>
+                </div>
+            </div>
+            <!--        右邊頭像與按鈕-->
+            <div class="straight2">
+<!--                頭像-->
+                <img src="/images/Ellipse%2035.png" class="headimg">
+                <div class="threebtnpos">
+                    <button class="threebtnstyle">上傳頭像</button>
+                    <div class="split2">
+                        <button class="threebtnstyle">領養上架</button>
+                        <button class="threebtnstyle">我要領養</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<footer th:insert="/fragments/footer :: footer"></footer>
+
+</body>
+</html>

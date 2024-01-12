@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- header css -->
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/petlist.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- 登入畫面字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+</head>
+<body >
+<header th:insert="/Fragments/header :: header"></header>
+
+<section  style="padding-top: 150px">
+    <div class="all">
+    <!--    左邊內容-->
+    <div class="left">
+
+        <!-- 左側  -->
+        <div class="leftcontain">
+            <!-- 搜索欄 -->
+            <div class="searching">
+                <input class="searchinput" type="text" placeholder="請輸入名稱進行搜索...">
+<!--               搜索按鈕-->
+                <button class="searchbtn"><img src="/images/search.png" class="searchimg"></button>
+            </div>
+            <!-- 搜索條件選擇 -->
+            <div class="searchcheck">
+                <!-- 性別選擇欄 -->
+                <p  class="articlesize">性別</p>
+                <div class="optionbox">
+                    <input type="radio" name="gender">
+                    <span class="optiontext" >公</span>
+                    <input type="radio" name="gender" style="margin-left: 30px">
+                    <span class="optiontext">母</span>
+                </div>
+                <!-- 貓狗選擇欄 -->
+                <p class="articlesize">種類</p>
+                <div class="optionbox">
+                    <input type="radio" name="catdog">
+                    <span class="optiontext">貓</span>
+                    <input type="radio" name="catdog" style="margin-left: 30px">
+                    <span class="optiontext">狗</span>
+                </div>
+                <!-- 年齡選擇欄 -->
+                <p class="articlesize">年齡</p>
+                <div class="optionbox">
+                    <input type="radio" name="age">
+                    <span class="optionagetext">小於1歲</span>
+                    <input type="radio" name="agw">
+                    <span class="optionagetext">1-3歲</span>
+                    <input type="radio" name="age">
+                    <span class="optionagetext">3-8歲</span>
+                    <input type="radio" name="age">
+                    <span class="optionagetext">8歲以上</span>
+                </div>
+
+                <!-- 結紮與否選擇欄 -->
+                <p class="articlesize">結紮</p>
+                <div class="optionbox">
+                    <input type="radio" name="jiezha">
+                    <span class="optiontext">有</span>
+                    <input type="radio" name="jieza" style="margin-left: 30px">
+                    <span class="optiontext">無</span>
+                </div>
+                <!-- 長短毛選擇欄 -->
+                <p class="articlesize">長短毛</p>
+                <div class="optionbox">
+                    <input type="radio" name="long">
+                    <span class="optiontext">長</span>
+                    <input type="radio" name="long" style="margin-left: 30px">
+                    <span class="optiontext">短</span>
+                </div>
+
+
+                <button class="clearbtn">清除條件</button>
+
+            </div>
+        </div>
+    </div>
+    <!--    右邊內容-->
+    <section class="right">
+        <!-- 右側 -->
+
+        <div class="rightcontain">
+            <!--        每個picbox內容依次為圖片+寵物名字+我要領養按鈕-->
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor"s>我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+            <div class="picbox">
+                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><p class="nametext">TextName1</p></div>
+                <div class="adoptbtn"><button class="btncolor">我要領養</button></div>
+            </div>
+
+            <div>
+                <button class="pagebtnup">上一頁</button>
+                <button class="pagebtndown">下一頁</button>
+            </div>
+
+
+
+
+        </div>
+    </section>
+</div>
+</section>
+<!-- footer -->
+<footer th:insert="/fragments/footer :: footer"></footer>
+</body>
+</html>

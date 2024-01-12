@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooping 購物車</title>
+
+    <!-- <link rel="stylesheet" href="./css/Shooping.css" /> -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- 登入畫面字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+
+    <!-- 內部 css -->
+
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/shopping.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+</head>
+
+<body>
+    <!-- 載入 header.html -->
+    <div th:insert="/Fragments/header :: header"></div>
+
+
+    <main class="shop_main" style="background-color: #FAF0E4;">
+        <!-- Open Content -->
+        <section>
+            <div class="container pb-5">
+                <div class="row">
+                    <div class="col-lg-5 mt-5">
+                        <div class="card mb-3">
+                            <!-- 大圖更換 -->
+                            <img class="card-img img-fluid" src="/images/product/cat/4681415-1_xxl.jpg" alt="Card image cap"
+                                id="product-detail">
+                        </div>
+                        <div class="row">
+                            <!--Start Controls-->
+                            <div class="col-1 align-self-center">
+                                <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                    <i class="text-dark fas fa-chevron-left"></i>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+                            <!--Start Carousel Wrapper-->
+                            <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item"
+                                data-bs-ride="carousel">
+                                <!--Start Slides 小圖更換-->
+                                <div class="carousel-inner product-links-wap" role="listbox">
+
+                                    <!--First slide -->
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-1_xxl.jpg" alt="Product Image 1">
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-2_xxl.jpg" alt="Product Image 2">
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-3_xxl.jpg" alt="Product Image 3">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.First slide-->
+
+                                    <!--Second slide-->
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-4_xxl.jpg" alt="Product Image 4">
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-5_xxl.jpg" alt="Product Image 5">
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <img class="card-img img-fluid"
+                                                        src="/images/product/cat/4681415-1_xxl.jpg" alt="Product Image 6">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.Second slide-->
+                                </div>
+                                <!--End Slides-->
+                            </div>
+                            <!--End Carousel Wrapper-->
+                            <!--Start Controls-->
+                            <div class="col-1 align-self-center">
+                                <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                    <i class="text-dark fas fa-chevron-right"></i>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+                        </div>
+                    </div>
+                    <!-- col end -->
+                    <div class="col-lg-7 mt-5">
+                        <div class="card">
+                            <div class="card-body2">
+                                <h2 class="h2">商品名稱</h2>
+                                <span class="coin">$25.00</span>
+                                
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h4>種類：</h4>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <p class="text-muted"><strong>Easy Wear</strong></p>
+                                    </li>
+                                </ul>
+                                <h4>描述：</h4>
+                                <p class="card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
+                                    incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec
+                                    condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis
+                                    nulla.</p>
+                                
+
+                                <form action="" method="GET">
+                                    <input type="hidden" name="product-title" value="Activewear">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <ul class="list-inline pb-3">
+                                                <li class="list-inline-item">Size :
+                                                    <input type="hidden" name="product-size" id="product-size"
+                                                        value="S">
+                                                </li>
+                                                <li class="list-inline-item"><span
+                                                        class="btn btn-success btn-size">S</span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="btn btn-success btn-size">M</span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="btn btn-success btn-size">L</span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="btn btn-success btn-size">XL</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-auto">
+                                            <ul class="list-inline pb-3">
+                                                <li class="list-inline-item text-right">
+                                                    Quantity
+                                                    <input type="hidden" name="product-quanity" id="product-quanity"
+                                                        value="1">
+                                                </li>
+                                                <li class="list-inline-item"><span class="btn btn-success btn-size"
+                                                        id="btn-minus">-</span></li>
+                                                <li class="list-inline-item"><span class="badge bg-secondary"
+                                                        id="var-value">1</span></li>
+                                                <li class="list-inline-item"><span class="btn btn-success btn-size"
+                                                        id="btn-plus">+</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row pb-3">
+                                        <div class="col d-grid">
+                                            <button type="submit" class="btn btn-success btn-lg btn-size" name="submit"
+                                                value="buy">立即購買</button>
+                                        </div>
+                                        <div class="col d-grid">
+                                            <button type="submit" class="btn btn-success btn-size" name="submit"
+                                                value="addtocard">加入購物車</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Close Content -->
+        <!-- 載入 footer.html -->
+        <div th:insert="/fragments/footer :: footer"></div>
+    </main>
+    <!-- Start Script -->
+    
+    <script src="/js/templatemo.js"></script>
+
+    <!-- 載入 header.html js -->
+    <script>
+        // 創建一個函數來載入其他檔案的內容
+        function includeHTML() {
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp = new XMLHttpRequest();
+
+            // 當請求狀態改變時執行的函數
+            xhttp.onreadystatechange = function () {
+                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+                if (this.readyState == 4 && this.status == 200) {
+                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                    document.getElementById("includedContent").innerHTML = this.responseText;
+                }
+            };
+
+            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+            xhttp.open("GET", "fragments/header.html", true);
+
+
+            // 發送網路請求
+            xhttp.send();
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("includfooter").innerHTML = this.responseText;
+                }
+            };
+            xhttp2.open("GET", "fragments/footer.html", true);
+            // 發送網路請求
+            xhttp2.send();
+        }
+
+        // 在頁面載入完成後呼叫 includeHTML 函數
+        window.onload = includeHTML;
+    </script>
+</body>
+
+</html>

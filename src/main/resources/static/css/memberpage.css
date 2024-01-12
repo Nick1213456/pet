@@ -1,0 +1,147 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+html{
+    font-size: 10px;
+}
+
+body
+{
+    background-image: url("/images/paw_mosaicbg.png");
+
+}
+/*排列含標題的全體內容為直排*/
+.straight
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.straight2
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+
+/*分割除標題以外的全體內容為橫排左右*/
+.split
+{
+    display: flex;
+    flex-direction: row;
+}
+/*排列選項*/
+.split2
+{
+    display: flex;
+    flex-direction: row;
+}
+/*左側整體包裹框*/
+table{
+    margin: 0;
+   text-align: left;
+    font-size: 2.5rem;
+
+}
+/*使table右邊資料列被推開*/
+.tablespace
+{
+    padding-left: 130px;
+
+    white-space:nowrap;
+}/*使table右邊資料列被推開*/
+.tablespace2
+{
+    padding-left: 20px;
+
+    white-space:nowrap;
+}
+.tablebox
+{
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 50%;
+    border-radius: 15px;
+    padding: 1%;
+    border: 3px dashed black;
+    background-color: rgba(216,188,188,0.65);
+    box-shadow: 10px 10px gray;
+}
+/*編輯按鈕位置*/
+.editbtnpos
+{
+    position: absolute;
+    right: 15%;
+    top: 50%;
+
+}
+/*編輯按鈕樣式*/
+.editbtn
+{
+    color: white;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background-color: #C58484;
+    width: 300%;
+    height: 35px;
+    border-radius: 10px;
+}
+/*儲存自介按鈕樣式*/
+.savebtn
+{
+    color: white;
+    cursor: pointer;
+    font-size: 1.7rem;
+    background-color: #C58484;
+    border-radius: 10px;
+    height: 35px;
+    width: 15%;
+}
+/*自我介紹輸入欄*/
+textarea
+{
+    resize: none;
+}
+/*頭像圖片*/
+.headimg
+{
+    position: absolute;
+    right: 16.5%;
+    top: 25%;
+
+}
+/*右邊三個按鍵位置*/
+.threebtnpos
+{
+    position: absolute;
+    right: 20%;
+    top: 55%;
+    display: flex;
+    flex-direction: column;
+}
+/*右邊三個按鍵的樣式*/
+.threebtnstyle
+{
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+    background-color: #C58484;
+    width: 100%;
+
+    height: 35px;
+    border-radius: 15px;
+    padding: 10px;
+}
+footer
+{
+    width: 100%;
+    height: 140px;
+    background-color: #932f2f;
+    position: absolute;
+    bottom: 0;
+}

@@ -1,0 +1,73 @@
+.cart_bg1 {
+  background-image: url("/static/images/paw_mosaicbg.png");
+  background-size: contain;
+  height: 100vh;
+}
+.cart_bg1 h2 {
+  font-family: "Leckerli One", cursive;
+  font-size: 3.8rem;
+}
+.cart_bg1 .site-blocks-table {
+  overflow: auto;
+}
+.cart_bg1 .cart_table2 {
+  background-color: #EEDDCC;
+  padding: 3rem;
+  border-radius: 2rem;
+  border: 3px dashed black;
+}
+.cart_bg1 .cart_table2 .table2 {
+  background-color: #EEDDCC;
+  margin: auto;
+  padding: 2rem;
+}
+.cart_bg1 .cart_table2 .table2 .cart_table2_tr {
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+.cart_bg1 .cart_table2 .table2 .cart_table2_tr2 {
+  border-bottom: 1px solid rgb(86, 86, 86);
+}
+.cart_bg1 .cart_btn {
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #C58484;
+  border: none;
+  font-size: 2rem;
+}
+.cart_bg1 .cart_btn:hover {
+  background-color: #943B3B;
+}
+.cart_bg1 .site-blocks-table .product-thumbnail {
+  width: 200px;
+}
+.cart_bg1 .site-blocks-table .btn {
+  padding: 2px 10px;
+}
+.cart_bg1 .site-blocks-table thead th {
+  padding: 15px;
+  text-align: center;
+  border-width: 0px;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+}
+.cart_bg1 .site-blocks-table td {
+  padding: 2rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.8);
+}
+.cart_bg1 .site-blocks-table tbody tr:first-child td {
+  border-top: 1px solid #3b5d50 !important;
+}
+.cart_bg1 .site-blocks-table .btn {
+  background: none !important;
+  color: #000000;
+  border: none;
+  height: auto !important;
+}
+.cart_bg1 .form-control {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=shoppingcart.css.map */
