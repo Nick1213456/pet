@@ -67,21 +67,21 @@
                 </div>
                 <button class="savebtn">編輯</button>
             </div>
-
-            <form>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-                <input>
-
-
+            <div class="tablebox" id="form1" style="display: none">
+            <form  th:each="member:${memberData}" style="font-size: 20px">
+                帳號:<input th:value="${member.getUsername()}" type="text">
+                密碼:<input th:value="${member.getPassword()}" type="text"><br>
+                姓名:<input th:value="${member.getName()}" type="text">
+                生日:<input th:value="${member.getBirth()}" type="text"><br>
+                email:<input th:value="${member.getEmail()}" type="text">
+                手機:<input th:value="${member.getCellphone()}" type="text"><br>
+                領養經驗:<input th:value="${member.getAdpExp()}" type="text">
+                居住坪數:<input th:value="${member.getMeter()}" type="text"><br>
+                自我介紹:<br><textarea cols="50" rows="6" th:text="${memberData.get(0).getIntro()}"></textarea>
+                <input id="over" type="submit" value="更改">
+                <input type="reset" value="清除">
             </form>
+            </div>
 
 
             <!--        右邊頭像與按鈕-->
@@ -150,7 +150,10 @@
         });
         //編輯基本資料
         $('.savebtn').click(function (){
-            $('#form').show();
+            $('#form1').show();
+        });
+        $('#over').click(function (){
+            $('#form1').hide();
         });
 
     });
