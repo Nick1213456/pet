@@ -1,0 +1,139 @@
+/* 本css有兩處使用了float強制定位，若有排版問題可試著從float找 */
+body
+{
+    background-color:rgb(183, 192, 201)
+}
+/* 整體table顏色 */
+table
+{
+background-color: #FFFFFF;
+border-collapse: separate;
+border-spacing: 0px 20px;
+border: 0.3px dashed gray;
+}
+h2{
+    font-size: 3.5rem;
+    margin: 10px;
+    padding-bottom: 20px;
+}
+/* 整體input顏色 */
+input
+{
+    background-color: gray;
+}
+/* 左側按鈕 */
+.leftbtn{
+    color: #FFFFFF;
+    font-size: 2rem;
+    height: 100px;
+    border-radius: 8px;
+    background-color: #C58484;
+    margin-top: 10px;
+    margin-left: -22px;
+}
+.leftbtn:hover
+{
+background-color: rgb(125, 74, 69);
+}
+.leftbtn:focus
+{
+background-color: rgb(125, 74, 69);
+}
+/* 一個方框包裹住右側內容 */
+.rightsection
+{
+
+position: relative;
+top: 2px;
+border: 3px dashed black;
+font-size: 2rem;
+
+ margin-bottom: 200px;
+ margin-left: 17%;
+ margin-right: 1%;
+ padding-right: 10px;
+ padding-bottom: 10px;
+ 
+ background-color: antiquewhite;
+ box-shadow: 5px 5px black;
+
+}
+.myaside
+{
+    position: relative;
+top: 100px;
+}
+aside
+{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    float: left;
+}
+.parent-of-myflexcontainer {
+    display: flex;
+    flex-direction: row;
+    /* 其他樣式 */
+}
+
+.myflexcontainer {
+    display: flex;
+    flex-direction: row; /* 確保父元素使用 flex 且方向為水平排列 */
+    overflow: hidden;
+}
+
+.updatepic {
+    float: right;
+    width: 35%;
+    margin-left: 10px; /* 調整左邊間距 */
+    margin-top: -28%;
+}
+.updatepic img {
+    width: 50%; /* 調整圖片寬度，使其充滿父容器 */
+    margin-bottom: 10px; /* 添加底部間距 */
+}
+
+/* 上一頁下一頁 */
+.pagebtn
+{
+border-radius: 8px;
+background-color: #C58484;
+}
+
+.mytable
+{
+    table-layout:auto;
+    border: 0.3px dashed gray;
+}
+
+.mytable,tr,td
+ {
+    border: 0.3px dashed gray;
+    width: 50%;
+     
+ }
+ .mytable,td
+ {
+    width:50%;
+    
+     
+ }
+ .mytable2 {
+    
+    width: 50%;
+    margin-left: 10px; /* 調整左邊間距 */
+}
+    
+
+ .ordertable
+ {
+    table-layout:auto
+}
+ .ordertable,tr,td
+ { 
+    border: 0.3px dashed gray;
+    width: 100%;
+    
+    white-space: nowrap;
+    text-align: center;
+ }

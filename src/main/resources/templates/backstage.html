@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台畫面</title>
+    
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/backstage.css">
+
+    <!-- jquery js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- 載入 header.html -->
+    <div th:insert="/Fragments/header :: header"></div>
+
+    <main >
+        <!-- Start Content -->
+        
+        <!-- 內容放這邊 -->
+        
+        <div class="myaside">
+            <aside >
+                <button onclick="btn1()" class=" leftbtn">
+                    上架周邊
+                </button>
+                <button onclick="btn2()" class=" leftbtn">
+                    訂單資料
+                </button>
+                <button  onclick="btn3()" class=" leftbtn">
+                    會員資料操作
+                </button>
+            </aside>
+            
+<!--    右側整體內容-->
+<article class="rightsection">
+    <!-- 後台主頁 -->
+   
+    <div id="mainpage"  >
+        <h2>歡迎來到後台系統!</h2>
+        <table>
+            <tr>
+                <td>登入管理者名稱:</td>
+                <td>admin01</td>
+            </tr>
+            <tr>
+                <td>登入IP位址:</td>
+                <td>222.222.07</td>
+            </tr>
+            <tr>
+                <td>登入時間:</td>
+                <td>2024年10月8日 22:30</td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- 上架商品頁 -->
+     
+    <div id="updateproduct" class="" >
+        <div >
+            <h2>上架商品</h2>
+        <table class="mytable2" >
+            <tr>
+                <td>商品ID:</td>
+                <td><input type="text" class="inputcss"></td>
+            </tr>
+            <tr>
+                <td>條碼:</td>
+                <td><input type="text"  class="inputcss" ></td>
+            </tr>
+            <tr>
+                <td>規格:</td>
+                <td><input type="text"  class="inputcss" ></td>
+            </tr>
+            <tr>
+                <td>分類:</td>
+                <td><input type="text"  class="inputcss" ></td>
+            </tr>
+            <tr>
+                <td>庫存:</td>
+                <td><input type="text"  class="inputcss"></td>
+            </tr>
+            <tr>
+                <td>售價:</td>
+                <td><input type="text"  class="inputcss" ></td>
+              
+            </tr>
+            <tr>
+            <td >成本價:</td>
+            <td><input type="text"   class="inputcss"></td>
+            </tr>
+            
+        </table>
+        </div>
+        <!-- 上傳商品部分 -->
+       <div class="updatepic"  >
+        <img src="/images/porductphoto.png" alt="商品上傳照片" >
+        <button class="photobtn" style="border-radius: 8px;
+        background-color: #C58484;float: right;transform: translateX(-192%);margin-top: 65%;">上傳商品照片</button>
+        
+       </div>
+       
+       <button class="updatebutton" style="border-radius: 8px;
+       background-color: #C58484;width: 17%;margin-left: 83%;">上架</button>
+    </div>
+    <!-- 訂單資料頁 -->
+    <div id="orderlist">
+        <h2>訂單</h2>
+        <table class="ordertable" >
+            <tr >
+                <td>訂單編號</td>
+                <td>客戶UID</td>
+                <td>條碼</td>
+                <td>數量</td>
+                <td>下單日期</td>
+                <td>狀態</td>
+                <td>出貨日期</td>
+                <td>出貨方式</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>123456789</td>
+                <td>123456789</td>
+                <td>9999</td>
+                <td>20241225</td>
+                <td>已撿貨</td>
+                <td>20220122</td>
+                <td>便利商店</td>
+            </tr>
+        </table>
+        
+        <div class="orderbtn">
+            <button class="pagebtn">上一頁</button>
+            <button class="pagebtn">下一頁</button>
+        </div>
+
+    </div>
+    <!-- 會員資料頁 -->
+    <div id="memberlist">
+        <h2>會員資料操作</h2>
+        <table  class="ordertable">
+            <tr>
+                <td>UID</td>
+                <td>姓名</td>
+                <td>性別</td>
+                <td>手機</td>
+                <td>e-mail</td>
+                <td>地址</td>
+                <td>領養經歷</td>
+                <td>居住坪數</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>我是姓名</td>
+                <td>男</td>
+                <td>0980255437</td>
+                <td>aaa@gmail.com</td>
+                <td>40360台中市西區公益路161-1號</td>
+                <td>2年</td>
+                <td>9999坪</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>我是姓名</td>
+                <td>男</td>
+                <td>0980255437</td>
+                <td>aaa@gmail.com</td>
+                <td>40360台中市西區公益路161-1號</td>
+                <td>2年</td>
+                <td>9999坪</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>我是姓名</td>
+                <td>男</td>
+                <td>0980255437</td>
+                <td>aaa@gmail.com</td>
+                <td>40360台中市西區公益路161-1號</td>
+                <td>2年</td>
+                <td>9999坪</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>我是姓名</td>
+                <td>男</td>
+                <td>0980255437</td>
+                <td>aaa@gmail.com</td>
+                <td>40360台中市西區公益路161-1號</td>
+                <td>2年</td>
+                <td>9999坪</td>
+            </tr>
+            <tr>
+                <td>123456798</td>
+                <td>我是姓名</td>
+                <td>男</td>
+                <td>0980255437</td>
+                <td>aaa@gmail.com</td>
+                <td>40360台中市西區公益路161-1號</td>
+                <td>2年</td>
+                <td>9999坪</td>
+            </tr>
+        </table>
+        <div class="orderbtn">
+            <button class="pagebtn">上一頁</button>
+            <button class="pagebtn">下一頁</button>
+        </div>
+    </div>
+</article>
+
+
+
+        </div>
+
+        <!-- End Content -->
+
+        <!-- 載入 footer.html -->
+        <div th:insert="/fragments/footer :: footer"></div>
+    </main>
+
+
+    <!-- 載入 header.html js -->
+    <script>
+        // 創建一個函數來載入其他檔案的內容
+        function includeHTML() {
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp = new XMLHttpRequest();
+
+            // 當請求狀態改變時執行的函數
+            xhttp.onreadystatechange = function () {
+                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+                if (this.readyState == 4 && this.status == 200) {
+                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                    document.getElementById("includedContent").innerHTML = this.responseText;
+                }
+            };
+
+            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+            xhttp.open("GET", "fragments/header.html", true);
+
+
+            // 發送網路請求
+            xhttp.send();
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("includfooter").innerHTML = this.responseText;
+                }
+            };
+            xhttp2.open("GET", "fragments/footer.html", true);
+            // 發送網路請求
+            xhttp2.send();
+        }
+
+        // 在頁面載入完成後呼叫 includeHTML 函數
+        window.onload = includeHTML;
+    </script>
+    <script src="./js/login.js"></script>
+    <script>
+        // 沒按按鈕的顯示
+        document.getElementById("mainpage").style.display = 'block';
+        document.getElementById("updateproduct").style.display = 'none';
+        document.getElementById("orderlist").style.display = 'none';
+        document.getElementById("memberlist").style.display = 'none';
+    // 按下按鈕得到指定div的id分別隱藏或顯示不同div
+    function btn1() {
+        // var mydiv="updateproduct";
+        document.getElementById("mainpage").style.display = 'none';
+        document.getElementById("updateproduct").style.display = 'block';
+        document.getElementById("orderlist").style.display = 'none';
+        document.getElementById("memberlist").style.display = 'none';
+        
+    }
+    function btn2() {
+        // var mydiv="orderlist";
+        document.getElementById("mainpage").style.display = 'none';
+        document.getElementById("updateproduct").style.display = 'none';
+        document.getElementById("orderlist").style.display = 'block';
+        document.getElementById("memberlist").style.display = 'none';
+    }
+    function btn3() {
+        // var mydiv="memberlist";
+        document.getElementById("mainpage").style.display = 'none';
+        document.getElementById("updateproduct").style.display = 'none';
+        document.getElementById("orderlist").style.display = 'none';
+        document.getElementById("memberlist").style.display = 'block';
+    }
+    
+    </script>
+</body>
+
+</html>

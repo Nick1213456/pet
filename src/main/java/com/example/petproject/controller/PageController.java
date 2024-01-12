@@ -35,4 +35,9 @@ public class PageController {
         return "shoppingcart";
     }
 
+    @GetMapping("/backstage")
+    public String showbackstage(){
+        return "backstage";
+    }
+
 }
