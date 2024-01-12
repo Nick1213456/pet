@@ -56,14 +56,12 @@ public class memberRepository {
     }
 
     //取得會員資料
-
     public List<memberData> memberData(String username){
-        String sql="SELECT username,password,name,birth,cellphone,email,address,meter,adpExp FROM member WHERE username='"+username+"';";
+        String sql="SELECT username,password,name,birth,cellphone,email,address,meter,adpExp,Intro FROM member WHERE username='"+username+"';";
 
         List<memberData> list = jdbcTemplate.query(sql,memberdatamapper);
         System.out.println(list);
         return list;
     }
-
 
 }

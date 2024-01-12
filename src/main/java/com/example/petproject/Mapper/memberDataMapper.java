@@ -20,7 +20,7 @@ public class memberDataMapper implements RowMapper {
         memberdata.setAddress(rs.getString("address"));
         memberdata.setMeter(rs.getString("meter"));
         memberdata.setAdpExp(rs.getString("adpExp"));
-
+        memberdata.setIntro(rs.getString("Intro"));
         return memberdata;
     }
 }

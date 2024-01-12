@@ -33,47 +33,57 @@
 
             <!--        左邊資料-->
             <div  class="tablebox">
-                <table >
+                <table th:each="member:${memberData}">
                     <tr>
                         <th>帳號:</th>
-                        <td>資料一</td>
+                        <td th:text="${member.getUsername()}">資料一</td>
                         <th class="tablespace">密碼:</th>
-                        <td class="tablespace2">資料二</td>
+                        <td class="tablespace2" th:text="${member.getPassword()}">資料二</td>
                     </tr>
 
                     <tr>
                         <th>姓名:</th>
-                        <td>資料三</td>
+                        <td th:text="${member.getName()}">資料三</td>
                         <th class="tablespace">生日:</th>
-                        <td class="tablespace2">資料四</td>
-                    </tr>
-                    <tr>
-                        <th>性別:</th>
-                        <td>資料五</td>
-                        <th class="tablespace">手機:</th>
-                        <td class="tablespace2">資料六</td>
+                        <td class="tablespace2" th:text="${member.getBirth()}">資料四</td>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>資料七</td>
-                        <th class="tablespace">領養經驗:</th>
-                        <td class="tablespace2">資料八</td>
+                        <td th:text="${member.getEmail()}">資料七</td>
+                        <th class="tablespace">手機:</th>
+                        <td class="tablespace2" th:text="${member.getCellphone()}">資料六</td>
                     </tr>
                     <tr>
+                        <th class="tablespace">領養經驗:</th>
+                        <td class="tablespace2" th:text="${member.getAdpExp()}">資料八</td>
                         <th>居住坪數:</th>
-                        <td class="tablespace2">資料九</td>
+                        <td class="tablespace2" th:text="${member.getMeter()}">資料九</td>
                     </tr>
                 </table>
-                <div class="editbtnpos">
-                    <button class="editbtn">編輯</button>
-                </div>
 
                 <div>
                     <nav style="font-size: 2rem;font-weight: bold;padding-top: 40px">自我介紹:</nav>
-                    <textarea name="" id="" cols="100" rows="5"></textarea>
-                    <button class="savebtn">儲存自介</button>
+                    <textarea cols="100" rows="5" th:text="${memberData.get(0).getIntro()}"></textarea>
                 </div>
+                <button class="savebtn">編輯</button>
             </div>
+
+            <form>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+                <input>
+
+
+            </form>
+
+
             <!--        右邊頭像與按鈕-->
             <div class="straight2">
 <!--                頭像-->
@@ -88,7 +98,7 @@
 
                     <div class="split2">
                         <button class="threebtnstyle">領養上架</button>
-                        <a href="/petlist"><button class="threebtnstyle">我要領養</a></button>
+                       <button class="threebtnstyle"><a href="/petlist">我要領養</a></button>
                     </div>
                 </div>
             </div>
@@ -138,6 +148,11 @@
             $('#confirm').hide();
             $('#reset').hide();
         });
+        //編輯基本資料
+        $('.savebtn').click(function (){
+            $('#form').show();
+        });
+
     });
 </script>
 </body>

@@ -73,13 +73,24 @@ public class loginController {
     public String memberPage_Controller(HttpSession session,Model model){
         boolean result = mS.sessionCheck(session);
         if(result) {
-            List<memberData> mD= mS.memberData((String)session.getAttribute("username"));
+            List<memberData> mD=mS.memberData((String)session.getAttribute("username"));
             model.addAttribute("memberData",mD);
             return ("memberpage");
         }
         else{
             return ("index");
         }
+    }
+
+    @PostMapping("/memberpage")
+    public String memberPage_Change(HttpSession session,Model model,@ModelAttribute memberData mD){
+        //1.收到前端給的更改資料
+        //2.呼叫後端方法儲存資料
+
+        //3.回傳新資料
+        model.addAttribute(mD);
+        return ("memberpage");
+
     }
 
     //忘記密碼
@@ -129,6 +140,8 @@ public class loginController {
 
         return "redirect:memberpage";
     }
+
+
 
 
 

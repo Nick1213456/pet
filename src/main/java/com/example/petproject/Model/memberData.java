@@ -19,4 +19,5 @@ public class memberData {
     private String address;
     private String adpExp;
     private String meter;
+    private String Intro;
 }
