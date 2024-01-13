@@ -108,10 +108,11 @@ public class loginController {
     }
 
     //登出
-    @PostMapping("/signOut")
+    @GetMapping("/signOut")
     public String signOut(HttpSession session){
         mS.signOut(session);
-        return ("signOut");
+        //暫時返回首頁
+        return "index";
     }
 
     //照片上傳
@@ -137,8 +138,6 @@ public class loginController {
 
         return "redirect:memberpage";
     }
-
-
 
 
 
