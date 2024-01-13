@@ -1,6 +1,20 @@
 $(document).ready(function () {
     $(".login_modal").hide();
+    // 判斷登入登出顯示
+    $.post('/check-session', function(data) {
+        if (data===""){
+            //如果沒登入
+            $(".login_bar").show();
+            $(".d-none1").hide();
+        }else {
+            $(".login_bar").hide();
+            $(".d-none1").show();
+        }
 
+    });
+    $(".d-none1").on('click',function(){
+        alert("會員已登出 將返回首頁")
+    })
 });
 
 $(document).on('click', function (e) {
@@ -16,8 +30,6 @@ $(document).on('click', function (e) {
         $(".login_modal").hide();
         $('a').css('pointer-events', 'auto');
     }
-
-    console.log(modal.has(e.target).length);
 
 
 
