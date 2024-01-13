@@ -8,13 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Service
-public class orderMapper implements RowMapper {
+public class orderMapper implements RowMapper<orderModel> {
 
     @Override
     public orderModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         orderModel om= new orderModel();
         om.setOrderNumber(rs.getInt("OrderNumber"));
-        om.setGuestUID(rs.getInt("GuestUID"));
+        om.setGuestName(rs.getString("GuestName"));
         om.setOrderAmount(rs.getInt("OrderAmount"));
         om.setOrderDate(rs.getDate("OrderDate"));
         om.setStatus(rs.getString("Status"));

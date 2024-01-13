@@ -14,6 +14,9 @@ public class cartMapper implements RowMapper<cartModel> {
         cm.setCommodityID(rs.getInt("CommodityID"));
         cm.setComQuantity(rs.getInt("ComQuantity"));
         cm.setAmount(rs.getInt("Amount"));
+        cm.setCommodityName(rs.getString("CommodityName"));
+        cm.setSize(rs.getString("Size"));
+        cm.setPrice(rs.getInt("price"));
         return cm;
     }
 }

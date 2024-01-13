@@ -15,25 +15,6 @@ public class PageController {
 //        return "memberpage";
 //    }
 
-    @GetMapping("/petlist")
-    public String showpetlist(){
-        return "petlist";
-    }
-
-    @GetMapping("/shopping")
-    public String showshopping(){
-        return "shopping";
-    }
-
-    @GetMapping("/shopping-single")
-    public String showshoppingsingle(){
-        return "shopping-single";
-    }
-
-    @GetMapping("/shoppingcart")
-    public String showshoppingcart(){
-        return "shoppingcart";
-    }
 
 //    @GetMapping("/backstage")
 //    public String showbackstage(){

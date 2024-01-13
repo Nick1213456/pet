@@ -15,6 +15,7 @@
     <!-- jquery-ui -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
@@ -138,19 +139,19 @@
                     <div class="col-lg-7 mt-5">
                         <div class="card">
                             <div class="card-body2">
-                                <h2 class="h2">商品名稱</h2>
-                                <span class="coin">$25.00</span>
+                                <h2 class="h2" th:text="${shopping2.commodityName}">商品名稱</h2>
+                                <span class="coin" th:text="'$'+${shopping2.getPrice()}">$25.00</span>
                                 
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <h4>種類：</h4>
+                                        <h4 >種類：</h4>
                                     </li>
                                     <li class="list-inline-item">
-                                        <p class="text-muted"><strong>Easy Wear</strong></p>
+                                        <p class="text-muted"><strong th:text="${shopping2.getCommodityKind()}">Easy Wear</strong></p>
                                     </li>
                                 </ul>
                                 <h4>描述：</h4>
-                                <p class="card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
+                                <p class="card_text" th:text="${shopping2.getDetail()}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
                                     incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec
                                     condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis
                                     nulla.</p>
@@ -193,12 +194,8 @@
                                     </div>
                                     <div class="row pb-3">
                                         <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg btn-size" name="submit"
-                                                value="buy">立即購買</button>
-                                        </div>
-                                        <div class="col d-grid">
                                             <button type="submit" class="btn btn-success btn-size" name="submit"
-                                                value="addtocard">加入購物車</button>
+                                                value="addtocard" id="joinbtn" th:attr="data-id=${shopping2.getCommodityID()}">加入購物車</button>
                                         </div>
                                     </div>
                                 </form>
@@ -253,6 +250,18 @@
 
         // 在頁面載入完成後呼叫 includeHTML 函數
         window.onload = includeHTML;
+    </script>
+    <script>
+        // 功能按鍵
+        $(document).ready(function (){
+            $("#joinbtn").click(function (){
+                $.ajax({
+                    type:'POST',
+                    url:'/joincart',
+                    data:{id:$(this).data('id'),num:$("#var-value").text()}
+                })
+            })
+        })
     </script>
 </body>
 

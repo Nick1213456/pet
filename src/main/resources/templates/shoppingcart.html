@@ -29,7 +29,7 @@
     <!-- Start Content -->
     <div class="container" style="display: block;">
       <div class="row mb-5">
-        <form class="col-md-12 py-5" method="post">
+        <form class="col-md-12 py-5" method="get">
           <div class="site-blocks-table m-auto">
             <h2 class="text-center pb-4">Shopping Cart</h2>
             <div class="cart_table2">
@@ -48,18 +48,18 @@
 
                 <tbody>
                   <!-- 商品開始 -->
-                  <tr class="cart_table2_tr2">
+                  <tr class="cart_table2_tr2" th:each="cart:${carts}">
                     <td class="product-thumbnail">
                       <img src="/images/product/cat/4681415-2_xxl.jpg" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h3 class="text-black">Ever-Clean-美規藍鑽白標雙重活性碳低敏25磅L</h3>
+                      <h3 class="text-black" th:text="${cart.getCommodityName()}">Ever-Clean-美規藍鑽白標雙重活性碳低敏25磅L</h3>
                     </td>
                     <td>
-                      <h3>S</h3>
+                      <h3 th:text="${cart.getSize()}">S</h3>
                     </td>
                     <td>
-                      <h3>100元</h3>
+                      <h3 th:text="${cart.getPrice()}">100元</h3>
                     </td>
                     <td>
                       <div class="input-group mb-3 d-flex align-items-center quantity-container m-auto"
@@ -75,54 +75,14 @@
                               style="font-size: 1.5rem;">&plus;</span></button>
                         </div>
                       </div>
-
                     </td>
                     <td>
-                      <h3>$49.00元</h3>
+                      <h3 th:text="${cart.getAmount()}">$49.00元</h3>
                     </td>
                     <td><a href="#" class="btn btn-black btn-sm">
                         <h5>X</h5>
                       </a></td>
                   </tr>
-                  <tr class="cart_table2_tr2">
-                    <td class="product-thumbnail">
-                      <img src="/images/product/cat/4681415-2_xxl.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h3 class="text-black">Ever-Clean-美規藍鑽白標雙重活性碳低敏25磅L</h3>
-                    </td>
-                    <td>
-                      <h3>S</h3>
-                    </td>
-                    <td>
-                      <h3>100元</h3>
-                    </td>
-                    <td>
-                      <div class="input-group mb-3 d-flex align-items-center quantity-container m-auto"
-                        style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-black decrease" type="button"><span
-                              style="font-size: 1.5rem;">&minus;</span></button>
-                        </div>
-                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-black increase" type="button"><span
-                              style="font-size: 1.5rem;">&plus;</span></button>
-                        </div>
-                      </div>
-
-                    </td>
-                    <td>
-                      <h3>$49.00元</h3>
-                    </td>
-                    <td><a href="#" class="btn btn-black btn-sm">
-                        <h5>X</h5>
-                      </a></td>
-                  </tr>
-
-
-
 
                   <!-- 商品結束 -->
 
@@ -136,7 +96,7 @@
                   
                   <div class="col-md-2 mb-5 order-lg-first ">
                     <div class="row">
-                      <button class="cart_btn">返回購物</button>
+                      <a href="/shopping" class="cart_btn">返回購物</a>
                     </div>
 
                   </div>
@@ -150,7 +110,7 @@
                     </div>
                     
                     <div class="row">
-                      <button class="cart_btn">結帳</button>
+                      <a href="/shopping" class="cart_btn">結帳</a>
                     </div>
                   </div>                  
                 </div>
@@ -207,6 +167,7 @@
     window.onload = includeHTML;
   </script>
   <script src="./js/login.js"></script>
+
 </body>
 
 </html>

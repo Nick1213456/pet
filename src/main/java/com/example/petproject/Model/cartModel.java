@@ -14,4 +14,7 @@ public class cartModel {
     private int CommodityID;
     private int ComQuantity;
     private int Amount;
+    private String CommodityName;
+    private String Size;
+    private int Price;
 }

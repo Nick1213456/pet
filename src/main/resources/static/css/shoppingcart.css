@@ -35,6 +35,8 @@
   background-color: #C58484;
   border: none;
   font-size: 2rem;
+  text-align: center;
+  text-decoration: none;
 }
 .cart_bg1 .cart_btn:hover {
   background-color: #943B3B;

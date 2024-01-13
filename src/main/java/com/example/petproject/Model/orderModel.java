@@ -13,7 +13,7 @@ import java.util.Date;
 @Getter
 public class orderModel {
     private int OrderNumber;
-    private int GuestUID;
+    private String GuestName;
     private int OrderAmount;
     private Date OrderDate;
     private String Status;

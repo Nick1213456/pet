@@ -113,78 +113,18 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <!-- 產品更換區 開始 -->
-                        <div class="col-md-4">
+                        <div class="col-md-4" th:each="shp:${shopping}">
                             <div class="card mb-4 product-wap rounded-0">
                                 <div class="card rounded-0">
                                     <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
                                 </div>
                                 <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
+                                    <a th:href="'/shopping-single?id='+${shp.getCommodityID()}" class="h3 text-decoration-none"
+                                        style="font-size: 2rem; font-weight: 600;" th:text="${shp.getCommodityName()}">我是飼料</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
-                                </div>
-                                <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
-                                </div>
-                                <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
-                                </div>
-                                <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
-                                </div>
-                                <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
-                                </div>
-                                <div class="card-body2">
-                                    <a href="shop-single.html" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;">我是飼料</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
+
                         <!-- 產品更換區 結束 -->
                     </div>
                     <div div="row">
