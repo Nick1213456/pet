@@ -60,8 +60,13 @@ public class memberRepository {
         String sql="SELECT username,password,name,birth,cellphone,email,address,meter,adpExp,Intro FROM member WHERE username='"+username+"';";
 
         List<memberData> list = jdbcTemplate.query(sql,memberdatamapper);
-        System.out.println(list);
         return list;
+    }
+
+    public void memberDataChange(memberData mD){
+        String sql="UPDATE member SET username='"+mD.getUsername()+"',password='"+mD.getPassword()+"',name='"+mD.getName()+"',birth='"+mD.getBirth()+"',cellphone='"+mD.getCellphone()+"',email='"+mD.getEmail()+"',adpExp='"+mD.getAdpExp()+"',meter='"+mD.getMeter()+"',Intro='"+mD.getIntro()+"' WHERE username='"+mD.getUsername()+"';";
+        System.err.println(sql);
+        jdbcTemplate.update(sql);
     }
 
 }

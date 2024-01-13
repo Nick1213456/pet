@@ -83,12 +83,9 @@ public class loginController {
     }
 
     @PostMapping("/memberpage")
-    public String memberPage_Change(HttpSession session,Model model,@ModelAttribute memberData mD){
-        //1.收到前端給的更改資料
-        //2.呼叫後端方法儲存資料
-
-        //3.回傳新資料
-        model.addAttribute(mD);
+    public String memberPage_Change(@ModelAttribute memberData mD){
+        System.out.println("名字:"+mD.getName()+",帳號:"+mD.getUsername());
+        mS.dataChange(mD);
         return ("memberpage");
 
     }

@@ -114,7 +114,6 @@ public class memberService {
     public boolean sessionCheck(HttpSession session){
         Object obj = session.getAttribute("username");
         if(obj != null){
-            System.out.println(obj+"test1");
             return true;
         }
         else{
@@ -132,4 +131,8 @@ public class memberService {
         return mR.memberData(username);
     }
 
+    //寫入會員資料更改
+    public void dataChange(memberData mD){
+        mR.memberDataChange(mD);
+    }
 }

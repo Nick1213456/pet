@@ -44,20 +44,19 @@ body
 table{
     margin: 0;
    text-align: left;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
 }
 /*使table右邊資料列被推開*/
 .tablespace
 {
-    padding-left: 130px;
+    padding-left: 15px;
 
     white-space:nowrap;
 }/*使table右邊資料列被推開*/
 .tablespace2
 {
-    padding-left: 20px;
-
+    padding-left: 15px;
     white-space:nowrap;
 }
 .tablebox
@@ -72,6 +71,22 @@ table{
     background-color: rgba(216,188,188,0.65);
     box-shadow: 10px 10px gray;
 }
+
+.tablebox2
+{
+    position: absolute;
+    top: 48%;
+    left: 10%;
+    width: 50%;
+    border-radius: 15px;
+    padding: 1%;
+    height: 15rem;
+    border: 3px dashed black;
+    background-color: rgba(216,188,188,0.65);
+    box-shadow: 10px 10px gray;
+}
+
+
 /*編輯按鈕位置*/
 .editbtnpos
 {
@@ -102,11 +117,12 @@ table{
     height: 35px;
     width: 15%;
 }
-/*自我介紹輸入欄*/
-textarea
-{
-    resize: none;
+
+.btntd{
+    padding-top: 2rem;
+    text-align: center;
 }
+
 /*頭像圖片*/
 .headimg
 {
@@ -149,4 +165,9 @@ footer
     background-color: #932f2f;
     position: absolute;
     bottom: 0;
+}
+
+textarea{
+    resize: none;
+
 }

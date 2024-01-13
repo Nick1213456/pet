@@ -32,54 +32,60 @@
 
 
             <!--        左邊資料-->
-            <div  class="tablebox">
-                <table th:each="member:${memberData}">
+            <div>
+            <table  class="tablebox">
+                <thead>
                     <tr>
-                        <th>帳號:</th>
+                        <th colspan="4"></th>
+                    </tr>
+                </thead>
+                <tbody th:each="member:${memberData}">
+                    <tr>
+                        <td>帳號:</td>
                         <td th:text="${member.getUsername()}">資料一</td>
-                        <th class="tablespace">密碼:</th>
+                        <td class="tablespace">密碼:</td>
                         <td class="tablespace2" th:text="${member.getPassword()}">資料二</td>
                     </tr>
-
                     <tr>
-                        <th>姓名:</th>
+                        <td>姓名:</td>
                         <td th:text="${member.getName()}">資料三</td>
-                        <th class="tablespace">生日:</th>
+                        <td class="tablespace">生日:</td>
                         <td class="tablespace2" th:text="${member.getBirth()}">資料四</td>
                     </tr>
                     <tr>
-                        <th>Email:</th>
+                        <td>Email:</td>
                         <td th:text="${member.getEmail()}">資料七</td>
-                        <th class="tablespace">手機:</th>
+                        <td class="tablespace">手機:</td>
                         <td class="tablespace2" th:text="${member.getCellphone()}">資料六</td>
                     </tr>
                     <tr>
-                        <th class="tablespace">領養經驗:</th>
-                        <td class="tablespace2" th:text="${member.getAdpExp()}">資料八</td>
-                        <th>居住坪數:</th>
-                        <td class="tablespace2" th:text="${member.getMeter()}">資料九</td>
+                        <td >領養經驗:</td>
+                        <td  th:text="${member.getAdpExp()}">資料八</td>
+                        <td class="tablespace">居住坪數:</td>
+                        <td class="tablespace2" th:text="${member.getMeter()}">資料九</td><br>
                     </tr>
-                </table>
+                    <tr>
+                        <td style="font-size: 2rem;font-weight: bold;padding-top: 0px;vertical-align:text-top;">自我介紹:</td>
+                        <td colspan="3"><textarea th:text="${member.getIntro()}" rows="6" cols="50"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="btntd" colspan="4"><button class="savebtn">編輯</button></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <div>
-                    <nav style="font-size: 2rem;font-weight: bold;padding-top: 40px">自我介紹:</nav>
-                    <textarea cols="100" rows="5" th:text="${memberData.get(0).getIntro()}"></textarea>
-                </div>
-                <button class="savebtn">編輯</button>
-            </div>
             <div class="tablebox" id="form1" style="display: none">
-            <form  th:each="member:${memberData}" style="font-size: 20px">
-                帳號:<input th:value="${member.getUsername()}" type="text">
-                密碼:<input th:value="${member.getPassword()}" type="text"><br>
-                姓名:<input th:value="${member.getName()}" type="text">
-                生日:<input th:value="${member.getBirth()}" type="text"><br>
-                email:<input th:value="${member.getEmail()}" type="text">
-                手機:<input th:value="${member.getCellphone()}" type="text"><br>
-                領養經驗:<input th:value="${member.getAdpExp()}" type="text">
-                居住坪數:<input th:value="${member.getMeter()}" type="text"><br>
-                自我介紹:<br><textarea cols="50" rows="6" th:text="${memberData.get(0).getIntro()}"></textarea>
+            <form  th:each="member:${memberData}" style="font-size: 20px" action="memberpage" method="post">
+                帳號:<input th:value="${member.getUsername()}" type="text" name="username">
+                密碼:<input th:value="${member.getPassword()}" type="text" name="password"><br>
+                姓名:<input th:value="${member.getName()}" type="text" name="name">
+                生日:<input th:value="${member.getBirth()}" type="text" name="birth"><br>
+                email:<input th:value="${member.getEmail()}" type="text" name="email">
+                手機:<input th:value="${member.getCellphone()}" type="text" name="cellphone"><br>
+                領養經驗:<input th:value="${member.getAdpExp()}" type="text" name="adpExp">
+                居住坪數:<input th:value="${member.getMeter()}" type="text" name="meter"><br>
+                自我介紹:<br><textarea cols="50" rows="6" th:text="${member.getIntro()}" name="Intro"></textarea>
                 <input id="over" type="submit" value="更改">
-                <input type="reset" value="清除">
             </form>
             </div>
 
@@ -148,12 +154,13 @@
             $('#confirm').hide();
             $('#reset').hide();
         });
+
         //編輯基本資料
         $('.savebtn').click(function (){
-            $('#form1').show();
+            $('#form1').fadeIn();
         });
         $('#over').click(function (){
-            $('#form1').hide();
+            $('#form1').fadeOut();
         });
 
     });
