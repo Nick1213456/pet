@@ -1,6 +1,6 @@
 package com.example.petproject.DAO;
 
-import com.example.petproject.Mapper.orderModelMapper;
+import com.example.petproject.Mapper.orderMapper;
 import com.example.petproject.Mapper.permissionMapper;
 import com.example.petproject.Model.orderModel;
 import com.example.petproject.Model.permissionModel;
@@ -21,7 +21,7 @@ public class staffRepository {
     permissionMapper permissionmapper;
 
     @Autowired
-    orderModelMapper ordermodelmapper;
+    orderMapper ordermodelmapper;
 
     //回傳帳號和權限
     public List<permissionModel> memberList(){
