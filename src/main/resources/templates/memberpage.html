@@ -84,7 +84,7 @@
                 手機:<input th:value="${member.getCellphone()}" type="text" name="cellphone"><br>
                 領養經驗:<input th:value="${member.getAdpExp()}" type="text" name="adpExp">
                 居住坪數:<input th:value="${member.getMeter()}" type="text" name="meter"><br>
-                自我介紹:<br><textarea cols="50" rows="6" th:text="${member.getIntro()}" name="Intro"></textarea>
+                自我介紹:<br><textarea cols="50" rows="2" th:text="${member.getIntro()}" name="Intro"></textarea>
                 <input id="over" type="submit" value="更改">
             </form>
             </div>
@@ -96,14 +96,14 @@
                 <img th:src="${session.src}" class="headimg" id="imagePreview">
                 <div class="threebtnpos">
                     <form method="post" enctype="multipart/form-data" action="/uploadImg">
-                        <button class="threebtnstyle"><input type="file"  id="fileInput" name="fileInput" value="上傳頭像"  accept="image/*"></button>
+                        <button class="threebtnstyle"><input type="file"  id="fileInput" name="fileInput"  accept="image/*"></button>
                         <input type="submit" id="confirm" name="confirm"  value="確認">
                         <input type="reset" id="reset"  name="reset" value="清除">
                     </form>
 
 
                     <div class="split2">
-                        <button class="threebtnstyle">領養上架</button>
+                        <button class="threebtnstyle"><a href="#">領養上架</a></button>
                        <button class="threebtnstyle"><a href="/petlist">我要領養</a></button>
                     </div>
                 </div>

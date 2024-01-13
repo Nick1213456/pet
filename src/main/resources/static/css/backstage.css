@@ -106,13 +106,13 @@ background-color: #C58484;
     border: 0.3px dashed gray;
 }
 
-.mytable,tr,td
+.mytable,tr,td,th
  {
     border: 0.3px dashed gray;
     width: 50%;
      
  }
- .mytable,td
+ .mytable,td,th
  {
     width:50%;
     
@@ -129,11 +129,11 @@ background-color: #C58484;
  {
     table-layout:auto
 }
- .ordertable,tr,td
- { 
+ .ordertable,tr,td,th
+ {
     border: 0.3px dashed gray;
     width: 100%;
-    
+
     white-space: nowrap;
     text-align: center;
  }

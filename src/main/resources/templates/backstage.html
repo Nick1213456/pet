@@ -50,13 +50,13 @@
     <div id="mainpage"  >
         <h2>歡迎來到後台系統!</h2>
         <table>
-            <tr>
+            <tr th:each="member:${memberData}">
                 <td>登入管理者名稱:</td>
-                <td>admin01</td>
+                <td th:text="${member.getName()}">admin01</td>
             </tr>
             <tr>
                 <td>登入IP位址:</td>
-                <td>222.222.07</td>
+                <td>127.0.0.1</td>
             </tr>
             <tr>
                 <td>登入時間:</td>
@@ -66,190 +66,93 @@
 
     </div>
     <!-- 上架商品頁 -->
-     
-    <div id="updateproduct" class="" >
+
+    <div id="updateproduct">
         <div >
             <h2>上架商品</h2>
-        <table class="mytable2" >
+        <table class="mytable2">
             <tr>
                 <td>商品ID:</td>
-                <td><input type="text" class="inputcss"></td>
+                <td><input type="text" class="inputcss" id="CommodityID" required="required"></td>
             </tr>
             <tr>
-                <td>條碼:</td>
-                <td><input type="text"  class="inputcss" ></td>
+                <td>商品名稱:</td>
+                <td><input type="text"  class="inputcss" id="CommodityName" required="required"></td>
             </tr>
             <tr>
                 <td>規格:</td>
-                <td><input type="text"  class="inputcss" ></td>
+                <td><input type="text"  class="inputcss" id="size" required="required"></td>
             </tr>
             <tr>
                 <td>分類:</td>
-                <td><input type="text"  class="inputcss" ></td>
+                <td><input type="text"  class="inputcss" id="CommodityKind" required="required"></td>
             </tr>
             <tr>
                 <td>庫存:</td>
-                <td><input type="text"  class="inputcss"></td>
+                <td><input type="text"  class="inputcss" id="Inventory" required="required"></td>
             </tr>
             <tr>
                 <td>售價:</td>
-                <td><input type="text"  class="inputcss" ></td>
-              
+                <td><input type="text"  class="inputcss" id="Price" required="required"></td>
             </tr>
             <tr>
             <td >成本價:</td>
-            <td><input type="text"   class="inputcss"></td>
+            <td><input type="text"   class="inputcss" id="Cost" required="required"></td>
             </tr>
-            
+
         </table>
         </div>
         <!-- 上傳商品部分 -->
-       <div class="updatepic"  >
-        <img src="/images/porductphoto.png" alt="商品上傳照片" >
-        <button class="photobtn" style="border-radius: 8px;
-        background-color: #C58484;float: right;transform: translateX(-192%);margin-top: 65%;">上傳商品照片</button>
-        
+       <div class="updatepic">
+           <img src="" style="width: 200px;height:200px;background: white" id="imagePreview">
+           <form method="post" enctype="multipart/form-data" action="/CommodityImg">
+               <input type="file" id="fileInput" name="fileInput" accept="image/*" >
+               <input type="submit" id="confirm1" name="confirm1" value="確認">
+               <input type="reset" id="reset1" name="reset1">
+           </form>
+
        </div>
-       
-       <button class="updatebutton" style="border-radius: 8px;
+
+       <button class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
        background-color: #C58484;width: 17%;margin-left: 83%;">上架</button>
     </div>
     <!-- 訂單資料頁 -->
     <div id="orderlist">
         <h2>訂單</h2>
-        <table class="ordertable" >
-            <tr >
-                <td>訂單編號</td>
-                <td>客戶UID</td>
+        <table class="ordertable">
+            <thead>
+                <tr>
+                    <th>訂單編號</th>
+                    <th>客戶UID</th>
+                    <th>條碼</th>
+                    <th>金額</th>
+                    <th >下單日期</th>
+                    <th>出貨日期</th>
+                    <th>狀態</th>
+                    <th>出貨方式</th>
+                    <th>檢貨員ID</th>
+                    <th>狀態變更</th>
+                </tr>
+            </thead>
+            <tbody th:each="order:${orderlist}">
+            <tr>
+                <td th:text="${order.OrderNumber}" class="orderNumber">訂單編號</td>
+                <td  th:text="${order.getGuestUID()}">客戶UID</td>
                 <td>條碼</td>
-                <td>數量</td>
-                <td>下單日期</td>
-                <td>狀態</td>
-                <td>出貨日期</td>
-                <td>出貨方式</td>
+                <td  th:text="${order.getOrderAmount()}">金額</td>
+                <td  th:text="${order.getOrderDate()}">下單日期</td>
+                <td  th:text="${order.getShippedDate()}" id="shippedDate1">出貨日期</td>
+                <td  th:text="${order.getStatus()}" id="status1">狀態</td>
+                <td >出貨方式</td>
+                <td  th:text="${order.getPicker()}">檢貨員ID</td>
+                <td >
+                    <button class="button2" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">撿貨</button>
+                    <button class="button1" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">出貨</button>
+                </td>
             </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>123456789</td>
-                <td>123456789</td>
-                <td>9999</td>
-                <td>20241225</td>
-                <td>已撿貨</td>
-                <td>20220122</td>
-                <td>便利商店</td>
-            </tr>
+
         </table>
-        
+
         <div class="orderbtn">
             <button class="pagebtn">上一頁</button>
             <button class="pagebtn">下一頁</button>
@@ -259,67 +162,29 @@
     <!-- 會員資料頁 -->
     <div id="memberlist">
         <h2>會員資料操作</h2>
-        <table  class="ordertable">
+        帳號搜尋:<input id="myInput" type="text" placeholder="Search.."><br>
+        <hr>
+        <table  class="ordertable" id="myTable">
+            <thead>
+                <tr>
+                    <td>會員帳號</td>
+                    <td>會員權限</td>
+                    <td>權限更改</td>
+                </tr>
+            </thead>
+            <tbody th:each="member:${memberList}">
             <tr>
-                <td>UID</td>
-                <td>姓名</td>
-                <td>性別</td>
-                <td>手機</td>
-                <td>e-mail</td>
-                <td>地址</td>
-                <td>領養經歷</td>
-                <td>居住坪數</td>
+                <td class="username" th:text="${member.username}">username</td>
+                <td th:text="${member.Employee}">Employee</td>
+                <td>
+                    <button class="button0" th:attr="data-username=${member.username}">封鎖</button>
+                    <button class="button1" th:attr="data-username=${member.username}">會員</button>
+                    <button class="button2" th:attr="data-username=${member.username}">管理員</button>
+                </td>
             </tr>
-            <tr>
-                <td>123456798</td>
-                <td>我是姓名</td>
-                <td>男</td>
-                <td>0980255437</td>
-                <td>aaa@gmail.com</td>
-                <td>40360台中市西區公益路161-1號</td>
-                <td>2年</td>
-                <td>9999坪</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>我是姓名</td>
-                <td>男</td>
-                <td>0980255437</td>
-                <td>aaa@gmail.com</td>
-                <td>40360台中市西區公益路161-1號</td>
-                <td>2年</td>
-                <td>9999坪</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>我是姓名</td>
-                <td>男</td>
-                <td>0980255437</td>
-                <td>aaa@gmail.com</td>
-                <td>40360台中市西區公益路161-1號</td>
-                <td>2年</td>
-                <td>9999坪</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>我是姓名</td>
-                <td>男</td>
-                <td>0980255437</td>
-                <td>aaa@gmail.com</td>
-                <td>40360台中市西區公益路161-1號</td>
-                <td>2年</td>
-                <td>9999坪</td>
-            </tr>
-            <tr>
-                <td>123456798</td>
-                <td>我是姓名</td>
-                <td>男</td>
-                <td>0980255437</td>
-                <td>aaa@gmail.com</td>
-                <td>40360台中市西區公益路161-1號</td>
-                <td>2年</td>
-                <td>9999坪</td>
-            </tr>
+            </tbody>
+
+
         </table>
         <div class="orderbtn">
             <button class="pagebtn">上一頁</button>
@@ -407,6 +272,157 @@
         document.getElementById("memberlist").style.display = 'block';
     }
     
+    </script>
+    <!------------------------------------以下是後端更改的部分-------------------------------------------------------------------->
+    <script>
+        //訂單管理系統的BUTTUON控制
+        $(document).ready(function(){
+            //撿貨
+            $(".button2").click(function(){
+                var status1 = $(this).data("status");
+                if(status1 === "Pick" || status1 === "Ship"){
+                    alert("此訂單已經撿貨過或是已經出貨!");
+                }
+                else {
+                    var orderNumber = $(this).data("ordernumber");
+                    status1 = "Pick";
+                    $.post(
+                        "/orderManage",
+                        {"status": status1, "orderNumber": orderNumber}
+                    )
+                }
+
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+            //出貨
+            $(".button1").click(function(){
+                var status1 = $(this).data("status");
+                if(status1 === "Ship"){
+                    alert("此訂單已經出貨!");
+                }else {
+                    var orderNumber = $(this).data("ordernumber");
+                    var Date1 = new Date();
+                    var shippedDate1 = Date1.getFullYear() + "-" + (Date1.getMonth() + 1) + "-" + Date1.getDate() + " " + Date1.getHours() + ":" + Date1.getMinutes() + ":" + Date1.getSeconds();
+                    var status1 = "Ship";
+                    $.post(
+                        "/orderManage",
+                        {"status": status1, "shippedDate": shippedDate1, "orderNumber": orderNumber}
+                    )
+                }
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+        });
+    </script>
+    <script>
+        //會員管理頁面用
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $(".button0").click(function() {
+                var username = $(this).data("username");
+                $.post(
+                    "/memberPerChange0",
+                    username
+                )
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+            $(".button1").click(function() {
+                var username = $(this).data("username");
+                $.post(
+                    "/memberPerChange1",
+                    username
+                )
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+            $(".button2").click(function() {
+                var username = $(this).data("username");
+                $.post(
+                    "/memberPerChange2",
+                    username
+                )
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+        });
+    </script>
+
+    <script>
+        //會員管理頁面用
+        $(document).ready(function(){
+            $("#CmmoditoryBtn").click(function(){
+                var CommodityID = $('#CommodityID').val();
+                var CommodityName = $('#CommodityName').val();
+                var size = $('#size').val();
+                var CommodityKind = $('#CommodityKind').val();
+                var Inventory = $('#Inventory').val();
+                var Price = $('#Price').val();
+                var Cost = $('#Cost').val();
+                $.post(
+                    "/upload_Product",
+                    {"CommodityID":CommodityID,"CommodityName":CommodityName,"size":size,"CommodityKind":CommodityKind,"Inventory":Inventory,"Price":Price,"Cost":Cost}
+                )
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+        });
+    </script>
+
+    <script>
+        //照片上傳和預覽
+        $(document).ready(function() {
+            $('#confirm1').hide();
+            $('#reset1').hide();
+            //預覽
+            $('#fileInput').on('change', function(e) {
+                var size= 5*1024*1024;
+                var file = e.target.files[0];
+                var imageType = /image.*/;
+                if (file && file.type.match(imageType) && file.size < size) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imagePreview').attr('src', e.target.result);
+                        $('#imagePreview').show();
+                        $('#confirm1').show();
+                        $('#reset1').show();
+                    }
+                    reader.readAsDataURL(file);
+                }
+                else{
+                    alert("檔案過大(5MB)或發生其他錯誤無法上傳");
+                    $('#fileInput').val('');
+                }
+
+            });
+
+            $('#confirm1').click(function (){
+                $('#confirm1').hide();
+                $('#reset1').hide();
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+
+            });
+            $('#reset1').click(function (){
+                $('#imagePreview').attr('src','');
+                $('#confirm1').hide();
+                $('#reset1').hide();
+            });
+        });
     </script>
 </body>
 

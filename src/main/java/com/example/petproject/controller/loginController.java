@@ -54,7 +54,7 @@ public class loginController {
         }
         else if(result && memberPer.equals("2")){
             session.setAttribute("username",username);
-            return ("redirect:backstage");
+            return ("redirect:/backstage");
         }
         else{
             //給個登入失敗的東西
