@@ -9,13 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class productModel {
-    private String CommodityKind;
+public class cartModel {
+    private int orderNumber;
     private int CommodityID;
-    private String CommodityName;
-    private String Size;
-    private int Inventory;
-    private int Price;
-    private double Cost;
-    private String Detail;
+    private int ComQuantity;
+    private int Amount;
 }
