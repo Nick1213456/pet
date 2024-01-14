@@ -47,7 +47,7 @@
                         </label>
                         <input type="password" placeholder="請輸入密碼" name="password" required>
                     </div>
-
+                    <p style="font-size: 3rem;text-align: center;display: none" id="showpassword">密碼為:<span style="font-size: 3rem;text-align: center" th:text="${password}"></span></p>
                     <div id="forget_password2" class="option2">
                         <a href="#" style="margin-right: 10px;" id="forget_password2_2">
                             <p class="login_text2">忘記密碼?</p>
@@ -56,7 +56,7 @@
                         <a href="#" style="margin-left: 10px;">
                             <p class="login_text2">會員註冊</p>
                         </a>
-                        <button type="submit">登入</button>
+                        <button id="log-in" type="submit">登入</button>
                     </div>
                 </div>
             </section>
@@ -85,12 +85,11 @@
                         </label>
                         <input type="email" id="email" name="email" style="width: 30rem; font-size: 1.5rem; padding-left: 1rem;" placeholder="ex:abc@gmail.com">
                     </div>
-                    <p style="font-size: 3rem;text-align: center">密碼為:<span style="font-size: 3rem;text-align: center" th:text="${password}"></span></p>
                     <div id="login_up2" class="option2">
-                        <a href="#" style="margin-right: 10px;">
+                        <a href="#" style="margin-right: 10px;" id="login_up3">
                             <p class="login_text2">返回登入畫面</p>
                         </a>
-                        <button type="submit">驗證</button>
+                        <button id="verify" type="submit">驗證</button>
                     </div>
                 </div>
             </section>

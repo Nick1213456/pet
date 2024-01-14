@@ -5,10 +5,30 @@ $(document).ready(function () {
         // 在强制刷新页面时重新检查登录状态
         checkLoginStatus();
     });
+    if (location.href==="http://localhost:8080/forgetpassword"){
+        // 如果是在忘記密碼網址就秀出密碼標籤
+        $("#showpassword").show();
+        $.post('/check-session', function (data) {
+            if (data === "") {
+                //如果沒登入
+                $(".login_modal").show();
+            } else {
+                $(".login_modal").hide();
+            }
+        });
+
+
+
+
+
+        // $("#forget_password3").hide();
+
+    }
 });
+
 // 封裝檢查是否登入
 function checkLoginStatus() {
-    $(".login_modal").hide(); //隱藏登出
+    $(".d-none1").hide(); //隱藏登出
     $.post('/check-session', function (data) {
         if (data === "") {
             //如果沒登入
@@ -59,7 +79,18 @@ $("#forget_password2_2").click(function () {
     $("#forget_password3").show();
     $("#login_modal_2").hide();
 });
-$("#login_up2").click(function () {
+$("#login_up3").click(function () {
     $("#forget_password3").hide();
     $("#login_modal_2").show();
 });
+
+$("#log-in").click(function () {
+    $(".login_modal").hide();
+});
+
+
+
+// $("#verify").click(function (){
+//     $("#login_modal_2").hide();
+//     $("#forget_password3").show();
+// })
