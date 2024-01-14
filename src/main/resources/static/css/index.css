@@ -331,16 +331,16 @@ main .aaa .new .shop .shop_img {
   margin: 20px auto;
 }
 main .aaa .new .shop .bg_imga {
-  background-image: url("../img/grid_img_02.jpg");
+  background-image: url("/images/grid_img_02.jpg");
 }
 main .aaa .new .shop .bg_imgb {
-  background-image: url("../img/grid_img_02.jpg");
+  background-image: url("/images/grid_img_02.jpg");
 }
 main .aaa .new .shop .bg_imgc {
-  background-image: url("../img/grid_img_02.jpg");
+  background-image: url("/images/grid_img_02.jpg");
 }
 main .aaa .new .shop .bg_imgd {
-  background-image: url("../img/grid_img_02.jpg");
+  background-image: url("/images/grid_img_02.jpg");
 }
 main .aaa .new .shop h3 {
   padding: 0 40px;

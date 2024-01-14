@@ -70,12 +70,14 @@
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">
                             <a class="categories_text" href="#">
-                                貓咪
+                                貓咪專區
                                 <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
                             <ul class="collapse show list-unstyled  " style="display: none;">
-                                <li><a class="categories_text2" href="#">罐頭</a></li>
-                                <li><a class="categories_text2" href="#">餅乾</a></li>
+                                <li><a class="categories_text2" href="#" type="貓-飼料">飼料</a></li>
+                                <li><a class="categories_text2" href="#" type="貓-罐頭">罐頭</a></li>
+                                <li><a class="categories_text2" href="#" type="貓-零食">零食</a></li>
+                                <li><a class="categories_text2" href="#" type="貓-用品">用品</a></li>
                             </ul>
                         </li>
 
@@ -83,26 +85,23 @@
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">
                             <a class="categories_text" href="#">
-                                貓咪
+                                狗狗專區
                                 <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
                             <ul class="collapse show list-unstyled  " style="display: none;">
-                                <li><a class="categories_text2" href="#">罐頭</a></li>
-                                <li><a class="categories_text2" href="#">餅乾</a></li>
+                                <li><a class="categories_text2" href="#" type="狗-飼料">飼料</a></li>
+                                <li><a class="categories_text2" href="#" type="狗-罐頭">罐頭</a></li>
+                                <li><a class="categories_text2" href="#" type="狗-零食">零食</a></li>
+                                <li><a class="categories_text2" href="#" type="狗-用品">用品</a></li>
                             </ul>
                         </li>
 
                     </ul>
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">
-                            <a class="categories_text" href="#">
-                                貓咪
-                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            <a class="categories_text clearbtn" href="#">
+                                清除篩選
                             </a>
-                            <ul class="collapse show list-unstyled  " style="display: none;">
-                                <li><a class="categories_text2" href="#">罐頭</a></li>
-                                <li><a class="categories_text2" href="#">餅乾</a></li>
-                            </ul>
                         </li>
 
                     </ul>
@@ -111,16 +110,20 @@
 
 
                 <div class="col-lg-9">
-                    <div class="row">
+                    <div class="row" >
                         <!-- 產品更換區 開始 -->
-                        <div class="col-md-4" th:each="shp:${shopping}">
-                            <div class="card mb-4 product-wap rounded-0">
+                        <div class="col-md-4" th:each="shp:${shopping}" >
+                            <div class="card mb-4 product-wap rounded-0" >
                                 <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg">
+                                    <a th:href="'/shopping-single?id='+${shp.getCommodityID()}">
+                                        <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg"></a>
                                 </div>
                                 <div class="card-body2">
                                     <a th:href="'/shopping-single?id='+${shp.getCommodityID()}" class="h3 text-decoration-none"
-                                        style="font-size: 2rem; font-weight: 600;" th:text="${shp.getCommodityName()}">我是飼料</a>
+                                        style="font-size: 2rem; font-weight: 600;" th:text="${shp.getCommodityName()}">我是飼料
+                                    </a>
+                                    <p style="display: none" th:text="${shp.getCommodityKind()}">類型</p>
+
                                 </div>
                             </div>
                         </div>
@@ -174,7 +177,7 @@
 
 
             // 發送網路請求
-            xhttp.send();
+            // xhttp.send();
             // 創建一個 XMLHttpRequest 物件來發送網路請求
             var xhttp2 = new XMLHttpRequest();
             xhttp2.onreadystatechange = function () {
@@ -184,7 +187,7 @@
             };
             xhttp2.open("GET", "fragments/footer.html", true);
             // 發送網路請求
-            xhttp2.send();
+            // xhttp2.send();
         }
 
         // 在頁面載入完成後呼叫 includeHTML 函數
@@ -192,11 +195,38 @@
     </script>
 
     <script>
+
         $(document).ready(function () {
+            // 選項動態
             $(".categories_text").click(function () {
                 $(this).next().slideToggle(300);
             });
+            // 篩選
+            var selectnum=0;
+            var selectlist=[];
+            $(".categories_text2").click(function (){
+                $(this).css("color","#425ce3").css("background-color","#fff")
+                selectnum++;
+                selectlist.push(this.type)
+                if (selectnum===1){
+                    $(".product-wap").hide();
+                }
+                console.log(selectlist)
+                $.each(selectlist, function (index, value) {
+                    $("p").filter(function() {
+                        return $(this).text() === value;
+                    }).parents('.product-wap').show();
+                })
+            })
+            // 清除篩選
+            $(".clearbtn").click(function (){
+                $(".categories_text2").css("color","#000").css("background-color","")
+                selectlist=[];
+                selectnum=0;
+                $(".product-wap").show();
+            })
         });
+
     </script>
 </body>
 
