@@ -252,14 +252,27 @@
         window.onload = includeHTML;
     </script>
     <script>
-        // 功能按鍵
+        // 加入購物車功能按鍵
+        var loginbool = false;
         $(document).ready(function (){
             $("#joinbtn").click(function (){
                 $.ajax({
-                    type:'POST',
-                    url:'/joincart',
-                    data:{id:$(this).data('id'),num:$("#var-value").text()}
-                })
+                    type: 'POST',
+                    url: '/joincart',
+                    data: {id: $(this).data('id'), num: $("#var-value").text()},
+                    success: function(response) {
+                        alert(response)
+                        if (response==="尚未登入"){
+                            $(".login_modal").show();
+                            $('a').css('pointer-events', 'none');
+                            $('.login_text2').css('pointer-events', 'auto');
+                        }
+                    },
+                    error: function(error) {
+                        // 在这里处理请求错误
+                        console.error('Error:', error);
+                    }
+                });
             })
         })
     </script>

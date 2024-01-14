@@ -45,9 +45,6 @@ $(document).on('click', function (e) {
             }
         });
 
-
-
-
     } else if (!modal.is(e.target) && modal.has(e.target).length === 0) {
         // 將彈出框隱藏
         $(".login_modal").hide();
