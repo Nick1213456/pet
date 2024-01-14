@@ -23,9 +23,12 @@
 </head>
 
 <body>
+<!-- th:fragment="header" -->
 <header th:fragment="header">
-    <div class="login_modal">
-        <form class="animate login_modal-content" method="post" action="/pscheck">
+    <div class="login_modal" style="display: none;">
+        <!-- 會員登入 -->
+
+        <form id="login_modal_2" class="animate login_modal-content " method="post" action="/pscheck">
             <div class="imgcontainer">
                 <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
             </div>
@@ -36,17 +39,17 @@
                         <label for="uname">
                             <p class="login_text">使用者帳號</p>
                         </label>
-                        <input type="text" placeholder="請輸入帳號" id="uname" name="username" required="required">
+                        <input type="text" placeholder="請輸入帳號" name="username" required>
                     </div>
                     <div class="option">
                         <label for="psw">
                             <p class="login_text">使用者密碼</p>
                         </label>
-                        <input type="password" placeholder="請輸入密碼" id="psw" name="password" required="required">
+                        <input type="password" placeholder="請輸入密碼" name="password" required>
                     </div>
 
-                    <div class="option2">
-                        <a href="/forgetpassword" style="margin-right: 10px;">
+                    <div id="forget_password2" class="option2">
+                        <a href="#" style="margin-right: 10px;" id="forget_password2_2">
                             <p class="login_text2">忘記密碼?</p>
                         </a>
                         <p class="login_text2">|</p>
@@ -58,10 +61,48 @@
                 </div>
             </section>
         </form>
+
+
+        <!-- 忘記密碼 -->
+
+        <form id="forget_password3" class="d-none1 animate login_modal-content " method="post">
+            <div class="imgcontainer">
+                <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
+            </div>
+            <section class="login_bar_up">
+                <h2 class="loginarticle">Login</h2>
+                <div class="login_box">
+                    <div class="option">
+                        <label for="email">
+                            <p class="login_text">信箱</p>
+                        </label>
+                        <input type="email" id="email" name="email" required placeholder="abc@gmail.com"
+                               style="width: 30rem; font-size: 1.5rem; padding-left: 1rem;">
+                    </div>
+                    <div class="option">
+                        <label for="Birtday">
+                            <p class="login_text">生日</p>
+                        </label>
+                        <input type="date" id="Birtday" value="Birtday" style="width: 30rem; font-size: 1.5rem; padding-left: 1rem;">
+
+                    </div>
+
+                    <div id="login_up2" class="option2">
+                        <a href="#" style="margin-right: 10px;">
+                            <p class="login_text2">返回登入畫面</p>
+                        </a>
+
+                        <button type="submit">驗證</button>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+
     </div>
     <div class="container">
         <section class="h_logo">
-            <a href="/index"><img src="/images/logo_01.png" alt="header_logo" title="logo" aria-label="logo"></a>
+            <a href="/index"><img src="images/logo_01.png" alt="header_logo" title="logo" aria-label="logo"></a>
         </section>
         <section class="h_nav_bar">
             <div class="search_login">
@@ -71,7 +112,7 @@
                         <a href="#"><i class="fa fa-xl fa-cart-shopping"></i></a>
                     </div>
                     <button class="login_bar">註冊/登入</button>
-                    <a href="/signOut"><button class="login_bar d-none1">登出</button></a>
+                    <a href="/signOut" id="d-none2"><button class="login_bar d-none1" >登出</button></a>
                 </div>
             </div>
             <nav class="navbar">
@@ -81,8 +122,7 @@
                     <div class="btn-icon"></div>
                 </div>
                 <ul>
-                    <li><a class="active" href="/index"><i
-                            class="fa fa-fw fa-home"></i> 首頁</a></li>
+                    <li><a class="active" href="/index"><i class="fa fa-fw fa-home"></i> 首頁</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> 關於我們</a></li>
                     <li><a href="/petlist"><i class="fa fa-fw fa-paw"></i> 給牠個家</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a></li>
@@ -94,8 +134,6 @@
         </section>
         <script src="/js/login.js"></script>
     </div>
-    <!-- <img class="bg_img" src="./img/bg01.png" alt="bg_img"> -->
-
 </header>
 </body>
 
