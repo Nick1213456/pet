@@ -68,53 +68,51 @@
     <!-- 上架商品頁 -->
 
     <div id="updateproduct">
-        <div >
-            <h2>上架商品</h2>
-        <table class="mytable2">
-            <tr>
-                <td>商品ID:</td>
-                <td><input type="text" class="inputcss" id="CommodityID" required="required"></td>
-            </tr>
-            <tr>
-                <td>商品名稱:</td>
-                <td><input type="text"  class="inputcss" id="CommodityName" required="required"></td>
-            </tr>
-            <tr>
-                <td>規格:</td>
-                <td><input type="text"  class="inputcss" id="size" required="required"></td>
-            </tr>
-            <tr>
-                <td>分類:</td>
-                <td><input type="text"  class="inputcss" id="CommodityKind" required="required"></td>
-            </tr>
-            <tr>
-                <td>庫存:</td>
-                <td><input type="text"  class="inputcss" id="Inventory" required="required"></td>
-            </tr>
-            <tr>
-                <td>售價:</td>
-                <td><input type="text"  class="inputcss" id="Price" required="required"></td>
-            </tr>
-            <tr>
-            <td >成本價:</td>
-            <td><input type="text"   class="inputcss" id="Cost" required="required"></td>
-            </tr>
 
-        </table>
-        </div>
+            <h2>上架商品</h2>
+            <form enctype="multipart/form-data" action="upload_Product" method="post">
+                <table class="mytable2">
+                    <tr>
+                        <td>商品ID:</td>
+                        <td><input type="text" class="inputcss" id="CommodityID" name="CommodityID" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>商品名稱:</td>
+                        <td><input type="text"  class="inputcss" id="CommodityName" name="CommodityName" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>規格:</td>
+                        <td><input type="text"  class="inputcss" id="size" name="size" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>分類:</td>
+                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>庫存:</td>
+                        <td><input type="text"  class="inputcss" id="Inventory" name="Inventory" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>售價:</td>
+                        <td><input type="text"  class="inputcss" id="Price" name="Price" required="required"></td>
+                    </tr>
+                    <tr>
+                    <td >成本價:</td>
+                    <td><input type="text"   class="inputcss" id="Cost" name="Cost" required="required"></td>
+                    </tr>
+                </table>
+
         <!-- 上傳商品部分 -->
-       <div class="updatepic">
+<!--       <div class="updatepic">-->
            <img src="" style="width: 200px;height:200px;background: white" id="imagePreview">
-           <form method="post" enctype="multipart/form-data" action="/CommodityImg">
-               <input type="file" id="fileInput" name="fileInput" accept="image/*" >
-               <input type="submit" id="confirm1" name="confirm1" value="確認">
-               <input type="reset" id="reset1" name="reset1">
+
+               <input type="file" id="fileInput" name="fileInput" accept="image/*">
+               <button type="submit"  class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
+                background-color: #C58484;width: 30%;margin-left: 50%; margin-top: 10%;">上架</button>
            </form>
 
-       </div>
+<!--       </div>-->
 
-       <button class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
-       background-color: #C58484;width: 17%;margin-left: 83%;">上架</button>
     </div>
     <!-- 訂單資料頁 -->
     <div id="orderlist">
@@ -361,34 +359,11 @@
     </script>
 
     <script>
-        //會員管理頁面用
-        $(document).ready(function(){
-            $("#CmmoditoryBtn").click(function(){
-                var CommodityID = $('#CommodityID').val();
-                var CommodityName = $('#CommodityName').val();
-                var size = $('#size').val();
-                var CommodityKind = $('#CommodityKind').val();
-                var Inventory = $('#Inventory').val();
-                var Price = $('#Price').val();
-                var Cost = $('#Cost').val();
-                $.post(
-                    "/upload_Product",
-                    {"CommodityID":CommodityID,"CommodityName":CommodityName,"size":size,"CommodityKind":CommodityKind,"Inventory":Inventory,"Price":Price,"Cost":Cost}
-                )
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
-            });
-        });
-    </script>
-
-    <script>
         //照片上傳和預覽
         $(document).ready(function() {
-            $('#confirm1').hide();
-            $('#reset1').hide();
+
             //預覽
-            $('#fileInput').on('change', function(e) {
+            $('#fileInput').on('change', function(e){
                 var size= 5*1024*1024;
                 var file = e.target.files[0];
                 var imageType = /image.*/;
@@ -397,8 +372,6 @@
                     reader.onload = function(e) {
                         $('#imagePreview').attr('src', e.target.result);
                         $('#imagePreview').show();
-                        $('#confirm1').show();
-                        $('#reset1').show();
                     }
                     reader.readAsDataURL(file);
                 }
@@ -406,21 +379,10 @@
                     alert("檔案過大(5MB)或發生其他錯誤無法上傳");
                     $('#fileInput').val('');
                 }
-
             });
 
             $('#confirm1').click(function (){
-                $('#confirm1').hide();
-                $('#reset1').hide();
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
 
-            });
-            $('#reset1').click(function (){
-                $('#imagePreview').attr('src','');
-                $('#confirm1').hide();
-                $('#reset1').hide();
             });
         });
     </script>

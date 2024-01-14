@@ -90,21 +90,17 @@ public class loginController {
 
     }
 
-    //忘記密碼
-    @GetMapping("/forgetpassword")
-    public String forgetpassword(){
-        return("forgetpassword");
-    }
+
 
     //檢查忘記密碼驗證
     @PostMapping("/forgetpassword")
-    public String returnPassword(passwdForget pF,Model model){
+    public String returnPassword(@ModelAttribute passwdForget pF,Model model){
         String username = pF.getUsername();
         String email = pF.getEmail();
         String password = mS.returnPassword(username,email);
         model.addAttribute("password",password);
         model.addAttribute("username",username);
-        return ("returnpasswd");
+        return ("/index");
     }
 
     //登出

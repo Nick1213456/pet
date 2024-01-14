@@ -79,33 +79,28 @@ public class staffController {
 
     //貨品上架處理
     @PostMapping("/upload_Product")
-    public String upload_ProductService(@ModelAttribute productModel pM){
+    public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf){
         //將傳過來的插入資料庫
         if(sS.product_upload(pM)){
+            Path productPhoto= Paths.get("C:/temp/"+pM.getCommodityID()+".jpg");
+            try{
+                if(Files.exists(productPhoto)){
+                    Files.copy(mf.getInputStream(),productPhoto, StandardCopyOption.REPLACE_EXISTING);
+                }
+                else{
+                    mf.transferTo(productPhoto);
+                }
+            }
+            catch (Exception e){
+                System.err.println("檔案存入失敗");
+            }
+
+
             return("redirect:/backstage");
         }
         else {
             return("productUpload_Failed");
         }
-    }
-
-    @PostMapping("/CommodityImg")
-    public String uploadImg(@RequestPart("fileInput") MultipartFile mf){
-
-        Path memberPhoto= Paths.get("C:/temp/Commodity_01.jpg");
-        try{
-            if(Files.exists(memberPhoto)){
-                Files.copy(mf.getInputStream(),memberPhoto, StandardCopyOption.REPLACE_EXISTING);
-            }
-            else{
-                mf.transferTo(memberPhoto);
-            }
-        }
-        catch (Exception e){
-            System.err.println("檔案存入失敗");
-        }
-
-        return ("redirect:/backstage");
     }
 
 
