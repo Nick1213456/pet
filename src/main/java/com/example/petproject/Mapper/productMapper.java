@@ -30,7 +30,8 @@ public class productMapper implements RowMapper<productModel> {
             // 讀取圖片檔案
             pm.setImageBytes( "data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(bytepath));
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            pm.setImageBytes("/images/close_icon.png");
         }
         return pm;
     }
