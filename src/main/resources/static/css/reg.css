@@ -6,7 +6,7 @@ body {
 .reggrid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 100px minmax(100px, 2fr) 1fr;
+    grid-template-rows: 125px minmax(100px, 2fr) 1fr;
     gap: 10px;
 }
 
@@ -26,7 +26,7 @@ body {
 @media screen and (max-width: 480px) {
     .reggrid {
         grid-template-columns: 1fr ;
-        grid-template-rows: 100px minmax(100px, 2fr) 1fr;
+        grid-template-rows: 125px minmax(100px, 2fr) 1fr;
     }
 
     .reggrid::before {

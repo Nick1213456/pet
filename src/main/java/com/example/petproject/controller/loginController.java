@@ -36,6 +36,12 @@ public class loginController {
         return("index");
     }
 
+    //about
+    @GetMapping("/about")
+    public String about(){
+        return("about");
+    }
+
     //登入頁面
     @GetMapping("/login")
     public String doDefault(){

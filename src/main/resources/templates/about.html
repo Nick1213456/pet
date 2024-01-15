@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們</title>
+    <link rel="stylesheet" href="./css/allCss.css">
+    <link rel="stylesheet" href="./css/about.css">
+
+    <!-- jquery js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="cart_bg1">
+    <!-- 載入 header.html -->
+    <!-- <div id="includedContent"></div> -->
+    <div th:insert="/Fragments/header :: header"></div>
+    <main class="about2">
+        <!-- Start Content -->
+        <!-- 內容放這邊 -->
+        <!-- Start Hero Section -->
+        <div class="row about-img-wrap">
+            <div class="row pb-5 align-content-center m-auto">
+                <div class="col-lg-5">
+                    <div class="col-lg-12 pb-5 intro-excerpt">
+                        <h1>歡迎來到「滿懷愛，領養有家」網站！</h1>
+                        <p class="my-5">我們是一個致力於推動領養代替購買的專題網站，旨在創造一個全面的平台，方便愛心人士尋找新成員，並促進毛小孩與新家庭之間更深層次的連結。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- <div class="col-lg-5 col-md-12 intro-excerpt">
+                    <h1>歡迎來到「滿懷愛，領養有家」網站！</h1>
+                    <p class="my-5">我們是一個致力於推動領養代替購買的專題網站，旨在創造一個全面的平台，方便愛心人士尋找新成員，並促進毛小孩與新家庭之間更深層次的連結。
+                    </p>
+                </div> -->
+    
+            </div>
+        </div>
+        
+        <!-- End Hero Section -->
+        <!-- Start Why Choose Us Section -->
+        <div class="row " style="padding: 10rem 0 5rem 0;">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="col-lg-12 pb-5">
+                            <h3 class="section-title">我們的起源</h3>
+                            <p class="about_p pt-3">
+                                靈感源自對領養的支持，我們深刻認識到除了官方和大型非營利組織外，還有許多中途之家，他們通常透過個人社交平台分享領養資訊。然而，這樣的方式面臨許多挑戰，包括領養人的狀態和後續追蹤的不便。同時，還有一群潛在的領養者，他們雖然尚未擁有寵物，卻渴望迎接一個新家庭成員。
+                            </p>
+                        </div>
+                        <div class="col-lg-12 pb-5">
+                            <h3 class="section-title">我們的使命</h3>
+                            <p class="about_p pt-3">
+                                為了解決這些問題，我們決定建立這個網站，集結所有領養相關的資訊，並與寵物用品店合作，提供初次領養家庭所需的新手資訊。透過我們的網站，您可以方便地進行線上選擇、約定會見、完成領養，甚至購買寵物必備的用品等操作。
+                            </p>
+                        </div>
+                        <div class="col-lg-12 pt-5">
+                            <h3 class="section-title">我們的特色</h3>
+                            <ul class="ps-5 pt-3">
+                                <li class="about_sp">使用者友善性： </li>
+                                <p class="about_p text-justify">我們的網站設計簡潔易懂，讓使用者能夠輕鬆瀏覽和使用。清晰的導航和指引，引導使用者完成整個領養流程。</p>
+                                <li class="about_sp">資訊完整性：</li>
+                                <p class="about_p text-justify">
+                                    我們確保網站包含豐富且正確的領養相關資訊，包括動物的健康狀態、領養流程的詳細步驟、責任與義務等方面的信息，以幫助領養者做出明智的決定。</p>
+
+                                <li class="about_sp">社區建設：</li>
+                                <p class="about_p text-justify">
+                                    我們提供一個互動區，讓新的領養家庭和中途之家分享故事、照片，並互相交流經驗。這有助於建立一個支持性的社群，促進毛小孩與新家庭之間的更深層次連結。</p>
+
+                                <li class="about_sp">寵物用品合作：</li>
+                                <p class="about_p text-justify">我們與寵物用品店合作，提供特別優惠或折扣給使用我們網站領養的家庭，以鼓勵更多人領養。這也為新的毛小孩提供必需的用品。</p>
+
+                                <li class="about_sp">會員隱私與資訊安全：</li>
+                                <p class="about_p text-justify">我們確保領養者和中途之家的會員資訊得到保護，並明確說明隱私政策。這有助於建立使用者信任感。</p>
+
+                                <li class="about_sp">後續追蹤：</li>
+                                <p class="about_p text-justify">我們提供一個機制，讓領養者定期分享毛小孩的近況，這有助於中途之家了解被領養毛小孩的後續情況，並及時提供協助。</p>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-5 pb-5">
+                        <div class="img-wrap">
+                            <img src="images/pexels-moath-photos-19769187.jpg" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Why Choose Us Section -->
+        <!-- Start Team Section -->
+        <div class="row">
+            <div class="container">
+                <div class="col">
+                    <div class="row mb-5">
+                        <div class="col-lg-12 mx-auto text-center">
+                            <h2 class="section-title">Our Team</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Start Column 1 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 1 -->
+                        <!-- Start Column 2 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 2 -->
+                        <!-- Start Column 3 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 3 -->
+                        <!-- Start Column 4 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 4 -->
+                        <!-- Start Column 5 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 5 -->
+                        <!-- Start Column 6 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 6 -->
+                        <!-- Start Column 7 -->
+                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <h3>NAME1</h3>
+                            <p class="about_p">前端設計</p>
+                        </div>
+                        <!-- End Column 7 -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- End Content -->
+
+        <!-- 載入 footer.html -->
+        <!-- <div id="includfooter"></div> -->
+        <div th:insert="/fragments/footer :: footer"></div>
+    </main>
+
+
+    <!-- 載入 header.html js -->
+    <script>
+        // 創建一個函數來載入其他檔案的內容
+        function includeHTML() {
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp = new XMLHttpRequest();
+
+            // 當請求狀態改變時執行的函數
+            xhttp.onreadystatechange = function () {
+                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+                if (this.readyState == 4 && this.status == 200) {
+                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                    document.getElementById("includedContent").innerHTML = this.responseText;
+                }
+            };
+
+            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+            xhttp.open("GET", "fragments/header.html", true);
+
+
+            // 發送網路請求
+            xhttp.send();
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("includfooter").innerHTML = this.responseText;
+                }
+            };
+            xhttp2.open("GET", "fragments/footer.html", true);
+            // 發送網路請求
+            xhttp2.send();
+        }
+
+        // 在頁面載入完成後呼叫 includeHTML 函數
+        window.onload = includeHTML;
+    </script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

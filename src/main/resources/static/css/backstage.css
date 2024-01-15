@@ -1,75 +1,112 @@
 /* 本css有兩處使用了float強制定位，若有排版問題可試著從float找 */
-body
-{
-    background-color:rgb(183, 192, 201)
+body {
+    background-color: rgb(156, 178, 199);
 }
-/* 整體table顏色 */
-table
-{
-background-color: #FFFFFF;
-border-collapse: separate;
-border-spacing: 0px 20px;
-border: 0.3px dashed gray;
+
+
+
+/* 整體 table 顏色 */
+table {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-spacing: 0px 20px;
+    border: 0.3px dashed gray;
+    width: 100%; /* 新增這行 */
+    text-wrap: nowrap;
+    font-size: 1rem;
 }
-h2{
-    font-size: 3.5rem;
+
+h2 {
+    font-size: 2.5rem;
     margin: 10px;
     padding-bottom: 20px;
 }
-/* 整體input顏色 */
-input
-{
+
+/* 整體 input 顏色 */
+input {
     background-color: #b3bdc2;
 }
+
+button {
+    width: auto;
+    background-color: #C58484;
+    text-wrap: nowrap;
+    border-radius: 5px;
+}
+
 /* 左側按鈕 */
-.leftbtn{
+.leftbtn {
     color: #FFFFFF;
-    font-size: 2rem;
+    font-size: 1.5rem;
     height: 100px;
     border-radius: 8px;
     background-color: #C58484;
-    margin-top: 10px;
-    margin-left: -22px;
 }
-.leftbtn:hover
-{
-background-color: rgb(125, 74, 69);
+
+.leftbtn:hover {
+    background-color: rgb(125, 74, 69);
 }
-.leftbtn:focus
-{
-background-color: rgb(125, 74, 69);
+
+.leftbtn:focus {
+    background-color: rgb(125, 74, 69);
 }
+
 /* 一個方框包裹住右側內容 */
-.rightsection
-{
+/* 初始樣式 */
+.rightsection {
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
 
-position: relative;
-top: 2px;
-border: 3px dashed black;
-font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr; /* 只需要一個 column，整個 rightsection 就是這一欄 */
+    grid-template-rows: auto 1fr auto; /* 設置行高 */
 
- margin-bottom: 200px;
- margin-left: 17%;
- margin-right: 1%;
- padding-right: 10px;
- padding-bottom: 10px;
- 
- background-color: antiquewhite;
- box-shadow: 5px 5px black;
-
-}
-.myaside
-{
     position: relative;
-top: 100px;
+    top: 2px;
+    border: 3px dashed black;
+    font-size: 2rem;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    box-shadow: 5px 5px black;
 }
-aside
-{
+
+/* 在螢幕寬度小於 768px 時修改樣式 */
+@media screen and (max-width: 768px) {
+    .rightsection {
+        width: 100%;
+        overflow: auto; 
+        max-height: 300px; 
+    }
+}
+
+.rightsection table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.mygrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 1fr 1fr 1fr;
+}
+
+aside {
     display: flex;
     flex-direction: column;
-    width: 10%;
-    float: left;
+    width: 100%;
+    text-wrap: nowrap;
+    margin-left: -10%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
+
 .parent-of-myflexcontainer {
     display: flex;
     flex-direction: row;
@@ -82,58 +119,46 @@ aside
     overflow: hidden;
 }
 
-.updatepic {
-    float: right;
-    width: 35%;
-    margin-left: 10px; /* 調整左邊間距 */
-    margin-top: -28%;
-}
-.updatepic img {
-    width: 50%; /* 調整圖片寬度，使其充滿父容器 */
-    margin-bottom: 10px; /* 添加底部間距 */
+table th {
+    border: 1px dashed gray;
 }
 
-/* 上一頁下一頁 */
-.pagebtn
-{
-border-radius: 8px;
-background-color: #C58484;
+table tr {
+    border: 1px dashed gray;
 }
 
-.mytable
-{
-    table-layout:auto;
-    border: 0.3px dashed gray;
+table td {
+    border: 1px dashed gray;
 }
 
-.mytable,tr,td,th
- {
-    border: 0.3px dashed gray;
-    width: 50%;
-     
- }
- .mytable,td,th
- {
-    width:50%;
-    
-     
- }
- .mytable2 {
-    
-    width: 50%;
-    margin-left: 10px; /* 調整左邊間距 */
-}
-    
+/* 不同內容各自的 grid */
 
- .ordertable
- {
-    table-layout:auto
+#updateproduct {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100px 2fr;
 }
- .ordertable,tr,td,th
- {
-    border: 0.3px dashed gray;
-    width: 100%;
 
-    white-space: nowrap;
-    text-align: center;
- }
+#updateproduct h2 {
+    grid-area: 1/1/2/2;
+    text-wrap: nowrap;
+}
+
+#updateproduct table {
+    grid-area: 2/1/3/4;
+    width: 100%; /* 新增這行 */
+}
+
+#updateproduct img {
+    grid-area: 2/4/3/5;
+    justify-self: center;
+}
+
+#updateproduct .theupload {
+    grid-area: 2/4/3/5;
+    align-self: center;
+    margin-top: 130px;
+}
+
+#updateproduct button {
+    grid-area: 4/4/5/5;
+}
