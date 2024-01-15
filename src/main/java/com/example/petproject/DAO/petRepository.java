@@ -20,4 +20,10 @@ public class petRepository {
 //    public List<petModel> getpetUid(){
 //        return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
 //    }
+
+    public int insertPetData(petModel pM){
+        jdbcTemplate.update("INSERT INTO `petprogram`(PetName,Gender,Ligation,HairLengh,HairColor,Age,Weight,Variety,Kind,Remark)"+
+                "VALUES('"+pM.getPetName()+"','"+pM.getGender()+"','"+pM.getLigation()+"','"+pM.getHairLength()+"','"+pM.getHairColor()+"','"+pM.getAge()+"','"+pM.getWeight()+"','"+pM.getVariety()+"','"+pM.getKind()+"','"+pM.getRemark()+"');");
+        return jdbcTemplate.queryForObject("Select MAX(UID) FROM petprogram",Integer.class);
+    }
 }

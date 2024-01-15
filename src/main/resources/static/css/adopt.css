@@ -1,0 +1,142 @@
+.html{
+    font-size: 10px;
+    
+}
+li
+{list-style: none;}
+
+body
+{
+background-image:url("/images/paw_mosaicbg.png");
+
+}
+ul
+{
+font-size: 2rem;
+}
+/* 限制只有type為text的input使用此格 */
+input[type="text"] 
+{
+    width: 90%;
+    border-radius: 8px;
+}
+/* 限制只有type為radio的input使用此格 */
+input[type="radio"] {
+    width: 11%;
+}
+button
+{
+    background-color: #C58484;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: white;
+    height: auto;
+}
+.mygrid
+{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr  3fr 3fr 1fr 1fr 1fr ;
+    grid-template-rows: 25vh 2fr  1fr ;
+    
+}
+/* 如果在section裡的div再包div會導致grid布局把所有東西看成單獨的1個，會導致grid-column-start等功能失效，
+故要創建一個borderbox不能用單純包div的方式，只能用::before創建一個假元素來製造一個borderbox */
+.mygrid::before {
+    content: " ";
+    
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: block;
+    margin-top: -50px;
+    margin-bottom: -50px;
+    margin-left: -15px;
+    margin-right: -15px;
+    box-sizing: content-box;
+    padding: 20px;
+    border: 2px dashed #000;
+    box-shadow: 10px 10px darkgray;
+    background-color: rgba(238, 221, 204, 0.7);
+    border-radius: 15px;
+    z-index: -1; /* 将伪元素放在堆叠顺序的底部 */
+
+}
+
+/* .mygrid::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; 
+    padding: 20px;
+    border: 2px solid #000;
+  } */
+
+  .adoptdatatxt {
+    /* 這裡只能使用absolute我不知道原因 */
+    position:absolute;
+    bottom: 0;
+    
+    align-items: center; 
+    justify-content: center; 
+    
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-family: 'Leckerli One', cursive;
+    font-size: 4rem;
+}
+
+.imgbtn
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    
+    font-size: 1.5rem;
+    height: 40px;
+    
+    width: 100%;
+    margin: 0; 
+}
+
+
+.imgupdate {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.myoption {
+    
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.updatebtn
+{
+    height: 30px;
+    width: 150%;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+footer {
+    width: 100%;
+    grid-row: 6; /* 适当设置行位置 */
+  }
