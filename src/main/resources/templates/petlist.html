@@ -103,7 +103,7 @@
         <div class="rightcontain">
             <!--        每個picbox內容依次為圖片+寵物名字+我要領養按鈕-->
             <div class="picbox" th:each="pet:${pets}">
-                <div><img src="/images/image.png" alt="貓狗照片" class="picshadow"></div>
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
                 <div>
                     <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
                     <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
