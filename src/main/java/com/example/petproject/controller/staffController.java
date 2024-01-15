@@ -82,7 +82,7 @@ public class staffController {
     public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf){
         //將傳過來的插入資料庫
         if(sS.product_upload(pM)){
-            Path productPhoto= Paths.get("C:/temp/"+pM.getCommodityID()+".jpg");
+            Path productPhoto= Paths.get("C:/temp/productimg/"+pM.getCommodityID()+".jpg");
             try{
                 if(Files.exists(productPhoto)){
                     Files.copy(mf.getInputStream(),productPhoto, StandardCopyOption.REPLACE_EXISTING);

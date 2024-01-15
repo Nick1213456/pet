@@ -115,7 +115,7 @@ public class loginController {
     public String uploadImg(@RequestPart("fileInput") MultipartFile mf,HttpSession session){
 
         String username = (String)session.getAttribute("username");
-        Path memberPhoto=Paths.get("C:/temp/"+username+"_01.jpg");
+        Path memberPhoto=Paths.get("C:/temp/memberimg/"+username+"_01.jpg");
         try{
             if(Files.exists(memberPhoto)){
                 Files.copy(mf.getInputStream(),memberPhoto,StandardCopyOption.REPLACE_EXISTING);
