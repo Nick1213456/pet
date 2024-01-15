@@ -16,4 +16,9 @@ public class petService {
     public List<petModel> getpetAll(){
         return petRepository.getpetAll();
     }
+
+    public int insertPetData(petModel pM){
+        return petRepository.insertPetData(pM);
+
+    }
 }
