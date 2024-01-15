@@ -112,8 +112,8 @@
                 <div class="col-lg-9">
                     <div class="row" style="width: 100%">
                         <!-- 產品更換區 開始 -->
-                        <div class="col-md-4" th:each="shp:${shopping}" >
-                            <div class="card mb-4 product-wap rounded-0" >
+                        <div class="col-md-4 product-wap" th:each="shp:${shopping}" >
+                            <div class="card mb-4 rounded-0" >
                                 <div class="card rounded-0">
                                     <a th:href="'/shopping-single?id='+${shp.getCommodityID()}">
                                         <img class="card-img rounded-0 img-fluid" th:src="${shp.getImageBytes()}"></a>
