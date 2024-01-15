@@ -16,4 +16,8 @@ public class petRepository {
     public List<petModel> getpetAll(){
         return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
     }
+
+//    public List<petModel> getpetUid(){
+//        return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
+//    }
 }
