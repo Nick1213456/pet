@@ -70,7 +70,7 @@
     <div id="updateproduct">
 
             <h2>上架商品</h2>
-            <form enctype="multipart/form-data" action="upload_Product" method="post">
+            <form enctype="multipart/form-data" action="upload_Product" method="post" style="display: flex">
                 <table class="mytable2">
                     <tr>
                         <td>商品ID:</td>
@@ -86,7 +86,19 @@
                     </tr>
                     <tr>
                         <td>分類:</td>
-                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>
+<!--                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>-->
+                        <td>
+                            <select class="inputcss" id="CommodityKind" name="CommodityKind">
+                                <option value="貓-飼料">貓-飼料</option>
+                                <option value="貓-罐頭">貓-罐頭</option>
+                                <option value="貓-零食">貓-零食</option>
+                                <option value="貓-用品">貓-用品</option>
+                                <option value="狗-飼料">狗-飼料</option>
+                                <option value="狗-罐頭">狗-罐頭</option>
+                                <option value="狗-零食">狗-零食</option>
+                                <option value="狗-用品">狗-用品</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>庫存:</td>
@@ -104,11 +116,12 @@
 
         <!-- 上傳商品部分 -->
 <!--       <div class="updatepic">-->
-           <img src="" style="width: 200px;height:200px;background: white" id="imagePreview">
-
-               <input type="file" id="fileInput" name="fileInput" accept="image/*">
-               <button type="submit"  class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
+                <div>
+                <img src="" style="width: 200px;height:200px;background: white" id="imagePreview">
+                <input type="file" id="fileInput" name="fileInput" accept="image/*">
+                <button type="submit"  class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
                 background-color: #C58484;width: 30%;margin-left: 50%; margin-top: 10%;">上架</button>
+                </div>
            </form>
 
 <!--       </div>-->
@@ -134,8 +147,8 @@
             </thead>
             <tbody th:each="order:${orderlist}">
             <tr>
-                <td th:text="${order.OrderNumber}" class="orderNumber">訂單編號</td>
-                <td  th:text="${order.getGuestUID()}">客戶UID</td>
+                <td th:text="${order.getOrderNumber()}" class="orderNumber">訂單編號</td>
+                <td  th:text="${order.getGuestName()}">客戶UID</td>
                 <td>條碼</td>
                 <td  th:text="${order.getOrderAmount()}">金額</td>
                 <td  th:text="${order.getOrderDate()}">下單日期</td>
@@ -144,8 +157,8 @@
                 <td >出貨方式</td>
                 <td  th:text="${order.getPicker()}">檢貨員ID</td>
                 <td >
-                    <button class="button2" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">撿貨</button>
-                    <button class="button1" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">出貨</button>
+                    <button class="button2" th:attr="data-ordernumber=${order.getOrderNumber},data-status=${order.getStatus()}">撿貨</button>
+                    <button class="button1" th:attr="data-ordernumber=${order.getOrderNumber},data-status=${order.getStatus()}">出貨</button>
                 </td>
             </tr>
 
