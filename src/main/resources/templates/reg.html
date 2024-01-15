@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>註冊畫面</title>
     
-    <link rel="stylesheet" href="./css/allCss.css">
-    <link rel="stylesheet" href="./css/reg.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/allCss.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/reg.css">
 
     <!-- jquery js -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -23,7 +23,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div th:insert="/Fragments/header :: header"></div>
+    <div th:insert="/src/main/resources/templates/fragments/header.html :: header"></div>
 
     <main>
         <!-- Start Content -->
@@ -37,33 +37,33 @@
                 <form method="post" enctype="multipart/form-data" action="/reg" th:object="${registModel}">
                         <div class="updateimg">
                             <img th:src="${session.src}" style="width: 200px;height: 200px;border-radius: 50%;border: 1px solid black" id="imagePreview"><br>
-                            <button><input type="file"  id="fileInput" name="fileInput"  accept="image/*" value="上傳頭像"></button>
+                           <input type="file"  id="fileInput" name="fileInput"  accept="image/*" value="上傳頭像" >
                         </div>
                         <div style="display: block;flex-direction: row;">
-                            <span style="font-size: 2rem">帳號:<input id="username" style="font-size: 2rem" type="text"  name="username" required="required" size="30" placeholder="請輸入欲設帳號..." th:field="*{username}"></span><br>
+                            <span style="font-size: 2rem;display: flex;flex-direction: row;">帳號:<input id="username" style="font-size: 2rem" type="text"  name="username" required="required" size="30" placeholder="請輸入欲設帳號..." th:field="*{username}"></span><button id="button1" >驗證帳號</button><br>
                             <p id="pass"  style="font-size: 1.5rem;color: brown;display: none">這個帳號可以使用!</p><br>
                             <p id="notpass" style="font-size: 1.5rem;color: brown;display: none">此帳號已經註冊過,請換個帳號</p><br>
-                            <span style="font-size: 1.5rem">密碼:<input   id="password" type="password" style="font-size: 2rem" name="password" required="required" placeholder="請輸入欲設密碼..." size="30" th:field="*{password}"></span>
+                            <span style="font-size: 2rem">密碼:<input   id="password" type="password" style="font-size: 2rem" name="password" required="required" placeholder="請輸入欲設密碼..." size="30" th:field="*{password}"></span>
                             <p id="password-strength" style="font-size: 1.5rem"></p><br>
-                            <span style="font-size: 2rem">密碼確認<input  type="password" style="font-size: 2rem" name="passwordCheck" id="passwordCheck" required="required" placeholder="請再次輸入密碼..." size="30" th:field="*{passwordCk}"></span><br>
+                            <span style="font-size: 2rem">確認:<input  type="password" style="font-size: 2rem" name="passwordCheck" id="passwordCheck" required="required" placeholder="請再次輸入密碼..." size="30" th:field="*{passwordCk}"></span><br>
                             <p id="password-CheckIn" style="font-size: 1.5rem"></p><br>
                             <div class="myrow">
-                            <span style="font-size: 2rem">姓名:<input  type="text"  name="name" style="font-size: 2rem" required="required" placeholder="請輸入姓名或暱稱..." size="30" th:field="*{name}"></span><br>
+                            <span style="font-size: 2rem">姓名:<input  type="text"  name="name" style="font-size: 2rem" required="required" placeholder="請輸入姓名或暱稱..." size="25" th:field="*{name}"></span><br>
                             <span style="font-size: 2rem">生日:<input  type="date"  name="birth" style="font-size: 2rem" required="required" th:field="*{birth}"></span><br>
                         </div>
 
                         <div>
-                            <span style="font-size: 2rem">地址: <input  type="text"  name="address" style="font-size: 2rem" required="required" size="50" th:field="*{address}" placeholder="請輸入地址..."></span><br>
+                            <span style="font-size: 2rem">地址: <input  type="text"  name="address" style="font-size: 2rem" required="required" size="40" th:field="*{address}" placeholder="請輸入地址..."></span><br>
                             </div>
-                            <span style="font-size: 2rem">手機號碼:<input type="tel" style="font-size: 2rem" name="cellphone" required="required"placeholder="請輸入手機號碼..." th:field="*{phone}"></span><br>
-                            <span style="font-size: 2rem">電子郵件:<input type="email" style="font-size: 2rem" name="email" required="required" placeholder="請輸入電子郵件..." size="30" th:field="*{email}"></span><br>
+                            <span style="font-size: 2rem">手機號碼:<input type="tel" style="font-size: 2rem" name="cellphone" required="required"placeholder="請輸入手機號碼..." size="40" th:field="*{phone}"></span><br>
+                            <span style="font-size: 2rem">電子郵件:<input type="email" style="font-size: 2rem" name="email" required="required" placeholder="請輸入電子郵件..." size="40" th:field="*{email}"></span><br>
                             <span style="font-size: 2rem">領養經驗:<input type="text" style="font-size: 2rem" name="adpExp"  size="30" placeholder="請用30字內來描述..." th:field="*{adpExp}"></span><br>
-                            <span style="font-size: 2rem">居住坪數:<input type="text" style="font-size: 2rem" name="meter"  size="20" placeholder="請輸入坪數..." th:field="*{meter}">坪</span><br>
+                            <span style="font-size: 2rem">居住坪數:<input type="text" style="font-size: 2rem" name="meter"  size="30" placeholder="請輸入坪數..." th:field="*{meter}">坪</span><br>
                             <input class="regbtn" type="submit" value="註冊" style="font-size: 2rem" >
                         </div>
 
                 </form>
-                    <button style="height: 30px;width: 5%;font-size: 1.5rem;position: absolute;top:33%;left: 27%;border-radius: 50%" id="button1" >驗證帳號</button>
+                    
                 </div>
             </section>
         </div>
@@ -71,7 +71,7 @@
         <!-- End Content -->
 
         <!-- 載入 footer.html -->
-        <div th:insert="/fragments/footer :: footer"></div>
+        <div th:insert="/src/main/resources/templates/fragments/footer :: footer"></div>
     </main>
 
 
