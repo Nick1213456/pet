@@ -1,89 +1,109 @@
-body
-{
-    background-image: url("/img/paw_mosaicbg.png");
+body {
+    background-image: url("/src/main/resources/static/images/paw_mosaicbg.png");
+    margin: 0; /* 为了去掉body的默认边距 */
 }
 
-.reggrid
-{
+.reggrid {
     display: grid;
-    grid-template-columns:1fr 1fr 1fr 2fr 1fr 1fr 1fr ;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 100px minmax(100px, 2fr) 1fr;
+    gap: 10px;
 }
-.reggrid button >span
-{
-    text-wrap: nowrap;
+
+/* 屏幕宽度小于等于 768px */
+@media screen and (max-width: 768px) {
+    .reggrid {
+        grid-template-columns:  1fr ;
+        grid-template-rows: auto;
+    }
+
+    .reggrid::before {
+        margin-right: 0; /* 在小屏幕下去掉右边距 */
+    }
 }
+
+/* 屏幕宽度小于等于 480px */
+@media screen and (max-width: 480px) {
+    .reggrid {
+        grid-template-columns: 1fr ;
+        grid-template-rows: 100px minmax(100px, 2fr) 1fr;
+    }
+
+    .reggrid::before {
+        margin-bottom: 0; /* 在更小的屏幕下去掉底部距离 */
+    }
+}
+
+.reggrid button > span {
+    white-space: nowrap;
+}
+
 .reggrid::before {
     content: " ";
-    
     grid-column-start: 4;
-    grid-column-end: 6s;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
     display: block;
     margin-top: 0;
-    margin-bottom: -50px;
-    margin-left: -35px;
-    margin-right: -35px;
+    margin-left: -5%; /* 使用相对单位来调整 */
+    margin-right: -5%; /* 使用相对单位来调整 */
+    margin-bottom: -5%; /* 使用相对单位来调整 */
     box-sizing: content-box;
-    padding-top: -100px;
+    padding-top: -10%; /* 使用相对单位来调整 */
     border: 2px dashed #000;
     box-shadow: 10px 10px darkgray;
     background-color: rgba(197, 132, 132, 0.25);
     border-radius: 15px;
-    z-index: -1; /* 将伪元素放在堆叠顺序的底部 */
-
+    z-index: -1;
 }
 
-/* 強制橫排 */
-.myrow
-{
+.myrow {
     display: flex;
     flex-direction: row;
     margin: 5px;
 }
 
-.updateimg
-{
+.updateimg,
+.mysection {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-   
-    grid-column-start:4 ;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    margin: 5px;
+}
+
+.updateimg {
+    grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 1;
-    grid-row-end:2 ;
+    grid-row-end: 2;
 }
-.mysection
-{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-   
-    grid-column-start:4 ;
+
+.mysection {
+    grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 2;
-    grid-row-end:3 ;
-    font-size: 2rem;
-    
-    
+    grid-row-end: 3;
 }
 
-
-.lesspadding
-{
-    padding-left: -3%;
-}
-.mysection span
- {
-text-align: left;
-padding-bottom: 4.5%;
+.mysection span {
+    text-align: left;
+    padding-bottom: 4.5%;
+    display: block;
 }
 
+.regbtn {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
+    margin: 5px;
+}
 
-
-.reggrid button
-{
+.reggrid button {
     background-color: #C58484;
     color: white;
     width: auto;
@@ -92,17 +112,4 @@ padding-bottom: 4.5%;
     padding-right: 5%;
     border-radius: 15px;
     font-size: 1.5rem;
-}
-
-.regbtn
-{ 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-   
-    grid-column-start:4 ;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end:4 ;
-
 }
