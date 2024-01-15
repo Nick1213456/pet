@@ -10,6 +10,7 @@ html {
   font-size: 10px;
 }
 
+
 .col-lg-3 .categories_title {
   font-size: 2.4rem;
   font-weight: 900;
@@ -83,3 +84,6 @@ html {
   font-size: 1.8rem;
 }/*# sourceMappingURL=shopping.css.map */
 
+.pet_detail{
+  font-size: 1.3rem;
+}

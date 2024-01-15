@@ -21,10 +21,12 @@ public class apiController {
     @PostMapping("/check-session")
     public String checkSession(HttpSession session) {
         String username = (String) session.getAttribute("username");
-        if (username != null) {
-            return username;
-        } else {
+        String memberper = (String) session.getAttribute("memberPer");
+        if (username == null && memberper == null ) {
             return "";
+
+        }else {
+            return username+memberper;
         }
     }
 }

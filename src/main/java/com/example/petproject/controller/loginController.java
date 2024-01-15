@@ -51,10 +51,12 @@ public class loginController {
         boolean result = mS.passcheck(username,password);
         if(result && memberPer.equals("1")) {
             session.setAttribute("username",username);
+            session.setAttribute("memberPer",memberPer);
             return ("redirect:memberpage");
         }
         else if(result && memberPer.equals("2")){
             session.setAttribute("username",username);
+            session.setAttribute("memberPer",memberPer);
             return ("redirect:/backstage");
         }
         else{

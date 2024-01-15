@@ -100,7 +100,8 @@ body {
     grid-row-start: 3;
     grid-row-end: 4;
     justify-self: center;
-    margin: 5px;
+    margin: 30px;
+
 }
 
 .reggrid button {
@@ -111,5 +112,5 @@ body {
     padding-left: 5%;
     padding-right: 5%;
     border-radius: 15px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
