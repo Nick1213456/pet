@@ -11,8 +11,7 @@ import java.sql.SQLException;
 import java.util.Base64;
 
 public class petMapper implements RowMapper<petModel> {
-    Path imagePath;
-    byte[] bytepath;
+
     @Override
     public petModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         petModel pm = new petModel();
@@ -33,10 +32,9 @@ public class petMapper implements RowMapper<petModel> {
         pm.setRemark(rs.getString("Remark"));
 
 
-
         try {
-            imagePath = Paths.get("C:/temp/petimg/"+rs.getLong("UID")+"/img_1.jpg");
-            bytepath = Files.readAllBytes(imagePath);
+            Path imagePath = Paths.get("C:/temp/petimg/"+rs.getLong("UID")+"/img_1.jpg");
+            byte[] bytepath = Files.readAllBytes(imagePath);
             // 讀取圖片檔案
             pm.setImageBytes( "data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(bytepath));
         } catch (Exception e) {

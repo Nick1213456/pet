@@ -116,7 +116,7 @@
                             <div class="card mb-4 product-wap rounded-0" >
                                 <div class="card rounded-0">
                                     <a th:href="'/shopping-single?id='+${shp.getCommodityID()}">
-                                        <img class="card-img rounded-0 img-fluid" src="/images/grid_img_03.jpg"></a>
+                                        <img class="card-img rounded-0 img-fluid" th:src="${shp.getImageBytes()}"></a>
                                 </div>
                                 <div class="card-body2">
                                     <a th:href="'/shopping-single?id='+${shp.getCommodityID()}" class="h3 text-decoration-none"
