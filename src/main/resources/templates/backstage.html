@@ -7,7 +7,7 @@
     <title>後台畫面</title>
     
     <link rel="stylesheet" href="/css/allCss.css">
-    <link rel="stylesheet" href="/css/backstage.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/backstage.css">
 
     <!-- jquery js -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -30,7 +30,7 @@
         
         <!-- 內容放這邊 -->
         
-        <div class="myaside">
+        <form class="mygrid">
             <aside >
                 <button onclick="btn1()" class=" leftbtn">
                     上架周邊
@@ -67,11 +67,11 @@
     </div>
     <!-- 上架商品頁 -->
 
-    <div id="updateproduct">
+    <div id="updateproduct" >
 
             <h2>上架商品</h2>
-            <form enctype="multipart/form-data" action="upload_Product" method="post" style="display: flex">
-                <table class="mytable2">
+            <form enctype="multipart/form-data" action="upload_Product" method="post" style="width: 100%;">
+                <table class="mytable2" >
                     <tr>
                         <td>商品ID:</td>
                         <td><input type="text" class="inputcss" id="CommodityID" name="CommodityID" required="required"></td>
@@ -86,19 +86,7 @@
                     </tr>
                     <tr>
                         <td>分類:</td>
-<!--                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>-->
-                        <td>
-                            <select class="inputcss" id="CommodityKind" name="CommodityKind">
-                                <option value="貓-飼料">貓-飼料</option>
-                                <option value="貓-罐頭">貓-罐頭</option>
-                                <option value="貓-零食">貓-零食</option>
-                                <option value="貓-用品">貓-用品</option>
-                                <option value="狗-飼料">狗-飼料</option>
-                                <option value="狗-罐頭">狗-罐頭</option>
-                                <option value="狗-零食">狗-零食</option>
-                                <option value="狗-用品">狗-用品</option>
-                            </select>
-                        </td>
+                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>
                     </tr>
                     <tr>
                         <td>庫存:</td>
@@ -116,12 +104,10 @@
 
         <!-- 上傳商品部分 -->
 <!--       <div class="updatepic">-->
-                <div>
-                <img src="" style="width: 200px;height:200px;background: white" id="imagePreview">
-                <input type="file" id="fileInput" name="fileInput" accept="image/*">
-                <button type="submit"  class="updatebutton" id="CmmoditoryBtn" style="border-radius: 8px;
-                background-color: #C58484;width: 30%;margin-left: 50%; margin-top: 10%;">上架</button>
-                </div>
+           <img src="" style="width: 200px;height:200px;background: white;" id="imagePreview" >
+
+               <input type="file" id="fileInput" name="fileInput" accept="image/*" class="theupload" >
+               <button type="submit"  class="updatebutton" id="CmmoditoryBtn">上架</button>
            </form>
 
 <!--       </div>-->
@@ -133,22 +119,22 @@
         <table class="ordertable">
             <thead>
                 <tr>
-                    <th style="width: 300px">訂單編號</th>
-                    <th style="width: 300px">客戶UID</th>
-                    <th style="width: 300px">條碼</th>
-                    <th style="width: 300px">金額</th>
-                    <th style="width: 300px">下單日期</th>
-                    <th style="width: 300px">出貨日期</th>
-                    <th style="width: 300px">狀態</th>
-                    <th style="width: 300px">出貨方式</th>
-                    <th style="width: 300px">檢貨員ID</th>
-                    <th style="width: 300px">狀態變更</th>
+                    <th>訂單編號</th>
+                    <th>客戶UID</th>
+                    <th>條碼</th>
+                    <th>金額</th>
+                    <th >下單日期</th>
+                    <th>出貨日期</th>
+                    <th>狀態</th>
+                    <th>出貨方式</th>
+                    <th>檢貨員ID</th>
+                    <th>狀態變更</th>
                 </tr>
             </thead>
             <tbody th:each="order:${orderlist}">
             <tr>
-                <td th:text="${order.getOrderNumber()}" class="orderNumber">訂單編號</td>
-                <td  th:text="${order.getGuestName()}">客戶UID</td>
+                <td th:text="${order.OrderNumber}" class="orderNumber">訂單編號</td>
+                <td  th:text="${order.getGuestUID()}">客戶UID</td>
                 <td>條碼</td>
                 <td  th:text="${order.getOrderAmount()}">金額</td>
                 <td  th:text="${order.getOrderDate()}">下單日期</td>
@@ -157,8 +143,8 @@
                 <td >出貨方式</td>
                 <td  th:text="${order.getPicker()}">檢貨員ID</td>
                 <td >
-                    <button class="button2" th:attr="data-ordernumber=${order.getOrderNumber},data-status=${order.getStatus()}">撿貨</button>
-                    <button class="button1" th:attr="data-ordernumber=${order.getOrderNumber},data-status=${order.getStatus()}">出貨</button>
+                    <button class="button2" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">撿貨</button>
+                    <button class="button1" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">出貨</button>
                 </td>
             </tr>
 
@@ -173,8 +159,8 @@
     <!-- 會員資料頁 -->
     <div id="memberlist">
         <h2>會員資料操作</h2>
-        帳號搜尋:<input id="myInput" type="text" placeholder="Search.."><br>
-        <hr>
+        帳號搜尋:<input id="myInput" type="text" placeholder="Search.." style="width: 20%;"><br>
+        
         <table  class="ordertable" id="myTable">
             <thead>
                 <tr>
@@ -206,7 +192,7 @@
 
 
 
-        </div>
+</form>
 
         <!-- End Content -->
 
@@ -255,7 +241,7 @@
     <script src="./js/login.js"></script>
     <script>
         // 沒按按鈕的顯示
-        document.getElementById("mainpage").style.display = 'block';
+        document.getElementById("mainpage").style.display = 'grid';
         document.getElementById("updateproduct").style.display = 'none';
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'none';
@@ -263,7 +249,7 @@
     function btn1() {
         // var mydiv="updateproduct";
         document.getElementById("mainpage").style.display = 'none';
-        document.getElementById("updateproduct").style.display = 'block';
+        document.getElementById("updateproduct").style.display = 'grid';
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'none';
         
@@ -272,7 +258,7 @@
         // var mydiv="orderlist";
         document.getElementById("mainpage").style.display = 'none';
         document.getElementById("updateproduct").style.display = 'none';
-        document.getElementById("orderlist").style.display = 'block';
+        document.getElementById("orderlist").style.display = 'grid';
         document.getElementById("memberlist").style.display = 'none';
     }
     function btn3() {
@@ -280,7 +266,7 @@
         document.getElementById("mainpage").style.display = 'none';
         document.getElementById("updateproduct").style.display = 'none';
         document.getElementById("orderlist").style.display = 'none';
-        document.getElementById("memberlist").style.display = 'block';
+        document.getElementById("memberlist").style.display = 'grid';
     }
     
     </script>
