@@ -84,7 +84,6 @@ public class loginController {
 
     @PostMapping("/memberpage")
     public String memberPage_Change(@ModelAttribute memberData mD){
-        System.out.println("名字:"+mD.getName()+",帳號:"+mD.getUsername());
         mS.dataChange(mD);
         return ("memberpage");
 
