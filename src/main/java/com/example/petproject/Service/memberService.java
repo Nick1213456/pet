@@ -124,6 +124,7 @@ public class memberService {
     //登出時清除session
     public void signOut(HttpSession session){
         session.removeAttribute("username");
+        session.removeAttribute("memberPer");
     }
 
     //利用帳號取出會員資料
