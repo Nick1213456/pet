@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- header css -->
-    <link rel="stylesheet" href="/css/allCss.css">
-    <link rel="stylesheet" href="/css/petlist.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/allCss.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/petlist.css">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- jquery-ui -->
@@ -38,7 +38,7 @@
             <div class="searching">
                 <input class="searchinput" type="text" placeholder="請輸入名稱進行搜索...">
 <!--               搜索按鈕-->
-                <button class="searchbtn"><img src="/images/search.png" class="searchimg"></button>
+                <button class="searchbtn"><img src="/src/main/resources/static/images/search.png" class="searchimg"></button>
             </div>
             <!-- 搜索條件選擇 -->
             <div class="searchcheck">
@@ -112,8 +112,11 @@
                     <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
                 </div>
 
+              
                 <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
             </div>
+            
+
 
             <div>
                 <button class="pagebtnup">上一頁</button>

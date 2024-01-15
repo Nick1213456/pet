@@ -40,6 +40,12 @@ body
 {
     width: 295px;
 }
+@media  screen and (max-width: 900px) {
+    .searchinput
+{
+    width: 125px;
+}
+}
 .searchcheck
 {
     position: relative;
@@ -126,7 +132,7 @@ body
     flex-direction: row;
     flex-wrap: wrap;
 
-    height: 100vh;
+    height: auto;
     width: 70%;
 
     border: 3px dashed black;
@@ -138,6 +144,11 @@ body
     margin-bottom: 20px;
     box-shadow: 10px 10px gray;
 }
+
+.rightcontain >div
+{
+    width: 17.5%;
+}
 .footercontain{
     height: auto;
     background-color: #892B2B;
@@ -147,6 +158,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    text-wrap: nowrap;
 
 }
 .btncolor
@@ -182,6 +194,34 @@ body
     bottom:10px;
     padding: 8px;
     margin-bottom: 10px;
+}
+@media  screen and (max-width: 900px) {
+    .pagebtnup{
+        color: white;
+        background-color: #C58484;
+        border-radius: 5px;
+        font-size: 1.5rem;
+       position: absolute;
+    
+        left:10px;
+        bottom:10px;
+        padding: 8px;
+        margin-bottom: -80px;
+    
+    }
+    .pagebtndown{
+        color: white;
+        background-color: #C58484;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        text-align:right;
+        position: absolute;
+    
+        right:10px;
+        bottom:10px;
+        padding: 8px;
+        margin-bottom: -80px;
+    }
 }
 .nametext
 {
