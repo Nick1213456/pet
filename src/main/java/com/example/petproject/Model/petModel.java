@@ -25,4 +25,5 @@ public class petModel {
     private String chip;
     private String ad_Name;
     private String remark;
+    private String imageBytes;
 }
