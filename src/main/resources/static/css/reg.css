@@ -1,0 +1,108 @@
+body
+{
+    background-image: url("/img/paw_mosaicbg.png");
+}
+
+.reggrid
+{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 2fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+.reggrid button >span
+{
+    text-wrap: nowrap;
+}
+.reggrid::before {
+    content: " ";
+    
+    grid-column-start: 4;
+    grid-column-end: 6s;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: block;
+    margin-top: 0;
+    margin-bottom: -50px;
+    margin-left: -35px;
+    margin-right: -35px;
+    box-sizing: content-box;
+    padding-top: -100px;
+    border: 2px dashed #000;
+    box-shadow: 10px 10px darkgray;
+    background-color: rgba(197, 132, 132, 0.25);
+    border-radius: 15px;
+    z-index: -1; /* 将伪元素放在堆叠顺序的底部 */
+
+}
+
+/* 強制橫排 */
+.myrow
+{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.updateimg
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+   
+    grid-column-start:4 ;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end:2 ;
+}
+.mysection
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+   
+    grid-column-start:4 ;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end:3 ;
+    font-size: 2rem;
+    
+    
+}
+
+
+.lesspadding
+{
+    padding-left: -3%;
+}
+.mysection span
+ {
+text-align: left;
+padding-bottom: 4.5%;
+}
+
+
+
+.reggrid button
+{
+    background-color: #C58484;
+    color: white;
+    width: auto;
+    padding: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+
+.regbtn
+{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+   
+    grid-column-start:4 ;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end:4 ;
+
+}

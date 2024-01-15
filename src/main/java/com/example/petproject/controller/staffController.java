@@ -82,8 +82,15 @@ public class staffController {
     public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf){
         //將傳過來的插入資料庫
         if(sS.product_upload(pM)){
-            Path productPhoto= Paths.get("C:/temp/"+pM.getCommodityID()+".jpg");
+            String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
+            // 指定文件路径
+            Path productPhoto = Paths.get(directoryPath, "01.jpg");
             try{
+                //如果父路徑不存在 創立新的資料夾
+                if (!Files.exists(productPhoto.getParent())) {
+                    Files.createDirectories(productPhoto.getParent());
+                }
+                //如果檔名有了 就覆蓋 否則傳送一個
                 if(Files.exists(productPhoto)){
                     Files.copy(mf.getInputStream(),productPhoto, StandardCopyOption.REPLACE_EXISTING);
                 }

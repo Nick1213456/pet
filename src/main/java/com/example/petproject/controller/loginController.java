@@ -116,7 +116,9 @@ public class loginController {
     public String uploadImg(@RequestPart("fileInput") MultipartFile mf,HttpSession session){
 
         String username = (String)session.getAttribute("username");
-        Path memberPhoto=Paths.get("C:/temp/"+username+"_01.jpg");
+        String directoryPath = "C:/temp/memberimg/" + username + "/";
+        // 指定文件路径
+        Path memberPhoto = Paths.get(directoryPath, "01.jpg");
         try{
             if(Files.exists(memberPhoto)){
                 Files.copy(mf.getInputStream(),memberPhoto,StandardCopyOption.REPLACE_EXISTING);

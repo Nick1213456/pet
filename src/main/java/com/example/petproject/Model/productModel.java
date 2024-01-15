@@ -19,4 +19,5 @@ public class productModel {
     private int Price;
     private double Cost;
     private String Detail;
+    private String imageBytes;
 }

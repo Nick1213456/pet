@@ -39,7 +39,9 @@ public class registController {
             case 0:
                 msg = "註冊成功!";
                 String username = registModel.getUsername();
-                Path memberPhoto= Paths.get("C:/temp/"+username+"_01.jpg");
+                String directoryPath = "C:/temp/memberimg/" + username + "/";
+                // 指定文件路径
+                Path memberPhoto = Paths.get(directoryPath, "01.jpg");
                 try{
                     if(Files.exists(memberPhoto)){
                         Files.copy(mf.getInputStream(),memberPhoto, StandardCopyOption.REPLACE_EXISTING);
