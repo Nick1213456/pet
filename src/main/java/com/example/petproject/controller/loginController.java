@@ -43,6 +43,12 @@ public class loginController {
     }
 
     //news
+    @GetMapping("/problem")
+    public String problem(){
+        return("problem");
+    }
+
+    //news
     @GetMapping("/news")
     public String news(){
         return("news");
