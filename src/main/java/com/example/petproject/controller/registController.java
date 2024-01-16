@@ -29,29 +29,29 @@ public class registController {
 
     //註冊結果判定
     @PostMapping("/reg")
-    public String registCheck(HttpSession session,Model model, @ModelAttribute RegistModel registModel){
+    public String registCheck(Model model,HttpSession session, @ModelAttribute RegistModel registModel){
         int result = mS.memberRegist(registModel);
-        String msg;
+        String msg = null;
         switch (result){
             case 0:
-                msg = "註冊成功!";
                 String username = registModel.getRegistUsername();
                 session.setAttribute("username",username);
+                msg="註冊成功";
                 break;
             case 1:
                 msg = "密碼與密碼確認不同，請再重新輸入";
                 break;
             case 2:
-                msg = "帳號已經註冊完成過,請更換註冊帳號";
+                msg="帳號已經註冊完成過,請更換註冊帳號";
                 break;
             case 3:
-                msg = "帳號不可包含禁止詞彙(delete,drop,select,update...等),請更換帳號";
+                msg="帳號不可包含禁止詞彙(delete,drop,select,update...等),請更換帳號";
                 break;
             default:
-                msg = "發生不明錯誤，請與客服人員聯絡解決問題";
+                msg="發生不明錯誤，請與客服人員聯絡解決問題";
         }
         model.addAttribute("mesg",msg);
-        return("regResult");
+        return("/regResult");
     }
 
 

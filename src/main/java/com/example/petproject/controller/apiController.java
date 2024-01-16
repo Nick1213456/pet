@@ -1,5 +1,6 @@
 package com.example.petproject.controller;
 
+import com.example.petproject.Model.RegistModel;
 import com.example.petproject.Service.memberService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,6 @@ public class apiController {
             return username+memberper;
         }
     }
+
 
 }

@@ -61,7 +61,7 @@ public class memberService {
         else if(usernameCheck(username)){
             result = 2;
         }
-        else if(username.equals("delete") || username.equals("drop") || username.equals("select") || username.equals("update")){
+        else if(username.equalsIgnoreCase("delete") || username.equalsIgnoreCase("drop") || username.equalsIgnoreCase("select") || username.equalsIgnoreCase("update")){
             result = 3;
         }
         else {

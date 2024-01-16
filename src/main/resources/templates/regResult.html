@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
     <p th:text="${mesg}" id="mesg"></p>
-    <p th:text="${session.username}"></p>
+    <p th:text="${session.username}" id="username"></p>
     <script>
-        var mesg=document.getElementById('mesg').toString();
-        var username=document.getElementById('username').toString();
-        alert("註冊結果為:"+mesg);
-        if(username != null){
-            location.href="/memberpage";
-        }
-        else {
-            location.href="/reg";
-        }
+        $(document).ready(function(){
+            var mesg=$('#mesg').text();
+            alert("註冊結果為:"+mesg);
+            if(mesg==="註冊成功"){
+                alert("哈哈");
+                location.href=("/memberpage");
+            }
+            else{
+                alert("呵呵");
+                location.href=("/reg");
+            }
+        });
+
+
     </script>
 </body>
 </html>
