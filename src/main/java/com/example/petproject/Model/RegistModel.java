@@ -12,10 +12,10 @@ import lombok.Setter;
 public class RegistModel {
     private String registUsername;
     private String password;
-    private String passwordCk;
+    private String passwordCheck;
     private String name;
     private String Birth;
-    private String phone;
+    private String cellphone;
     private String email;
     private String address;
     private String adpExp;

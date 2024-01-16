@@ -30,7 +30,7 @@ public class memberRepository {
             m = Integer.parseInt(meter);
         }
         String sql = "INSERT INTO member (username,password,name,birth,cellphone,email,address,meter,adpExp)" +
-                "VALUES('" + registModel.getRegistUsername() + "','" + registModel.getPassword() + "','" + registModel.getName() + "','" + registModel.getBirth() + "','" + registModel.getPhone() + "','" + registModel.getEmail() + "','" + registModel.getAddress() + "'," + m + ",'" + registModel.getAdpExp() + "');";
+                "VALUES('" + registModel.getRegistUsername() + "','" + registModel.getPassword() + "','" + registModel.getName() + "','" + registModel.getBirth() + "','" + registModel.getCellphone() + "','" + registModel.getEmail() + "','" + registModel.getAddress() + "'," + m + ",'" + registModel.getAdpExp() + "');";
         jdbcTemplate.update(sql);
     }
 
