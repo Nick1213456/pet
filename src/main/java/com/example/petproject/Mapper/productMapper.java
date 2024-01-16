@@ -23,7 +23,15 @@ public class productMapper implements RowMapper<productModel> {
         pm.setPrice(rs.getInt("Price"));
         pm.setCost(rs.getDouble("Cost"));
         pm.setDetail(rs.getString("Detail"));
-
+        try {
+            Path imagePath = Paths.get("C:/temp/productimg/"+rs.getInt("CommodityID")+"/img_1.jpg");
+            byte[] bytepath = Files.readAllBytes(imagePath);
+            // 讀取圖片檔案
+            pm.setImageBytes( "data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(bytepath));
+        } catch (Exception e) {
+//            e.printStackTrace();//紅字錯誤
+            pm.setImageBytes("/images/close_icon.png");
+        }
         return pm;
     }
 }
