@@ -1,0 +1,84 @@
+@charset "UTF-8";
+.aaa .container {
+  width: 90%;
+  /* details 元素的樣式 */
+}
+.aaa .container h2 {
+  color: #943B3B;
+  font-weight: 600;
+  transition: all 0.3s var(--cubic);
+}
+.aaa .container details {
+  margin-bottom: 15px;
+  max-height: 1000px;
+  transition: max-height 50s ease;
+  /* summary 元素的樣式 */
+  /* 將 ::before 伪元素插入到 summary 元素之前 */
+  /* 詳細內容的樣式 */
+}
+.aaa .container details summary {
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgba(148, 59, 59, 0.662745098);
+  color: #fff;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  font-size: 2rem;
+}
+.aaa .container details summary h3 {
+  font-size: 2rem;
+  margin: 0 1rem;
+  font-weight: 600;
+}
+.aaa .container details summary:hover {
+  background-color: #943B3B;
+}
+.aaa .container details summary:active {
+  transition: all 0.5s ease;
+}
+.aaa .container details summary::before {
+  content: "▶";
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+  order: 1;
+}
+.aaa .container details[open] {
+  border: 2px solid #943B3B;
+  border-radius: 10px;
+  max-height: 1000px;
+  transition: max-height 0.5s ease;
+}
+.aaa .container details[open] summary::before {
+  transform: rotate(90deg);
+}
+.aaa .container details[open] summary {
+  background-color: #943B3B;
+  border-radius: 5px 5px 0 0;
+}
+.aaa .container details .p-all h4 {
+  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #943B3B;
+  line-height: 180%;
+}
+.aaa .container details .p-all ol, .aaa .container details .p-all ul {
+  margin: 1rem 2.5rem 2rem 2.5rem;
+}
+.aaa .container details .p-all ol li, .aaa .container details .p-all ul li {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+.aaa .container details .p-all ol li a, .aaa .container details .p-all ul li a {
+  text-decoration: none;
+  color: rgb(237, 54, 54);
+  font-weight: 600;
+}
+.aaa .container details .p-all ol li a:hover, .aaa .container details .p-all ul li a:hover {
+  color: rgb(66, 108, 206);
+}/*# sourceMappingURL=problem.css.map */
