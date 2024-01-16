@@ -36,13 +36,13 @@
               <table class="table2 col-md-12 col-md-12 col-sm-auto" >
                 <thead>
                   <tr class="cart_table2_tr col-sm-auto">
-                    <th class="product-thumbnail">Image</th>
+                    <th class="product-thumbnail">圖片</th>
                     <th class="product-name">商品名稱</th>
                     <th class="product-price">規格</th>
                     <th class="product-quantity">單價</th>
                     <th class="product-total">數量</th>
                     <th class="product-remove">總計</th>
-                    <th class="product-remove">Remove</th>
+                    <th class="product-remove">刪除商品</th>
                   </tr>
                 </thead>
 
@@ -50,7 +50,7 @@
                   <!-- 商品開始 -->
                   <tr class="cart_table2_tr2" th:each="cart:${carts}">
                     <td class="product-thumbnail">
-                      <img src="/images/product/cat/4681415-2_xxl.jpg" alt="Image" class="img-fluid">
+                      <a th:href="'/shopping-single?id='+${cart.getCommodityID()}"><img th:src="${cart.getImageBytes()}" alt="Image" class="img-fluid"></a>
                     </td>
                     <td class="product-name">
                       <h3 class="text-black" th:text="${cart.getCommodityName()}">Ever-Clean-美規藍鑽白標雙重活性碳低敏25磅L</h3>
@@ -65,21 +65,21 @@
                       <div class="input-group mb-3 d-flex align-items-center quantity-container m-auto"
                         style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-black decrease" type="button"><span
+                          <button class="btn btn-outline-black decrease" type="button" th:attr="data-method='-',data-pid=${cart.getCommodityID()}"><span
                               style="font-size: 1.5rem;">&minus;</span></button>
                         </div>
-                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder=""
+                        <input type="text" class="form-control text-center quantity-amount" th:value="${cart.getComQuantity()}" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-black increase" type="button"><span
+                          <button class="btn btn-outline-black increase" type="button" th:attr="data-method='+',data-pid=${cart.getCommodityID()}"><span
                               style="font-size: 1.5rem;">&plus;</span></button>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <h3 th:text="${cart.getAmount()}">$49.00元</h3>
+                      <h3 th:text="${cart.getAmount()}" class="Amount">$49.00元</h3>
                     </td>
-                    <td><a href="#" class="btn btn-black btn-sm">
+                    <td><a href="#" class="btn btn-black btn-sm deletebtn" th:attr="data-pid=${cart.getCommodityID()}">
                         <h5>X</h5>
                       </a></td>
                   </tr>
@@ -105,7 +105,7 @@
                     <div class="row">
                       <div class="col-md-12 ">
                         <h3 class="text-end">總計</h3>
-                        <p class="text-end" style="font-size: 2rem; font-weight: 600;">$230.00</p>
+                        <p class="text-end" style="font-size: 2rem; font-weight: 600;" id="totalAmount">$99999</p>
                       </div>
                     </div>
                     
@@ -167,7 +167,44 @@
     window.onload = includeHTML;
   </script>
   <script src="./js/login.js"></script>
-
+  <script>
+    $(document).ready(function (){
+      //刪除購物車
+      $('.deletebtn').click(function() {
+        $.ajax({
+          type: 'POST',
+          url: '/deletecat',
+          data: {id: $(this).data('pid')},
+          success: function(response) {
+            alert(response)
+          }
+        });
+        location.reload();//重整
+        this.preventDefault();//不跳轉A標籤
+      });
+      //修改數量
+      $('.btn-outline-black').click(function() {
+        $.ajax({
+          type: 'POST',
+          url: '/updateqnum',
+          data: {id: $(this).data('pid'),method:$(this).data('method')},
+          success: function(response) {
+          }
+        });
+        location.reload();//重整
+      });
+      //總計
+      var totalAmount=0;
+      $(".Amount").each(function() {
+        var amountNumber = parseInt($(this).text(), 10);
+        // 验证是否是有效的数字
+        if (!isNaN(amountNumber)) {
+          totalAmount += amountNumber;
+        }
+      });
+      $("#totalAmount").text("$"+totalAmount)
+    })
+  </script>
 </body>
 
 </html>

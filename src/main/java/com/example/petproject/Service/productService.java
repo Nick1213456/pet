@@ -6,6 +6,10 @@ import com.example.petproject.Model.productModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -28,6 +32,15 @@ public class productService {
            pp.setDetail(p.getDetail());
            pp.setCommodityID(p.getCommodityID());
            pp.setCommodityKind(p.getCommodityKind());
+            try {
+                Path imagePath = Paths.get("C:/temp/productimg/"+p.getCommodityID()+"/img_1.jpg");
+                byte[] bytepath = Files.readAllBytes(imagePath);
+                // 讀取圖片檔案
+                pp.setImageBytes( "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(bytepath));
+            } catch (Exception e) {
+//            e.printStackTrace();
+                pp.setImageBytes("/images/close_icon.png");
+            }
         }
         return pp;
     }

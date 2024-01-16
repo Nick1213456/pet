@@ -14,7 +14,6 @@ public class apiController {
     @PostMapping("/regist/usernameCk")
     public boolean usernameCk(@RequestBody String username){
         boolean result2 = mS.usernameCheck(username);
-        //result:表示帳號是否存在 true = 存在
         return result2;
     }
     //傳sesstion username給login.js判斷登入登出
@@ -29,4 +28,5 @@ public class apiController {
             return username+memberper;
         }
     }
+
 }

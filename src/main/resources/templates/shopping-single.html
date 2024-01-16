@@ -54,7 +54,7 @@
                     <div class="col-lg-5 mt-5">
                         <div class="card mb-3">
                             <!-- 大圖更換 -->
-                            <img class="card-img img-fluid" src="/images/product/cat/4681415-1_xxl.jpg" alt="Card image cap"
+                            <img class="card-img img-fluid" th:src="${shopping2.getImageBytes()}" alt="Card image cap"
                                 id="product-detail">
                         </div>
                         <div class="row">
@@ -77,7 +77,7 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid"
+                                                    <img class="card-img img-fluid" th:src="${shopping2.getImageBytes()}"
                                                         src="/images/product/cat/4681415-1_xxl.jpg" alt="Product Image 1">
                                                 </a>
                                             </div>
@@ -161,25 +161,25 @@
                                     <input type="hidden" name="product-title" value="Activewear">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <ul class="list-inline pb-3">
-                                                <li class="list-inline-item">Size :
-                                                    <input type="hidden" name="product-size" id="product-size"
-                                                        value="S">
-                                                </li>
-                                                <li class="list-inline-item"><span
-                                                        class="btn btn-success btn-size">S</span></li>
-                                                <li class="list-inline-item"><span
-                                                        class="btn btn-success btn-size">M</span></li>
-                                                <li class="list-inline-item"><span
-                                                        class="btn btn-success btn-size">L</span></li>
-                                                <li class="list-inline-item"><span
-                                                        class="btn btn-success btn-size">XL</span></li>
-                                            </ul>
+<!--                                            <ul class="list-inline pb-3">-->
+<!--                                                <li class="list-inline-item">Size :-->
+<!--                                                    <input type="hidden" name="product-size" id="product-size"-->
+<!--                                                        value="S">-->
+<!--                                                </li>-->
+<!--                                                <li class="list-inline-item"><span-->
+<!--                                                        class="btn btn-success btn-size">S</span></li>-->
+<!--                                                <li class="list-inline-item"><span-->
+<!--                                                        class="btn btn-success btn-size">M</span></li>-->
+<!--                                                <li class="list-inline-item"><span-->
+<!--                                                        class="btn btn-success btn-size">L</span></li>-->
+<!--                                                <li class="list-inline-item"><span-->
+<!--                                                        class="btn btn-success btn-size">XL</span></li>-->
+<!--                                            </ul>-->
                                         </div>
                                         <div class="col-auto">
                                             <ul class="list-inline pb-3">
                                                 <li class="list-inline-item text-right">
-                                                    Quantity
+                                                    購買數量:
                                                     <input type="hidden" name="product-quanity" id="product-quanity"
                                                         value="1">
                                                 </li>
