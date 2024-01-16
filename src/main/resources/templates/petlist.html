@@ -110,11 +110,12 @@
                     <div class="col-md-4 product-wap" th:each="pet:${pets}" style="width: 33%;height: 33%">
                         <div class="card mb-4 rounded-0" >
                             <div class="card rounded-0" >
-                                <a th:href="'/shopping-single?id='+${pet.getUid()}">
-                                    <img class="card-img rounded-0 img-fluid" th:src="${pet.getImageBytes()}"></a>
+                                <a th:href="'/adoptdetail?id='+${pet.getUid()}">
+                                    <img class="card-img rounded-0 img-fluid" th:src="${pet.getImageBytes()}">
+                                </a>
                             </div>
                             <div class="card-body2">
-                                <a th:href="'/shopping-single?id='+${pet.getAge()}" class="h3 text-decoration-none"
+                                <a th:href="'/adoptdetail?id='+${pet.getUid()}" class="h3 text-decoration-none"
                                    style="font-size: 2rem; font-weight: 600;" th:text="${pet.getPetName()}">我是飼料</a>
                                 <div class="pet_detail" style="display: flex">
                                     <p th:text="${pet.getKind()}">類型</p>
@@ -122,7 +123,6 @@
                                     <p th:text="${pet.getVariety()}">品種</p>
                                     <p th:text="${pet.getHairLength()}">長短毛</p>
                                 </div>
-
 
                             </div>
                         </div>

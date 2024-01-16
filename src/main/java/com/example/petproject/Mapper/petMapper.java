@@ -39,7 +39,7 @@ public class petMapper implements RowMapper<petModel> {
             pm.setImageBytes( "data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(bytepath));
         } catch (Exception e) {
 //            e.printStackTrace();//紅字錯誤
-            pm.setImageBytes("/images/banner_02.jpg");
+            pm.setImageBytes("/images/close_icon.png");
         }
 
         return pm;

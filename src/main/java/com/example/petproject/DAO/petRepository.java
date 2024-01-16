@@ -12,7 +12,7 @@ import java.util.List;
 public class petRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
-
+    //查詢全部
     public List<petModel> getpetAll(){
         return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
     }
@@ -20,10 +20,15 @@ public class petRepository {
 //    public List<petModel> getpetUid(){
 //        return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
 //    }
-
+    //上架新增
     public int insertPetData(petModel pM){
         jdbcTemplate.update("INSERT INTO `petprogram`(PetName,Gender,Ligation,HairLengh,HairColor,Age,Weight,Variety,Kind,Remark)"+
                 "VALUES('"+pM.getPetName()+"','"+pM.getGender()+"','"+pM.getLigation()+"','"+pM.getHairLength()+"','"+pM.getHairColor()+"','"+pM.getAge()+"','"+pM.getWeight()+"','"+pM.getVariety()+"','"+pM.getKind()+"','"+pM.getRemark()+"');");
         return jdbcTemplate.queryForObject("Select MAX(UID) FROM petprogram",Integer.class);
+    }
+
+    //給ID查全部
+    public List<petModel> getpetAllForid(int uid){
+        return jdbcTemplate.query("SELECT * FROM petprogram WHERE UID=?",new petMapper(),uid);
     }
 }
