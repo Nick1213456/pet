@@ -26,6 +26,4 @@ public class PageController {
         return "checkout";
     }
 
-
-
 }
