@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>註冊畫面</title>
     
-    <link rel="stylesheet" href="/src/main/resources/static/css/allCss.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/reg.css">
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/reg.css">
 
     <!-- jquery js -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -23,7 +23,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div th:insert="/src/main/resources/templates/fragments/header.html :: header"></div>
+    <header th:insert="/fragments/header :: header"></header>
 
     <main>
         <!-- Start Content -->
@@ -33,45 +33,38 @@
 
             <section class="mysection" style="text-align: left;">
 
-                <div class="myrow">
-                <form method="post" enctype="multipart/form-data" action="/reg" th:object="${registModel}">
-                        <div class="updateimg">
-                            <img th:src="${session.src}" style="width: 200px;height: 200px;border-radius: 50%;border: 1px solid black" id="imagePreview"><br>
-                           <input type="file"  id="fileInput" name="fileInput"  accept="image/*" value="上傳頭像" >
-                        </div>
+                <form action="reg" method="post" class="myrow" enctype="multipart/form-data">
                         <div style="display: block;flex-direction: row;">
-                            <span style="font-size: 2rem;display: flex;flex-direction: row;">帳號:<input id="username" style="font-size: 2rem" type="text"  name="username" required="required" size="30" placeholder="請輸入欲設帳號..." th:field="*{username}"></span><button id="button1" >驗證帳號</button><br>
+                            <span style="font-size: 2rem;display: flex;flex-direction: row;">帳號:<input id="registUsername" style="font-size: 2rem" type="text"  name="registUsername" required="required" size="30" placeholder="請輸入欲設帳號..." ></span>
                             <p id="pass"  style="font-size: 1.5rem;color: brown;display: none">這個帳號可以使用!</p><br>
                             <p id="notpass" style="font-size: 1.5rem;color: brown;display: none">此帳號已經註冊過,請換個帳號</p><br>
-                            <span style="font-size: 2rem">密碼:<input   id="password" type="password" style="font-size: 2rem" name="password" required="required" placeholder="請輸入欲設密碼..." size="30" th:field="*{password}"></span>
+                            <span style="font-size: 2rem">密碼:<input   id="password" type="password" style="font-size: 2rem" name="password" required="required" placeholder="請輸入欲設密碼..." size="30" ></span>
                             <p id="password-strength" style="font-size: 1.5rem"></p><br>
-                            <span style="font-size: 2rem">確認:<input  type="password" style="font-size: 2rem" name="passwordCheck" id="passwordCheck" required="required" placeholder="請再次輸入密碼..." size="30" th:field="*{passwordCk}"></span><br>
+                            <span style="font-size: 2rem">確認:<input  type="password" style="font-size: 2rem" name="passwordCheck" id="passwordCheck" required="required" placeholder="請再次輸入密碼..." size="30" ></span><br>
                             <p id="password-CheckIn" style="font-size: 1.5rem"></p><br>
                             <div class="myrow">
-                            <span style="font-size: 2rem">姓名:<input  type="text"  name="name" style="font-size: 2rem" required="required" placeholder="請輸入姓名或暱稱..." size="25" th:field="*{name}"></span><br>
-                            <span style="font-size: 2rem">生日:<input  type="date"  name="birth" style="font-size: 2rem" required="required" th:field="*{birth}"></span><br>
-                        </div>
+                            <span style="font-size: 2rem">姓名:<input  type="text"  name="name" style="font-size: 2rem" required="required" placeholder="請輸入姓名或暱稱..." size="25" ></span><br>
+                            <span style="font-size: 2rem">生日:<input  type="date"  name="birth" style="font-size: 2rem" required="required" ></span><br>
+                            </div>
 
                         <div>
-                            <span style="font-size: 2rem">地址: <input  type="text"  name="address" style="font-size: 2rem" required="required" size="40" th:field="*{address}" placeholder="請輸入地址..."></span><br>
+                            <span style="font-size: 2rem">地址: <input  type="text"  name="address" style="font-size: 2rem" required="required" size="40"  placeholder="請輸入地址..."></span><br>
                             </div>
-                            <span style="font-size: 2rem">手機號碼:<input type="tel" style="font-size: 2rem" name="cellphone" required="required"placeholder="請輸入手機號碼..." size="40" th:field="*{phone}"></span><br>
-                            <span style="font-size: 2rem">電子郵件:<input type="email" style="font-size: 2rem" name="email" required="required" placeholder="請輸入電子郵件..." size="40" th:field="*{email}"></span><br>
-                            <span style="font-size: 2rem">領養經驗:<input type="text" style="font-size: 2rem" name="adpExp"  size="30" placeholder="請用30字內來描述..." th:field="*{adpExp}"></span><br>
-                            <span style="font-size: 2rem">居住坪數:<input type="text" style="font-size: 2rem" name="meter"  size="30" placeholder="請輸入坪數..." th:field="*{meter}">坪</span><br>
+                            <span style="font-size: 2rem">手機號碼:<input type="tel" style="font-size: 2rem" name="cellphone" required="required"placeholder="請輸入手機號碼..." size="40" ></span><br>
+                            <span style="font-size: 2rem">電子郵件:<input type="email" style="font-size: 2rem" name="email" required="required" placeholder="請輸入電子郵件..." size="40" ></span><br>
+                            <span style="font-size: 2rem">領養經驗:<input type="text" style="font-size: 2rem" name="adpExp"  size="30" placeholder="請用30字內來描述..." ></span><br>
+                            <span style="font-size: 2rem">居住坪數:<input type="text" style="font-size: 2rem" name="meter"  size="30" placeholder="請輸入坪數...">坪</span><br>
                             <input class="regbtn" type="submit" value="註冊" style="font-size: 2rem;background-color: #C58484;width: 30%;border-radius: 10px;" >
                         </div>
-
-                </form>
                     
-                </div>
+                </form>
             </section>
         </div>
 
         <!-- End Content -->
 
         <!-- 載入 footer.html -->
-        <div th:insert="/src/main/resources/templates/fragments/footer :: footer"></div>
+        <footer th:insert="/fragments/footer :: footer"></footer>
     </main>
 
 
@@ -92,7 +85,7 @@
             };
 
             // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
-            xhttp.open("GET", "fragments/header.html", true);
+            xhttp.open("GET", "./fragments/header", true);
 
 
             // 發送網路請求
@@ -104,7 +97,7 @@
                     document.getElementById("includfooter").innerHTML = this.responseText;
                 }
             };
-            xhttp2.open("GET", "fragments/footer.html", true);
+            xhttp2.open("GET", "./fragments/footer", true);
             // 發送網路請求
             xhttp2.send();
         }
@@ -112,17 +105,17 @@
         // 在頁面載入完成後呼叫 includeHTML 函數
         window.onload = includeHTML;
     </script>
-    <script src="./js/login.js"></script>
+    <script src="/js/login.js"></script>
 <!-----------------------------------------後端用的JQUERY------------------------------------------------------->
     <script>
         $(document).ready(function(){
             //帳號檢查按鈕
-            $('#button1').click(function(){
-                var username = $('#username').val();
-
+            $('#registUsername').blur(function(){
+                var registUsername = $('#registUsername').val();
+                console.log(registUsername);
                 $.post(
-                    "regist/usernameCk",
-                    username,
+                    "/regist/usernameCk",
+                    registUsername,
                     function(data,status){
                         if(data){
                             $('#notpass').fadeIn(1000);
@@ -191,34 +184,7 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function() {
-            //預覽
-            $('#fileInput').on('change', function(e) {
-                var size= 5*1024*1024;
-                var file = e.target.files[0];
-                var imageType = /image.*/;
-                if (file && file.type.match(imageType) && file.size < size) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#imagePreview').attr('src', e.target.result);
-                        $('#imagePreview').show();
-                        $('#confirm').show();
-                        $('#reset').show();
-                    }
-                    reader.readAsDataURL(file);
-                }
-                else{
-                    alert("檔案過大(5MB)或發生其他錯誤無法上傳");
-                    $('#fileInput').val('');
-                }
 
-            });
-
-
-
-        });
-    </script>
 </body>
 
 </html>
