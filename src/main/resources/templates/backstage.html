@@ -56,11 +56,11 @@
             </tr>
             <tr>
                 <td>登入IP位址:</td>
-                <td>127.0.0.1</td>
+                <td id="ip-address">127.0.0.1</td>
             </tr>
             <tr>
                 <td>登入時間:</td>
-                <td>2024年10月8日 22:30</td>
+                <td id="server-time">2024年10月8日 22:30</td>
             </tr>
         </table>
 
@@ -71,7 +71,7 @@
 
             <h2>上架商品</h2>
             <form enctype="multipart/form-data" action="upload_Product" method="post" style="width: 100%;">
-                <table class="mytable2" >
+                <table class="mytable2">
                     <tr>
                         <td>商品ID:</td>
                         <td><input type="text" class="inputcss" id="CommodityID" name="CommodityID" required="required"></td>
@@ -98,19 +98,18 @@
                     </tr>
                     <tr>
                     <td >成本價:</td>
-                    <td><input type="text"   class="inputcss" id="Cost" name="Cost" required="required"></td>
+                    <td><input type="text"  class="inputcss" id="Cost" name="Cost" required="required"></td>
                     </tr>
                 </table>
 
         <!-- 上傳商品部分 -->
-<!--       <div class="updatepic">-->
-           <img src="" style="width: 200px;height:200px;background: white;" id="imagePreview" >
-
-               <input type="file" id="fileInput" name="fileInput" accept="image/*" class="theupload" >
-               <button type="submit"  class="updatebutton" id="CmmoditoryBtn">上架</button>
+                    <img src="" style="width: 10vw;height:20vh;background: white;" id="imagePreview">
+                    <input type="file" style="display: none" id="fileInput" name="fileInput" accept="image/*">
+                    <label for="fileInput" class="theupload"  id="In2" style="width: 10vw;height:20vh;border:2px solid black;">商品上傳</label>
+                    <button class="updatebutton" type="submit"  id="CmmoditoryBtn" value="上架"></button>
            </form>
 
-<!--       </div>-->
+       </div>
 
     </div>
     <!-- 訂單資料頁 -->
@@ -121,7 +120,6 @@
                 <tr>
                     <th>訂單編號</th>
                     <th>客戶UID</th>
-                    <th>條碼</th>
                     <th>金額</th>
                     <th >下單日期</th>
                     <th>出貨日期</th>
@@ -133,18 +131,17 @@
             </thead>
             <tbody th:each="order:${orderlist}">
             <tr>
-                <td th:text="${order.OrderNumber}" class="orderNumber">訂單編號</td>
-                <td  th:text="${order.getGuestUID()}">客戶UID</td>
-                <td>條碼</td>
+                <td th:text="${order.getOrderNumber()}" id="orderNumber">訂單編號</td>
+                <td  th:text="${order.getGuestName()}">客戶名字</td>
                 <td  th:text="${order.getOrderAmount()}">金額</td>
                 <td  th:text="${order.getOrderDate()}">下單日期</td>
                 <td  th:text="${order.getShippedDate()}" id="shippedDate1">出貨日期</td>
                 <td  th:text="${order.getStatus()}" id="status1">狀態</td>
-                <td >出貨方式</td>
+                <td  >出貨方式</td>
                 <td  th:text="${order.getPicker()}">檢貨員ID</td>
-                <td >
-                    <button class="button2" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">撿貨</button>
-                    <button class="button1" th:attr="data-ordernumber=${order.OrderNumber},data-status=${order.Status}">出貨</button>
+                <td>
+                    <button class="button2" th:attr="data-ordernumber=${order.getOrderNumber()},data-status=${order.getStatus()}">撿貨</button>
+                    <button class="button1" th:attr="data-ordernumber=${order.getOrderNumber()},data-status=${order.getStatus()}">出貨</button>
                 </td>
             </tr>
 
@@ -277,12 +274,12 @@
             //撿貨
             $(".button2").click(function(){
                 var status1 = $(this).data("status");
-                if(status1 === "Pick" || status1 === "Ship"){
+                if(status1 === 3 || status1 === 4){
                     alert("此訂單已經撿貨過或是已經出貨!");
                 }
                 else {
                     var orderNumber = $(this).data("ordernumber");
-                    status1 = "Pick";
+                    status1 = 3;
                     $.post(
                         "/orderManage",
                         {"status": status1, "orderNumber": orderNumber}
@@ -296,13 +293,13 @@
             //出貨
             $(".button1").click(function(){
                 var status1 = $(this).data("status");
-                if(status1 === "Ship"){
+                if(status1 === 4){
                     alert("此訂單已經出貨!");
                 }else {
                     var orderNumber = $(this).data("ordernumber");
                     var Date1 = new Date();
                     var shippedDate1 = Date1.getFullYear() + "-" + (Date1.getMonth() + 1) + "-" + Date1.getDate() + " " + Date1.getHours() + ":" + Date1.getMinutes() + ":" + Date1.getSeconds();
-                    var status1 = "Ship";
+                    var status1 = 4;
                     $.post(
                         "/orderManage",
                         {"status": status1, "shippedDate": shippedDate1, "orderNumber": orderNumber}
@@ -382,6 +379,16 @@
 
             $('#confirm1').click(function (){
 
+            });
+
+            $.getJSON("https://api.ipify.org?format=json", function(data) {
+                $("#ip-address").text(data.ip);
+            });
+
+            // 获取服务器时间
+            $.get("https://worldtimeapi.org/api/ip", function(data) {
+                var serverTime = new Date(data.utc_datetime);
+                $("#server-time").text(serverTime.toLocaleString());
             });
         });
     </script>

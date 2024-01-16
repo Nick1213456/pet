@@ -12,12 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Setter
 public class productModel {
     private String CommodityKind;
-    private int CommodityID;
+    private String CommodityID;
     private String CommodityName;
     private String Size;
-    private int Inventory;
-    private int Price;
-    private double Cost;
+    private String Inventory;
+    private String Price;
+    private String Cost;
     private String Detail;
     private String imageBytes;
 }

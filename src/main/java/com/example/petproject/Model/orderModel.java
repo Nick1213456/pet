@@ -16,7 +16,7 @@ public class orderModel {
     private String GuestName;
     private int OrderAmount;
     private Date OrderDate;
-    private String Status;
+    private int Status;
     private Date ShippedDate;
     private String Picker;
     private String ShipMethod;

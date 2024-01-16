@@ -52,7 +52,7 @@ public class staffService {
     }
 
     //更新狀態和出貨日期
-    public void insertOrderList(String status, String ShippedDate,String orderNumber,String Picker){
+    public void insertOrderList(int status, String ShippedDate,int orderNumber,String Picker){
         sR.ShipUpdate(status,ShippedDate,orderNumber,Picker);
     }
 

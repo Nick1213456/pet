@@ -72,15 +72,16 @@ public class staffController {
     }
 
     //貨品上架頁面
-    @GetMapping("/upload_Product")
-    public String upload_ProductController(){
-        return("redirect:/backstage");
-    }
+//    @GetMapping("/upload_Product")
+//    public String upload_ProductController(){
+//        return("redirect:/backstage");
+//    }
 
     //貨品上架處理
     @PostMapping("/upload_Product")
     public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf,Model model){
         //將傳過來的插入資料庫
+        System.err.println(pM.getCommodityID());
         if(sS.product_upload(pM)){
             String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
             // 指定文件路径
@@ -106,11 +107,16 @@ public class staffController {
             }
 
 
-            return("redirect:/backstage");
+            return("redirect:/shopping");
         }
         else {
             return("productUpload_Failed");
         }
+    }
+
+    @GetMapping("/productUpload_Failed")
+    public String productUpload_Failed(){
+        return ("productUpload_Failed");
     }
 
 

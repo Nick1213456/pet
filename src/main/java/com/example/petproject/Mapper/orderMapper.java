@@ -17,7 +17,7 @@ public class orderMapper implements RowMapper<orderModel> {
         om.setGuestName(rs.getString("GuestName"));
         om.setOrderAmount(rs.getInt("OrderAmount"));
         om.setOrderDate(rs.getDate("OrderDate"));
-        om.setStatus(rs.getString("Status"));
+        om.setStatus(rs.getInt("Status"));
         om.setShippedDate(rs.getDate("ShippedDate"));
         om.setPicker(rs.getString("Picker"));
         om.setShipMethod(rs.getString("ShipMethod"));

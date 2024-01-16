@@ -47,9 +47,11 @@ public class staffRepository {
     }
 
     //訂單撿貨和出貨日期和狀態更新
-    public void ShipUpdate(String status, String ShippedDate, String orderNumber,String Picker){
+    public void ShipUpdate(int status, String ShippedDate, int orderNumber,String Picker){
         if(ShippedDate == null) {
-            jdbcTemplate.update("UPDATE `order` SET ShippedDate= (" + ShippedDate + "),`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';");
+            String sql="UPDATE `order` SET ShippedDate='("+ShippedDate+")',`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';";
+            System.err.println(sql);
+            jdbcTemplate.update("UPDATE `order` SET ShippedDate=("+ShippedDate+"),`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';");
         }
         else {
             jdbcTemplate.update("UPDATE `order` SET ShippedDate= '" + ShippedDate + "',`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';");
@@ -58,19 +60,19 @@ public class staffRepository {
 
     public void product_Upload(productModel pM){
         String kind = pM.getCommodityKind();
-        int ID=pM.getCommodityID();
+        String ID=pM.getCommodityID();
         String name = pM.getCommodityName();
         String size = pM.getSize();
-        int inventory = pM.getInventory();
-        int price = pM.getPrice();
-        double cost = pM.getCost();
+        String inventory = pM.getInventory();
+        String price = pM.getPrice();
+        String cost = pM.getCost();
         String Detail=pM.getDetail();
         String sql = "INSERT INTO Commoditylist(CommodityKind,CommodityID,CommodityName,Size,Inventory,Price,Cost,Detail) VALUES ('"+kind+"','"+ID+"','"+name+"','"+size+"','"+inventory+"','"+cost+"','"+price+ "','"+Detail+"');";
         jdbcTemplate .update(sql);
     }
 
     public int CommodityIDCheck(productModel pM){
-        int ID=pM.getCommodityID();
+        String ID=pM.getCommodityID();
         String sql = "SELECT count(*) FROM Commoditylist WHERE CommodityID="+ID+";";
         int IDresult = jdbcTemplate.queryForObject(sql,Integer.class);
         return IDresult;

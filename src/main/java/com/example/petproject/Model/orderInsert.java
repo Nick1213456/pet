@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class orderInsert {
-    String status;
+    int status;
     String shippedDate;
-    String orderNumber;
+    int orderNumber;
 }

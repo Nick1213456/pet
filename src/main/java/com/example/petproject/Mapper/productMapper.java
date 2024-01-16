@@ -16,23 +16,14 @@ public class productMapper implements RowMapper<productModel> {
     public productModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         productModel pm = new productModel();
         pm.setCommodityKind(rs.getString("CommodityKind"));
-        pm.setCommodityID(rs.getInt("CommodityID"));
+        pm.setCommodityID(rs.getString("CommodityID"));
         pm.setCommodityName(rs.getString("CommodityName"));
         pm.setSize(rs.getString("Size"));
-        pm.setInventory(rs.getInt("Inventory"));
-        pm.setPrice(rs.getInt("Price"));
-        pm.setCost(rs.getDouble("Cost"));
+        pm.setInventory(rs.getString("Inventory"));
+        pm.setPrice(rs.getString("Price"));
+        pm.setCost(rs.getString("Cost"));
         pm.setDetail(rs.getString("Detail"));
 
-        try {
-            Path imagePath = Paths.get("C:/temp/productimg/"+rs.getInt("CommodityID")+"/img_1.jpg");
-            byte[] bytepath = Files.readAllBytes(imagePath);
-            // 讀取圖片檔案
-            pm.setImageBytes( "data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(bytepath));
-        } catch (Exception e) {
-//            e.printStackTrace();
-            pm.setImageBytes("/images/close_icon.png");
-        }
         return pm;
     }
 }
