@@ -49,4 +49,5 @@ public class caetController {
         cartService.update_quantity(id,(String)httpsession.getAttribute("username"),method);
         return "修改成功";
     }
+
 }

@@ -20,7 +20,6 @@ public class cartRepository {
             return orderNumber;
         } catch (Exception e) {
             // 當查詢未找到結果時的處理邏輯
-            System.out.println("未找到相應的訂單號碼");
             return 0;
         }
     }
@@ -31,7 +30,6 @@ public class cartRepository {
             return 1;
         } catch (Exception e) {
             // 當查詢未找到結果時的處理邏輯
-            System.out.println("未找到相應的物品ID");
             return 0;
         }
     }
@@ -42,6 +40,23 @@ public class cartRepository {
 
     public int getComQuantity(int id,int Onum){
         return jdbcTemplate.queryForObject("SELECT ComQuantity FROM orderdetail WHERE CommodityID="+id+" and OrderNumber="+Onum,int.class);
+    }
+
+    public void updateOrderAmount(String username){
+        int oid = Check_order(username);
+        try{
+            jdbcTemplate.update("UPDATE `order`SET OrderAmount=(SELECT sum(Amount) FROM orderdetail WHERE OrderNumber=?) WHERE OrderNumber=?",oid,oid);
+        }catch(Exception e){
+            jdbcTemplate.update("UPDATE `order`SET OrderAmount=0 WHERE OrderNumber=?",oid);
+        }
+    }
+    public void updateOrderAmount(int oid){
+        try{
+            jdbcTemplate.update("UPDATE `order`SET OrderAmount=(SELECT sum(Amount) FROM orderdetail WHERE OrderNumber=?) WHERE OrderNumber=?",oid,oid);
+        }catch(Exception e){
+            jdbcTemplate.update("UPDATE `order`SET OrderAmount=0 WHERE OrderNumber=?",oid);
+        }
+
     }
 
 
@@ -63,12 +78,14 @@ public class cartRepository {
         int onum = Check_order(username);
         int price = num * getPrice(id);
         jdbcTemplate.update("INSERT INTO orderdetail (OrderNumber,CommodityID,ComQuantity,Amount) VALUES (?,?,?,?)",onum,id,num,price);
+        updateOrderAmount(username);
     }
 
     public void add_orderdetail(String username, int id, int num){
         int onum = Check_order(username);
         int price = num * getPrice(id);
         jdbcTemplate.update("INSERT INTO orderdetail (OrderNumber,CommodityID,ComQuantity,Amount) VALUES (?,?,?,?)",onum,id,num,price);
+        updateOrderAmount(username);
     }
 
     public void add_orderdetailNum(String username, int id, int num){
@@ -76,14 +93,17 @@ public class cartRepository {
         int AllComQuantity = num + getComQuantity(id,onum);
         int price = AllComQuantity * getPrice(id);
         jdbcTemplate.update("update orderdetail set ComQuantity=?,Amount=? WHERE OrderNumber=? AND CommodityID=?",AllComQuantity,price,onum,id);
+        updateOrderAmount(username);
     }
 
     public void delete_orderdetail(int id, int pid){
         jdbcTemplate.update("DELETE FROM orderdetail WHERE CommodityID=? AND OrderNumber=?",id,pid);
+        updateOrderAmount(pid);
     }
 
     public void quantity_orderdetail(int num,int price,int id,int pid){
         jdbcTemplate.update("update orderdetail SET ComQuantity=?,Amount=? WHERE CommodityID=? AND OrderNumber=?",num,price,id,pid);
+        updateOrderAmount(pid);
     }
 
 }
