@@ -38,7 +38,13 @@ body
 }
 .searchinput
 {
-    width: 295px;
+    width: auto;
+}
+@media screen and (max-width: 900px) {
+    .searchinput
+{
+    width: auto;
+}
 }
 .searchcheck
 {
@@ -49,6 +55,9 @@ body
     box-shadow: 10px 10px gray;
     height: 60%;
     padding: 8%;
+    padding-bottom: 15%;
+    height: auto;
+
 }
 .searchimg
 {
@@ -81,10 +90,19 @@ body
 .optionbox
 {
     margin: 5px;
-
-
+    display: flex;
+    flex-direction: row;
+ 
     font-size: 0.8rem;
     text-align: left;
+}
+@media screen and (max-width: 900px) {
+    .optionbox {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
 }
 .optiontext
 {
@@ -100,10 +118,7 @@ body
     background-color: #C58484;
     border-radius: 5px;
     font-size: 1.5rem;
-    position: absolute;
-    bottom: 10px;
-    left: 40%;
-    padding: 8px;
+   
 }
 .picbox
 {
@@ -126,7 +141,7 @@ body
     flex-direction: row;
     flex-wrap: wrap;
 
-    height: 100vh;
+    height: auto;
     width: 70%;
 
     border: 3px dashed black;
@@ -138,6 +153,8 @@ body
     margin-bottom: 20px;
     box-shadow: 10px 10px gray;
 }
+.rightcontain >div
+{width: 17.5%;}
 .footercontain{
     height: auto;
     background-color: #892B2B;
@@ -182,6 +199,35 @@ body
     bottom:10px;
     padding: 8px;
     margin-bottom: 10px;
+}
+
+@media screen and ( max-width:900px ) {
+    .pagebtnup{
+        color: white;
+        background-color: #C58484;
+        border-radius: 5px;
+        font-size: 1.5rem;
+       position: absolute;
+    
+        left:10px;
+        bottom:10px;
+        padding: 8px;
+        margin-bottom: -70px;
+    
+    }
+    .pagebtndown{
+        color: white;
+        background-color: #C58484;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        text-align:right;
+        position: absolute;
+    
+        right:10px;
+        bottom:10px;
+        padding: 8px;
+        margin-bottom: -70px;
+    }
 }
 .nametext
 {
