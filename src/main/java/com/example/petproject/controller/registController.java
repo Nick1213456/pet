@@ -37,6 +37,7 @@ public class registController {
                 msg = "註冊成功!";
                 String username = registModel.getRegistUsername();
                 session.setAttribute("username",username);
+                break;
             case 1:
                 msg = "密碼與密碼確認不同，請再重新輸入";
                 break;

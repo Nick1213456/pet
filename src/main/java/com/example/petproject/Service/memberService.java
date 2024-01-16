@@ -53,9 +53,9 @@ public class memberService {
     public int memberRegist(RegistModel registModel){
         int result; //0:新增成功 1:輸入密碼驗證錯誤 2:帳號已經存在 3:帳號帶有禁止關鍵字 4:
         String password = registModel.getPassword();
-        String passwordck = registModel.getPasswordCk();
+        String passwordcheck = registModel.getPasswordCheck();
         String username = registModel.getRegistUsername();
-        if(!password.equals(passwordck)){
+        if(!password.equals(passwordcheck)){
             result = 1;
         }
         else if(usernameCheck(username)){
