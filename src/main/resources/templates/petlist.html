@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- header css -->
-    <link rel="stylesheet" href="/css/allCss.css">
-    <link rel="stylesheet" href="/css/petlist.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/allCss.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/petlist.css">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- jquery-ui -->
@@ -38,7 +38,7 @@
             <div class="searching">
                 <input class="searchinput" type="text" placeholder="請輸入名稱進行搜索...">
 <!--               搜索按鈕-->
-                <button class="searchbtn"><img src="/images/search.png" class="searchimg"></button>
+                <button class="searchbtn"><img src="/src/main/resources/static/images/search.png" class="searchimg"></button>
             </div>
             <!-- 搜索條件選擇 -->
             <div class="searchcheck">
@@ -47,7 +47,7 @@
                 <div class="optionbox">
                     <input type="radio" name="gender" value="F">
                     <span class="optiontext" >公</span>
-                    <input type="radio" name="gender" value="M" style="margin-left: 30px">
+                    <input type="radio" name="gender" value="M" >
                     <span class="optiontext">母</span>
                 </div>
                 <!-- 貓狗選擇欄 -->
@@ -55,7 +55,7 @@
                 <div class="optionbox">
                     <input type="radio" name="catdog" value="貓">
                     <span class="optiontext">貓</span>
-                    <input type="radio" name="catdog" value="狗" style="margin-left: 30px">
+                    <input type="radio" name="catdog" value="狗" >
                     <span class="optiontext">狗</span>
                 </div>
                 <!-- 年齡選擇欄 -->
@@ -76,7 +76,7 @@
                 <div class="optionbox">
                     <input type="radio" name="jiezha" value="Y">
                     <span class="optiontext">有</span>
-                    <input type="radio" name="jiezha" value="N" style="margin-left: 30px">
+                    <input type="radio" name="jiezha" value="N" >
                     <span class="optiontext">無</span>
                 </div>
                 <!-- 長短毛選擇欄 -->
@@ -84,9 +84,9 @@
                 <div class="optionbox">
                     <input type="radio" name="long" value="長毛" >
                     <span class="optiontext">長</span>
-                    <input type="radio" name="long" value="短毛" style="margin-left: 30px">
+                    <input type="radio" name="long" value="短毛" >
                     <span class="optiontext">短</span>
-                    <input type="radio" name="long" value="無毛" style="margin-left: 30px">
+                    <input type="radio" name="long" value="無毛">
                     <span class="optiontext">無毛</span>
                 </div>
 
@@ -114,7 +114,128 @@
 
                 <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
             </div>
+            <!-- 內容被borderbox包裹示例可直接刪除 -->
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
 
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+            <div class="picbox" th:each="pet:${pets}">
+                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
+                <div>
+                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
+                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
+                </div>
+
+                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
+            </div>
+        <!-- 內容被包裹事例 -->
             <div>
                 <button class="pagebtnup">上一頁</button>
                 <button class="pagebtndown">下一頁</button>
