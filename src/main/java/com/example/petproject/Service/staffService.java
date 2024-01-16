@@ -4,6 +4,7 @@ import com.example.petproject.DAO.staffRepository;
 import com.example.petproject.Model.orderModel;
 import com.example.petproject.Model.permissionModel;
 import com.example.petproject.Model.productModel;
+import com.example.petproject.Model.productModel2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,7 +59,7 @@ public class staffService {
 
     //判斷資料庫內是否有同樣ID的資料
     //如果沒有上架商品,將資料插入資料庫
-    public boolean product_upload(productModel pM){
+    public boolean product_upload(productModel2 pM){
         if(sR.CommodityIDCheck(pM) == 0) {
             sR.product_Upload(pM);
             return true;

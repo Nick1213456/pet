@@ -5,6 +5,7 @@ import com.example.petproject.Mapper.permissionMapper;
 import com.example.petproject.Model.orderModel;
 import com.example.petproject.Model.permissionModel;
 import com.example.petproject.Model.productModel;
+import com.example.petproject.Model.productModel2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -49,8 +50,6 @@ public class staffRepository {
     //訂單撿貨和出貨日期和狀態更新
     public void ShipUpdate(int status, String ShippedDate, int orderNumber,String Picker){
         if(ShippedDate == null) {
-            String sql="UPDATE `order` SET ShippedDate='("+ShippedDate+")',`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';";
-            System.err.println(sql);
             jdbcTemplate.update("UPDATE `order` SET ShippedDate=("+ShippedDate+"),`Status`='" + status + "',Picker='" + Picker + "' WHERE OrderNumber='" + orderNumber + "';");
         }
         else {
@@ -58,21 +57,22 @@ public class staffRepository {
         }
     }
 
-    public void product_Upload(productModel pM){
+    public void product_Upload(productModel2 pM){
         String kind = pM.getCommodityKind();
-        String ID=pM.getCommodityID();
+        int ID=pM.getCommodityID();
         String name = pM.getCommodityName();
         String size = pM.getSize();
-        String inventory = pM.getInventory();
-        String price = pM.getPrice();
-        String cost = pM.getCost();
+        int inventory = pM.getInventory();
+        int price = pM.getPrice();
+        double cost = pM.getCost();
         String Detail=pM.getDetail();
         String sql = "INSERT INTO Commoditylist(CommodityKind,CommodityID,CommodityName,Size,Inventory,Price,Cost,Detail) VALUES ('"+kind+"','"+ID+"','"+name+"','"+size+"','"+inventory+"','"+cost+"','"+price+ "','"+Detail+"');";
+        System.err.println(sql);
         jdbcTemplate .update(sql);
     }
 
-    public int CommodityIDCheck(productModel pM){
-        String ID=pM.getCommodityID();
+    public int CommodityIDCheck(productModel2 pM){
+        int ID=pM.getCommodityID();
         String sql = "SELECT count(*) FROM Commoditylist WHERE CommodityID="+ID+";";
         int IDresult = jdbcTemplate.queryForObject(sql,Integer.class);
         return IDresult;

@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class productModel {
+public class productModel2 {
     private String CommodityKind;
     private int CommodityID;
     private String CommodityName;
@@ -19,5 +18,4 @@ public class productModel {
     private int Price;
     private Double Cost;
     private String Detail;
-    private String imageBytes;
 }

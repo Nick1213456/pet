@@ -16,12 +16,12 @@ public class productMapper implements RowMapper<productModel> {
     public productModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         productModel pm = new productModel();
         pm.setCommodityKind(rs.getString("CommodityKind"));
-        pm.setCommodityID(rs.getString("CommodityID"));
+        pm.setCommodityID(rs.getInt("CommodityID"));
         pm.setCommodityName(rs.getString("CommodityName"));
         pm.setSize(rs.getString("Size"));
-        pm.setInventory(rs.getString("Inventory"));
-        pm.setPrice(rs.getString("Price"));
-        pm.setCost(rs.getString("Cost"));
+        pm.setInventory(rs.getInt("Inventory"));
+        pm.setPrice(rs.getInt("Price"));
+        pm.setCost(rs.getDouble("Cost"));
         pm.setDetail(rs.getString("Detail"));
 
         return pm;

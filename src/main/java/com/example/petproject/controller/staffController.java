@@ -3,6 +3,7 @@ package com.example.petproject.controller;
 import com.example.petproject.Model.orderInsert;
 import com.example.petproject.Model.orderModel;
 import com.example.petproject.Model.productModel;
+import com.example.petproject.Model.productModel2;
 import com.example.petproject.Service.memberService;
 import com.example.petproject.Service.staffService;
 import jakarta.servlet.http.HttpSession;
@@ -72,35 +73,33 @@ public class staffController {
     }
 
     //貨品上架頁面
-//    @GetMapping("/upload_Product")
-//    public String upload_ProductController(){
-//        return("redirect:/backstage");
-//    }
+    @GetMapping("/upload_Product")
+    public String upload_ProductController(@ModelAttribute productModel2 pM){
+        System.err.println(pM.getCommodityID());
+        return("/backstage");
+    }
 
     //貨品上架處理
     @PostMapping("/upload_Product")
-    public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf,Model model){
+    public String upload_ProductService(@ModelAttribute productModel2 pM, @RequestPart("fileInput") MultipartFile mf){
         //將傳過來的插入資料庫
         System.err.println(pM.getCommodityID());
         if(sS.product_upload(pM)){
             String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
-            // 指定文件路径
             Path productPhoto = Paths.get(directoryPath, "img_1.jpg");
             try{
-                //如果父路徑不存在 創立新的資料夾
                 if (!Files.exists(productPhoto.getParent())) {
                     Files.createDirectories(productPhoto.getParent());
                 }
-                //如果檔名有了 就覆蓋 否則傳送一個
                 if(Files.exists(productPhoto)){
                     Files.copy(mf.getInputStream(),productPhoto, StandardCopyOption.REPLACE_EXISTING);
                 }
                 else{
                     mf.transferTo(productPhoto);
                 }
-                byte[] image =Files.readAllBytes(productPhoto);
-                String hash64 = java.util.Base64.getEncoder().encodeToString(image);
-                model.addAttribute("src","data:image/jpeg;base64,"+hash64);
+//                byte[] image =Files.readAllBytes(productPhoto);
+//                String hash64 = java.util.Base64.getEncoder().encodeToString(image);
+//                model.addAttribute("src","data:image/jpeg;base64,"+hash64);
             }
             catch (Exception e){
                 System.err.println("檔案存入失敗");

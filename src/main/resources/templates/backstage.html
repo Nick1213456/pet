@@ -30,8 +30,8 @@
         
         <!-- 內容放這邊 -->
         
-        <form class="mygrid">
-            <aside >
+        <form class="mygrid" action="upload_Product" enctype="multipart/form-data" method="post">
+            <aside>
                 <button onclick="btn1()" class=" leftbtn">
                     上架周邊
                 </button>
@@ -42,7 +42,7 @@
                     會員資料操作
                 </button>
             </aside>
-            
+
 <!--    右側整體內容-->
 <article class="rightsection">
     <!-- 後台主頁 -->
@@ -70,43 +70,47 @@
     <div id="updateproduct" >
 
             <h2>上架商品</h2>
-            <form enctype="multipart/form-data" action="upload_Product" method="post" style="width: 100%;">
+
                 <table class="mytable2">
                     <tr>
                         <td>商品ID:</td>
-                        <td><input type="text" class="inputcss" id="CommodityID" name="CommodityID" required="required"></td>
+                        <td><label for="CommodityID"></label><input type="text" class="inputcss" id="CommodityID" name="CommodityID" required="required"></td>
                     </tr>
                     <tr>
                         <td>商品名稱:</td>
-                        <td><input type="text"  class="inputcss" id="CommodityName" name="CommodityName" required="required"></td>
+                        <td><label for="CommodityName"></label><input type="text" class="inputcss" id="CommodityName" name="CommodityName" required="required"></td>
                     </tr>
                     <tr>
                         <td>規格:</td>
-                        <td><input type="text"  class="inputcss" id="size" name="size" required="required"></td>
+                        <td><label for="size"></label><input type="text" class="inputcss" id="size" name="size" required="required"></td>
                     </tr>
                     <tr>
                         <td>分類:</td>
-                        <td><input type="text"  class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>
+                        <td><label for="CommodityKind"></label><input type="text" class="inputcss" id="CommodityKind" name="CommodityKind" required="required"></td>
                     </tr>
                     <tr>
                         <td>庫存:</td>
-                        <td><input type="text"  class="inputcss" id="Inventory" name="Inventory" required="required"></td>
+                        <td><label for="Inventory"></label><input type="text" class="inputcss" id="Inventory" name="Inventory" required="required"></td>
                     </tr>
                     <tr>
                         <td>售價:</td>
-                        <td><input type="text"  class="inputcss" id="Price" name="Price" required="required"></td>
+                        <td><label for="Price"></label><input type="text" class="inputcss" id="Price" name="Price" required="required"></td>
                     </tr>
                     <tr>
-                    <td >成本價:</td>
-                    <td><input type="text"  class="inputcss" id="Cost" name="Cost" required="required"></td>
+                    <td>成本價:</td>
+                    <td><label for="Cost"></label><input type="text" class="inputcss" id="Cost" name="Cost" required="required"></td>
+                    </tr>
+                    <tr>
+                    <td>細節:</td>
+                    <td><label for="Detail"></label><input type="text" class="inputcss" id="Detail" name="Detail" required="required"></td>
                     </tr>
                 </table>
 
         <!-- 上傳商品部分 -->
                     <img src="" style="width: 10vw;height:20vh;background: white;" id="imagePreview">
+                <label for="fileInput" class="theupload"  id="In2" style="width: 10vw;height:20vh;border:2px solid black;cursor: pointer;">商品照片</label>
                     <input type="file" style="display: none" id="fileInput" name="fileInput" accept="image/*">
-                    <label for="fileInput" class="theupload"  id="In2" style="width: 10vw;height:20vh;border:2px solid black;">商品上傳</label>
-                    <button class="updatebutton" type="submit"  id="CmmoditoryBtn" value="上架"></button>
+                    <button type="submit">上架</button>
            </form>
 
        </div>
@@ -372,14 +376,11 @@
                     reader.readAsDataURL(file);
                 }
                 else{
-                    alert("檔案過大(5MB)或發生其他錯誤無法上傳");
                     $('#fileInput').val('');
                 }
             });
 
-            $('#confirm1').click(function (){
 
-            });
 
             $.getJSON("https://api.ipify.org?format=json", function(data) {
                 $("#ip-address").text(data.ip);

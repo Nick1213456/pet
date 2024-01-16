@@ -13,7 +13,7 @@ table {
     border-spacing: 0px 20px;
     border: 0.3px dashed gray;
     width: 100%; /* 新增這行 */
-    /*text-wrap: nowrap;*/
+    text-wrap: nowrap;
     font-size: 1rem;
 }
 
@@ -31,7 +31,7 @@ input {
 button {
     width: auto;
     background-color: #C58484;
-    /*text-wrap: nowrap;*/
+    text-wrap: nowrap;
     border-radius: 5px;
 }
 
@@ -100,7 +100,7 @@ aside {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /*text-wrap: nowrap;*/
+    text-wrap: nowrap;
     margin-left: -10%;
     grid-column-start: 1;
     grid-column-end: 2;
@@ -141,7 +141,7 @@ table td {
 
 #updateproduct h2 {
     grid-area: 1/1/2/2;
-    /*text-wrap: nowrap;*/
+    text-wrap: nowrap;
 }
 
 #updateproduct table {
