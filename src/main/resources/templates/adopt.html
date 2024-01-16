@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>領養上架畫面</title>
     
-    <link rel="stylesheet" href="./css/allCss.css">
+    <link rel="stylesheet" href="/css/allCss.css">
     <link rel="stylesheet" href="/css/adopt.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div id="includedContent"></div>
+    <div th:insert="/fragments/header :: header"></div>
 
     <main>
         <!-- Start Content -->
@@ -35,8 +35,7 @@
         <!-- 內容放這邊 -->
         <!-- 備註:不要在section裡面再包一層div包裹所有內容，不然會導致grid的指定定位失效 -->
         <form enctype="multipart/form-data" action="adopt" method="post" class="mygrid">
-            
-           
+
             <h1 class="special adoptdatatxt">Adopt Data</h1>
             <!-- aside靠左 -->
             <div class="imgupdate" >
@@ -99,7 +98,7 @@
         <!-- End Content -->
 
         <!-- 載入 footer.html -->
-        <div id="includfooter"></div>
+        <div th:insert="/fragments/footer :: footer"></div>
     </main>
 
 

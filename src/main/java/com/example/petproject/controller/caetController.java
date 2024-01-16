@@ -15,7 +15,7 @@ public class caetController {
     @GetMapping("/shoppingcart")
     public String showshoppingcart(Model m, HttpSession httpsession){
 
-        if ((String)httpsession.getAttribute("username")==null){
+        if (httpsession.getAttribute("username")==null){
 
             return "/failed";
         }else {
@@ -35,5 +35,18 @@ public class caetController {
         }
 
     }
-
+    @PostMapping("deletecat")
+    @ResponseBody
+    public String delete(@RequestParam int id,HttpSession httpsession){
+        cartService.deletecart(id,(String)httpsession.getAttribute("username"));
+        return "刪除成功";
+    }
+    @PostMapping("updateqnum")
+    @ResponseBody
+    public String updateqnum(@RequestParam int id,String method,HttpSession httpsession){
+        System.out.println(id);
+        System.out.println(method);
+        cartService.update_quantity(id,(String)httpsession.getAttribute("username"),method);
+        return "修改成功";
+    }
 }

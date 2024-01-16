@@ -36,6 +36,18 @@ public class loginController {
         return("index");
     }
 
+    //about
+    @GetMapping("/about")
+    public String about(){
+        return("about");
+    }
+
+    //news
+    @GetMapping("/news")
+    public String news(){
+        return("news");
+    }
+
     //登入頁面
     @GetMapping("/login")
     public String doDefault(){
@@ -51,10 +63,12 @@ public class loginController {
         boolean result = mS.passcheck(username,password);
         if(result && memberPer.equals("1")) {
             session.setAttribute("username",username);
+            session.setAttribute("memberPer",memberPer);
             return ("redirect:memberpage");
         }
         else if(result && memberPer.equals("2")){
             session.setAttribute("username",username);
+            session.setAttribute("memberPer",memberPer);
             return ("redirect:/backstage");
         }
         else{

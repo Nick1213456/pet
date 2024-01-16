@@ -36,7 +36,7 @@
                 <h2 class="loginarticle">Login</h2>
                 <div class="login_box">
                     <div class="option">
-                        <label for="uname">
+                        <label for="username">
                             <p class="login_text">使用者帳號</p>
                         </label>
                         <input type="text" placeholder="請輸入帳號" name="username" required>
@@ -53,7 +53,7 @@
                             <p class="login_text2">忘記密碼?</p>
                         </a>
                         <p class="login_text2">|</p>
-                        <a href="reg" style="margin-left: 10px;">
+                        <a href="/reg" style="margin-left: 10px;">
                             <p class="login_text2">會員註冊</p>
                         </a>
                         <button id="log-in" type="submit">登入</button>
@@ -108,7 +108,9 @@
                         <!-- 購物車icon -->
                         <i class="fa fa-xl fa-cart-shopping"></i>
                     </div></a>
-                    <button class="login_bar">註冊/登入</button>
+                    <a href="/memberpage" id="d-none3" style="display: none"><button class="login_bar">會員頁面</button></a>
+                    <a href="/backstage"  id="d-none4" style="display: none"><button class="login_bar">後台頁面</button></a>
+                    <button class="login_bar" id="login_bar01">註冊/登入</button>
                     <a href="/signOut" id="d-none2"><button class="login_bar d-none1" >登出</button></a>
                 </div>
             </div>
@@ -120,9 +122,9 @@
                 </div>
                 <ul>
                     <li><a class="active" href="/index"><i class="fa fa-fw fa-home"></i> 首頁</a></li>
-                    <li><a href="#"><i class="fa fa-fw fa-user"></i> 關於我們</a></li>
+                    <li><a href="/about"><i class="fa fa-fw fa-user"></i> 關於我們</a></li>
                     <li><a href="/petlist"><i class="fa fa-fw fa-paw"></i> 給牠個家</a></li>
-                    <li><a href="#"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a></li>
+                    <li><a href="/news"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a></li>
                     <li><a href="/shopping"><i class="fa fa-fw fa-shop"></i> 周邊商品</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-clipboard-question"></i> 常見問題</a></li>
                 </ul>

@@ -17,10 +17,6 @@ $(document).ready(function () {
             }
         });
 
-
-
-
-
         // $("#forget_password3").hide();
 
     }
@@ -29,16 +25,31 @@ $(document).ready(function () {
 // 封裝檢查是否登入
 function checkLoginStatus() {
     $(".d-none1").hide(); //隱藏登出
+    // $("#d-none3").hide(); //隱藏會員資料
+    // $("#d-none4").hide(); //隱藏後台資料
     $.post('/check-session', function (data) {
         if (data === "") {
             //如果沒登入
             console.log("沒登入")
-            $(".login_bar").show();
+            $("#login_bar").show();
             $(".d-none1").hide();
-        } else {
+        } else{
             console.log("有登入")
-            $(".login_bar").hide();
-            $(".d-none1").show();
+            if (data[data.length - 1]=="1"){
+                console.log("會員登入")
+                $("#login_bar01").hide();
+                $(".d-none1").show();
+                $("#d-none3").show();
+                $("#d-none4").hide();
+            }else{
+                console.log("管理者登入")
+                $("#login_bar01").hide();
+                $(".d-none1").show();
+                $("#d-none3").show();
+                $("#d-none4").show();
+            }
+
+
         }
     });
 }
@@ -50,7 +61,8 @@ $("#d-none2").on('click', function () {
 $(document).on('click', function (e) {
 
     var modal = $(".login_bar_up");
-    if (e.target.className == $(".login_bar").attr("class")) {
+    //如果點會員登入跳出框框
+    if (e.target.id == $("#login_bar01").attr("id")) {
         $.post('/check-session', function (data) {
             if (data === "") {
                 //如果沒登入
@@ -60,7 +72,7 @@ $(document).on('click', function (e) {
             } else {
                 console.log("有登入")
                 alert("您已登入")
-                $(".login_bar").hide();
+                $("#login_bar").hide();
                 $(".d-none1").show();
             }
         });

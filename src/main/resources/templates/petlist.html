@@ -1,280 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head >
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>petlist 寵物列表</title>
     <!-- header css -->
     <link rel="stylesheet" href="/src/main/resources/static/css/allCss.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/petlist.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- jquery-ui -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
     <!-- 登入畫面字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
+    <!-- 內部 css -->
+    <link rel="stylesheet" href="/css/allCss.css">
+    <link rel="stylesheet" href="/css/shopping.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 </head>
-<body >
-<header th:insert="/Fragments/header :: header"></header>
 
-<section  style="padding-top: 150px">
-    <div class="all">
-    <!--    左邊內容-->
-    <div class="left">
+<body>
+    <!-- 載入 header.html -->
+    <div th:insert="/Fragments/header :: header"></div>
 
-        <!-- 左側  -->
-        <div class="leftcontain">
-            <!-- 搜索欄 -->
-            <div class="searching">
-                <input class="searchinput" type="text" placeholder="請輸入名稱進行搜索...">
-<!--               搜索按鈕-->
-                <button class="searchbtn"><img src="/src/main/resources/static/images/search.png" class="searchimg"></button>
+    <main class="shop_main" style="background-color: #FAF0E4;">
+        <!-- 周邊商品 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>寵物列表</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
             </div>
-            <!-- 搜索條件選擇 -->
-            <div class="searchcheck">
-                <!-- 性別選擇欄 -->
-                <p  class="articlesize">性別</p>
-                <div class="optionbox">
-                    <input type="radio" name="gender" value="F">
-                    <span class="optiontext" >公</span>
-                    <input type="radio" name="gender" value="M" >
-                    <span class="optiontext">母</span>
+        </article>
+        <!-- Start Content -->
+        <div class="container py-5">
+            <div class="row" style="width: 100%">
+                <div class="col-lg-3">
+                    <h2 class="categories_title">Categories</h2>
+                    <!-- 類別修改地方 -->
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text" href="#">
+                                類型
+                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse show list-unstyled  " style="display: none;">
+                                <li><a class="categories_text2" href="#" type="貓">貓咪</a></li>
+                                <li><a class="categories_text2" href="#" type="狗">狗狗</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text" href="#">
+                                性別
+                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse show list-unstyled  " style="display: none;">
+                                <li><a class="categories_text2" href="#" type="F">弟弟</a></li>
+                                <li><a class="categories_text2" href="#" type="M">妹妹</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text clearbtn" href="#">
+                                清除篩選
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- 貓狗選擇欄 -->
-                <p class="articlesize">種類</p>
-                <div class="optionbox">
-                    <input type="radio" name="catdog" value="貓">
-                    <span class="optiontext">貓</span>
-                    <input type="radio" name="catdog" value="狗" >
-                    <span class="optiontext">狗</span>
+                <!-- 內容被borderbox包裹示例可直接刪除 -->
+                <div class="picbox" th:each="pet:${pets}">
+                    <!-- 省略內容，保留0116afternoon分支的修改 -->
                 </div>
-                <!-- 年齡選擇欄 -->
-<!--                <p class="articlesize">年齡</p>-->
-<!--                <div class="optionbox">-->
-<!--                    <input type="radio" name="age">-->
-<!--                    <span class="optionagetext">小於1歲</span>-->
-<!--                    <input type="radio" name="age">-->
-<!--                    <span class="optionagetext">1-3歲</span>-->
-<!--                    <input type="radio" name="age">-->
-<!--                    <span class="optionagetext">3-8歲</span>-->
-<!--                    <input type="radio" name="age">-->
-<!--                    <span class="optionagetext">8歲以上</span>-->
-<!--                </div>-->
-
-                <!-- 結紮與否選擇欄 -->
-                <p class="articlesize">結紮</p>
-                <div class="optionbox">
-                    <input type="radio" name="jiezha" value="Y">
-                    <span class="optiontext">有</span>
-                    <input type="radio" name="jiezha" value="N" >
-                    <span class="optiontext">無</span>
+                <!-- 省略其他 .picbox 部分，保留0116afternoon分支的修改 -->
+                <div class="col-lg-9">
+                    <div class="row" style="width: 100%">
+                        <!-- 產品更換區 開始 -->
+                        <div class="col-md-4 product-wap" th:each="pet:${pets}" style="width: 33%;height: 33%">
+                            <!-- 省略內容，保留0116afternoon分支的修改 -->
+                        </div>
+                        <!-- 產品更換區 結束 -->
+                    </div>
+                    <div div="row">
+                        <ul class="pagination pagination-lg justify-content-end">
+                            <li class="page-item disabled">
+                                <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
+                                tabindex="-1">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                href="#">3</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- 長短毛選擇欄 -->
-                <p class="articlesize">長短毛</p>
-                <div class="optionbox">
-                    <input type="radio" name="long" value="長毛" >
-                    <span class="optiontext">長</span>
-                    <input type="radio" name="long" value="短毛" >
-                    <span class="optiontext">短</span>
-                    <input type="radio" name="long" value="無毛">
-                    <span class="optiontext">無毛</span>
-                </div>
-
-
-                <button class="clearbtn">清除條件</button>
-
             </div>
         </div>
-    </div>
-    <!--    右邊內容-->
-    <section class="right">
-        <!-- 右側 -->
-
-        <div class="rightcontain">
-            <!--        每個picbox內容依次為圖片+寵物名字+我要領養按鈕-->
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <!-- 內容被borderbox包裹示例可直接刪除 -->
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-            <div class="picbox" th:each="pet:${pets}">
-                <div><img th:src="${pet.getImageBytes()}" alt="貓狗照片" class="picshadow"></div>
-                <div>
-                    <p class="nametext" th:text="${pet.getPetName()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getGender()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getKind()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getLigation()}">TextName1</p>
-                    <p class="nametext" th:text="${pet.getHairLength()}">TextName1</p>
-                </div>
-
-                <div class="adoptbtn"><button class="btncolor" >我要領養</button></div>
-            </div>
-        <!-- 內容被包裹事例 -->
-            <div>
-                <button class="pagebtnup">上一頁</button>
-                <button class="pagebtndown">下一頁</button>
-            </div>
+        <!-- End Content -->
+        <!-- 載入 footer.html -->
+        <div th:insert="/fragments/footer :: footer"></div>
+    </main>
 
 
-
-
-        </div>
-    </section>
-</div>
-</section>
-<!-- footer -->
-<footer th:insert="/fragments/footer :: footer"></footer>
+<!-- 載入 header.html js -->
 <script>
+    // 創建一個函數來載入其他檔案的內容
+    function includeHTML() {
+        // 創建一個 XMLHttpRequest 物件來發送網路請求
+        var xhttp = new XMLHttpRequest();
+
+        // 當請求狀態改變時執行的函數
+        xhttp.onreadystatechange = function () {
+            // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+            if (this.readyState == 4 && this.status == 200) {
+                // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                document.getElementById("includedContent").innerHTML = this.responseText;
+            }
+        };
+
+        // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+        xhttp.open("GET", "fragments/header.html", true);
+
+
+        // 發送網路請求
+        // xhttp.send();
+        // 創建一個 XMLHttpRequest 物件來發送網路請求
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("includfooter").innerHTML = this.responseText;
+            }
+        };
+        xhttp2.open("GET", "fragments/footer.html", true);
+        // 發送網路請求
+        // xhttp2.send();
+    }
+
+    // 在頁面載入完成後呼叫 includeHTML 函數
+    window.onload = includeHTML;
+</script>
+
+<script>
+
     $(document).ready(function () {
-        $('input').click(function (){
-            var checkedValues = [];
-            $('input:radio:checked').siblings().each(function () {
-                // 将每个选中元素的值添加到数组中
-                if ($(this).val()==""){}else{
-                    checkedValues.push($(this).val());
-                }
-            });
-            console.log('已勾選的 radio 按鈕的值：', checkedValues);
-            $(".picbox").show();
-            $.each(checkedValues, function (index, value) {
+        // 選項動態
+        $(".categories_text").click(function () {
+            $(this).next().slideToggle(300);
+        });
+        // 篩選
+        var selectnum=0;
+        var selectlist=[];
+        $(".categories_text2").click(function (){
+            $(this).css("color","#425ce3").css("background-color","#fff")
+            selectnum++;
+            selectlist.push(this.type)
+            if (selectnum===1){
+                $(".product-wap").hide();
+            }
+            console.log(selectlist)
+            $.each(selectlist, function (index, value) {
                 $("p").filter(function() {
                     return $(this).text() === value;
-                }).parents('.picbox').hide();
+                }).parents('.product-wap').show();
             })
+        })
+        // 清除篩選
+        $(".clearbtn").click(function (){
+            $(".categories_text2").css("color","#000").css("background-color","")
+            selectlist=[];
+            selectnum=0;
+            $(".product-wap").show();
         })
     });
 
-    $('.clearbtn').click(function (){
-        $('input[type="radio"]').prop('checked', false);
-        $(".picbox").show();
-    })
-
 </script>
 </body>
+
 </html>

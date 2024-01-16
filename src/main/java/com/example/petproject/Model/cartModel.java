@@ -17,4 +17,5 @@ public class cartModel {
     private String CommodityName;
     private String Size;
     private int Price;
+    private String imageBytes;
 }

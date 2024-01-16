@@ -1,9 +1,7 @@
 package com.example.petproject.DAO;
 
 import com.example.petproject.Mapper.cartMapper;
-import com.example.petproject.Mapper.petMapper;
 import com.example.petproject.Model.cartModel;
-import com.example.petproject.Model.petModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -15,7 +13,7 @@ public class cartRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-
+    //找訂單ID
     public int Check_order(String username){
         try {
             int orderNumber = jdbcTemplate.queryForObject("SELECT orderNumber FROM `order` WHERE GuestName='"+username+"' AND Status=1", int.class);
@@ -60,25 +58,32 @@ public class cartRepository {
         }
     }
 
-    public void addorder(String username,int id,int num){
+    public void add_order(String username, int id, int num){
         jdbcTemplate.update("INSERT INTO `petdb`.`order` ( `GuestName`,Status) VALUES ('"+username+"',"+num+");");
         int onum = Check_order(username);
         int price = num * getPrice(id);
         jdbcTemplate.update("INSERT INTO orderdetail (OrderNumber,CommodityID,ComQuantity,Amount) VALUES (?,?,?,?)",onum,id,num,price);
     }
 
-    public void addorderdetail(String username,int id,int num){
+    public void add_orderdetail(String username, int id, int num){
         int onum = Check_order(username);
         int price = num * getPrice(id);
         jdbcTemplate.update("INSERT INTO orderdetail (OrderNumber,CommodityID,ComQuantity,Amount) VALUES (?,?,?,?)",onum,id,num,price);
     }
 
-    public void addorderdetailNum(String username,int id,int num){
+    public void add_orderdetailNum(String username, int id, int num){
         int onum = Check_order(username);
         int AllComQuantity = num + getComQuantity(id,onum);
         int price = AllComQuantity * getPrice(id);
         jdbcTemplate.update("update orderdetail set ComQuantity=?,Amount=? WHERE OrderNumber=? AND CommodityID=?",AllComQuantity,price,onum,id);
     }
 
+    public void delete_orderdetail(int id, int pid){
+        jdbcTemplate.update("DELETE FROM orderdetail WHERE CommodityID=? AND OrderNumber=?",id,pid);
+    }
+
+    public void quantity_orderdetail(int num,int price,int id,int pid){
+        jdbcTemplate.update("update orderdetail SET ComQuantity=?,Amount=? WHERE CommodityID=? AND OrderNumber=?",num,price,id,pid);
+    }
 
 }
