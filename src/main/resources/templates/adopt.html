@@ -40,13 +40,10 @@
             <!-- aside靠左 -->
             <div class="imgupdate" >
                 <!-- 這個圖片參考會員資料的圓框 -->
-                <div >
-                    <img src="/img/Ellipse 35.png" id="imagePreview" style="width: 200px;height: 200px">
-<!--                    <div  class="imgbtn">-->
+                    <img th:src="${memberSrc}" class="headimg" id="imagePreview">
+                    <input type="file" style="display: none"  id="fileInput" name="fileInput" class="custom-file-input" accept="image/*">
+                    <label for="fileInput" class=" threebtnstyle" id="In2" style="border:2px solid black;">寵物上傳</label>
 
-                        <button class="imgbtn"><input type="file" id="fileInput" name="fileInput" accept="image/*" value="上傳圖片"></button>
-<!--                    </div>-->
-                </div>
             </div>
             <!-- article靠右顯示 其他備註的框可以放大
             input的外框可以改成底線 -->
@@ -146,7 +143,8 @@
         $(document).ready(function() {
 
             //預覽
-            $('#fileInput').on('change', function(e){
+            //預覽
+            $('#fileInput').on('change', function(e) {
                 var size= 5*1024*1024;
                 var file = e.target.files[0];
                 var imageType = /image.*/;
@@ -162,7 +160,10 @@
                     alert("檔案過大(5MB)或發生其他錯誤無法上傳");
                     $('#fileInput').val('');
                 }
+
             });
+
+
         });
     </script>
 </body>

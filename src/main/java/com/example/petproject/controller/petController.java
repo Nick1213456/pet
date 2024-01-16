@@ -52,7 +52,7 @@ public class petController {
         catch (Exception e){
             System.err.println("檔案儲存失敗");
         }
-        return "index";
+        return "redirect:/petlist";
     }
 
 

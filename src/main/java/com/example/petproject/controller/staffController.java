@@ -75,7 +75,7 @@ public class staffController {
     //貨品上架頁面
     @GetMapping("/upload_Product")
     public String upload_ProductController(@ModelAttribute productModel2 pM){
-        System.err.println(pM.getCommodityID());
+
         return("/backstage");
     }
 
@@ -83,7 +83,6 @@ public class staffController {
     @PostMapping("/upload_Product")
     public String upload_ProductService(@ModelAttribute productModel2 pM, @RequestPart("fileInput") MultipartFile mf){
         //將傳過來的插入資料庫
-        System.err.println(pM.getCommodityID());
         if(sS.product_upload(pM)){
             String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
             Path productPhoto = Paths.get(directoryPath, "img_1.jpg");

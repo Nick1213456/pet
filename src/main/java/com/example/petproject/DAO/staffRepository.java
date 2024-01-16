@@ -67,7 +67,6 @@ public class staffRepository {
         double cost = pM.getCost();
         String Detail=pM.getDetail();
         String sql = "INSERT INTO Commoditylist(CommodityKind,CommodityID,CommodityName,Size,Inventory,Price,Cost,Detail) VALUES ('"+kind+"','"+ID+"','"+name+"','"+size+"','"+inventory+"','"+cost+"','"+price+ "','"+Detail+"');";
-        System.err.println(sql);
         jdbcTemplate .update(sql);
     }
 

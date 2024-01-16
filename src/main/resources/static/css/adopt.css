@@ -140,3 +140,30 @@ footer {
     width: 100%;
     grid-row: 6; /* 适当设置行位置 */
   }
+
+.headimg
+{
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    height: 200px;
+    width: 200px;
+    border-radius: 50% ;
+    border: 2px dashed black;
+    background-color: rgba(238, 216, 219, 0.9);
+}
+
+#In2{
+    position: relative;
+    left:2%;
+    top: 20%;
+    width: 20%;
+    height: 12%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: #cccccc;
+    text-align: center;
+    padding-top: 8px;
+}
