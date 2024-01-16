@@ -79,12 +79,12 @@ public class staffController {
 
     //貨品上架處理
     @PostMapping("/upload_Product")
-    public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf){
+    public String upload_ProductService(@ModelAttribute productModel pM,@RequestPart("fileInput") MultipartFile mf,Model model){
         //將傳過來的插入資料庫
         if(sS.product_upload(pM)){
             String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
             // 指定文件路径
-            Path productPhoto = Paths.get(directoryPath, "01.jpg");
+            Path productPhoto = Paths.get(directoryPath, "img_1.jpg");
             try{
                 //如果父路徑不存在 創立新的資料夾
                 if (!Files.exists(productPhoto.getParent())) {
@@ -97,6 +97,9 @@ public class staffController {
                 else{
                     mf.transferTo(productPhoto);
                 }
+                byte[] image =Files.readAllBytes(productPhoto);
+                String hash64 = java.util.Base64.getEncoder().encodeToString(image);
+                model.addAttribute("src","data:image/jpeg;base64,"+hash64);
             }
             catch (Exception e){
                 System.err.println("檔案存入失敗");

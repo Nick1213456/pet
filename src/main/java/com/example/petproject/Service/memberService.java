@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -123,8 +127,7 @@ public class memberService {
 
     //登出時清除session
     public void signOut(HttpSession session){
-        session.removeAttribute("username");
-        session.removeAttribute("memberPer");
+        session.invalidate();
     }
 
     //利用帳號取出會員資料
@@ -136,4 +139,20 @@ public class memberService {
     public void dataChange(memberData mD){
         mR.memberDataChange(mD);
     }
+
+
+    public String outputPhoto(String membername){
+        String memberSrc = "";
+        try {
+            Path imagePath = Paths.get("C:/temp/memberimg/"+membername+"/img_1.jpg");
+            byte[] bytepath = Files.readAllBytes(imagePath);
+            // 讀取圖片檔案
+            memberSrc = ( "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(bytepath));
+        } catch (Exception e) {
+//            e.printStackTrace();
+            memberSrc = ("/images/close_icon.png");
+        }
+        return  memberSrc;
+    }
 }
+

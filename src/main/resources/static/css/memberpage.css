@@ -167,5 +167,6 @@ footer
     bottom: 0;
 }
 textarea{
-    resize: block;
+
+    height: 16vh;
 }

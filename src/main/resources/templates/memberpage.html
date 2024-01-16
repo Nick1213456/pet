@@ -20,6 +20,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
 
+    <style>
+        .custom-file-input {
+            display: none; /* 隐藏默认的文件选择按钮 */
+        }
+
+    </style>
 </head>
 <body >
 <header th:insert="/fragments/header :: header"></header>
@@ -33,7 +39,7 @@
 
             <!--        左邊資料-->
             <div>
-            <table  class="tablebox">
+            <table  class="tablebox" id="showTable">
                 <thead>
                     <tr>
                         <th colspan="4"></th>
@@ -84,7 +90,7 @@
                 手機:<input th:value="${member.getCellphone()}" type="text" name="cellphone"><br>
                 領養經驗:<input th:value="${member.getAdpExp()}" type="text" name="adpExp">
                 居住坪數:<input th:value="${member.getMeter()}" type="text" name="meter"><br>
-                自我介紹:<br><textarea cols="50" rows="2" th:text="${member.getIntro()}" name="Intro"></textarea>
+                自我介紹:<br><textarea cols="30" rows="1" th:text="${member.getIntro()}" name="Intro"></textarea>
                 <input id="over" type="submit" value="更改">
             </form>
             </div>
@@ -93,12 +99,15 @@
             <!--        右邊頭像與按鈕-->
             <div class="straight2">
 <!--                頭像-->
-                <img th:src="${session.src}" class="headimg" id="imagePreview">
+                <img th:src="${memberSrc}" class="headimg" id="imagePreview">
                 <div class="threebtnpos">
                     <form method="post" enctype="multipart/form-data" action="/uploadImg">
-                        <button class="threebtnstyle"><input type="file"  id="fileInput" name="fileInput"  accept="image/*"></button>
-                        <input type="submit" id="confirm" name="confirm"  value="確認">
-                        <input type="reset" id="reset"  name="reset" value="清除">
+                        <input type="file"  id="fileInput" name="fileInput" class="custom-file-input" accept="image/*">
+                        <label for="fileInput" class=" threebtnstyle" id="In2" style="border:2px solid black;">頭像上傳</label>
+                        <div style="display: flex">
+                            <input type="submit" class=" threebtnstyle" id="confirm" name="confirm"  value="確認">
+                            <input type="reset" class=" threebtnstyle" id="reset"  name="reset" value="清除">
+                        </div>
                     </form>
 
 
@@ -131,6 +140,7 @@
                     $('#imagePreview').show();
                     $('#confirm').show();
                     $('#reset').show();
+                    $('#In2').hide();
                 }
                 reader.readAsDataURL(file);
             }
@@ -144,6 +154,7 @@
         $('#confirm').click(function (){
             $('#confirm').hide();
             $('#reset').hide();
+            $('#In2').show();
             setTimeout(function () {
                 location.reload();
             }, 100);
@@ -153,14 +164,17 @@
             $('#imagePreview').attr('src','');
             $('#confirm').hide();
             $('#reset').hide();
+            $('#In2').show();
         });
 
         //編輯基本資料
         $('.savebtn').click(function (){
             $('#form1').fadeIn();
+            $('#showTable').fadeOut();
         });
         $('#over').click(function (){
             $('#form1').fadeOut();
+            $('#showTable').fadeIn();
         });
 
     });

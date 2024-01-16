@@ -37,7 +37,7 @@ public class petController {
     public String adopt(@ModelAttribute petModel pM, @RequestPart("fileInput") MultipartFile mf, HttpSession session){
         int UID = petService.insertPetData(pM);
         String directoryPath="C:/temp/petimg/"+UID+"/";
-        Path petphoto =Paths.get(directoryPath,"01.jpg");
+        Path petphoto =Paths.get(directoryPath,"img_1.jpg");
         try{
             if(!Files.exists(petphoto.getParent())){
                 Files.createDirectories(petphoto.getParent());

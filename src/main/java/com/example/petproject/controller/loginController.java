@@ -70,6 +70,7 @@ public class loginController {
         if(result && memberPer.equals("1")) {
             session.setAttribute("username",username);
             session.setAttribute("memberPer",memberPer);
+            session.setAttribute("src","C:/temp/memberimg/" + username + "/img_1.jpg");
             return ("redirect:memberpage");
         }
         else if(result && memberPer.equals("2")){
@@ -93,9 +94,11 @@ public class loginController {
     @GetMapping("/memberpage")
     public String memberPage_Controller(HttpSession session,Model model){
         boolean result = mS.sessionCheck(session);
+
         if(result) {
             List<memberData> mD=mS.memberData((String)session.getAttribute("username"));
             model.addAttribute("memberData",mD);
+            model.addAttribute("memberSrc",mS.outputPhoto((String)session.getAttribute("username")));
             return ("memberpage");
         }
         else{
@@ -104,7 +107,8 @@ public class loginController {
     }
 
     @PostMapping("/memberpage")
-    public String memberPage_Change(@ModelAttribute memberData mD){
+    public String memberPage_Change(@ModelAttribute memberData mD,HttpSession session,Model model){
+        model.addAttribute("memberSrc",mS.outputPhoto((String)session.getAttribute("username")));
         mS.dataChange(mD);
         return ("memberpage");
 
@@ -138,17 +142,20 @@ public class loginController {
         String username = (String)session.getAttribute("username");
         String directoryPath = "C:/temp/memberimg/" + username + "/";
         // 指定文件路径
-        Path memberPhoto = Paths.get(directoryPath, "01.jpg");
+        Path memberPhoto = Paths.get(directoryPath, "img_1.jpg");
         try{
+            if(!Files.exists(memberPhoto.getParent())){
+                Files.createDirectories(memberPhoto.getParent());
+            }
             if(Files.exists(memberPhoto)){
                 Files.copy(mf.getInputStream(),memberPhoto,StandardCopyOption.REPLACE_EXISTING);
-                byte[] image =Files.readAllBytes(memberPhoto);
-                String hash64 = java.util.Base64.getEncoder().encodeToString(image);
-                session.setAttribute("src","data:image/jpeg;base64,"+hash64);
             }
             else{
                 mf.transferTo(memberPhoto);
             }
+            byte[] image =Files.readAllBytes(memberPhoto);
+            String hash64 = java.util.Base64.getEncoder().encodeToString(image);
+            session.setAttribute("src","data:image/jpeg;base64,"+hash64);
         }
         catch (Exception e){
             System.err.println("檔案存入失敗");
