@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,7 +34,7 @@ public class petController {
 
     @PostMapping("/adopt")
     public String adopt(@ModelAttribute petModel pM, @RequestPart("fileInput") MultipartFile mf, HttpSession session){
-        int UID = petService.insertPetData(pM);
+        int UID = petService.insertPetData(pM, (String)session.getAttribute("username"));
         String directoryPath="C:/temp/petimg/"+UID+"/";
         Path petphoto =Paths.get(directoryPath,"img_1.jpg");
         try{

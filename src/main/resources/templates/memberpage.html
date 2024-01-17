@@ -47,12 +47,6 @@
                 </thead>
                 <tbody th:each="member:${memberData}">
                     <tr>
-                        <td>帳號:</td>
-                        <td th:text="${member.getUsername()}">資料一</td>
-                        <td class="tablespace">密碼:</td>
-                        <td class="tablespace2">**********</td>
-                    </tr>
-                    <tr>
                         <td>姓名:</td>
                         <td th:text="${member.getName()}">資料三</td>
                         <td class="tablespace">生日:</td>
@@ -72,7 +66,7 @@
                     </tr>
                     <tr>
                         <td style="font-size: 2rem;font-weight: bold;padding-top: 0px;vertical-align:text-top;">自我介紹:</td>
-                        <td colspan="3"><textarea th:text="${member.getIntro()}" rows="6" cols="50"></textarea></td>
+                        <td colspan="3"><textarea th:text="${member.getIntro()}" rows="6" cols="45"></textarea></td>
                     </tr>
                     <tr>
                         <td class="btntd" colspan="4"><button class="savebtn">編輯</button></td>
@@ -98,22 +92,21 @@
 
             <!--        右邊頭像與按鈕-->
             <div class="straight2">
-<!--                頭像-->
                 <img th:src="${memberSrc}" class="headimg" id="imagePreview">
+<!--                頭像-->
                 <div class="threebtnpos">
+
                     <form method="post" enctype="multipart/form-data" action="/uploadImg">
                         <input type="file"  id="fileInput" name="fileInput" class="custom-file-input" accept="image/*">
-                        <label for="fileInput" class=" threebtnstyle" id="In2" style="border:2px solid black;">頭像上傳</label>
-                        <div style="display: flex">
+                        <label class=" threebtnstyle" for="fileInput"  id="In2" style="border:2px solid black;">頭像上傳</label>
+                        <div style="display: flex;">
                             <input type="submit" class=" threebtnstyle" id="confirm" name="confirm"  value="確認">
                             <input type="reset" class=" threebtnstyle" id="reset"  name="reset" value="清除">
                         </div>
                     </form>
-
-
                     <div class="split2">
-                        <button class="threebtnstyle"><a href="/adopt">領養上架</a></button>
-                       <button class="threebtnstyle"><a href="/petlist">我要領養</a></button>
+                        <button class="threebtnstyle"><a class="aaa" href="/adopt">領養上架</a></button>
+                       <button class="threebtnstyle"><a class="aaa" href="/petlist">我要領養</a></button>
                     </div>
                 </div>
             </div>

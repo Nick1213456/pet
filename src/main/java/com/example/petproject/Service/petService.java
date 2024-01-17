@@ -22,7 +22,7 @@ public class petService {
         return petRepository.getpetAll();
     }
 
-    public int insertPetData(petModel pM){
+    public int insertPetData(petModel pM,String username){
         return petRepository.insertPetData(pM);
 
     }
