@@ -114,7 +114,7 @@
                 var registUsername = $('#registUsername').val();
                 console.log(registUsername);
                 $.post(
-                    "/regist/usernameCk",
+                    "regist/usernameCk",
                     registUsername,
                     function(data,status){
                         if(data){

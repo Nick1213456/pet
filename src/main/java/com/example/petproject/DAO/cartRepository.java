@@ -76,7 +76,7 @@ public class cartRepository {
     }
 
     public void add_order(String username, int id, int num){
-        jdbcTemplate.update("INSERT INTO `petdb`.`order` ( `GuestName`,Status) VALUES ('"+username+"',"+num+");");
+        jdbcTemplate.update("INSERT INTO `petdb`.`order` ( `GuestName`,Status) VALUES ('"+username+"',1);");
         int onum = Check_order(username);
         int price = num * getPrice(id);
         jdbcTemplate.update("INSERT INTO orderdetail (OrderNumber,CommodityID,ComQuantity,Amount) VALUES (?,?,?,?)",onum,id,num,price);
