@@ -231,7 +231,7 @@ main .grid .grid_a .grid_img1 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/grid_img_01.jpg");
+  background-image: url("../images/grid_img_01.jpg");
 }
 main .grid .grid_a .grid_img2 {
   width: 100%;
@@ -239,7 +239,7 @@ main .grid .grid_a .grid_img2 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/grid_img_02.jpg");
+  background-image: url("../images/grid_img_02.jpg");
 }
 main .grid .grid_a .grid_img3 {
   width: 100%;
@@ -247,7 +247,7 @@ main .grid .grid_a .grid_img3 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/grid_img_03.jpg");
+  background-image: url("../images/grid_img_03.jpg");
 }
 main .grid .grid_a .grid_text {
   width: 90%;

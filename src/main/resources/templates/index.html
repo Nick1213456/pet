@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Document</title>
-    <link rel="stylesheet" href="/css/allCss.css"/>
+    <link rel="stylesheet" href="/css/allCss.css" />
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -24,13 +24,14 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <div></div>>
+
 
 </head>
 
 <body>
-
-<header th:insert="fragments/header :: header"></header>
+    <!-- 載入 header.html -->
+    <div id="includedContent"></div>
+    <!-- <div th:insert="/Fragments/header :: header"></div> -->
 
     <main>
         <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
@@ -39,7 +40,7 @@
         <section class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <!-- 燈片 -->
-                <div class="swiper-slide"><img style="width: 1536px;" src="/images/banner_03.jpg" alt="swiper_img">
+                <div class="swiper-slide"><img style="width: 1536px;" src="/images/banner_04.jpg" alt="swiper_img">
                 </div>
                 <div class="swiper-slide" data-swiper-autoplay="2000"><img style="width: 1536px;"
                         src="/images/banner_02.jpg" alt="swiper_img">
@@ -75,7 +76,7 @@
         </article>
         <section class="grid">
             <div class="grid_a">
-                <div class="grid_img"></div>
+                <div class="grid_img1"></div>
                 <!-- <img class="grid_img" src="./img/cat_dog.png" alt="about_pet"> -->
                 <div class="grid_text">
                     <div class="grid_icon">
@@ -86,7 +87,7 @@
                 </div>
             </div>
             <div class="grid_a">
-                <div class="grid_img"></div>
+                <div class="grid_img2"></div>
                 <div class="grid_text">
                     <div class="grid_icon">
                         <!--nav_icon -->
@@ -96,7 +97,7 @@
                 </div>
             </div>
             <div class="grid_a">
-                <div class="grid_img"></div>
+                <div class="grid_img3"></div>
                 <div class="grid_text">
                     <div class="grid_icon">
                         <!--nav_icon -->
@@ -117,30 +118,59 @@
                 <div class="line-title"></div>
             </div>
 
-            <section class="new">
-                <section class="newbar">
-                    <div class="new_img">
-                        <img src="/images/grid_img_03.jpg" alt="new_img">
+            <div class="container py-5">
+                <div class="row" style="width: 100%">
+                    <div class="col-lg-12 m-auto">
+                        <div class="row" style="width: 100%">
+                            <!-- 產品更換區 開始 -->
+                            <div class="col-lg-4">
+                                <div class="mb-4 rounded-5">
+                                    <div class="rounded-5">
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_03.jpg"></a>
+                                    </div>
+                                    <div class="card-body2">
+                                        <p style="font-size: 1.4rem;">2024/01/01</p>
+                                        <a class="text-decoration-none"
+                                            style="font-size: 2.4rem; font-weight: 600; color: #943B3B;">企業合作–默沙東關懷動物志工日成功！
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mb-4 rounded-5">
+                                    <div class="rounded-5">
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_03.jpg"></a>
+                                    </div>
+                                    <div class="card-body2">
+                                        <p style="font-size: 1.4rem;">2024/01/01</p>
+                                        <a class="text-decoration-none"
+                                            style="font-size: 2.4rem; font-weight: 600; color: #943B3B;">企業合作–默沙東關懷動物志工日成功！
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mb-4 rounded-5">
+                                    <div class="rounded-5">
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_03.jpg"></a>
+                                    </div>
+                                    <div class="card-body2">
+                                        <p style="font-size: 1.4rem;">2024/01/01</p>
+                                        <a class="text-decoration-none"
+                                            style="font-size: 2.4rem; font-weight: 600; color: #943B3B;">企業合作–默沙東關懷動物志工日成功！
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 產品更換區 結束 -->
+                        </div>
                     </div>
-                    <p>2024/01/01</p>
-                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
-                </section>
-                <section class="newbar">
-                    <div class="new_img">
-                        <img src="/images/grid_img_03.jpg" alt="new_img">
-                    </div>
-                    <p>2024/01/01</p>
-                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
-                </section>
-                <section class="newbar">
-                    <div class="new_img">
-                        <img src="/images/grid_img_03.jpg" alt="new_img">
-                    </div>
-                    <p>2024/01/01</p>
-                    <h3>企業合作–默沙東關懷動物志工日成功！</h3>
-                </section>
 
-            </section>
+                </div>
+            </div>
             <!-- <button class="new_bnt" onclick="">瀏覽更多資訊 ></button> -->
             <a href="#" class="new_bnt">瀏覽更多資訊 ></a>
 
@@ -156,23 +186,29 @@
                 <div class="line-title"></div>
             </div>
 
-            <section class="container">
+            
+            <section class="container">                
                 <section class="givehmoe_text">
-                    <h3>我是名字</h3>
-                    <p>絲蒂奇來到巴克時已失去右眼，全身都是傷疤，身體左邊有微微的傾斜，後來左眼因不明原因感染，擔心傷口擴大，在獸醫的建議之下也將左眼摘除。就算雙眼失明，
-                        絲蒂奇依然活力不減，整天和狗狗室友們在花園裡東奔西跑，似乎少了眼睛，其他感官更為敏銳。</p>
+                    <h3 style="font-weight: 600;">「豆漿 - 白貓的小天使」</h3>
+                    <p>嗨，大家好！我是豆漿。我擁有短毛、藍眼睛，看起來像是一朵棉花糖般的存在。今年已經5歲了，是個成熟的小姐姐，體重約5公斤。我特別喜歡陪伴人類，並且擁有一身柔軟的白色毛，觸摸起來就像撫摸一朵雲。如果你想要一位甜美、懷抱溫暖的小天使，請考慮收編我吧！讓我們共結未來，一起度過幸福的每一天。</p>
                     <a href="#" class="new_bnt2">瀏覽更多資訊 ></a>
                 </section>
-                <section class="givehmoe_img"><img src="/images/imggg.png" alt="givehmoe_img"></section>
+                <section class="givehmoe_img" style="border-radius: 50%; overflow: hidden;">
+                    <img src="/images/cat_01.jpg" alt="givehmoe_img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </section>
             </section>
+
             <section class="container">
-                <section class="givehmoe_img"><img src="/images/imggg.png" alt="givehmoe_img"></section>
+                <section class="givehmoe_img" style="border-radius: 50%; overflow: hidden;">
+                    <img src="/images/dog_01.jpg" alt="givehmoe_img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </section>
                 <section class="givehmoe_text">
-                    <h3>我是名字</h3>
-                    <p>絲蒂奇來到巴克時已失去右眼，全身都是傷疤，身體左邊有微微的傾斜，後來左眼因不明原因感染，擔心傷口擴大，在獸醫的建議之下也將左眼摘除。就算雙眼失明，
-                        絲蒂奇依然活力不減，整天和狗狗室友們在花園裡東奔西跑，似乎少了眼睛，其他感官更為敏銳。</p>
+                    <h3 style="font-weight: 600;">「阿依 - 活潑可愛的黑寶」</h3>
+                    <p>哈囉，我是阿依，我今年7歲，是個開朗的女孩，體重輕盈的4公斤。我的眼睛是溫暖的褐色，就像是巧克力一樣誘人。雖然我是一隻米克斯，但我擁有無盡的愛心和活力，期待找到一個充滿陽光的家。如果你想要有一位忠誠、活潑的伴侶，請給我一個機會，讓我們一同開啟美好的狗狗冒險！</p>
                     <a href="#" class="new_bnt2">瀏覽更多資訊 ></a>
                 </section>
+            </section>
+            
 
             </section>
 
@@ -188,30 +224,67 @@
                 <div class="line-title"></div>
             </div>
 
-            <section class="new">
-                <section class="shop">
-                    <div class="shop_img bg_imga">
+            <div class="container py-5">
+                <div class="row" style="width: 100%">
+                    <div class="col-lg-12 m-auto">
+                        <div class="row" style="width: 100%">
+                            <!-- 產品更換區 開始 -->                            
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 rounded-5 col-lg-12 d-grid justify-content-center">
+                                    <div class="shop_img_1 rounded-pill" >
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_01.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                        </a>
+                                    </div>
+                                    <div class="card-body2 text-center">
+                                        <a class="text-decoration-none" style="font-size: 2.4rem; font-weight: 600; color: #943B3B; ">綜合口味寵物飼料</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 rounded-5 col-lg-12 d-grid justify-content-center">
+                                    <div class="shop_img_1 rounded-pill" >
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_02.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                        </a>
+                                    </div>
+                                    <div class="card-body2 text-center">
+                                        <a class="text-decoration-none" style="font-size: 2.4rem; font-weight: 600; color: #943B3B; ">綜合口味寵物飼料</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 rounded-5 col-lg-12 d-grid justify-content-center">
+                                    <div class="shop_img_1 rounded-pill" >
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_03.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                        </a>
+                                    </div>
+                                    <div class="card-body2 text-center">
+                                        <a class="text-decoration-none" style="font-size: 2.4rem; font-weight: 600; color: #943B3B; ">綜合口味寵物飼料</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 rounded-5 col-lg-12 d-grid justify-content-center">
+                                    <div class="shop_img_1 rounded-pill" >
+                                        <a>
+                                            <img class="card-img rounded-5 img-fluid" src="/images/grid_img_01.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                        </a>
+                                    </div>
+                                    <div class="card-body2 text-center">
+                                        <a class="text-decoration-none" style="font-size: 2.4rem; font-weight: 600; color: #943B3B; ">綜合口味寵物飼料</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 產品更換區 結束 -->
+                        </div>
                     </div>
-                    <h3>綜合口味寵物飼料 2kg</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img bg_imgb">
-                    </div>
-                    <h3>綜合口味寵物飼料 2kg</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img bg_imgc">
-                    </div>
-                    <h3>綜合口味寵物飼料 2kg</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img bg_imgd">
-                    </div>
-                    <h3>綜合口味寵物飼料 2kg</h3>
-                </section>
-            </section>
-            <!-- <button class="new_bnt" onclick="">瀏覽更多資訊 ></button> -->
-            <a href="#" class="new_bnt">更多商品 ></a>
+
+                </div>
+            </div>
+
 
         </article>
 
@@ -250,37 +323,9 @@
 
         </article>
 
-        <!-- footer -->
-        <footer th:insert="fragments/footer :: footer">
-
-<!--            <section class="footerbar">-->
-<!--                <section class="footer_logo">-->
-<!--                    <a href="#"><img src="/images/logo_02.png" alt="header_logo" title="logo" aria-label="logo"></a>-->
-<!--                </section>-->
-<!--                <section class="footerbar_navbar">-->
-<!--                    <a class="active" href="/index"><i class="fa fa-fw fa-home"></i> 首頁</a>-->
-<!--                    <a href="#"><i class="fa fa-fw fa-user"></i> 關於我們</a>-->
-<!--                    <a href="/petlist"><i class="fa fa-fw fa-paw"></i> 給牠個家</a>-->
-<!--                    <a href="#"><i class="fa fa-fw fa-newspaper"></i> 最新消息</a>-->
-<!--                    <a href="/shopping"><i class="fa fa-fw fa-shop"></i> 周邊商品</a>-->
-<!--                    <a href="#"><i class="fa fa-fw fa-clipboard-question"></i> 常見問題</a>-->
-<!--                </section>-->
-<!--                <div class="connection">-->
-<!--                    <span>服務專線：0900-000000</span>-->
-<!--                    <span>電子信箱：abc@gmail.com </span>-->
-<!--                    <span>地址：台灣台中市西區XXX路XXX巷XX號</span>-->
-<!--                </div>-->
-<!--                <p class="copyright">Copyright © 2024 Pet Map Pank</p>-->
-<!--                <div class="line-div"></div>-->
-
-<!--                <a id="gototop" href="#">-->
-<!--                    <p>&uarr;</p>-->
-<!--                    <p>Top</p>-->
-<!--                </a>-->
-
-<!--            </section>-->
-
-        </footer>
+        <!-- 載入 footer.html -->
+        <div id="includfooter"></div>
+        <!-- <div th:insert="/fragments/footer :: footer"></div> -->
 
     </main>
 
@@ -290,33 +335,44 @@
     <!-- Initialize Swiper -->
     <script src="/js/swiper.js"></script>
 
+    <!-- 載入 header.html js -->
+    <script>
+        // 創建一個函數來載入其他檔案的內容
+        function includeHTML() {
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp = new XMLHttpRequest();
 
-<!--    <script>-->
+            // 當請求狀態改變時執行的函數
+            xhttp.onreadystatechange = function () {
+                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+                if (this.readyState == 4 && this.status == 200) {
+                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                    document.getElementById("includedContent").innerHTML = this.responseText;
+                }
+            };
 
-<!--        $(document).ready(function () {-->
-<!--            $(".login_modal").hide();-->
+            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+            xhttp.open("GET", "fragments/header.html", true);
 
-<!--        });-->
 
-<!--        $(document).on('click', function (e) {-->
+            // 發送網路請求
+            xhttp.send();
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("includfooter").innerHTML = this.responseText;
+                }
+            };
+            xhttp2.open("GET", "fragments/footer.html", true);
+            // 發送網路請求
+            xhttp2.send();
+        }
 
-<!--            var modal = $(".login_bar_up");-->
-<!--            if (e.target.className == $(".login_bar").attr("class")) {-->
-<!--                console.log("aaaa");-->
-<!--                $(".login_modal").show();-->
-<!--                $('a').css('pointer-events', 'none');-->
-<!--                $('.login_text2').css('pointer-events', 'auto');-->
+        // 在頁面載入完成後呼叫 includeHTML 函數
+        window.onload = includeHTML;
+    </script>
 
-<!--            } else if (!modal.is(e.target) && modal.has(e.target).length === 0) {-->
-<!--                // 將彈出框隱藏-->
-<!--                $(".login_modal").hide();-->
-<!--                $('a').css('pointer-events', 'auto');-->
-<!--            }-->
-
-<!--            console.log(modal.has(e.target).length);-->
-
-<!--        });-->
-<!--    </script>-->
 
 </body>
 
