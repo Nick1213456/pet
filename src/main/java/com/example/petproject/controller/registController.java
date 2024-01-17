@@ -51,7 +51,7 @@ public class registController {
                 msg="發生不明錯誤，請與客服人員聯絡解決問題";
         }
         model.addAttribute("mesg",msg);
-        return("/regResult");
+        return("regResult");
     }
 
 
