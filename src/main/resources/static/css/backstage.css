@@ -1,4 +1,5 @@
-
+header{height: 141px;background-color: #C58484;}
+footer{height: 141px;background-color: #C58484;}
 /* 本css有兩處使用了float強制定位，若有排版問題可試著從float找 */
 body {
     background-color: rgb(156, 178, 199);
@@ -14,7 +15,7 @@ table {
     border: 0.3px dashed gray;
     width: 100%; /* 新增這行 */
     text-wrap: nowrap;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     
     
 }
@@ -57,6 +58,7 @@ button {
     height: 100px;
     border-radius: 8px;
     background-color: #C58484;
+    margin-bottom: 10px;
 }
 
 .leftbtn:hover {
@@ -70,13 +72,14 @@ button {
 /* 一個方框包裹住右側內容 */
 /* 初始樣式 */
 .rightsection {
-    grid-column-start: 2;
-    grid-column-end: 7;
+    overflow: auto; 
+    grid-column-start: 3;
+    grid-column-end: 8;
     grid-row-start: 2;
     grid-row-end: 3;
 
     display: grid;
-    grid-template-columns: 1fr; /* 只需要一個 column，整個 rightsection 就是這一欄 */
+    grid-template-columns: auto; /* 只需要一個 column，整個 rightsection 就是這一欄 */
     grid-template-rows: auto 1fr auto; /* 設置行高 */
 
     position: relative;
@@ -92,8 +95,8 @@ button {
     padding: 50px;
 }
 
-/* 在螢幕寬度小於 768px 時修改樣式 */
-@media screen and (max-width: 768px) {
+/* 在螢幕寬度小於 1199px 時修改樣式 */
+@media screen and (max-width: 1199px) {
     .rightsection {
         width: 100%;
         overflow: auto; 
@@ -110,7 +113,7 @@ button {
 .mygrid {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: 160px 1fr 220px ;
+    grid-template-rows: 30px 1fr 30px ;
 }
 
 aside {
@@ -123,6 +126,8 @@ aside {
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
+
+    align-self:center ;
 }
 
 .parent-of-myflexcontainer {
@@ -139,17 +144,17 @@ aside {
 
 table th {
     border: 1px dashed gray;
-    padding: 10px;
+    padding: 15px;
 }
 
 table tr {
     border: 1px dashed gray;
-    padding: 10px;
+    padding: 15px;
 }
 
 table td {
     border: 1px dashed gray;
-    padding: 10px;
+    padding: 15px;
 }
 
 /* 不同內容各自的 grid */
@@ -201,32 +206,45 @@ table td {
     cursor: pointer;
     position: relative;
     top: 17px;
+    justify-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
     
 }
 
 #updateproduct >img {
     width: 10vw;
-    height:20vh;
+    height:20.5vh;
     background: white;
     position: relative;
     top: 17px;
+
+    justify-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
     
     
 }
 @media screen and (max-width: 900px) {
     #updateproduct .theupload {
-        grid-area: 3/1/4/4; /* 例如，移动到下一行的第一列 */
-        align-self: center; /* 可能需要调整垂直对齐方式 */
+        grid-area: 3/1/4/2; /* 例如，移动到下一行的第一列 */
         font-size: 0.8rem;
-        text-wrap: nowrap;
-        width: 10vw;
-        height:10vh;
+        width: 20vw;
+        height: 20vh;
+        
+        justify-self:left;
     }
     #updateproduct >img {
-        grid-area: 3/1/4/4; /* 例如，移动到下一行的第一列 */
-        align-self: center; /* 可能需要调整垂直对齐方式 */
-        width: 10vw;
-        height:10vh;
-        
+        grid-area: 3/1/4/2; /* 设置为下一列，确保不与 .theupload 重叠 */
+        width: 20.5vw;
+        height: 20.5vh;
+       
+        justify-self:left;
+    }
+    #updateproduct button {
+        grid-area: 4/3/5/4; /* 设置为下一列，确保不与 .theupload 重叠 */
+        width: 120px;
+        height: 30px;
     }
 }
+
