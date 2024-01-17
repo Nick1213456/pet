@@ -173,7 +173,7 @@
       $('.deletebtn').click(function() {
         $.ajax({
           type: 'POST',
-          url: '/deletecat',
+          url: 'deletecat',
           data: {id: $(this).data('pid')},
           success: function(response) {
             alert(response)
@@ -189,7 +189,7 @@
       $('.btn-outline-black').click(function() {
         $.ajax({
           type: 'POST',
-          url: '/updateqnum',
+          url: 'updateqnum',
           data: {id: $(this).data('pid'),method:$(this).data('method')},
           success: function(response) {
           }
