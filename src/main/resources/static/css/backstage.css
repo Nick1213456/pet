@@ -1,5 +1,4 @@
-header{height: 141px;background-color: #C58484;}
-footer{height: 141px;background-color: #C58484;}
+
 /* 本css有兩處使用了float強制定位，若有排版問題可試著從float找 */
 body {
     background-color: rgb(156, 178, 199);
@@ -15,7 +14,7 @@ table {
     border: 0.3px dashed gray;
     width: 100%; /* 新增這行 */
     text-wrap: nowrap;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     
     
 }
