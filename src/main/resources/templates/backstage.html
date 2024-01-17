@@ -23,7 +23,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div th:insert="/Fragments/header :: header"></div>
+    <header th:insert="fragments/header :: header"></header>
 
     <main >
         <!-- Start Content -->
@@ -198,7 +198,8 @@
         <!-- End Content -->
 
         <!-- 載入 footer.html -->
-        <div th:insert="/fragments/footer :: footer"></div>
+        <div th:insert="fragments/footer :: footer"></div>
+        <footer></footer>
        
     </main>
 

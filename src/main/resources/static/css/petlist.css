@@ -1,239 +1,89 @@
-*{
+* {
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
+    font-family: "Noto Sans CJK TC", "Microsoft JhengHei", Arial, Helvetica, PingFang, STHeiti, sans-serif;
+    scroll-behavior: smooth;
 }
-html{
+
+html {
     font-size: 10px;
 }
-body
-{
-    background-image: url("/images/paw_mosaicbg.png");
-    display: block;
-}
 
-/*.all{*/
-/*    height: 70%;*/
-/*}*/
-.logosize{
-    margin-top: 1px;
-    margin-left: 20px;
 
+.col-lg-3 .categories_title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #943B3B;
 }
-.mylink{
-    margin-top: 100px;
-    margin-left: 20px;
-
-}
-.leftcontain
-{
-
-    height: 100vh;
-    width: 25%;
-    float: left;
-}
-.searching{
-
-    margin: 10px;
-}
-.searchinput
-{
-    width: auto;
-}
-@media screen and (max-width: 900px) {
-    .searchinput
-{
-    width: auto;
-}
-}
-.searchcheck
-{
-    position: relative;
-    border: 3px dashed black;
-    background-color: rgba(255,247,239,0.60);
-    border-radius: 15px;
-    box-shadow: 10px 10px gray;
-    height: 60%;
-    padding: 8%;
-    padding-bottom: 15%;
-    height: auto;
-
-}
-.searchimg
-{
-    width: 28px;
-    height: 25px;
-    margin-bottom: -5px;
-
-}
-.searchbtn
-{
-    background-color: transparent;
-    border: none;
-    padding-left: 3px;
-
-}
-.searchbtn:hover
-{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-/*條件標題。*/
-.articlesize
-{
-    margin: 5px;
+.col-lg-3 .templatemo-accordion .pb-3 .categories_text {
     font-size: 2rem;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
     font-weight: bold;
 }
+.col-lg-3 .templatemo-accordion .pb-3 .categories_text:hover {
+    color: #943B3B;
+}
+.col-lg-3 .templatemo-accordion .pb-3 .categories_text2 {
+    font-size: 1.8rem;
+    font-weight: 400 !important;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 5px;
+}
+.col-lg-3 .templatemo-accordion .pb-3 .categories_text2:hover {
+    color: #943B3B;
+}
 
-.optionbox
-{
-    margin: 5px;
-    display: flex;
-    flex-direction: row;
- 
-    font-size: 0.8rem;
-    text-align: left;
+.card-body2 {
+    margin: auto;
+    padding: 1rem 1rem;
 }
-@media screen and (max-width: 900px) {
-    .optionbox {
-        margin: 5px;
-        display: flex;
-        flex-direction: column;
-        font-size: 0.8rem;
-    }
+
+.card .card-body2 {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
 }
-.optiontext
-{
+.card .card-body2 h2 {
+    font-size: 3.8rem;
+    color: #943B3B;
+    font-weight: 600;
+}
+.card .card-body2 h4 {
+    font-size: 1.5rem;
+}
+.card .card-body2 .coin {
+    font-size: 2.4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 400;
+}
+.card .card-body2 .list-inline {
+    padding: 2rem 0 0 0;
+}
+.card .card-body2 .list-inline .list-inline-item p {
+    font-size: 1.5rem;
+}
+.card .card-body2 .card_text {
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+.card .card-body2 form {
     font-size: 2rem;
 }
-.optionagetext
-{
-    font-size: 1.7rem;
+.card .card-body2 form .btn-success {
+    background-color: #59ab6e;
+    border-color: #56ae6c;
+    padding: 0.5rem 1rem;
 }
-.clearbtn
-{
-    color: white;
-    background-color: #C58484;
-    border-radius: 5px;
-    font-size: 1.5rem;
-   
-}
-.picbox
-{
+.card .card-body2 form .btn-size {
+    font-size: 1.8rem;
+}/*# sourceMappingURL=shopping.css.map */
 
-    margin: 20px;
-
+.pet_detail{
+    font-size: 1.3rem;
 }
-.picshadow
-{
- box-shadow: 5px 5px darkgray;
-    border-radius: 85px;
-    margin: 0 auto;
-    display: block;
-}
-.rightcontain
-{
-    position: relative;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    height: auto;
-    width: 70%;
-
-    border: 3px dashed black;
-    padding-bottom: -15px;
-    background-color: rgba(238,221,204,0.60);
-    border-radius: 45px;
-
-    padding-top: 35px;
-    margin-bottom: 20px;
-    box-shadow: 10px 10px gray;
-}
-.rightcontain >div
-{width: 17.5%;}
-.footercontain{
-    height: auto;
-    background-color: #892B2B;
-}
-/*領養按鈕*/
-.adoptbtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.btncolor
-{
-    color: white;
-    background-color: #C58484;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    padding: 8px;
-}
-.pagebtnup{
-    color: white;
-    background-color: #C58484;
-    border-radius: 5px;
-    font-size: 1.5rem;
-   position: absolute;
-
-    left:10px;
-    bottom:10px;
-    padding: 8px;
-    margin-bottom: 10px;
-
-}
-.pagebtndown{
-    color: white;
-    background-color: #C58484;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    text-align:right;
-    position: absolute;
-
-    right:10px;
-    bottom:10px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-@media screen and ( max-width:900px ) {
-    .pagebtnup{
-        color: white;
-        background-color: #C58484;
-        border-radius: 5px;
-        font-size: 1.5rem;
-       position: absolute;
-    
-        left:10px;
-        bottom:10px;
-        padding: 8px;
-        margin-bottom: -70px;
-    
-    }
-    .pagebtndown{
-        color: white;
-        background-color: #C58484;
-        border-radius: 5px;
-        font-size: 1.5rem;
-        text-align:right;
-        position: absolute;
-    
-        right:10px;
-        bottom:10px;
-        padding: 8px;
-        margin-bottom: -70px;
-    }
-}
-.nametext
-{
-    text-align: center;
-    font-size: 2rem;
-    padding: 5px;
-}
-/*==*/
-

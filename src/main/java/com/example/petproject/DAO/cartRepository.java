@@ -1,7 +1,9 @@
 package com.example.petproject.DAO;
 
 import com.example.petproject.Mapper.cartMapper;
+import com.example.petproject.Mapper.cartMapper2;
 import com.example.petproject.Model.cartModel;
+import com.example.petproject.Model.cartModel2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -35,7 +37,7 @@ public class cartRepository {
     }
 
     public int getPrice(int id){
-       return jdbcTemplate.queryForObject("SELECT Price FROM commoditylist WHERE CommodityID="+id,int.class);
+        return jdbcTemplate.queryForObject("SELECT Price FROM commoditylist WHERE CommodityID="+id,int.class);
     }
 
     public int getComQuantity(int id,int Onum){
@@ -98,12 +100,18 @@ public class cartRepository {
 
     public void delete_orderdetail(int id, int pid){
         jdbcTemplate.update("DELETE FROM orderdetail WHERE CommodityID=? AND OrderNumber=?",id,pid);
-        updateOrderAmount(pid);
-    }
 
-    public void quantity_orderdetail(int num,int price,int id,int pid){
-        jdbcTemplate.update("update orderdetail SET ComQuantity=?,Amount=? WHERE CommodityID=? AND OrderNumber=?",num,price,id,pid);
-        updateOrderAmount(pid);
-    }
+        List<cartModel2>deleteorder=jdbcTemplate.query("select * from orderdetail where OrderNumber=?",new cartMapper2(),pid);
+
+            if (deleteorder.size() == 0) {
+                jdbcTemplate.update("delete from `order` where OrderNumber=? and status=1", pid);
+            }
+
+}
+
+public void quantity_orderdetail(int num,int price,int id,int pid){
+    jdbcTemplate.update("update orderdetail SET ComQuantity=?,Amount=? WHERE CommodityID=? AND OrderNumber=?",num,price,id,pid);
+    updateOrderAmount(pid);
+}
 
 }

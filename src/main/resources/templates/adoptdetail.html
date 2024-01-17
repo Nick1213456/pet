@@ -26,7 +26,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div th:insert="/fragments/header :: header"></div>
+    <div th:insert="fragments/header :: header"></div>
 
     <main>
         <!-- Start Content -->
@@ -37,7 +37,7 @@
             <div class="filler"></div>
             <span class="adoptdetail">Adopt Detail</span>
             <span class="line1"></span>
-            <section class="leftsec"><img th:src="${adop.getImageBytes()}" alt="頭像圖片"> </section>
+            <section class="leftsec"><img class="petimg" th:src="${adop.getImageBytes()}" alt="頭像圖片"> </section>
             <section class="rightsec" >
                 <span class="myrow"><div style="font-weight: bold;">寵物姓名:</div><span th:text="${adop.getPetName()}">資料一</span></span>
                 <span class="myrow"><div style="font-weight: bold;">性別:</div><span th:text="${adop.getGender()}">資料二</span></span>
@@ -55,15 +55,15 @@
             <span class="line3"></span>
             <!-- 空白的 span 元素，用于创建间隔 -->
             <span class="spacer"></span>
-            <button class="uppage">上一頁</button>
-            <button class="downpage">下一頁</button>
+<!--            <button class="uppage">上一頁</button>-->
+<!--            <button class="downpage">下一頁</button>-->
 
         </div>
 
         <!-- End Content -->
 
         <!-- 載入 footer.html -->
-        <div th:insert="/fragments/footer :: footer"></div>
+        <div th:insert="fragments/footer :: footer"></div>
     </main>
 
 
