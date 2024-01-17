@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Base64;
 
 @Controller
 public class petController {
@@ -34,7 +33,7 @@ public class petController {
 
     @PostMapping("/adopt")
     public String adopt(@ModelAttribute petModel pM, @RequestPart("fileInput") MultipartFile mf, HttpSession session){
-        int UID = petService.insertPetData(pM, (String)session.getAttribute("username"));
+        int UID = petService.insertPetData(pM,(String)session.getAttribute("username"));
         String directoryPath="C:/temp/petimg/"+UID+"/";
         Path petphoto =Paths.get(directoryPath,"img_1.jpg");
         try{

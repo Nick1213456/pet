@@ -49,7 +49,7 @@
             input的外框可以改成底線 -->
             <article class="myoption">   
             <ul>
-                <li>寵物名字: <input type="text" name="petName"></li>
+                <li>寵物名字: <input type="text" name="petName" required="required"></li>
                 <li>性別：
                     <label for="male">公</label>
                     <input type="radio" id="male" name="Gender" value="公">
@@ -58,27 +58,27 @@
                 </li>
                 <li>結紮：                    
                     <label for="done">是</label>
-                    <input type="radio" id="done" name="ligation" value="是">
+                    <input type="radio" id="done" name="ligation" value="是" required="required">
                     <label for="notyet">否</label>
-                    <input type="radio" id="notyet" name="ligation" value="否">
+                    <input type="radio" id="notyet" name="ligation" value="否" required="required">
                 </li>
                 <li>長短毛：
                     <label for="long">長毛</label>
-                    <input type="radio" id="long" name="hairLength" value="長毛">
+                    <input type="radio" id="long" name="hairLength" value="長毛" required="required">
                     <label for="short">短毛</label>
-                    <input type="radio" id="short" name="hairLength" value="短毛">
+                    <input type="radio" id="short" name="hairLength" value="短毛" required="required">
                     <label for="without">無毛</label>
-                    <input type="radio" id="without" name="hairLength" value="無毛">
+                    <input type="radio" id="without" name="hairLength" value="無毛" required="required">
                 </li>
-                <li>毛色：<input type="text" name="hairColor"></li>
-                <li>年齡：<input type="text" name="age"  style="width: 64px">歲</li>
-                <li>體重：<input type="text" name="weight" style="width: 64px">公斤</li>
+                <li>毛色：<input type="text" name="hairColor" required="required"></li>
+                <li>年齡：<input type="text" name="age"  style="width: 64px" required="required">歲</li>
+                <li>體重：<input type="text" name="weight" style="width: 64px" required="required">公斤</li>
                 <li>品種：<input type="text" name="variety"></li>
                 <li>類型：
                     <label for="cats">貓</label>
-                    <input type="radio" id="cats" name="kind" value="貓">
+                    <input type="radio" id="cats" name="kind" value="貓" required="required">
                     <label for="dogs">狗</label>
-                    <input type="radio" id="dogs" name="kind" value="狗">
+                    <input type="radio" id="dogs" name="kind" value="狗" required="required">
                 </li>
                 <li>自我介紹：<input type="text" name="Remark"></li>
             </ul>
@@ -157,7 +157,7 @@
                     reader.readAsDataURL(file);
                 }
                 else{
-                    alert("檔案過大(5MB)或發生其他錯誤無法上傳");
+                    // alert("檔案過大(5MB)或發生其他錯誤無法上傳");
                     $('#fileInput').val('');
                 }
 

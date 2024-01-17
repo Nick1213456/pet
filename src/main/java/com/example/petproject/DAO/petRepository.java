@@ -21,9 +21,9 @@ public class petRepository {
 //        return jdbcTemplate.query("SELECT * FROM `petprogram`",new petMapper());
 //    }
     //上架新增
-    public int insertPetData(petModel pM){
-        jdbcTemplate.update("INSERT INTO `petprogram`(PetName,Gender,Ligation,HairLengh,HairColor,Age,Weight,Variety,Kind,Remark)"+
-                "VALUES('"+pM.getPetName()+"','"+pM.getGender()+"','"+pM.getLigation()+"','"+pM.getHairLength()+"','"+pM.getHairColor()+"','"+pM.getAge()+"','"+pM.getWeight()+"','"+pM.getVariety()+"','"+pM.getKind()+"','"+pM.getRemark()+"');");
+    public int insertPetData(petModel pM,String username){
+        jdbcTemplate.update("INSERT INTO `petprogram`(PetName,Gender,Ligation,HairLengh,HairColor,Age,Weight,Variety,Kind,Remark,`Ad-Name`)"+
+                "VALUES('"+pM.getPetName()+"','"+pM.getGender()+"','"+pM.getLigation()+"','"+pM.getHairLength()+"','"+pM.getHairColor()+"','"+pM.getAge()+"','"+pM.getWeight()+"','"+pM.getVariety()+"','"+pM.getKind()+"','"+pM.getRemark()+"','"+username+"');");
         return jdbcTemplate.queryForObject("Select MAX(UID) FROM petprogram",Integer.class);
     }
 
