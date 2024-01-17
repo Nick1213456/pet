@@ -59,4 +59,13 @@ public class petController {
         m.addAttribute("adop",petService.getpetdetail(id));
         return "adoptdetail";
     }
+
+    @GetMapping("/adopter")
+    public String adopter(Model model,@RequestParam int id){
+        //寫個方法從id>>>抓取username
+        //用username>>>抓取主人資料
+        //把主人資料裝進model裡面
+        model.addAttribute("ownerData",petService.petOwner(id));
+        return "/adopter";
+    }
 }
