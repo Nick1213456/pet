@@ -136,8 +136,8 @@ public class memberService {
     }
 
     //寫入會員資料更改
-    public void dataChange(memberData mD){
-        mR.memberDataChange(mD);
+    public String dataChange(memberData mD,String oldusername){
+        return mR.memberDataChange(mD,oldusername);
     }
 
 

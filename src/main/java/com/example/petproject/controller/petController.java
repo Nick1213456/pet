@@ -60,6 +60,14 @@ public class petController {
         return "adoptdetail";
     }
 
+    @PostMapping("adoptdetail")
+    public String adoptdrop(int UID){
+        //呼叫方法刪除上架寵物資料
+        System.err.println(UID);
+        petService.petDrop(UID);
+        return "petlist";
+    }
+
     @GetMapping("/adopter")
     public String adopter(Model model,@RequestParam int id){
         //寫個方法從id>>>抓取username
