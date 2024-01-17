@@ -8,12 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Base64;
 
 @Controller
 public class petController {
@@ -35,7 +33,7 @@ public class petController {
 
     @PostMapping("/adopt")
     public String adopt(@ModelAttribute petModel pM, @RequestPart("fileInput") MultipartFile mf, HttpSession session){
-        int UID = petService.insertPetData(pM);
+        int UID = petService.insertPetData(pM,(String)session.getAttribute("username"));
         String directoryPath="C:/temp/petimg/"+UID+"/";
         Path petphoto =Paths.get(directoryPath,"img_1.jpg");
         try{
@@ -60,5 +58,14 @@ public class petController {
     public String showadoptdetail(@RequestParam int id, Model m){
         m.addAttribute("adop",petService.getpetdetail(id));
         return "adoptdetail";
+    }
+
+    @GetMapping("/adopter")
+    public String adopter(Model model,@RequestParam int id){
+        //寫個方法從id>>>抓取username
+        //用username>>>抓取主人資料
+        //把主人資料裝進model裡面
+        model.addAttribute("ownerData",petService.petOwner(id));
+        return "/adopter";
     }
 }

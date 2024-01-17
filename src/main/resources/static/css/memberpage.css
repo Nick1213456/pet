@@ -45,6 +45,7 @@ table{
     margin: 0;
    text-align: left;
     font-size: 2.5rem;
+    padding: 10px 10px;
 
 }
 /*使table右邊資料列被推開*/
@@ -63,28 +64,16 @@ table{
 {
     position: absolute;
     top: 25%;
-    left: 10%;
-    width: 50%;
+    left: 5%;
+    width: 60%;
     border-radius: 15px;
-    padding: 1%;
+    height: 50vh;
+    padding: 3%;
     border: 3px dashed black;
     background-color: rgba(216,188,188,0.65);
     box-shadow: 10px 10px gray;
 }
 
-.tablebox2
-{
-    position: absolute;
-    top: 48%;
-    left: 10%;
-    width: 50%;
-    border-radius: 15px;
-    padding: 1%;
-    height: 15rem;
-    border: 3px dashed black;
-    background-color: rgba(216,188,188,0.65);
-    box-shadow: 10px 10px gray;
-}
 
 
 /*編輯按鈕位置*/
@@ -127,7 +116,7 @@ table{
 .headimg
 {
     position: absolute;
-    right: 16.5%;
+    right: 12%;
     top: 25%;
     height: 250px;
     width: 250px;
@@ -140,7 +129,7 @@ table{
 .threebtnpos
 {
     position: absolute;
-    right: 20%;
+    right:12.5%;
     top: 55%;
     display: flex;
     flex-direction: column;
@@ -148,16 +137,26 @@ table{
 /*右邊三個按鍵的樣式*/
 .threebtnstyle
 {
+    position: relative;
     color: white;
-    margin-top: 30px;
     cursor: pointer;
     background-color: #C58484;
-    width: 100%;
+    width: 7vw;
+    margin:20px 10px;
 
     height: 35px;
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 1.7rem;
 }
+
+.aaa{
+    color:white;
+    text-decoration: none;
+}
+
+
+
 footer
 {
     width: 100%;

@@ -6,8 +6,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <p th:text="${mesg}" id="mesg"></p>
-    <p th:text="${session.username}" id="username"></p>
+    <p th:text="${mesg}" id="mesg" style="display: none"></p>
+    <p th:text="${session.username}" id="username" style="display: none"></p>
     <script>
         $(document).ready(function(){
             var mesg=$('#mesg').text();

@@ -51,7 +51,7 @@
             <span class="line2"></span>
             <span class="intro" style="font-weight: bold;">介紹:</span>
             <textarea readonly name="" id="" cols="30" rows="10" class="mytextarea" th:text="${adop.getRemark()}">這段文字不可由普通用戶編輯</textarea>
-            <button class="adoptbtn">我要領養</button>
+            <button class="adoptbtn"><a th:href="'/adopter?id='+${adop.getUid()}">我要領養</a></button>
             <span class="line3"></span>
             <!-- 空白的 span 元素，用于创建间隔 -->
             <span class="spacer"></span>
@@ -105,6 +105,7 @@
         window.onload = includeHTML;
     </script>
     <script src="./js/login.js"></script>
+
 </body>
 
 </html>
