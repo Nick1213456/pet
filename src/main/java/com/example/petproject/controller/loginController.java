@@ -102,8 +102,10 @@ public class loginController {
 
     @PostMapping("/memberpage")
     public String memberPage_Change(@ModelAttribute memberData mD,HttpSession session,Model model){
+        String oldusername = (String)session.getAttribute("username");
+        String newusername = mS.dataChange(mD,oldusername);
+        session.setAttribute("username",newusername);
         model.addAttribute("memberSrc",mS.outputPhoto((String)session.getAttribute("username")));
-        mS.dataChange(mD);
         return ("memberpage");
 
     }

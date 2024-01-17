@@ -63,9 +63,10 @@ public class memberRepository {
         return list;
     }
 
-    public void memberDataChange(memberData mD){
-        String sql="UPDATE member SET username='"+mD.getUsername()+"',password='"+mD.getPassword()+"',name='"+mD.getName()+"',birth='"+mD.getBirth()+"',cellphone='"+mD.getCellphone()+"',email='"+mD.getEmail()+"',adpExp='"+mD.getAdpExp()+"',meter='"+mD.getMeter()+"',Intro='"+mD.getIntro()+"' WHERE username='"+mD.getUsername()+"';";
+    public String memberDataChange(memberData mD,String oldusername){
+        String sql="UPDATE member SET username='"+mD.getUsername()+"',password='"+mD.getPassword()+"',name='"+mD.getName()+"',birth='"+mD.getBirth()+"',cellphone='"+mD.getCellphone()+"',email='"+mD.getEmail()+"',adpExp='"+mD.getAdpExp()+"',meter='"+mD.getMeter()+"',Intro='"+mD.getIntro()+"' WHERE username='"+oldusername+"';";
         jdbcTemplate.update(sql);
+        return mD.getUsername();
     }
 
 }

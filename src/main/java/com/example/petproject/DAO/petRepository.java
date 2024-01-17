@@ -31,4 +31,9 @@ public class petRepository {
     public List<petModel> getpetAllForid(int uid){
         return jdbcTemplate.query("SELECT * FROM petprogram WHERE UID=?",new petMapper(),uid);
     }
+
+    public void petDrop(int petID){
+        String sql="DELETE FROM petprogram WHERE UID=?";
+        jdbcTemplate.update(sql,petID);
+    }
 }

@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我要領養頁面</title>
+    <title>我要領養</title>
 </head>
 <body>
+
     <div th:each="owner:${ownerData}">
         主人名字:<span th:text="${owner.getUsername()}"></span>
         主人信箱:<span th:text="${owner.getEmail()}"></span>
         主人聯絡電話:<span th:text="${owner.getCellphone()}"></span>
     </div>
-
 </body>
 </html>

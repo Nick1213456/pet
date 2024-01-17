@@ -77,4 +77,9 @@ public class petService {
 
         return list;
     }
+
+    //寵物下架功能
+    public void petDrop(int petID){
+        petRepository.petDrop(petID);
+    }
 }
