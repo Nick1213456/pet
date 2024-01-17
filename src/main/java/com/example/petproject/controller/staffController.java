@@ -2,7 +2,6 @@ package com.example.petproject.controller;
 
 import com.example.petproject.Model.orderInsert;
 import com.example.petproject.Model.orderModel;
-import com.example.petproject.Model.productModel;
 import com.example.petproject.Model.productModel2;
 import com.example.petproject.Service.memberService;
 import com.example.petproject.Service.staffService;
@@ -43,7 +42,7 @@ public class staffController {
             return ("backstage");
         }
         else{
-            return("index");
+            return("index2");
         }
     }
 

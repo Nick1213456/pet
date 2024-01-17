@@ -231,7 +231,15 @@ main .grid .grid_a .grid_img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/grid_img_01.jpg");
+}
+main .grid .grid_a .grid_img_url1 {
+  background-image: url("../images/grid_img_01.jpg");
+}
+main .grid .grid_a .grid_img_url2 {
+  background-image: url("../images/grid_img_02.jpg");
+}
+main .grid .grid_a .grid_img_url3 {
+  background-image: url("../images/grid_img_03.jpg");
 }
 main .grid .grid_a .grid_text {
   width: 90%;
@@ -330,17 +338,9 @@ main .aaa .new .shop .shop_img {
   background-color: #AFAFAF;
   margin: 20px auto;
 }
-main .aaa .new .shop .bg_imga {
-  background-image: url("/images/grid_img_02.jpg");
-}
-main .aaa .new .shop .bg_imgb {
-  background-image: url("/images/grid_img_02.jpg");
-}
-main .aaa .new .shop .bg_imgc {
-  background-image: url("/images/grid_img_02.jpg");
-}
-main .aaa .new .shop .bg_imgd {
-  background-image: url("/images/grid_img_02.jpg");
+main .aaa .new .shop .shop_img img {
+  width: 100%;
+  border-radius: 50%;
 }
 main .aaa .new .shop h3 {
   padding: 0 40px;
@@ -397,6 +397,12 @@ main .aaa .container .givehmoe_img {
 }
 main .aaa .container .givehmoe_img img {
   width: 100%;
+}
+main .aaa .container .shop_img_1 {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  overflow: hidden;
 }
 main .footer_bg {
   width: 100%;
@@ -481,6 +487,9 @@ main footer .footerbar #gototop {
 .login_modal .imgcontainer img:hover,
 .login_modal .imgcontainer img:focus {
   cursor: pointer;
+}
+.login_modal .d-none {
+  display: none;
 }
 .login_modal .login_modal-content {
   background-color: rgba(255, 255, 255, 0.7568627451);

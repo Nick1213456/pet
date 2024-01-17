@@ -3,24 +3,18 @@ package com.example.petproject.controller;
 import com.example.petproject.Model.UnPs;
 import com.example.petproject.Model.memberData;
 import com.example.petproject.Model.passwdForget;
-import com.example.petproject.Model.productModel;
 import com.example.petproject.Service.memberService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.support.MultipartFilter;
 
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Base64;
 import java.util.List;
 
 
@@ -33,7 +27,7 @@ public class loginController {
     //首頁
     @GetMapping("/index")
     public String index(){
-        return("index");
+        return("index2");
     }
 
     //about
@@ -102,7 +96,7 @@ public class loginController {
             return ("memberpage");
         }
         else{
-            return ("index");
+            return ("index2");
         }
     }
 
@@ -124,7 +118,7 @@ public class loginController {
         String password = mS.returnPassword(username,email);
         model.addAttribute("password",password);
         model.addAttribute("username",username);
-        return ("/index");
+        return ("index2");
     }
 
     //登出
@@ -132,7 +126,7 @@ public class loginController {
     public String signOut(HttpSession session){
         mS.signOut(session);
         //暫時返回首頁
-        return "index";
+        return "index2";
     }
 
     //照片上傳
