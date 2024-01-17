@@ -14,13 +14,28 @@ table {
     border: 0.3px dashed gray;
     width: 100%; /* 新增這行 */
     text-wrap: nowrap;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    
+    
+}
+@media screen and (max-width:900px) {
+    table {
+        background-color: #FFFFFF;
+        border-collapse: collapse;
+        border-spacing: 0px 20px;
+        border: 0.3px dashed gray;
+        width: 100%; /* 新增這行 */
+        text-wrap: nowrap;
+        font-size: 1rem;
+        margin-left: 1%;
+        
+    }
 }
 
 h2{
     font-size: 2.5rem;
-    margin: 10px;
-    padding-bottom: 20px;
+    
+    
 }
 
 /* 整體 input 顏色 */
@@ -73,6 +88,8 @@ button {
     box-sizing: border-box;
     background-color: antiquewhite;
     box-shadow: 5px 5px black;
+    
+    padding: 50px;
 }
 
 /* 在螢幕寬度小於 768px 時修改樣式 */
@@ -93,7 +110,7 @@ button {
 .mygrid {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: 150px 1fr 1fr 1fr;
+    grid-template-rows: 160px 1fr 220px ;
 }
 
 aside {
@@ -122,26 +139,31 @@ aside {
 
 table th {
     border: 1px dashed gray;
+    padding: 10px;
 }
 
 table tr {
     border: 1px dashed gray;
+    padding: 10px;
 }
 
 table td {
     border: 1px dashed gray;
+    padding: 10px;
 }
 
 /* 不同內容各自的 grid */
 
 #updateproduct {
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 500px 1fr 2fr 1fr;
     grid-template-rows: 100px 2fr;
 }
 
 #updateproduct h2 {
-    grid-area: 1/1/2/2;
-    text-wrap: nowrap;
+    margin-left: 2%;
+    margin-top: 2%;
+
+    white-space: nowrap;
 }
 
 #updateproduct table {
@@ -161,4 +183,50 @@ table td {
 
 #updateproduct button {
     grid-area: 4/4/5/5;
+}
+
+#orderlist
+{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#updateproduct .theupload {
+    grid-area: 2/4/3/5;
+    /*align-self: center;*/
+    width: 10vw;
+    height:20vh;
+    border:2px solid black;
+    cursor: pointer;
+    position: relative;
+    top: 17px;
+    
+}
+
+#updateproduct >img {
+    width: 10vw;
+    height:20vh;
+    background: white;
+    position: relative;
+    top: 17px;
+    
+    
+}
+@media screen and (max-width: 900px) {
+    #updateproduct .theupload {
+        grid-area: 3/1/4/4; /* 例如，移动到下一行的第一列 */
+        align-self: center; /* 可能需要调整垂直对齐方式 */
+        font-size: 0.8rem;
+        text-wrap: nowrap;
+        width: 10vw;
+        height:10vh;
+    }
+    #updateproduct >img {
+        grid-area: 3/1/4/4; /* 例如，移动到下一行的第一列 */
+        align-self: center; /* 可能需要调整垂直对齐方式 */
+        width: 10vw;
+        height:10vh;
+        
+    }
 }
