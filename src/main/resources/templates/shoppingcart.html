@@ -179,7 +179,10 @@
             alert(response)
           }
         });
-        location.reload();//重整
+        flash(function (){
+
+        })
+        // location.reload();//重整
         this.preventDefault();//不跳轉A標籤
       });
       //修改數量
@@ -191,7 +194,9 @@
           success: function(response) {
           }
         });
-        location.reload();//重整
+        flash(function (){
+        });
+        // location.reload();//重整
       });
       //總計
       var totalAmount=0;
@@ -204,6 +209,11 @@
       });
       $("#totalAmount").text("$"+totalAmount)
     })
+    function flash(){
+      setTimeout(function(){
+        location.reload();
+      },10);
+    }
   </script>
 </body>
 

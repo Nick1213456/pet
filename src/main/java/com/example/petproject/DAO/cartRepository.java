@@ -98,7 +98,10 @@ public class cartRepository {
 
     public void delete_orderdetail(int id, int pid){
         jdbcTemplate.update("DELETE FROM orderdetail WHERE CommodityID=? AND OrderNumber=?",id,pid);
-        updateOrderAmount(pid);
+        List<cartModel>deleteorder=jdbcTemplate.query("select * from orderdetail where OrderNumber=?",new cartMapper(),id,pid);
+        if (deleteorder.size()==0){
+            jdbcTemplate.update("delete from `order` where OrderNumber=? and status=1",pid);
+        }
     }
 
     public void quantity_orderdetail(int num,int price,int id,int pid){

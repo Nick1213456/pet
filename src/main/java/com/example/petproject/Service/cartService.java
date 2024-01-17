@@ -46,6 +46,9 @@ public class cartService {
             int qnum = cartRepository.getComQuantity(id,pid)-1;
             int price = qnum * cartRepository.getPrice(id);
             cartRepository.quantity_orderdetail(qnum,price,id,pid);
+            if (qnum<1){
+                cartRepository.delete_orderdetail(id,pid);
+            }
         }
     }
 
