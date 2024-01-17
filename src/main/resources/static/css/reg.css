@@ -1,5 +1,5 @@
 body {
-    background-image: url("/src/main/resources/static/images/paw_mosaicbg.png");
+    background-image: url("/images/paw_mosaicbg.png");
     margin: 0; /* 为了去掉body的默认边距 */
 }
 
