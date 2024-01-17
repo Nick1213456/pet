@@ -7,7 +7,7 @@
     <title>後台畫面</title>
     
     <link rel="stylesheet" href="/css/allCss.css">
-    <link rel="stylesheet" href="/css/backstage.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/backstage.css">
 
     <!-- jquery js -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -69,7 +69,7 @@
 
     <div id="updateproduct" >
 
-            <h2>上架商品</h2>
+            <h2 >上架商品</h2>
 
                 <table class="mytable2">
                     <tr>
@@ -107,8 +107,8 @@
                 </table>
 
         <!-- 上傳商品部分 -->
-                    <img src="" style="width: 10vw;height:20vh;background: white;" id="imagePreview">
-                <label for="fileInput" class="theupload"  id="In2" style="width: 10vw;height:20vh;border:2px solid black;cursor: pointer;">商品照片</label>
+                    <img src=""  id="imagePreview">
+                <label for="fileInput" class="theupload"  id="In2" >商品照片</label>
                     <input type="file" style="display: none" id="fileInput" name="fileInput" accept="image/*">
                     <button type="submit">上架</button>
            </form>
@@ -199,6 +199,7 @@
 
         <!-- 載入 footer.html -->
         <div th:insert="/fragments/footer :: footer"></div>
+       
     </main>
 
 
