@@ -1,7 +1,9 @@
 package com.example.petproject.Service;
 
+import com.example.petproject.DAO.memberRepository;
 import com.example.petproject.DAO.petRepository;
 import com.example.petproject.Mapper.petMapper;
+import com.example.petproject.Model.memberData;
 import com.example.petproject.Model.petModel;
 import com.example.petproject.Model.productModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +13,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
 public class petService {
     @Autowired
     petRepository petRepository;
+    @Autowired
+    memberRepository mR;
 
     public List<petModel> getpetAll(){
         return petRepository.getpetAll();
@@ -57,5 +62,19 @@ public class petService {
             }
         }
         return pm;
+    }
+
+    //使用寵物ID抓取會員資料
+    public List<memberData> petOwner(int id) {
+        //id>>>username
+        List<petModel> petlist = petRepository.getpetAllForid(id);
+        String ownerUsername = null;
+        for (petModel petmodel : petlist) {
+            ownerUsername = petmodel.getAd_Name();
+        }
+        //username>>>memberData
+        List<memberData> list = mR.memberData(ownerUsername);
+
+        return list;
     }
 }
