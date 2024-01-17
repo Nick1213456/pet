@@ -27,7 +27,7 @@ public class loginController {
     //首頁
     @GetMapping("/index")
     public String index(){
-        return("index2");
+        return("index");
     }
 
     //about
@@ -96,7 +96,7 @@ public class loginController {
             return ("memberpage");
         }
         else{
-            return ("index2");
+            return ("index");
         }
     }
 
@@ -118,15 +118,15 @@ public class loginController {
         String password = mS.returnPassword(username,email);
         model.addAttribute("password",password);
         model.addAttribute("username",username);
-        return ("index2");
+        return ("index");
     }
 
     //登出
-    @GetMapping("/signOut")
+    @GetMapping("/")
     public String signOut(HttpSession session){
         mS.signOut(session);
         //暫時返回首頁
-        return "index2";
+        return "index";
     }
 
     //照片上傳
