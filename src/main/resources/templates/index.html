@@ -30,7 +30,7 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div id="includedContent"></div>
+    <div th:insert="fragments/header :: header"></div>
     <!-- <div th:insert="/Fragments/header :: header"></div> -->
 
     <main>
@@ -324,7 +324,7 @@
         </article>
 
         <!-- 載入 footer.html -->
-        <div id="includfooter"></div>
+        <div th:insert="fragments/footer :: footer"></div>
         <!-- <div th:insert="/fragments/footer :: footer"></div> -->
 
     </main>
