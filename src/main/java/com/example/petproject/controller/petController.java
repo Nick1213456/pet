@@ -63,17 +63,24 @@ public class petController {
     @PostMapping("adoptdetail")
     public String adoptdrop(int UID){
         //呼叫方法刪除上架寵物資料
-        System.err.println(UID);
         petService.petDrop(UID);
-        return "petlist";
+        String directoryPath="C:/temp/petimg/"+UID+"/";
+        try {
+            Path petphoto =Paths.get(directoryPath,"img_1.jpg");
+
+            // 檢查檔案是否存在
+            if (Files.exists(petphoto)) {
+                // 刪除檔案
+                Files.delete(petphoto);
+            } else {
+                System.err.println("照片刪除失敗");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage()+",發生錯誤請處理");
+        }
+
+
+        return "memberpage";
     }
 
-    @GetMapping("/adopter")
-    public String adopter(Model model,@RequestParam int id){
-        //寫個方法從id>>>抓取username
-        //用username>>>抓取主人資料
-        //把主人資料裝進model裡面
-        model.addAttribute("ownerData",petService.petOwner(id));
-        return "/adopter";
-    }
 }

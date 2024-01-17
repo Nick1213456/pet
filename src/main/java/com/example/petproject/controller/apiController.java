@@ -29,6 +29,4 @@ public class apiController {
             return username+memberper;
         }
     }
-
-
 }

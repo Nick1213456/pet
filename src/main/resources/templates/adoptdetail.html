@@ -47,14 +47,14 @@
                 <span class="myrow"><div style="font-weight: bold;">年齡:</div><span th:text="${adop.getAge()}">資料六</span></span>
                 <span class="myrow"><div style="font-weight: bold;">品種:</div><span th:text="${adop.getVariety()}">資料七</span></span>
                 <span class="myrow"><div style="font-weight: bold;">是否已領養:</div><span th:text="${adop.getN_Adopted()}">資料八</span></span>
-                <span class="myrow"><div style="font-weight: bold;">寵物主人username:</div><span th:text="${adop.getAd_Name()}" id="ownername">資料八</span></span>
-                <span class="myrow"><div style="font-weight: bold;">造訪人username:</div><span th:text="${session.username}" id="Guestname">資料八</span></span>
-                <span class="myrow"><div style="font-weight: bold;">寵物ID:</div><span th:text="${adop.getUid()}" id="petUID">資料八</span></span>
+                <span class="myrow" style="display: none"><div style="font-weight: bold;">寵物主人username:</div><span th:text="${adop.getAd_Name()}" id="ownername">資料八</span></span>
+                <span class="myrow" style="display: none"><div style="font-weight: bold;">造訪人username:</div><span th:text="${session.username}" id="Guestname">資料八</span></span>
+                <span class="myrow" style="display: none"><div style="font-weight: bold;">寵物ID:</div><span th:text="${adop.getUid()}" id="petUID">資料八</span></span>
             </section>
             <span class="line2"></span>
             <span class="intro" style="font-weight: bold;">介紹:</span>
             <textarea readonly name="" id="" cols="30" rows="10" class="mytextarea" th:text="${adop.getRemark()}">這段文字不可由普通用戶編輯</textarea>
-            <button class="adoptbtn"><a th:href="'/adopter?id='+${adop.getUid()}">我要領養</a></button>
+            <button class="adoptbtn">我要領養</button>
             <button class="adoptbtn2" id="adoptbtn2">寵物下架</button>
             <span class="line3"></span>
             <!-- 空白的 span 元素，用于创建间隔 -->
@@ -120,12 +120,21 @@
                 $('.adoptbtn2').show();
             }
 
+            $('.adoptbtn').click(function (){
+                alert("您的領養意願已傳送~感謝您使用本網站~");
+            })
+
             //下架功能
             $('#adoptbtn2').click(function(){
-                $.post(
-                    "adoptdetail",
-                    {"UID":UID}
-                )
+                $.post({
+                    url: "adoptdetail",
+                    data: { "UID": UID},
+                    success: function(responseData){
+                        // 在这里处理成功的响应
+                        alert("您的寵物已經成功下架~感謝您使用本網站!");
+                        location.href=("memberpage");
+                    }
+                });
             });
         });
     </script>
