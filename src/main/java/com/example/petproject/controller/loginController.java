@@ -49,7 +49,6 @@ public class loginController {
         }
 
         // 印出結果
-        System.out.println("隨機數組: " + uniqueNumbers);
         for (int i=0;i<4;i++) {
             pl.add(list.get(uniqueNumbers.get(i)));
         }
@@ -77,7 +76,6 @@ public class loginController {
         }
 
         // 印出結果
-        System.out.println("隨機數組: " + uniqueNumbers);
         for (int i=0;i<4;i++) {
             pl.add(list.get(uniqueNumbers.get(i)));
         }
