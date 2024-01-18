@@ -58,6 +58,34 @@ public class loginController {
        return("index");
     }
 
+    @GetMapping("/")
+    public String index2(Model model){
+        List<productModel> list = pS.getproductAll();
+        List<productModel> pl = new ArrayList<>();
+        // 創建一個Random物件
+        Random j = new Random();
+
+        // 創建一個ArrayList來存放亂數
+        ArrayList<Integer> uniqueNumbers = new ArrayList<>();
+
+        // 生成四個不重複的亂數
+        while (uniqueNumbers.size() < 4) {
+            int randomNumber = j.nextInt(list.size()); // 在0到99之間生成亂數，你可以根據需要調整上限
+            if (!uniqueNumbers.contains(randomNumber)) {
+                uniqueNumbers.add(randomNumber);
+            }
+        }
+
+        // 印出結果
+        System.out.println("隨機數組: " + uniqueNumbers);
+        for (int i=0;i<4;i++) {
+            pl.add(list.get(uniqueNumbers.get(i)));
+        }
+        model.addAttribute("productModelList", pl);
+
+        return("index");
+    }
+
     //about
     @GetMapping("/about")
     public String about(){
@@ -152,7 +180,7 @@ public class loginController {
     }
 
     //登出
-    @GetMapping("/")
+    @GetMapping("/signout")
     public String signOut(HttpSession session){
         mS.signOut(session);
         //暫時返回首頁

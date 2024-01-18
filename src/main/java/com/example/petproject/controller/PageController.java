@@ -3,6 +3,8 @@ package com.example.petproject.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Random;
+
 @Controller
 public class PageController {
 //    @GetMapping("/index")
@@ -25,5 +27,4 @@ public class PageController {
     public String showcheckout(){
         return "checkout";
     }
-
 }
