@@ -16,6 +16,7 @@ html {
     font-weight: 900;
     color: #943B3B;
 }
+
 .col-lg-3 .templatemo-accordion .pb-3 .categories_text {
     font-size: 2rem;
     color: #000;
@@ -24,9 +25,11 @@ html {
     text-decoration: none;
     font-weight: bold;
 }
+
 .col-lg-3 .templatemo-accordion .pb-3 .categories_text:hover {
     color: #943B3B;
 }
+
 .col-lg-3 .templatemo-accordion .pb-3 .categories_text2 {
     font-size: 1.8rem;
     font-weight: 400 !important;
@@ -35,6 +38,7 @@ html {
     font-weight: bold;
     padding: 0 5px;
 }
+
 .col-lg-3 .templatemo-accordion .pb-3 .categories_text2:hover {
     color: #943B3B;
 }
@@ -48,43 +52,60 @@ html {
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }
+
 .card .card-body2 h2 {
     font-size: 3.8rem;
     color: #943B3B;
     font-weight: 600;
 }
+
 .card .card-body2 h4 {
     font-size: 1.5rem;
 }
+
 .card .card-body2 .coin {
     font-size: 2.4rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-weight: 400;
 }
+
 .card .card-body2 .list-inline {
     padding: 2rem 0 0 0;
 }
+
 .card .card-body2 .list-inline .list-inline-item p {
     font-size: 1.5rem;
 }
+
 .card .card-body2 .card_text {
     font-size: 1.8rem;
     font-weight: 200;
 }
+
 .card .card-body2 form {
     font-size: 2rem;
 }
+
 .card .card-body2 form .btn-success {
     background-color: #59ab6e;
     border-color: #56ae6c;
     padding: 0.5rem 1rem;
 }
+
 .card .card-body2 form .btn-size {
     font-size: 1.8rem;
-}/*# sourceMappingURL=shopping.css.map */
+}
 
-.pet_detail{
+/*# sourceMappingURL=shopping.css.map */
+
+.pet_detail {
     font-size: 1.3rem;
 }
 
+.shop-img-wrap {
+    width: 100vw;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.824), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/images/banner_05.jpg');
+    height: 75vh;
+    background-repeat: no-repeat;
+}

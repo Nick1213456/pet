@@ -1,4 +1,13 @@
 @charset "UTF-8";
+.problem-img-wrap {
+  width: 100vw;
+  position: relative;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.824), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("/images/banner_08.jpg");
+  height: 75vh;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
 .aaa .container {
   width: 90%;
   /* details 元素的樣式 */
