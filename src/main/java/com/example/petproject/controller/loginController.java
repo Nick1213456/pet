@@ -4,6 +4,7 @@ import com.example.petproject.Model.UnPs;
 import com.example.petproject.Model.memberData;
 import com.example.petproject.Model.passwdForget;
 import com.example.petproject.Service.memberService;
+import com.example.petproject.Service.productService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ public class loginController {
 
     @Autowired
     memberService mS;
+
 
     //首頁
     @GetMapping("/index")
