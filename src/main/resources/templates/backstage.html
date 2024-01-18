@@ -35,6 +35,9 @@
                 <button onclick="btn1()" class=" leftbtn">
                     上架周邊
                 </button>
+                <button  onclick="btn4()" class=" leftbtn">
+                    周邊商品列表
+                </button>
                 <button onclick="btn2()" class=" leftbtn">
                     訂單資料
                 </button>
@@ -159,7 +162,7 @@
     </div>
     <!-- 會員資料頁 -->
     <div id="memberlist">
-        <h2>會員資料操作</h2>
+        <h2>周邊商品列表</h2>
         帳號搜尋:<input id="myInput" type="text" placeholder="Search.." style="width: 20%;"><br>
         
         <table  class="ordertable" id="myTable">
@@ -189,6 +192,51 @@
             <button class="pagebtn">下一頁</button>
         </div>
     </div>
+   <!-- 商品列表頁 -->
+    <div id="productlist">
+        <h2>會員資料操作</h2>
+        帳號搜尋:<input id="productsearch" type="text" placeholder="Search.." style="width: 20%;"><br>
+
+        <table  class="ordertable" id="producttable">
+            <thead>
+            <tr>
+                <td>商品ID</td>
+                <td>商品名稱</td>
+                <td>商品類別</td>
+                <td>商品規格</td>
+                <td>商品庫存</td>
+                <td>商品售價</td>
+                <td>商品成本</td>
+                <td>功能</td>
+            </tr>
+            </thead>
+            <tbody th:each="member:${memberList}">
+            <tr>
+                <td class="username" th:text="${member.username}">ID</td>
+                <td th:text="${member.Employee}">名稱</td>
+                <td th:text="${member.Employee}">類別</td>
+                <td th:text="${member.Employee}">規格</td>
+                <td th:text="${member.Employee}">庫存</td>
+                <td th:text="${member.Employee}">售價</td>
+                <td th:text="${member.Employee}">成本</td>
+<!--                功能-->
+                <td>
+                    <button class="button0" th:attr="data-username=${member.username}">封鎖</button>
+                    <button class="button1" th:attr="data-username=${member.username}">會員</button>
+                    <button class="button2" th:attr="data-username=${member.username}">管理員</button>
+                </td>
+            </tr>
+            </tbody>
+
+
+        </table>
+        <div class="orderbtn">
+            <button class="pagebtn">上一頁</button>
+            <button class="pagebtn">下一頁</button>
+        </div>
+    </div>
+
+
 </article>
 
 
@@ -241,13 +289,14 @@
         // 在頁面載入完成後呼叫 includeHTML 函數
         window.onload = includeHTML;
     </script>
-    <script src="./js/login.js"></script>
+<!--    <script src="./js/login.js"></script>-->
     <script>
         // 沒按按鈕的顯示
         document.getElementById("mainpage").style.display = 'grid';
         document.getElementById("updateproduct").style.display = 'none';
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'none';
+        document.getElementById("productlist").style.display = 'none';
     // 按下按鈕得到指定div的id分別隱藏或顯示不同div
     function btn1() {
         // var mydiv="updateproduct";
@@ -255,6 +304,7 @@
         document.getElementById("updateproduct").style.display = 'grid';
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'none';
+        document.getElementById("productlist").style.display = 'none';
         
     }
     function btn2() {
@@ -263,6 +313,7 @@
         document.getElementById("updateproduct").style.display = 'none';
         document.getElementById("orderlist").style.display = 'grid';
         document.getElementById("memberlist").style.display = 'none';
+        document.getElementById("productlist").style.display = 'none';
     }
     function btn3() {
         // var mydiv="memberlist";
@@ -270,6 +321,16 @@
         document.getElementById("updateproduct").style.display = 'none';
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'grid';
+        document.getElementById("productlist").style.display = 'none';
+    }
+
+    function btn4() {
+        // var mydiv="memberlist";
+        document.getElementById("mainpage").style.display = 'none';
+        document.getElementById("updateproduct").style.display = 'none';
+        document.getElementById("orderlist").style.display = 'none';
+        document.getElementById("memberlist").style.display = 'none';
+        document.getElementById("productlist").style.display = 'grid';
     }
     
     </script>
