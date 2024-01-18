@@ -7,7 +7,15 @@
     <title>關於我們</title>
     <link rel="stylesheet" href="./css/allCss.css">
     <link rel="stylesheet" href="./css/about.css">
-
+    <style>
+        .col-12:hover img{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        img{
+            transition: .5s;
+        }
+    </style>
     <!-- jquery js -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -17,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
 </head>
 
 <body class="cart_bg1">
@@ -106,51 +115,72 @@
                     </div>
 
                     <div class="row">
+                        <div  class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <a href="/aboutNetwork">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
+                            <h3>關於網站</h3>
+                            <p class="about_p">網站架構</p>
+                        </div>
                         <!-- Start Column 1 -->
-                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                        <div  class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
+                            <a href="/Resume_Norin">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>Norin</h3>
                             <p class="about_p">資料庫管理</p>
                         </div>
                         <!-- End Column 1 -->
                         <!-- Start Column 2 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_Nick">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>Nick</h3>
                             <p class="about_p">技術顧問</p>
                         </div>
                         <!-- End Column 2 -->
                         <!-- Start Column 3 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_Chi">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>Chi</h3>
                             <p class="about_p">前端設計</p>
                         </div>
                         <!-- End Column 3 -->
                         <!-- Start Column 4 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_Yi_Dong">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>Yi Dong</h3>
                             <p class="about_p">前端設計</p>
                         </div>
                         <!-- End Column 4 -->
                         <!-- Start Column 5 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_Alex">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>Alex</h3>
                             <p class="about_p">後端設計</p>
                         </div>
                         <!-- End Column 5 -->
                         <!-- Start Column 6 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_吉">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>吉</h3>
                             <p class="about_p">後端設計</p>
                         </div>
                         <!-- End Column 6 -->
                         <!-- Start Column 7 -->
                         <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0 pb-3 text-center">
-                            <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3">
+                            <a href="/Resume_p">
+                                <img src="images/grid_img_03.jpg" class="img-fluid rounded-3 pb-3 popup-trigger">
+                            </a>
                             <h3>p</h3>
                             <p class="about_p">後端設計</p>
                         </div>
@@ -208,6 +238,7 @@
         window.onload = includeHTML;
     </script>
     <script src="./js/login.js"></script>
+
 </body>
 
 </html>

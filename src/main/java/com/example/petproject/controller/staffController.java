@@ -84,29 +84,26 @@ public class staffController {
         //將傳過來的插入資料庫
         if(sS.product_upload(pM)){
             String directoryPath = "C:/temp/productimg/" + pM.getCommodityID() + "/";
-            Path productPhoto = Paths.get(directoryPath, "img_1.jpg");
-            try{
-                if (!Files.exists(productPhoto.getParent())) {
-                    Files.createDirectories(productPhoto.getParent());
-                }
-                if(Files.exists(productPhoto)){
-                    Files.copy(mf.getInputStream(),productPhoto, StandardCopyOption.REPLACE_EXISTING);
-                }
-                else{
-                    mf.transferTo(productPhoto);
-                }
+                Path productPhoto = Paths.get(directoryPath, "img_1.jpg");
+                try {
+                    if (!Files.exists(productPhoto.getParent())) {
+                        Files.createDirectories(productPhoto.getParent());
+                    }
+                    if (Files.exists(productPhoto)) {
+                        Files.copy(mf.getInputStream(), productPhoto, StandardCopyOption.REPLACE_EXISTING);
+                    } else {
+                        mf.transferTo(productPhoto);
+                    }
 //                byte[] image =Files.readAllBytes(productPhoto);
 //                String hash64 = java.util.Base64.getEncoder().encodeToString(image);
 //                model.addAttribute("src","data:image/jpeg;base64,"+hash64);
-            }
-            catch (Exception e){
-                System.err.println("檔案存入失敗");
-            }
-
+                } catch (Exception e) {
+                    System.err.println("檔案存入失敗");
+                }
 
             return("redirect:/shopping");
         }
-        else {
+        else{
             return("productUpload_Failed");
         }
     }
