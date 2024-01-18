@@ -3,7 +3,9 @@ package com.example.petproject.controller;
 import com.example.petproject.Model.UnPs;
 import com.example.petproject.Model.memberData;
 import com.example.petproject.Model.passwdForget;
+import com.example.petproject.Model.productModel;
 import com.example.petproject.Service.memberService;
+import com.example.petproject.Service.productService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -23,11 +25,36 @@ public class loginController {
 
     @Autowired
     memberService mS;
+    @Autowired
+    productService pS;
 
     //首頁
     @GetMapping("/index")
-    public String index(){
-        return("index");
+    public String index(Model model){
+       List<productModel> list = pS.getproductAll();
+        List<productModel> pl = new ArrayList<>();
+        // 創建一個Random物件
+        Random j = new Random();
+
+        // 創建一個ArrayList來存放亂數
+        ArrayList<Integer> uniqueNumbers = new ArrayList<>();
+
+        // 生成四個不重複的亂數
+        while (uniqueNumbers.size() < 4) {
+            int randomNumber = j.nextInt(list.size()); // 在0到99之間生成亂數，你可以根據需要調整上限
+            if (!uniqueNumbers.contains(randomNumber)) {
+                uniqueNumbers.add(randomNumber);
+            }
+        }
+
+        // 印出結果
+        System.out.println("隨機數組: " + uniqueNumbers);
+        for (int i=0;i<4;i++) {
+            pl.add(list.get(uniqueNumbers.get(i)));
+        }
+        model.addAttribute("productModelList", pl);
+
+       return("index");
     }
 
     //about
