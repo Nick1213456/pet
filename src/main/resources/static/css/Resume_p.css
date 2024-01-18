@@ -189,7 +189,8 @@ body {
     margin-left: 50%;
     top: 0%;
     transform-origin: 0% 100%;
-    transform: rotate(89deg);
+    transform: rotate(90deg);
+
 }
 .left .learntime .circle .per-47 {
     content: "";
