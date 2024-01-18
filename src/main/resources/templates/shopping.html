@@ -45,10 +45,14 @@
 
 <body>
     <!-- 載入 header.html -->
-    <div th:insert="fragments/header :: header"></div>
+    <!-- <div id="includedContent"></div>-->
+     <div th:insert="fragments/header :: header"></div>
 
 
     <main class="shop_main" style="background-color: #FAF0E4;">
+        <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
+        <!-- banner -->
+        <div class="row shop-img-wrap" ></div>
         <!-- 周邊商品 -->
         <article class="aaa">
             <div class="title">
@@ -152,7 +156,8 @@
         </div>
         <!-- End Content -->
         <!-- 載入 footer.html -->
-        <div th:insert="fragments/footer :: footer"></div>
+        <!-- <div id="includfooter"></div>-->
+         <div th:insert="fragments/footer :: footer"></div>
     </main>
 
 

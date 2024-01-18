@@ -32,203 +32,224 @@
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <!-- <link rel="stylesheet" href="/css/fontawesome.css"> -->
 
 </head>
 
 <body>
-<!-- 載入 header.html -->
-<div th:insert="fragments/header :: header"></div>
+    <!-- 載入 header.html -->
+    <!-- <div id="includedContent"></div>-->
+    <div th:insert="fragments/header :: header"></div>
 
 
-<main class="shop_main" style="background-color: #FAF0E4;">
-    <!-- 周邊商品 -->
-    <article class="aaa">
-        <div class="title">
-            <div class="line-title"></div>
-            <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
-            <h2>寵物列表</h2>
-            <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
-            <div class="line-title"></div>
-        </div>
-    </article>
-    <!-- Start Content -->
-    <div class="container py-5">
-        <div class="row" style="width: 100%">
-            <div class="col-lg-3">
-                <h2 class="categories_title">Categories</h2>
-                <!-- 類別修改地方 -->
-                <ul class="list-unstyled templatemo-accordion">
-                    <li class="pb-3">
-                        <a class="categories_text" href="#">
-                            類型
-                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
-                        <ul class="collapse show list-unstyled  " style="display: none;">
-                            <li><a class="categories_text2" href="#" type="貓">貓咪</a></li>
-                            <li><a class="categories_text2" href="#" type="狗">狗狗</a></li>
-
-                        </ul>
-                    </li>
-
-                </ul>
-                <ul class="list-unstyled templatemo-accordion">
-                    <li class="pb-3">
-                        <a class="categories_text" href="#">
-                            性別
-                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
-                        <ul class="collapse show list-unstyled  " style="display: none;">
-                            <li><a class="categories_text2" href="#" type="F">弟弟</a></li>
-                            <li><a class="categories_text2" href="#" type="M">妹妹</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-                <ul class="list-unstyled templatemo-accordion">
-                    <li class="pb-3">
-                        <a class="categories_text clearbtn" href="#">
-                            清除篩選
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-
-
-            <div class="col-lg-9">
-                <div class="row" style="width: 100%">
-                    <!-- 產品更換區 開始 -->
-                    <div class="col-md-4 product-wap" th:each="pet:${pets}" style="width: 33%;height: 33%">
-                        <div class="card mb-4 rounded-0" >
-                            <div class="card rounded-0" style="height: 300px;">
-                                <a th:href="'/adoptdetail?id='+${pet.getUid()}">
-                                    <img id="photo" class="card-img rounded-0 img-fluid" th:src="${pet.getImageBytes()}">
-                                </a>
-                                <div></div>
-                            </div>
-                            <div class="card-body2 text-center">
-                                <a th:href="'/adoptdetail?id='+${pet.getUid()}" class="h3 text-decoration-none"
-                                   style="font-size: 2rem; font-weight: 600;" th:text="${pet.getPetName()}">我是飼料</a>
-                                <div class="pet_detail" style="display: flex; font-size: 1.6rem">
-                                    <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getKind()}">類型</p>
-                                    <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getGender()}">性別</p>
-                                    <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getVariety()}">品種</p>
-                                    <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getHairLength()}">長短毛</p>
-                                </div>
-
-                            </div>
-                        </div>
+    <main class="shop_main" style="background-color: #FAF0E4;">
+        <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
+        <!-- banner -->
+        <div class="row shop-img-wrap">
+            <!-- <div class="row pb-5 align-content-center m-auto">
+                <div class="col-lg-5">
+                    <div class="col-lg-12 pb-5 intro-excerpt">
+                        <h1>歡迎來到「滿懷愛，領養有家」網站！</h1>
+                        <p class="my-5">我們是一個致力於推動領養代替購買的專題網站，旨在創造一個全面的平台，方便愛心人士尋找新成員，並促進毛小孩與新家庭之間更深層次的連結。
+                        </p>
                     </div>
+                </div>    
+            </div> -->
+        </div>
 
-                    <!-- 產品更換區 結束 -->
-                </div>
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-                               tabindex="-1">1</a>
+        <!-- 周邊商品 -->
+        <article class="aaa">
+            <div class="title">
+                <div class="line-title"></div>
+                <img class="title_img" src="/images/cat_icon_01.png" alt="cat">
+                <h2>寵物列表</h2>
+                <img class="title_img" src="/images/dog_icon_01.png" alt="dog">
+                <div class="line-title"></div>
+            </div>
+        </article>
+        <!-- Start Content -->
+        <div class="container py-5">
+            <div class="row" style="width: 100%">
+                <div class="col-lg-3">
+                    <h2 class="categories_title">Categories</h2>
+                    <!-- 類別修改地方 -->
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text" href="#">
+                                類型
+                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse show list-unstyled  " style="display: none;">
+                                <li><a class="categories_text2" href="#" type="貓">貓咪</a></li>
+                                <li><a class="categories_text2" href="#" type="狗">狗狗</a></li>
+
+                            </ul>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                               href="#">2</a>
+
+                    </ul>
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text" href="#">
+                                性別
+                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse show list-unstyled  " style="display: none;">
+                                <li><a class="categories_text2" href="#" type="F">弟弟</a></li>
+                                <li><a class="categories_text2" href="#" type="M">妹妹</a></li>
+                            </ul>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                               href="#">3</a>
+
+                    </ul>
+                    <ul class="list-unstyled templatemo-accordion">
+                        <li class="pb-3">
+                            <a class="categories_text clearbtn" href="#">
+                                清除篩選
+                            </a>
                         </li>
+
                     </ul>
                 </div>
+
+
+
+                <div class="col-lg-9">
+                    <div class="row" style="width: 100%">
+                        <!-- 產品更換區 開始 -->
+                        <div class="col-md-4 product-wap" th:each="pet:${pets}" style="width: 33%;height: 33%">
+                            <div class="card mb-4 rounded-0">
+                                <div class="card rounded-0" style="height: 300px;">
+                                    <a th:href="'/adoptdetail?id='+${pet.getUid()}">
+                                        <img id="photo" class="card-img rounded-0 img-fluid"
+                                            th:src="${pet.getImageBytes()}">
+                                    </a>
+                                    <div></div>
+                                </div>
+                                <div class="card-body2 text-center">
+                                    <a th:href="'/adoptdetail?id='+${pet.getUid()}" class="h3 text-decoration-none"
+                                        style="font-size: 2rem; font-weight: 600;"
+                                        th:text="${pet.getPetName()}">我是飼料</a>
+                                    <div class="pet_detail" style="display: flex; font-size: 1.6rem">
+                                        <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getKind()}">類型</p>
+                                        <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getGender()}">性別
+                                        </p>
+                                        <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getVariety()}">品種
+                                        </p>
+                                        <p class="my-0 mx-1" style="font-size: 1.4rem" th:text="${pet.getHairLength()}">
+                                            長短毛</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 產品更換區 結束 -->
+                    </div>
+                    <div div="row">
+                        <ul class="pagination pagination-lg justify-content-end">
+                            <li class="page-item disabled">
+                                <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
+                                    tabindex="-1">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                    href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                                    href="#">3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
-    <!-- End Content -->
-    <!-- 載入 footer.html -->
-    <div th:insert="fragments/footer :: footer"></div>
-</main>
+        <!-- End Content -->
+        <!-- 載入 footer.html -->
+        <!-- <div id="includfooter"></div>-->
+         <div th:insert="fragments/footer :: footer"></div>
+    </main>
 
 
-<!-- 載入 header.html js -->
-<script>
-    // 創建一個函數來載入其他檔案的內容
-    function includeHTML() {
-        // 創建一個 XMLHttpRequest 物件來發送網路請求
-        var xhttp = new XMLHttpRequest();
+    <!-- 載入 header.html js -->
+    <script>
+        // 創建一個函數來載入其他檔案的內容
+        function includeHTML() {
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp = new XMLHttpRequest();
 
-        // 當請求狀態改變時執行的函數
-        xhttp.onreadystatechange = function () {
-            // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
-            if (this.readyState == 4 && this.status == 200) {
-                // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
-                document.getElementById("includedContent").innerHTML = this.responseText;
-            }
-        };
+            // 當請求狀態改變時執行的函數
+            xhttp.onreadystatechange = function () {
+                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+                if (this.readyState == 4 && this.status == 200) {
+                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                    document.getElementById("includedContent").innerHTML = this.responseText;
+                }
+            };
 
-        // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
-        xhttp.open("GET", "fragments/header.html", true);
+            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+            xhttp.open("GET", "fragments/header.html", true);
 
 
-        // 發送網路請求
-        // xhttp.send();
-        // 創建一個 XMLHttpRequest 物件來發送網路請求
-        var xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("includfooter").innerHTML = this.responseText;
-            }
-        };
-        xhttp2.open("GET", "fragments/footer.html", true);
-        // 發送網路請求
-        // xhttp2.send();
-    }
+            // 發送網路請求
+             xhttp.send();
+            // 創建一個 XMLHttpRequest 物件來發送網路請求
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("includfooter").innerHTML = this.responseText;
+                }
+            };
+            xhttp2.open("GET", "fragments/footer.html", true);
+            // 發送網路請求
+             xhttp2.send();
+        }
 
-    // 在頁面載入完成後呼叫 includeHTML 函數
-    window.onload = includeHTML;
-</script>
+        // 在頁面載入完成後呼叫 includeHTML 函數
+        window.onload = includeHTML;
+    </script>
 
-<script>
+    <script>
 
-    $(document).ready(function () {
-        // 選項動態
-        $(".categories_text").click(function () {
-            $(this).next().slideToggle(300);
-        });
-        // 篩選
-        var selectnum=0;
-        var selectlist=[];
-        $(".categories_text2").click(function (){
-            $(this).css("color","#425ce3").css("background-color","#fff")
-            selectnum++;
-            selectlist.push(this.type)
-            if (selectnum===1){
-                $(".product-wap").hide();
-            }
-            console.log(selectlist)
-            $.each(selectlist, function (index, value) {
-                $("p").filter(function() {
-                    return $(this).text() === value;
-                }).parents('.product-wap').show();
+        $(document).ready(function () {
+            // 選項動態
+            $(".categories_text").click(function () {
+                $(this).next().slideToggle(300);
+            });
+            // 篩選
+            var selectnum = 0;
+            var selectlist = [];
+            $(".categories_text2").click(function () {
+                $(this).css("color", "#425ce3").css("background-color", "#fff")
+                selectnum++;
+                selectlist.push(this.type)
+                if (selectnum === 1) {
+                    $(".product-wap").hide();
+                }
+                console.log(selectlist)
+                $.each(selectlist, function (index, value) {
+                    $("p").filter(function () {
+                        return $(this).text() === value;
+                    }).parents('.product-wap').show();
+                })
             })
-        })
-        // 清除篩選
-        $(".clearbtn").click(function (){
-            $(".categories_text2").css("color","#000").css("background-color","")
-            selectlist=[];
-            selectnum=0;
-            $(".product-wap").show();
-        })
-    });
+            // 清除篩選
+            $(".clearbtn").click(function () {
+                $(".categories_text2").css("color", "#000").css("background-color", "")
+                selectlist = [];
+                selectnum = 0;
+                $(".product-wap").show();
+            })
+        });
 
-</script>
+    </script>
 </body>
 
 </html>

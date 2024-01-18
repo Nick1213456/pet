@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>常見問題</title>
+    <title>關於我們</title>
     <link rel="stylesheet" href="./css/allCss.css">
     <link rel="stylesheet" href="./css/problem.css">
 
@@ -22,10 +22,13 @@
 <body class="cart_bg1">
     <!-- 載入 header.html -->
     <!-- <div id="includedContent"></div> -->
-    <div th:insert="fragments/header :: header"></div>
+    <div th:insert="/Fragments/header :: header"></div>
     <main>
         <!-- Start Content -->
         <!-- 內容放這邊 -->
+        <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
+        <!-- banner -->
+        <div class="row problem-img-wrap" ></div>
         <!-- 最新消息 -->
         <article class="aaa">
             <div class="title">
@@ -98,7 +101,7 @@
 
         <!-- 載入 footer.html -->
         <!-- <div id="includfooter"></div> -->
-        <div th:insert="fragments/footer :: footer"></div>
+        <div th:insert="/fragments/footer :: footer"></div>
     </main>
 
 
