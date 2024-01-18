@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #5b5b5b;
+}
+
+.intro {
+    display: inline-block;
+    font-size: 0px;
+    width: 90%;
+    min-width: 300px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.left {
+    width: 35%;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #2a2a2a;
+    padding: 2%;
+}
+.left .photo {
+    -webkit-clip-path: polygon(50% 10.74%, 84% 30.37%, 84% 69.63%, 50% 89.26%, 16% 69.63%, 16% 30.37%, 50% 10.74%);
+    clip-path: polygon(50% 10.74%, 84% 30.37%, 84% 69.63%, 50% 89.26%, 16% 69.63%, 16% 30.37%, 50% 10.74%);
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+}
+.left .photo::after {
+    -webkit-clip-path: polygon(50% 10.74%, 84% 30.37%, 84% 69.63%, 50% 89.26%, 16% 69.63%, 16% 30.37%, 50% 10.74%);
+    clip-path: polygon(50% 10.74%, 84% 30.37%, 84% 69.63%, 50% 89.26%, 16% 69.63%, 16% 30.37%, 50% 10.74%);
+    content: "";
+    background: #fff;
+    background-image: url("https://scontent-tpe1-1.xx.fbcdn.net/v/t1.6435-1/76713931_3077513005598159_3620791987558416384_n.jpg?stp=dst-jpg_p240x240&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=aF72DTmFe28AX8ndOqw&_nc_ht=scontent-tpe1-1.xx&oh=00_AfDTAT9BBerz46GCgg2OqVv-vWb-q6t07EE8FeAwa0t0hQ&oe=652F7EB5");
+    background-size: cover;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+.left .year {
+    color: #aaa;
+    font-size: 14px;
+}
+.left .edu {
+    font-size: 16px;
+    color: #ddd;
+}
+.left .edu .fa-solid.fa-graduation-cap {
+    color: #dbbc47;
+}
+.left .edu .edulevel {
+    color: #aaa;
+    font-size: 13px;
+}
+.left .skill {
+    font-size: 16px;
+    color: #ddd;
+}
+.left .skill .fa-solid.fa-screwdriver-wrench {
+    color: #dbbc47;
+}
+.left .skill .skill_proficient {
+    position: relative;
+    width: 92%;
+    font-size: calc(14px - 2px);
+    padding: 0;
+    border: 1px solid #ddd;
+}
+.left .skill .skill_proficient::before {
+    content: "";
+    margin-left: 50%;
+    border-left: 1px dashed #ddd;
+}
+.left .skill .skill_proficient::after {
+    content: "";
+    margin-left: 25%;
+    border-left: 1px dashed #ddd;
+}
+.left .skill .LV1 {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 25%;
+    height: 14px;
+    background-color: #aaa;
+}
+.left .skill .LV2 {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    height: 14px;
+    background-color: #aaa;
+}
+.left .skill .LV3 {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 75%;
+    height: 14px;
+    background-color: #aaa;
+}
+.left .skill .LV4 {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 14px;
+    background-color: #aaa;
+}
+.left .learntime {
+    font-size: 16px;
+    color: #ddd;
+}
+.left .learntime .fa-solid.fa-clock {
+    color: #dbbc47;
+}
+.left .learntime .learn {
+    display: inline-block;
+    width: calc(33.3333333333% - 5px);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.left .learntime .learnall {
+    margin: 5%;
+}
+.left .learntime .circle {
+    width: 80%;
+    margin: 10%;
+    height: 20px;
+    border-radius: 100%;
+    padding: 0;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+}
+.left .learntime .circle .per {
+    content: "";
+    position: absolute;
+    background-color: #ddd;
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    top: 0%;
+    transform-origin: 0% 100%;
+}
+.left .learntime .circle .per45 {
+    content: "";
+    position: absolute;
+    background-color: #ddd;
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    top: 0%;
+    transform-origin: 0% 100%;
+    transform: rotate(45deg);
+}
+.left .learntime .circle .per90 {
+    content: "";
+    position: absolute;
+    background-color: #ddd;
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    top: 0%;
+    transform-origin: 0% 100%;
+    transform: rotate(89deg);
+}
+.left .learntime .circle .per-47 {
+    content: "";
+    position: absolute;
+    background-color: #2a2a2a;
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    top: 0%;
+    transform-origin: 0% 100%;
+    transform: rotate(43deg);
+}
+
+.line {
+    margin-left: 9px;
+    padding-left: 5px;
+    border-left: solid #dbbc47 3px;
+    margin-bottom: 10px;
+}
+
+.right {
+    width: 65%;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 15px solid #dbbc47;
+    border-left: 0px solid #000;
+}
+.right .name {
+    text-align: center;
+    font-size: 36px;
+}
+.right .contact {
+    display: inline-block;
+    padding: 15px;
+    font-size: 12px;
+}
+.right .contact .phone, .right .contact .email {
+    padding: 3px;
+}
+.right .profile {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 800;
+}
+.right .profile .con {
+    font-size: 16px;
+    font-weight: normal;
+}
+.right .workexp {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 800;
+}
+.right .workexp .year {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+.right .workexp .com {
+    font-size: 20px;
+    padding-bottom: 6px;
+}
+.right .workexp .con {
+    font-size: 17px;
+    font-weight: normal;
+}/*# sourceMappingURL=resume.css.map */
