@@ -23,8 +23,9 @@
 </head>
 
 <body>
-<!-- th:fragment="header" -->
+
 <header th:fragment="header">
+    
     <div class="login_modal" style="display: none;">
         <!-- 會員登入 -->
 
@@ -33,7 +34,7 @@
                 <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
             </div>
             <section class="login_bar_up">
-                <h2 class="loginarticle">Login</h2>
+                <h2 class="loginarticle" style="color:white;">Login</h2>
                 <div class="login_box">
                     <div class="option">
                         <label for="username">
@@ -48,6 +49,10 @@
                         <input type="password" placeholder="請輸入密碼" name="password" required>
                     </div>
                     <p style="font-size: 3rem;text-align: center;display: none" id="showpassword">密碼為:<span style="font-size: 3rem;text-align: center" th:text="${password}"></span></p>
+                    <div class="polygon-container">
+                        <img src="/images/cat-4189697_640.jpg" alt="Your Image">
+                    </div>
+                    
                     <div id="forget_password2" class="option2">
 
                         <p style="margin-right: 10px; cursor: pointer;" id="forget_password2_2" class="login_text2">忘記密碼?</p>
@@ -56,7 +61,7 @@
                         <a href="/reg" style="margin-left: 10px;">
                             <p class="login_text2">會員註冊</p>
                         </a>
-                        <button id="log-in" type="submit">登入</button>
+                        <button id="log-in" type="submit" class="mybtnmove">登入</button>
                     </div>
                 </div>
             </section>
@@ -70,26 +75,29 @@
                 <img src="/images/close_icon2.png" alt="貓爪圖案" class="paw">
             </div>
             <section class="login_bar_up">
-                <h2 class="loginarticle">Login</h2>
+                <h2 class="loginarticle" style="color:white;">Forget</h2>
                 <div class="login_box">
                     <div class="option">
                         <label for="username">
                             <p class="login_text">帳號</p>
                         </label>
                         <input type="text" id="username" name="username" required="required" placeholder="username..."
-                               style="width: 30rem; font-size: 1.5rem; padding-left: 1rem;">
+                               style="width: 30%; font-size: 1.5rem; padding-left: 1rem;">
                     </div>
                     <div class="option">
                         <label for="email">
                             <p class="login_text">信箱</p>
                         </label>
-                        <input type="email" id="email" name="email" style="width: 30rem; font-size: 1.5rem; padding-left: 1rem;" placeholder="ex:abc@gmail.com">
+                        <input type="email" id="email" name="email" style="width: 30%; font-size: 1.5rem; padding-left: 1rem;" placeholder="ex:abc@gmail.com">
+                    </div>
+                    <div class="polygon-container">
+                        <img src="/images/english-bulldog-5422018_640.png" alt="Your Image">
                     </div>
                     <div id="login_up2" class="option2">
 
                         <p style="margin-right: 10px; cursor: pointer;" id="login_up3" class="login_text2">返回登入畫面</p>
 
-                        <button id="verify" type="submit">驗證</button>
+                        <button id="verify" type="submit" class="mybtnmove">驗證</button>
                     </div>
                 </div>
             </section>
@@ -131,7 +139,36 @@
             </nav>
 
         </section>
-        <script src="/js/login.js"></script>
+        <script src="/src/main/resources/static/js/login.js"></script>
+        <!-- 0118新增下面script，不知道為什麼按鈕不起作用有可能是不用springboot的問題所以增加細麵這段以便查看 -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // 獲取按鈕元素
+                var loginButton = document.getElementById('login_bar01');
+                // 獲取彈出視窗元素
+                var loginModal = document.querySelector('.login_modal');
+
+                // 點擊按鈕時顯示彈出視窗
+                loginButton.addEventListener('click', function () {
+                    loginModal.style.display = 'block';
+                });
+
+                // 獲取彈出視窗的關閉按鈕元素
+                var closeButton = document.querySelector('.login_modal .imgcontainer img');
+
+                // 點擊關閉按鈕時隱藏彈出視窗
+                closeButton.addEventListener('click', function () {
+                    loginModal.style.display = 'none';
+                });
+
+                // 如果點擊彈出視窗外的區域，隱藏彈出視窗
+                window.addEventListener('click', function (event) {
+                    if (event.target === loginModal) {
+                        loginModal.style.display = 'none';
+                    }
+                });
+            });
+        </script>
     </div>
 </header>
 </body>
