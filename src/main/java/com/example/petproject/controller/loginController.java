@@ -47,7 +47,6 @@ public class loginController {
                 uniqueNumbers.add(randomNumber);
             }
         }
-
         // 印出結果
         for (int i=0;i<4;i++) {
             pl.add(list.get(uniqueNumbers.get(i)));
@@ -179,7 +178,7 @@ public class loginController {
 
     //登出
     @GetMapping("/signout")
-    public String signOut(HttpSession session){
+    public String signOut(HttpSession session) {
         mS.signOut(session);
         //暫時返回首頁
         return "index";
