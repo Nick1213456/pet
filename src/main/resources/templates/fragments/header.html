@@ -139,36 +139,7 @@
             </nav>
 
         </section>
-        <script src="/src/main/resources/static/js/login.js"></script>
-        <!-- 0118新增下面script，不知道為什麼按鈕不起作用有可能是不用springboot的問題所以增加細麵這段以便查看 -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // 獲取按鈕元素
-                var loginButton = document.getElementById('login_bar01');
-                // 獲取彈出視窗元素
-                var loginModal = document.querySelector('.login_modal');
-
-                // 點擊按鈕時顯示彈出視窗
-                loginButton.addEventListener('click', function () {
-                    loginModal.style.display = 'block';
-                });
-
-                // 獲取彈出視窗的關閉按鈕元素
-                var closeButton = document.querySelector('.login_modal .imgcontainer img');
-
-                // 點擊關閉按鈕時隱藏彈出視窗
-                closeButton.addEventListener('click', function () {
-                    loginModal.style.display = 'none';
-                });
-
-                // 如果點擊彈出視窗外的區域，隱藏彈出視窗
-                window.addEventListener('click', function (event) {
-                    if (event.target === loginModal) {
-                        loginModal.style.display = 'none';
-                    }
-                });
-            });
-        </script>
+        <script src="/js/login.js"></script>
     </div>
 </header>
 </body>
