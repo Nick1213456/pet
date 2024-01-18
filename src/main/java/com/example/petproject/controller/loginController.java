@@ -28,6 +28,7 @@ public class loginController {
     @Autowired
     productService pS;
 
+
     //首頁
     @GetMapping("/index")
     public String index(Model model){
