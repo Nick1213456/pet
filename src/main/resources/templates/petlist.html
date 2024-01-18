@@ -154,16 +154,12 @@
                     <div div="row">
                         <ul class="pagination pagination-lg justify-content-end">
                             <li class="page-item disabled">
-                                <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-                                    tabindex="-1">1</a>
+                                <a id="Previousbtn" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
+                                    tabindex="-1">上一頁</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                    href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-                                    href="#">3</a>
+                                <a id="Nextbtn" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                                    >下一頁</a>
                             </li>
                         </ul>
                     </div>
@@ -247,6 +243,40 @@
                 selectnum = 0;
                 $(".product-wap").show();
             })
+            //頁數切換
+            var rowsPerPage = 9; // 每页行数
+            var rows = $('.product-wap'); // 找到所有的行
+            var currentPage = 1; // 当前页码，初始化为第一页
+            var rowslength = rows.length;
+
+            // 根据当前页和每页行数显示相应的行
+            function showRows() {
+                var startIndex = (currentPage - 1) * rowsPerPage; // 计算起始索引
+                var endIndex = startIndex + rowsPerPage; // 计算结束索引
+                if (startIndex<rowslength){
+                    rows.hide().slice(startIndex, endIndex).show(); // 隐藏所有行，然后显示当前页的行
+                }else {
+                    currentPage--;
+                    alert("請期待更多資料")
+                }
+            }
+            // 初始显示第一页的内容
+            showRows();
+
+            // 当点击按钮时执行以下代码
+            $('#Nextbtn').on('click', function() {
+                currentPage++; // 增加当前页码
+                showRows(); // 显示下一页的行
+            });
+            $('#Previousbtn').on('click', function() {
+                if (currentPage===1){
+                    alert("您已經在第一頁了")
+                }else {
+                    currentPage--; // 減少当前页码
+                    showRows(); // 显示上一页的行
+                }
+            });
+
         });
 
     </script>
