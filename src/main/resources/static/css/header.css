@@ -252,8 +252,8 @@ header .h_nav_bar .navbar ul li a:hover {
 }
 
 .login_modal .login_modal-content .login_bar_up .login_box .option2 .login_text2 {
-  font-size: 1.2rem;
-  color: #1564AD;
+  font-size: 1.8rem;
+  color: #EEE1B3;
   letter-spacing: 0.2em;
 }
 
@@ -265,7 +265,7 @@ header .h_nav_bar .navbar ul li a:hover {
   font-size: 2rem;
   font-weight: 600;
   position: absolute;
-  left: 200px;
+  width: 40%;
   bottom: 0;
   padding: 5px 15px;
   border: none;
