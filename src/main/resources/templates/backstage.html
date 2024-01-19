@@ -22,57 +22,57 @@
 </head>
 
 <body>
-    <!-- 載入 header.html -->
-    <header th:insert="fragments/header :: header"></header>
+<!-- 載入 header.html -->
+<header th:insert="fragments/header :: header"></header>
 
-    <main >
-        <!-- Start Content -->
-        
-        <!-- 內容放這邊 -->
-        
-        <form class="mygrid" action="upload_Product" enctype="multipart/form-data" method="post">
-            <aside>
-                <button onclick="btn1()" class=" leftbtn">
-                    上架周邊
-                </button>
-                <button  onclick="btn4()" class=" leftbtn">
-                    周邊商品列表
-                </button>
-                <button onclick="btn2()" class=" leftbtn">
-                    訂單資料
-                </button>
-                <button  onclick="btn3()" class=" leftbtn">
-                    會員資料操作
-                </button>
-            </aside>
+<main >
+    <!-- Start Content -->
 
-<!--    右側整體內容-->
-<article class="rightsection">
-    <!-- 後台主頁 -->
-   
-    <div id="mainpage"  >
-        <h2>歡迎來到後台系統!</h2>
-        <table>
-            <tr th:each="member:${memberData}">
-                <td>登入管理者名稱:</td>
-                <td th:text="${member.getName()}">admin01</td>
-            </tr>
-            <tr>
-                <td>登入IP位址:</td>
-                <td id="ip-address">127.0.0.1</td>
-            </tr>
-            <tr>
-                <td>登入時間:</td>
-                <td id="server-time">2024年10月8日 22:30</td>
-            </tr>
-        </table>
+    <!-- 內容放這邊 -->
 
-    </div>
-    <!-- 上架商品頁 -->
+    <form class="mygrid" action="upload_Product" enctype="multipart/form-data" method="post">
+        <aside>
+            <button onclick="btn1()" class=" leftbtn">
+                上架周邊
+            </button>
+            <button  onclick="btn4()" class=" leftbtn">
+                周邊商品列表
+            </button>
+            <button onclick="btn2()" class=" leftbtn">
+                訂單資料
+            </button>
+            <button  onclick="btn3()" class=" leftbtn">
+                會員資料操作
+            </button>
+        </aside>
 
-    <div id="updateproduct" >
+        <!--    右側整體內容-->
+        <article class="rightsection">
+            <!-- 後台主頁 -->
 
-            <h2 >上架商品</h2>
+            <div id="mainpage"  >
+                <h2>歡迎來到後台系統!</h2>
+                <table>
+                    <tr th:each="member:${memberData}">
+                        <td>登入管理者名稱:</td>
+                        <td th:text="${member.getName()}">admin01</td>
+                    </tr>
+                    <tr>
+                        <td>登入IP位址:</td>
+                        <td id="ip-address">127.0.0.1</td>
+                    </tr>
+                    <tr>
+                        <td>登入時間:</td>
+                        <td id="server-time">2024年10月8日 22:30</td>
+                    </tr>
+                </table>
+
+            </div>
+            <!-- 上架商品頁 -->
+
+            <div id="updateproduct" >
+
+                <h2 >上架商品</h2>
 
                 <table class="mytable2">
                     <tr>
@@ -100,23 +100,23 @@
                         <td><label for="Price"></label><input type="text" class="inputcss" id="Price" name="Price" required="required"></td>
                     </tr>
                     <tr>
-                    <td>成本價:</td>
-                    <td><label for="Cost"></label><input type="text" class="inputcss" id="Cost" name="Cost" required="required"></td>
+                        <td>成本價:</td>
+                        <td><label for="Cost"></label><input type="text" class="inputcss" id="Cost" name="Cost" required="required"></td>
                     </tr>
                     <tr>
-                    <td>細節:</td>
-                    <td><label for="Detail"></label><input type="text" class="inputcss" id="Detail" name="Detail" required="required"></td>
+                        <td>細節:</td>
+                        <td><label for="Detail"></label><input type="text" class="inputcss" id="Detail" name="Detail" required="required"></td>
                     </tr>
                 </table>
 
-        <!-- 上傳商品部分 -->
-                    <img src=""  id="imagePreview">
+                <!-- 上傳商品部分 -->
+                <img src=""  id="imagePreview">
                 <label for="fileInput" class="theupload"  id="In2" >商品照片</label>
-                    <input type="file" style="display: none" id="fileInput" name="fileInput" multiple accept="image/*">
-                    <button type="submit">上架</button>
-           </form>
+                <input type="file" style="display: none" id="fileInput" name="fileInput" multiple accept="image/*">
+                <button type="submit">上架</button>
+    </form>
 
-       </div>
+    </div>
 
     </div>
     <!-- 訂單資料頁 -->
@@ -124,17 +124,17 @@
         <h2>訂單</h2>
         <table class="ordertable">
             <thead>
-                <tr>
-                    <th>訂單編號</th>
-                    <th>客戶UID</th>
-                    <th>金額</th>
-                    <th >下單日期</th>
-                    <th>出貨日期</th>
-                    <th>狀態</th>
-                    <th>出貨方式</th>
-                    <th>檢貨員ID</th>
-                    <th>狀態變更</th>
-                </tr>
+            <tr>
+                <th>訂單編號</th>
+                <th>客戶UID</th>
+                <th>金額</th>
+                <th >下單日期</th>
+                <th>出貨日期</th>
+                <th>狀態</th>
+                <th>出貨方式</th>
+                <th>檢貨員ID</th>
+                <th>狀態變更</th>
+            </tr>
             </thead>
             <tbody th:each="order:${orderlist}">
             <tr>
@@ -164,14 +164,14 @@
     <div id="memberlist">
         <h2>周邊商品列表</h2>
         帳號搜尋:<input id="myInput" type="text" placeholder="Search.." style="width: 20%;"><br>
-        
+
         <table  class="ordertable" id="myTable">
             <thead>
-                <tr>
-                    <td>會員帳號</td>
-                    <td>會員權限</td>
-                    <td>權限更改</td>
-                </tr>
+            <tr>
+                <td>會員帳號</td>
+                <td>會員權限</td>
+                <td>權限更改</td>
+            </tr>
             </thead>
             <tbody th:each="member:${memberList}">
             <tr>
@@ -192,7 +192,7 @@
             <button class="pagebtn">下一頁</button>
         </div>
     </div>
-   <!-- 商品列表頁 -->
+    <!-- 商品列表頁 -->
     <div id="productlist">
         <h2>會員資料操作</h2>
         帳號搜尋:<input id="productsearch" type="text" placeholder="Search.." style="width: 20%;"><br>
@@ -210,25 +210,30 @@
                 <td>功能</td>
             </tr>
             </thead>
-            <tbody th:each="member:${memberList}">
+            <tbody th:each="shop:${shopping}">
             <tr>
-                <td class="username" th:text="${member.username}">ID</td>
-                <td th:text="${member.Employee}">名稱</td>
-                <td th:text="${member.Employee}">類別</td>
-                <td th:text="${member.Employee}">規格</td>
-                <td th:text="${member.Employee}">庫存</td>
-                <td th:text="${member.Employee}">售價</td>
-                <td th:text="${member.Employee}">成本</td>
-<!--                功能-->
+                <td class="username" th:text="${shop.getCommodityID()}">ID</td>
+                <td th:text="${shop.getCommodityName()}">名稱</td>
+                <td th:text="${shop.getCommodityKind()}">類別</td>
+                <td th:text="${shop.getSize()}">規格</td>
+                <td th:text="${shop.getInventory()}">庫存</td>
+                <td th:text="${shop.getPrice()}">售價</td>
+                <td th:text="${shop.getPrice()}">成本</td>
+                <!--                功能-->
                 <td>
-                    <button class="button0" th:attr="data-username=${member.username}">編輯</button>
-                    <button class="button1" th:attr="data-username=${member.username}">下架</button>
+                    <button class="button4" th:attr="data-username=${shop.getCommodityID()}">編輯</button>
+                    <button class="button5" th:attr="data-remove=${shop.getCommodityID()}">下架</button>
                 </td>
             </tr>
             </tbody>
-
-
         </table>
+
+
+
+
+
+
+
         <div class="orderbtn">
             <button class="pagebtn">上一頁</button>
             <button class="pagebtn">下一頁</button>
@@ -236,66 +241,66 @@
     </div>
 
 
-</article>
+    </article>
 
 
 
-</form>
+    </form>
 
-        <!-- End Content -->
+    <!-- End Content -->
 
-        <!-- 載入 footer.html -->
-        <div th:insert="fragments/footer :: footer"></div>
-        <footer></footer>
-       
-    </main>
+    <!-- 載入 footer.html -->
+    <div th:insert="fragments/footer :: footer"></div>
+    <footer></footer>
 
-
-    <!-- 載入 header.html js -->
-    <script>
-        // 創建一個函數來載入其他檔案的內容
-        function includeHTML() {
-            // 創建一個 XMLHttpRequest 物件來發送網路請求
-            var xhttp = new XMLHttpRequest();
-
-            // 當請求狀態改變時執行的函數
-            xhttp.onreadystatechange = function () {
-                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
-                if (this.readyState == 4 && this.status == 200) {
-                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
-                    document.getElementById("includedContent").innerHTML = this.responseText;
-                }
-            };
-
-            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
-            xhttp.open("GET", "fragments/header.html", true);
+</main>
 
 
-            // 發送網路請求
-            xhttp.send();
-            // 創建一個 XMLHttpRequest 物件來發送網路請求
-            var xhttp2 = new XMLHttpRequest();
-            xhttp2.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("includfooter").innerHTML = this.responseText;
-                }
-            };
-            xhttp2.open("GET", "fragments/footer.html", true);
-            // 發送網路請求
-            xhttp2.send();
-        }
+<!-- 載入 header.html js -->
+<!--    <script>-->
+<!--        // 創建一個函數來載入其他檔案的內容-->
+<!--        function includeHTML() {-->
+<!--            // 創建一個 XMLHttpRequest 物件來發送網路請求-->
+<!--            var xhttp = new XMLHttpRequest();-->
 
-        // 在頁面載入完成後呼叫 includeHTML 函數
-        window.onload = includeHTML;
-    </script>
+<!--            // 當請求狀態改變時執行的函數-->
+<!--            xhttp.onreadystatechange = function () {-->
+<!--                // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）-->
+<!--                if (this.readyState == 4 && this.status == 200) {-->
+<!--                    // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中-->
+<!--                    document.getElementById("includedContent").innerHTML = this.responseText;-->
+<!--                }-->
+<!--            };-->
+
+<!--            // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）-->
+<!--            xhttp.open("GET", "fragments/header.html", true);-->
+
+
+<!--            // 發送網路請求-->
+<!--            xhttp.send();-->
+<!--            // 創建一個 XMLHttpRequest 物件來發送網路請求-->
+<!--            var xhttp2 = new XMLHttpRequest();-->
+<!--            xhttp2.onreadystatechange = function () {-->
+<!--                if (this.readyState == 4 && this.status == 200) {-->
+<!--                    document.getElementById("includfooter").innerHTML = this.responseText;-->
+<!--                }-->
+<!--            };-->
+<!--            xhttp2.open("GET", "fragments/footer.html", true);-->
+<!--            // 發送網路請求-->
+<!--            xhttp2.send();-->
+<!--        }-->
+
+<!--        // 在頁面載入完成後呼叫 includeHTML 函數-->
+<!--        window.onload = includeHTML;-->
+<!--    </script>-->
 <!--    <script src="./js/login.js"></script>-->
-    <script>
-        // 沒按按鈕的顯示
-        document.getElementById("mainpage").style.display = 'grid';
-        document.getElementById("updateproduct").style.display = 'none';
-        document.getElementById("orderlist").style.display = 'none';
-        document.getElementById("memberlist").style.display = 'none';
-        document.getElementById("productlist").style.display = 'none';
+<script>
+    // 沒按按鈕的顯示
+    document.getElementById("mainpage").style.display = 'grid';
+    document.getElementById("updateproduct").style.display = 'none';
+    document.getElementById("orderlist").style.display = 'none';
+    document.getElementById("memberlist").style.display = 'none';
+    document.getElementById("productlist").style.display = 'none';
     // 按下按鈕得到指定div的id分別隱藏或顯示不同div
     function btn1() {
         // var mydiv="updateproduct";
@@ -304,7 +309,7 @@
         document.getElementById("orderlist").style.display = 'none';
         document.getElementById("memberlist").style.display = 'none';
         document.getElementById("productlist").style.display = 'none';
-        
+
     }
     function btn2() {
         // var mydiv="orderlist";
@@ -331,130 +336,146 @@
         document.getElementById("memberlist").style.display = 'none';
         document.getElementById("productlist").style.display = 'grid';
     }
-    
-    </script>
-    <!------------------------------------以下是後端更改的部分-------------------------------------------------------------------->
-    <script>
-        //訂單管理系統的BUTTUON控制
-        $(document).ready(function(){
-            //撿貨
-            $(".button2").click(function(){
-                var status1 = $(this).data("status");
-                if(status1 === 3 || status1 === 4){
-                    alert("此訂單已經撿貨過或是已經出貨!");
-                }
-                else {
-                    var orderNumber = $(this).data("ordernumber");
-                    status1 = 3;
-                    $.post(
-                        "orderManage",
-                        {"status": status1, "orderNumber": orderNumber}
-                    )
-                }
 
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
-            });
-            //出貨
-            $(".button1").click(function(){
-                var status1 = $(this).data("status");
-                if(status1 === 4){
-                    alert("此訂單已經出貨!");
-                }else {
-                    var orderNumber = $(this).data("ordernumber");
-                    var Date1 = new Date();
-                    var shippedDate1 = Date1.getFullYear() + "-" + (Date1.getMonth() + 1) + "-" + Date1.getDate() + " " + Date1.getHours() + ":" + Date1.getMinutes() + ":" + Date1.getSeconds();
-                    var status1 = 4;
-                    $.post(
-                        "orderManage",
-                        {"status": status1, "shippedDate": shippedDate1, "orderNumber": orderNumber}
-                    )
-                }
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
+</script>
+<!------------------------------------以下是後端更改的部分-------------------------------------------------------------------->
+<script>
+    //訂單管理系統的BUTTUON控制
+    $(document).ready(function(){
+        //撿貨
+        $(".button2").click(function(){
+            var status1 = $(this).data("status");
+            if(status1 === 3 || status1 === 4){
+                alert("此訂單已經撿貨過或是已經出貨!");
+            }
+            else {
+                var orderNumber = $(this).data("ordernumber");
+                status1 = 3;
+                $.post(
+                    "orderManage",
+                    {"status": status1, "orderNumber": orderNumber}
+                )
+            }
+
+            setTimeout(function () {
+                location.reload();
+            }, 100);
+        });
+        //出貨
+        $(".button1").click(function(){
+            var status1 = $(this).data("status");
+            if(status1 === 4){
+                alert("此訂單已經出貨!");
+            }else {
+                var orderNumber = $(this).data("ordernumber");
+                var Date1 = new Date();
+                var shippedDate1 = Date1.getFullYear() + "-" + (Date1.getMonth() + 1) + "-" + Date1.getDate() + " " + Date1.getHours() + ":" + Date1.getMinutes() + ":" + Date1.getSeconds();
+                var status1 = 4;
+                $.post(
+                    "orderManage",
+                    {"status": status1, "shippedDate": shippedDate1, "orderNumber": orderNumber}
+                )
+            }
+            setTimeout(function () {
+                location.reload();
+            }, 100);
+        });
+    });
+</script>
+<script>
+    //會員管理頁面用
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-    </script>
-    <script>
-        //會員管理頁面用
-        $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
 
-            $(".button0").click(function() {
-                var username = $(this).data("username");
-                $.post(
-                    "memberPerChange0",
-                    username
-                )
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
-            });
-            $(".button1").click(function() {
-                var username = $(this).data("username");
-                $.post(
-                    "memberPerChange1",
-                    username
-                )
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
-            });
-            $(".button2").click(function() {
-                var username = $(this).data("username");
-                $.post(
-                    "memberPerChange2",
-                    username
-                )
-                setTimeout(function () {
-                    location.reload();
-                }, 100);
-            });
+        $(".button0").click(function() {
+            var username = $(this).data("username");
+            $.post(
+                "memberPerChange0",
+                username
+            )
+            setTimeout(function () {
+                location.reload();
+            }, 100);
         });
-    </script>
-
-    <script>
-        //照片上傳和預覽
-        $(document).ready(function() {
-
-            //預覽
-            $('#fileInput').on('change', function(e){
-                var size= 5*1024*1024;
-                var file = e.target.files[0];
-                var imageType = /image.*/;
-                if (file && file.type.match(imageType) && file.size < size) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#imagePreview').attr('src', e.target.result);
-                        $('#imagePreview').show();
-                    }
-                    reader.readAsDataURL(file);
-                }
-                else{
-                    $('#fileInput').val('');
-                }
-            });
-
-
-
-            $.getJSON("https://api.ipify.org?format=json", function(data) {
-                $("#ip-address").text(data.ip);
-            });
-
-            // 获取服务器时间
-            $.get("https://worldtimeapi.org/api/ip", function(data) {
-                var serverTime = new Date(data.utc_datetime);
-                $("#server-time").text(serverTime.toLocaleString());
-            });
+        $(".button1").click(function() {
+            var username = $(this).data("username");
+            $.post(
+                "memberPerChange1",
+                username
+            )
+            setTimeout(function () {
+                location.reload();
+            }, 100);
         });
-    </script>
+        $(".button2").click(function() {
+            var username = $(this).data("username");
+            $.post(
+                "memberPerChange2",
+                username
+            )
+            setTimeout(function () {
+                location.reload();
+            }, 100);
+        });
+    });
+</script>
+
+<script>
+    //照片上傳和預覽
+    $(document).ready(function() {
+
+        //預覽
+        $('#fileInput').on('change', function(e){
+            var size= 5*1024*1024;
+            var file = e.target.files[0];
+            var imageType = /image.*/;
+            if (file && file.type.match(imageType) && file.size < size) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                }
+                reader.readAsDataURL(file);
+            }
+            else{
+                $('#fileInput').val('');
+            }
+        });
+
+
+
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+            $("#ip-address").text(data.ip);
+        });
+
+        // 获取服务器时间
+        $.get("https://worldtimeapi.org/api/ip", function(data) {
+            var serverTime = new Date(data.utc_datetime);
+            $("#server-time").text(serverTime.toLocaleString());
+        });
+    });
+</script>
+<script>
+    //後臺處理商品頁面
+    $(".button5").click(function() {
+        var remove = $(this).data("remove");
+        $.ajax({
+            type: 'POST',
+            url: '/remove',
+            data: {remove:$(this).data("remove")},
+        })
+        setTimeout(function () {
+            location.reload();
+        }, 100);
+    });
+
+</script>
 </body>
+
 
 </html>

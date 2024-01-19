@@ -77,4 +77,10 @@ public class staffRepository {
         return IDresult;
     }
 
+    public void remove(int id){
+        System.out.println("DELETE FROM commoditylist WHERE CommodityID="+id);
+        jdbcTemplate.update("DELETE FROM commoditylist WHERE CommodityID=?",id);
+
+    }
+
 }

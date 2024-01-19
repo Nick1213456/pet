@@ -68,4 +68,8 @@ public class staffService {
         }
     }
 
+    public void remove0(int id){
+        sR.remove(id);
+    }
+
 }
