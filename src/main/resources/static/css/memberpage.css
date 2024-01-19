@@ -1,92 +1,99 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
 }
-html{
+
+html {
     font-size: 10px;
 }
 
-body
-{
-    background-image: url("/images/paw_mosaicbg.png");
+.cart_bg1 {
+    background-image: url('/images/paw_mosaicbg.png');
+    background-size: contain;
+}
 
+.container {
+    width: 90%;
 }
-/*排列含標題的全體內容為直排*/
-.straight
-{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.straight2
-{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: center;
 
-}
+
 
 /*分割除標題以外的全體內容為橫排左右*/
-.split
-{
-    display: flex;
-    flex-direction: row;
+.split {
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 100%;
+    /* height: 300px; */
+    /* background-color: #C58484; */
 }
-/*排列選項*/
-.split2
-{
-    display: flex;
-    flex-direction: row;
-}
-/*左側整體包裹框*/
-table{
-    margin: 0;
-   text-align: left;
-    font-size: 2.5rem;
-    padding: 10px 10px;
 
-}
-/*使table右邊資料列被推開*/
-.tablespace
-{
-    padding-left: 15px;
-
-    white-space:nowrap;
-}/*使table右邊資料列被推開*/
-.tablespace2
-{
-    padding-left: 15px;
-    white-space:nowrap;
-}
-.tablebox
-{
+.tablebox2 {
     position: absolute;
-    top: 25%;
-    left: 5%;
-    width: 60%;
-    border-radius: 15px;
-    height: 50vh;
+    /* top: 25%; */
+    /* left: 5%; */
+    /* width: 60%; */
+
+    /* height: 50vh; */
     padding: 3%;
     border: 3px dashed black;
-    background-color: rgba(216,188,188,0.65);
+    border-radius: 2rem;
+    background-color: rgba(216, 188, 188, 0.65);
     box-shadow: 10px 10px gray;
 }
 
+/*左側整體包裹框*/
+table {
+    margin: 0;
+    text-align: left;
+    font-size: 2rem;
+    border-collapse: separate;
 
+}
+
+/*使table右邊資料列被推開*/
+.tablespace {
+    padding-left: 15px;
+
+    white-space: nowrap;
+}
+
+/*使table右邊資料列被推開*/
+.tablespace2 {
+    padding-left: 15px;
+    white-space: nowrap;
+}
+
+/*排列選項*/
+.split2 {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+
+
+.straight2 {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    text-align: center;
+    /* width: 100%; */
+    /* height: 300px; */
+    /* background-color: #05038d; */
+
+}
 
 /*編輯按鈕位置*/
-.editbtnpos
-{
+.editbtnpos {
     position: absolute;
     right: 15%;
     top: 50%;
 
 }
+
 /*編輯按鈕樣式*/
-.editbtn
-{
+.editbtn {
     color: white;
     font-size: 1.7rem;
     cursor: pointer;
@@ -95,9 +102,9 @@ table{
     height: 35px;
     border-radius: 10px;
 }
+
 /*儲存自介按鈕樣式*/
-.savebtn
-{
+.savebtn {
     color: white;
     cursor: pointer;
     font-size: 1.7rem;
@@ -107,65 +114,67 @@ table{
     width: 15%;
 }
 
-.btntd{
+.btntd {
     padding-top: 2rem;
     text-align: center;
 }
 
 /*頭像圖片*/
-.headimg
-{
-    position: absolute;
+.headimg {
+    /* position: absolute;
     right: 12%;
-    top: 25%;
+    top: 25%; */
     height: 250px;
     width: 250px;
-    border-radius: 50% ;
+    border-radius: 50%;
     border: 2px solid black;
     background-color: pink;
 }
 
 /*右邊三個按鍵位置*/
-.threebtnpos
-{
-    position: absolute;
-    right:12.5%;
-    top: 55%;
+.threebtnpos {
+    /* position: absolute;
+    right: 12.5%;
+    top: 55%; */
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
+
 /*右邊三個按鍵的樣式*/
-.threebtnstyle
-{
+.threebtnstyle {
     position: relative;
     color: white;
     cursor: pointer;
     background-color: #C58484;
     width: 7vw;
-    margin:20px 10px;
+    margin: 10px;
 
-    height: 35px;
+    /* height: 35px; */
     border-radius: 10px;
     padding: 7px;
     font-size: 1.7rem;
 }
+.py-5rem{
+    padding: 5rem 0;
+}
 
-.aaa{
-    color:white;
+.a_up {
+    color: white;
     text-decoration: none;
 }
 
 
 
-footer
-{
+footer {
     width: 100%;
     height: 140px;
     background-color: #932f2f;
     position: absolute;
     bottom: 0;
 }
-textarea{
+
+textarea {
 
     height: 16vh;
 }
