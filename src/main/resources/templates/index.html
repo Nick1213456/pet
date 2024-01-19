@@ -40,8 +40,8 @@
 
 <body>
     <!-- 載入 header.html -->
-<!--    <div id="includedContent"></div>-->
-     <div th:insert="fragments/header :: header"></div>
+<!--   <div id="includedContent"></div>-->
+      <div th:insert="fragments/header :: header"></div>
 
     <main>
         <img class="bg_img2" src="/images/bg02.png" alt="bg_img2">
@@ -275,34 +275,67 @@
                 <div class="line-title"></div>
             </div>
 
-            <section class="new">
-                <section class="shop">
-                    <div class="shop_img">
+            <div class="container py-5">
+                <div class="row" style="width: 100%">
+                    <div class="col-lg-12 m-auto">
+                        <div class="row" style="width: 100%">
+                            <!-- 領養流程 開始 -->                            
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 col-lg-12 d-grid justify-items-center">
+                                    <div class="rounded-pill">
+                                        <img class="card-img  img-fluid" src="/images/pro_01.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                    <div class="s_number rounded-pill">1</div>
+                                    <div class="card-body2 text-center">
+                                        <h3>挑選想認養的貓狗</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 col-lg-12 d-grid justify-items-center">
+                                    <div class="rounded-pill">
+                                        <img class="card-img  img-fluid" src="/images/pro_02.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                    <div class="s_number rounded-pill">2</div>
+                                    <div class="card-body2 text-center">
+                                        <h3>點擊我要領養</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 col-lg-12 d-grid justify-items-center">
+                                    <div class="rounded-pill">
+                                        <img class="card-img  img-fluid" src="/images/pro_03.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                    <div class="s_number rounded-pill">3</div>
+                                    <div class="card-body2 text-center">
+                                        <h3>網站進行媒合</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 m-auto col-sm-9">
+                                <div class="mb-4 col-lg-12 d-grid justify-items-center">
+                                    <div class="rounded-pill">
+                                        <img class="card-img  img-fluid" src="/images/pro_04.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                    <div class="s_number rounded-pill">4</div>
+                                    <div class="card-body2 text-center">
+                                        <h3>成功認養寵物</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 領養流程 結束 -->
+                        </div>
                     </div>
-                    <h3>挑選想認養的貓狗</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img">
-                    </div>
-                    <h3>點擊我要領養</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img">
-                    </div>
-                    <h3>網站進行媒合</h3>
-                </section>
-                <section class="shop">
-                    <div class="shop_img">
-                    </div>
-                    <h3>成功認養寵物!</h3>
-                </section>
-            </section>
+
+                </div>
+            </div>
 
         </article>
 
         <!-- 載入 footer.html -->
-<!--        <div id="includfooter"></div>-->
-         <div th:insert="fragments/footer :: footer"></div>
+<!--       <div id="includfooter"></div>-->
+          <div th:insert="fragments/footer :: footer"></div>
 
     </main>
 
