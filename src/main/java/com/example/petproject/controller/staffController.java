@@ -4,6 +4,7 @@ import com.example.petproject.Model.orderInsert;
 import com.example.petproject.Model.orderModel;
 import com.example.petproject.Model.productModel2;
 import com.example.petproject.Service.memberService;
+import com.example.petproject.Service.productService;
 import com.example.petproject.Service.staffService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class staffController {
     staffService sS;
     @Autowired
     memberService mS;
+    @Autowired
+    productService productservice;
 
     @GetMapping("backstage")
     public String staff_page(Model model,HttpSession session){
@@ -39,6 +42,8 @@ public class staffController {
             model.addAttribute("orderlist", orderlist);
             //會員管理印出
             model.addAttribute("memberList", sS.memberList());
+            //後臺全部商品列出
+            model.addAttribute("shopping",productservice.getproductAll());
             return ("backstage");
         }
         else{
@@ -113,7 +118,10 @@ public class staffController {
         return ("productUpload_Failed");
     }
 
-
-
+    @PostMapping("/remove")
+    public String remove(@RequestParam int remove){
+        sS.remove0(remove);
+        return "index";
+    }
 
 }

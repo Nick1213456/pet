@@ -17,7 +17,7 @@ public class caetController {
 
         if (httpsession.getAttribute("username")==null){
 
-            return "/failed";
+            return "failed";
         }else {
             m.addAttribute("carts",cartService.getcartfrom_username((String)httpsession.getAttribute("username")));
             return "shoppingcart";
