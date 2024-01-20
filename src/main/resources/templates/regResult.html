@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="/css/allCss.css">
 </head>
 <body>
+    <header th:insert="fragments/header :: header"></header>
     <p th:text="${mesg}" id="mesg" style="display: none"></p>
     <p th:text="${session.username}" id="username" style="display: none"></p>
     <script>

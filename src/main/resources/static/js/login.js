@@ -35,18 +35,18 @@ function checkLoginStatus() {
             $(".d-none1").hide();
         } else{
             console.log("有登入")
-            if (data[data.length - 1]=="1"){
-                console.log("會員登入")
-                $("#login_bar01").hide();
-                $(".d-none1").show();
-                $("#d-none3").show();
-                $("#d-none4").hide();
-            }else{
+            if (data[data.length - 1]==="2"){
                 console.log("管理者登入")
                 $("#login_bar01").hide();
                 $(".d-none1").show();
                 $("#d-none3").show();
                 $("#d-none4").show();
+            }else{
+                console.log("會員登入")
+                $("#login_bar01").hide();
+                $(".d-none1").show();
+                $("#d-none3").show();
+                $("#d-none4").hide();
             }
 
 

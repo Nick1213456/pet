@@ -123,7 +123,7 @@ public class loginController {
         else if(result && memberPer.equals("2")){
             session.setAttribute("username",username);
             session.setAttribute("memberPer",memberPer);
-            return ("redirect:/backstage");
+            return ("redirect:backstage");
         }
         else{
             //給個登入失敗的東西
@@ -159,6 +159,7 @@ public class loginController {
         String newusername = mS.dataChange(mD,oldusername);
         session.setAttribute("username",newusername);
         model.addAttribute("memberSrc",mS.outputPhoto((String)session.getAttribute("username")));
+
         return ("memberpage");
 
     }
