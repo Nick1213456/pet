@@ -173,8 +173,8 @@
                 <td>權限更改</td>
             </tr>
             </thead>
-            <tbody th:each="member:${memberList}">
-            <tr>
+            <tbody th:each="member:${memberList}" id="memberditail">
+            <tr >
                 <td class="username" th:text="${member.username}">username</td>
                 <td th:text="${member.Employee}">Employee</td>
                 <td>
@@ -197,7 +197,7 @@
         <h2>周邊商品操作</h2>
         商品搜尋:<input id="productsearch" type="text" placeholder="Search.." style="width: 20%;"><br>
 
-        <table  class="ordertable" id="producttable">
+        <table  class="ordertable" >
             <thead>
             <tr>
                 <td>商品ID</td>
@@ -210,8 +210,8 @@
                 <td>功能</td>
             </tr>
             </thead>
-            <tbody th:each="shop:${shopping}">
-            <tr>
+            <tbody th:each="shop:${shopping}" id="productdetail">
+            <tr >
                 <td class="username" th:text="${shop.getCommodityID()}">ID</td>
                 <td th:text="${shop.getCommodityName()}">名稱</td>
                 <td th:text="${shop.getCommodityKind()}">類別</td>
@@ -387,7 +387,7 @@
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
+            $("#memberditail tr").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
@@ -472,6 +472,12 @@
         setTimeout(function () {
             location.reload();
         }, 100);
+    });
+    $("#productsearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#productdetail tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
 
 </script>
