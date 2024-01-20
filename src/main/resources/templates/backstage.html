@@ -174,10 +174,10 @@
             </tr>
             </thead>
             <tbody th:each="member:${memberList}" id="memberditail">
-            <tr >
+            <tr class="membershow">
                 <td class="username" th:text="${member.username}">username</td>
                 <td th:text="${member.Employee}">Employee</td>
-                <td>
+                <td >
                     <button class="button0" th:attr="data-username=${member.username}">封鎖</button>
                     <button class="button1" th:attr="data-username=${member.username}">會員</button>
                     <button class="button2" th:attr="data-username=${member.username}">管理員</button>
@@ -186,8 +186,8 @@
             </tbody>
         </table>
         <div class="orderbtn">
-            <button class="pagebtn">上一頁</button>
-            <button class="pagebtn">下一頁</button>
+            <button id="Mreviousbtn">上一頁</button>
+            <button id="MNextbtn">下一頁</button>
         </div>
     </div>
     <!-- 商品列表頁 -->
@@ -208,8 +208,8 @@
                 <td>功能</td>
             </tr>
             </thead>
-            <tbody th:each="shop:${shopping}" id="productdetail">
-            <tr >
+            <tbody th:each="shop:${shopping}" id="productdetail" >
+            <tr class="productshow">
                 <td class="username" th:text="${shop.getCommodityID()}" id="getCommodityID">ID</td>
                 <td th:text="${shop.getCommodityName()}">名稱</td>
                 <td th:text="${shop.getCommodityKind()}">類別</td>
@@ -227,10 +227,11 @@
         </table>
 
         <div class="orderbtn">
-            <button class="pagebtn">上一頁</button>
-            <button class="pagebtn">下一頁</button>
+            <button id="Previousbtn">上一頁</button>
+            <button id="PNextbtn" >下一頁</button>
         </div>
     </div>
+<!--    商品編輯功能頁-->
     <div class="Ptablebox" id="Pform1" style="display: none">
         <form  style="font-size: 20px" action="editover"
                method="post">
@@ -512,12 +513,77 @@
             }
         })
     })
-
     $("#Preset").click(function() {
         event.preventDefault();
         $(".Ptablebox").hide();
         $("#productlist").show();
     })
+
+    //商品列表上下頁
+    var ProwsPerPage = 9; // 每页行数
+    var Prows = $('.productshow'); // 找到所有的行
+    var PcurrentPage = 1; // 当前页码，初始化为第一页
+    var Prowslength = Prows.length;
+
+    // 根据当前页和每页行数显示相应的行
+    function PshowRows() {
+        var PstartIndex = (PcurrentPage - 1) * ProwsPerPage; // 计算起始索引
+        var PendIndex = PstartIndex + ProwsPerPage; // 计算结束索引
+        if (PstartIndex<Prowslength){
+            Prows.hide().slice(PstartIndex, PendIndex).show(); // 隐藏所有行，然后显示当前页的行
+        }else {
+            PcurrentPage--;
+            alert("請期待更多資料")
+        }
+    }
+    // 初始显示第一页的内容
+    PshowRows();
+    // 当点击按钮时执行以下代码
+    $('#PNextbtn').on('click', function() {
+        PcurrentPage++; // 增加当前页码
+        PshowRows(); // 显示下一页的行
+    });
+    $('#Previousbtn').on('click', function() {
+        if (PcurrentPage===1){
+            alert("您已經在第一頁了")
+        }else {
+            PcurrentPage--; // 減少当前页码
+            PshowRows(); // 显示上一页的行
+        }
+    });
+
+    //會員列表上下頁
+    var rowsPerPage = 9; // 每页行数
+    var rows = $('.membershow'); // 找到所有的行
+    var currentPage = 1; // 当前页码，初始化为第一页
+    var rowslength = rows.length;
+
+    // 根据当前页和每页行数显示相应的行
+    function showRows() {
+        var startIndex = (currentPage - 1) * rowsPerPage; // 计算起始索引
+        var endIndex = startIndex + rowsPerPage; // 计算结束索引
+        if (startIndex<rowslength){
+            rows.hide().slice(startIndex, endIndex).show(); // 隐藏所有行，然后显示当前页的行
+        }else {
+            currentPage--;
+            alert("請期待更多資料")
+        }
+    }
+    // 初始显示第一页的内容
+    showRows();
+    // 当点击按钮时执行以下代码
+    $('#MNextbtn').on('click', function() {
+        currentPage++; // 增加当前页码
+        showRows(); // 显示下一页的行
+    });
+    $('#Mreviousbtn').on('click', function() {
+        if (currentPage===1){
+            alert("您已經在第一頁了")
+        }else {
+            currentPage--; // 減少当前页码
+            showRows(); // 显示上一页的行
+        }
+    });
 
 </script>
 </body>
