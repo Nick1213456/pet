@@ -2,6 +2,7 @@ package com.example.petproject.controller;
 
 import com.example.petproject.Model.orderInsert;
 import com.example.petproject.Model.orderModel;
+import com.example.petproject.Model.productModel;
 import com.example.petproject.Model.productModel2;
 import com.example.petproject.Service.memberService;
 import com.example.petproject.Service.productService;
@@ -123,5 +124,13 @@ public class staffController {
         sS.remove0(remove);
         return "index";
     }
+    //後臺商品編輯功能
+    @PostMapping("/editover")
+    public String editover(productModel productModel){
+        System.out.println("1");
+        productservice.setproductditail(productModel,productModel.getCommodityID());
+        return("redirect:/backstage");
+    }
+
 
 }

@@ -162,7 +162,7 @@
     </div>
     <!-- 會員資料頁 -->
     <div id="memberlist">
-        <h2>周邊商品列表</h2>
+        <h2>會員帳號列表</h2>
         帳號搜尋:<input id="myInput" type="text" placeholder="Search.." style="width: 20%;"><br>
 
         <table  class="ordertable" id="myTable">
@@ -173,8 +173,8 @@
                 <td>權限更改</td>
             </tr>
             </thead>
-            <tbody th:each="member:${memberList}">
-            <tr>
+            <tbody th:each="member:${memberList}" id="memberditail">
+            <tr >
                 <td class="username" th:text="${member.username}">username</td>
                 <td th:text="${member.Employee}">Employee</td>
                 <td>
@@ -184,8 +184,6 @@
                 </td>
             </tr>
             </tbody>
-
-
         </table>
         <div class="orderbtn">
             <button class="pagebtn">上一頁</button>
@@ -194,10 +192,10 @@
     </div>
     <!-- 商品列表頁 -->
     <div id="productlist">
-        <h2>會員資料操作</h2>
-        帳號搜尋:<input id="productsearch" type="text" placeholder="Search.." style="width: 20%;"><br>
+        <h2>周邊商品操作</h2>
+        商品搜尋:<input id="productsearch" type="text" placeholder="Search.." style="width: 20%;"><br>
 
-        <table  class="ordertable" id="producttable">
+        <table  class="ordertable">
             <thead>
             <tr>
                 <td>商品ID</td>
@@ -210,9 +208,9 @@
                 <td>功能</td>
             </tr>
             </thead>
-            <tbody th:each="shop:${shopping}">
-            <tr>
-                <td class="username" th:text="${shop.getCommodityID()}">ID</td>
+            <tbody th:each="shop:${shopping}" id="productdetail">
+            <tr >
+                <td class="username" th:text="${shop.getCommodityID()}" id="getCommodityID">ID</td>
                 <td th:text="${shop.getCommodityName()}">名稱</td>
                 <td th:text="${shop.getCommodityKind()}">類別</td>
                 <td th:text="${shop.getSize()}">規格</td>
@@ -221,25 +219,35 @@
                 <td th:text="${shop.getPrice()}">成本</td>
                 <!--                功能-->
                 <td>
-                    <button class="button4" th:attr="data-username=${shop.getCommodityID()}">編輯</button>
+                    <button class="button4" th:attr="data-pid=${shop.getCommodityID()}">編輯</button>
                     <button class="button5" th:attr="data-remove=${shop.getCommodityID()}">下架</button>
                 </td>
             </tr>
             </tbody>
         </table>
 
-
-
-
-
-
-
         <div class="orderbtn">
             <button class="pagebtn">上一頁</button>
             <button class="pagebtn">下一頁</button>
         </div>
     </div>
+    <div class="Ptablebox" id="Pform1" style="display: none">
+        <form  style="font-size: 20px" action="editover"
+               method="post">
+            商品ID:<input  type="text" id="eCommodityID" name="CommodityID">
+            商品名稱:<input  type="text" id="eCommodityName" name="CommodityName"><br>
+            商品類別:<input type="text" id="eCommodityKind" name="CommodityKind">
+            商品規格:<input type="text" id="eSize" name="Size"><br>
+            商品庫存:<input type="text" id="eInventory" name="Inventory">
+            商品售價:<input type="text" id="ePrice" name="Price"><br>
+            商品成本:<input type="text" id="eCost" name="Cost">
+            商品細節:<input type="text" id="eDetail" name="Detail">
 
+            <input id="Pover" type="submit" value="更改">
+            <input id="Preset" type="reset" value="取消">
+            <!-- <p style="margin-right: 10px; cursor: pointer;" id="login_up3" class="login_text2">取消</p> -->
+        </form>
+    </div>
 
     </article>
 
@@ -337,6 +345,7 @@
         document.getElementById("productlist").style.display = 'grid';
     }
 
+
 </script>
 <!------------------------------------以下是後端更改的部分-------------------------------------------------------------------->
 <script>
@@ -387,7 +396,7 @@
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
+            $("#memberditail tr").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
@@ -464,6 +473,7 @@
     //後臺處理商品頁面
     $(".button5").click(function() {
         var remove = $(this).data("remove");
+        event.preventDefault();
         $.ajax({
             type: 'POST',
             url: '/remove',
@@ -473,6 +483,41 @@
             location.reload();
         }, 100);
     });
+    //商品搜尋
+    $("#productsearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#productdetail tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+    //取編輯內容
+    $(".button4").click(function() {
+        event.preventDefault();
+        $(".Ptablebox").show();
+        $("#productlist").hide();
+        $.ajax({
+            type: "POST",
+            url: "/edit",
+            data: {pid:$(this).data("pid")},
+            success:function (data){
+                console.log(data)
+                $("#eCommodityID").val(data.commodityID);
+                $("#eCommodityName").val(data.commodityName);
+                $("#eCommodityKind").val(data.commodityKind);
+                $("#eSize").val(data.size);
+                $("#eInventory").val(data.inventory);
+                $("#ePrice").val(data.price);
+                $("#eCost").val(data.cost);
+                $("#eDetail").val(data.detail);
+            }
+        })
+    })
+
+    $("#Preset").click(function() {
+        event.preventDefault();
+        $(".Ptablebox").hide();
+        $("#productlist").show();
+    })
 
 </script>
 </body>

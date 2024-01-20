@@ -44,4 +44,13 @@ public class productService {
         }
         return pp;
     }
+
+    //取得資料庫ID最小
+    public int getproductMINID(){
+        return productrepository.getproductMINID();
+    }
+
+    public void setproductditail(productModel pm,int id){
+        productrepository.setproductditail(pm,id);
+    }
 }
