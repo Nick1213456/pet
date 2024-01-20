@@ -1,26 +1,22 @@
-$(document).ready(function () {
+checkLoginStatus();
+// 监听 beforeunload 事件，页面即将被卸载时触发
+$(window).on('beforeunload', function () {
+    // 在强制刷新页面时重新检查登录状态
     checkLoginStatus();
-    // 监听 beforeunload 事件，页面即将被卸载时触发
-    $(window).on('beforeunload', function () {
-        // 在强制刷新页面时重新检查登录状态
-        checkLoginStatus();
-    });
-    if (location.href==="http://localhost:8080/forgetpassword"){
-        // 如果是在忘記密碼網址就秀出密碼標籤
-        $("#showpassword").show();
-        $.post('/check-session', function (data) {
-            if (data === "") {
-                //如果沒登入
-                $(".login_modal").show();
-            } else {
-                $(".login_modal").hide();
-            }
-        });
-
-        // $("#forget_password3").hide();
-
-    }
 });
+if (location.href==="http://localhost:8080/forgetpassword"){
+    // 如果是在忘記密碼網址就秀出密碼標籤
+    $("#showpassword").show();
+    $.post('/check-session', function (data) {
+        if (data === "") {
+            //如果沒登入
+            $(".login_modal").show();
+        } else {
+            $(".login_modal").hide();
+        }
+    });
+    // $("#forget_password3").hide();
+}
 
 // 封裝檢查是否登入
 function checkLoginStatus() {
