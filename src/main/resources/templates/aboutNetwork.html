@@ -1,10 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網站架構</title>
+    <link rel="stylesheet" href="./css/allCss.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <style>
+        .col-12:hover img{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        img{
+            transition: .5s;
+        }
+    </style>
+    <!-- jquery js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
 </head>
-<body>
+
+<body class="cart_bg1">
+<!-- 載入 header.html -->
+<!-- <div id="includedContent"></div> -->
+<div th:insert="fragments/header :: header"></div>
+<main class="about2">
+    <!-- Start Content -->
+    <!-- 內容放這邊 -->
+    <!-- Start Hero Section banner-->
+
+    <!-- End Hero Section -->
+    <!-- Start Why Choose Us Section -->
+
+        <div class="container">
+            <div class="row justify-content-between" >
+                <div class="col-lg-6" style="text-align: center;width: 80vw">
+                    <h1 class="section-title" style="font-family: 华文彩云;font-size: 5rem;color: #943B3B;margin:2rem">關於本網站</h1>
+                        <div class="col-lg-12 pb-5" style="display: flex">
+                            <h3  style="width: 20vw;text-align: start">網站使用的工具與語言:</h3>
+                            <img src="/images/網站使用的工具與語言.jpg" style="border-radius: 30px;height: 65vh;width: 35vw">
+                        </div>
+                        <div class="col-lg-12 pb-5" style="display: block">
+                            <h3 style="width: 60vw;text-align: start">網站的架構圖:</h3>
+                            <br>
+                            <img src="/images/網站架構圖.jpg" style="height: 70vh;width: 70vw;border-radius: 30px">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- End Content -->
+
+    <!-- 載入 footer.html -->
+    <!-- <div id="includfooter"></div> -->
+    <div th:insert="fragments/footer :: footer"></div>
+</main>
+
+
+<!-- 載入 header.html js -->
+<script>
+    // 創建一個函數來載入其他檔案的內容
+    function includeHTML() {
+        // 創建一個 XMLHttpRequest 物件來發送網路請求
+        var xhttp = new XMLHttpRequest();
+
+        // 當請求狀態改變時執行的函數
+        xhttp.onreadystatechange = function () {
+            // 當請求完成且成功返回資料時（狀態碼為 4，狀態 200 表示成功）
+            if (this.readyState == 4 && this.status == 200) {
+                // 將返回的檔案內容插入到 id 為 "includedContent" 的 div 元素中
+                document.getElementById("includedContent").innerHTML = this.responseText;
+            }
+        };
+
+        // 打開一個 GET 請求，載入指定檔案（假設要載入的檔案為 header.html）
+        xhttp.open("GET", "fragments/header.html", true);
+
+
+        // 發送網路請求
+        xhttp.send();
+        // 創建一個 XMLHttpRequest 物件來發送網路請求
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("includfooter").innerHTML = this.responseText;
+            }
+        };
+        xhttp2.open("GET", "fragments/footer.html", true);
+        // 發送網路請求
+        xhttp2.send();
+    }
+
+    // 在頁面載入完成後呼叫 includeHTML 函數
+    window.onload = includeHTML;
+</script>
+<script src="./js/login.js"></script>
 
 </body>
+
 </html>
