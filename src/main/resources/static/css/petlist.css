@@ -37,6 +37,7 @@ html {
     text-decoration: none;
     font-weight: bold;
     padding: 0 5px;
+    cursor: pointer;
 }
 
 .col-lg-3 .templatemo-accordion .pb-3 .categories_text2:hover {
