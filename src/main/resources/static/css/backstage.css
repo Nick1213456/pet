@@ -1,5 +1,4 @@
 
-/* 本css有兩處使用了float強制定位，若有排版問題可試著從float找 */
 body {
     background-color: rgb(156, 178, 199);
 }
@@ -14,7 +13,7 @@ table {
     border: 0.3px dashed gray;
     width: 100%; /* 新增這行 */
     text-wrap: nowrap;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     
     
 }
@@ -71,9 +70,10 @@ button {
 /* 一個方框包裹住右側內容 */
 /* 初始樣式 */
 .rightsection {
-    overflow: auto; 
+    
+
     grid-column-start: 3;
-    grid-column-end: 8;
+    grid-column-end: 10;
     grid-row-start: 2;
     grid-row-end: 3;
 
@@ -91,7 +91,14 @@ button {
     background-color: antiquewhite;
     box-shadow: 5px 5px black;
     
-    padding: 50px;
+    padding: 25px;
+    
+}
+
+.rightsection table
+{
+width: 100%;
+max-width: 100%;
 }
 
 /* 在螢幕寬度小於 1199px 時修改樣式 */
@@ -99,7 +106,9 @@ button {
     .rightsection {
         width: 100%;
         overflow: auto; 
-        max-height: 300px; 
+        height: auto;
+        
+        
     }
 }
 
@@ -111,7 +120,7 @@ button {
 
 .mygrid {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 2fr 2fr 2fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 30px 1fr 30px ;
 }
 
@@ -191,6 +200,7 @@ table td {
 
 #orderlist
 {
+    
     display: flex;
     flex-direction: row;
 
@@ -247,3 +257,62 @@ table td {
     }
 }
 
+#productlist table {
+    grid-area: auto;
+    width: 100%; /* 新增這行 */
+}
+
+/* ====== */
+#Pform1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+#Pform1 input
+{
+    margin-top: 5%;
+    
+}
+@media screen and (max-width: 1199px) {
+   
+    #Pform1 {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%; /* 調整為合適的寬度百分比 */
+        max-width: 400px; /* 設定最大寬度，避免在螢幕過寬時元素過大 */
+        height: auto;
+        
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    
+    #Pform1 span  {
+        
+        display: block;
+     }
+   
+}
+
+
+
+
+#Pover, #Preset {
+    background-color: #C58484;
+    color: white; /* 設置文字顏色為白色，以確保對比度 */
+}
